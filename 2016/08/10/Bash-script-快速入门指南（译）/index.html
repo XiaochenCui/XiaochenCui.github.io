@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://www.cuixiaochen.com/2016/08/10/Bash-script-快速入门指南（译）/index.html">
 <meta property="og:site_name" content="XiaochenCui_Blog">
 <meta property="og:description" content="原文地址： bash-tute">
-<meta property="og:updated_time" content="2016-08-10T12:39:00.859Z">
+<meta property="og:updated_time" content="2016-08-10T12:57:41.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bash script 快速入门指南（译）">
 <meta name="twitter:description" content="原文地址： bash-tute">
@@ -196,7 +196,7 @@
 <h3 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h3><p>以下是一个简单的shell script例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">echo &quot;hello, $USER. I wish to list some files of yours&quot;</div><div class="line">echo &quot;listing files in the current directory, $PWD&quot;</div><div class="line">ls  # list files</div></pre></td></tr></table></figure>
 <p>首先，注意第４行。在一个bash script中，跟在符号#后面的被视作注释（除了第一行的shell声明），shell 将会忽略注释。注释的作用是帮助人们阅读script。</p>
-<p>$USER 和 $PWD 是<strong>变量</strong>。这两个变量属于被shell预定义的标准变量，他们不需要在script中特别定义。如果变量名在双引号内部，这个变量将会被被<strong>展开</strong>。展开表示shell将会先用变量的值替换变量，然后再执行指令。</p>
+<p>\$USER 和 \$PWD 是<strong>变量</strong>。这两个变量属于被shell预定义的标准变量，他们不需要在script中特别定义。如果变量名在双引号内部，这个变量将会被被<strong>展开</strong>。展开表示shell将会先用变量的值替换变量，然后再执行指令。</p>
 <p>接下来我们会详细讨论变量。</p>
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>所有编程语言都需要变量。定义变量的方法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">X=&quot;hello&quot;</div></pre></td></tr></table></figure>
