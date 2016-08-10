@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Matplotlib 制作可视化累加器(visual accumulator) | XiaochenCui_Blog | 千里之行 始于足下</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="matplotlib,python,算法">
+  <meta name="description" content="用matplotlib制作的可视化累加器，主要用于查找算法的可视化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matplotlib 制作可视化累加器(visual accumulator)">
+<meta property="og:url" content="http://www.cuixiaochen.com/2016/08/10/Matplotlib-制作可视化累加器-visual-accumulator/index.html">
+<meta property="og:site_name" content="XiaochenCui_Blog">
+<meta property="og:description" content="用matplotlib制作的可视化累加器，主要用于查找算法的可视化。">
+<meta property="og:image" content="http://www.cuixiaochen.com/src/img/logo_sidebar_horiz.png">
+<meta property="og:image" content="http://www.cuixiaochen.com/src/img/visualaccumulator.png">
+<meta property="og:image" content="http://www.cuixiaochen.com/src/img/visualaccumulator-1.png">
+<meta property="og:image" content="http://www.cuixiaochen.com/src/img/2016-08-01 15:21:06屏幕截图.png">
+<meta property="og:updated_time" content="2016-08-10T12:53:50.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Matplotlib 制作可视化累加器(visual accumulator)">
+<meta name="twitter:description" content="用matplotlib制作的可视化累加器，主要用于查找算法的可视化。">
+<meta name="twitter:image" content="http://www.cuixiaochen.com/src/img/logo_sidebar_horiz.png">
+  
+    <link rel="alternative" href="/atom.xml" title="XiaochenCui_Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;用matplotlib制作的可视化累加器，主要用于查找算法的可视化。&lt;/p&gt;">
+  <link rel="shortcut icon" href="/img/home.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/cxc.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Xiaochen Cui</h5>
+        <a href="mailto:jcnlcxc@163.com" title="jcnlcxc@163.com" class="mail">jcnlcxc@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            文章
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/XiaochenCui" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>XiaochenCui_Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Matplotlib 制作可视化累加器(visual accumulator)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Matplotlib 制作可视化累加器(visual accumulator)</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2016-08-10T10:59:19.000Z" itemprop="datePublished" class="page-time">
+  2016-08-10
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-Matplotlib-制作可视化累加器-visual-accumulator" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#matplotlib-简介"><span class="post-toc-text">matplotlib 简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#可视化累加器"><span class="post-toc-text">可视化累加器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#api"><span class="post-toc-text">api</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现"><span class="post-toc-text">实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用"><span class="post-toc-text">应用</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>用matplotlib制作的可视化累加器，主要用于查找算法的可视化。</p>
+<a id="more"></a>
+<h1 id="matplotlib-简介"><a href="#matplotlib-简介" class="headerlink" title="matplotlib 简介"></a>matplotlib 简介</h1><p><a href="http://matplotlib.org/index.html" target="_blank" rel="external">matplotlib</a> 是一个2D的python图形库,主要用于在多个平台上生产可交互的高质量图像，并提供多种文件格式供保存。matplotlib可用于多种python平台（如：python shell,ipython,web应用,以及六种gui toolkits）。</p>
+<p>例如：</p>
+<p><img src="/src/img/logo_sidebar_horiz.png" alt=""> </p>
+<h1 id="可视化累加器"><a href="#可视化累加器" class="headerlink" title="可视化累加器"></a>可视化累加器</h1><p>用于查找及搜索算法的可视化，动态显示算法的时间消耗。</p>
+<h2 id="api"><a href="#api" class="headerlink" title="api"></a>api</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VisualAccumulator</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_point</span><span class="params">(self, x, y)</span>:</span></div><div class="line">        <span class="comment"># 在图片上添加点(x, y)</span></div><div class="line">        ...</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_data_value</span><span class="params">(self, value=<span class="number">0</span>)</span>:</span></div><div class="line">        <span class="comment"># 添加数据value，并计算平均值</span></div><div class="line">        ...</div></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> warnings</div><div class="line"><span class="keyword">import</span> matplotlib.cbook</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> matplotlib.pyplot <span class="keyword">import</span> xlim,ylim</div><div class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> plot,gcf</div><div class="line">warnings.filterwarnings(<span class="string">"ignore"</span>,category=matplotlib.cbook.mplDeprecation)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VisualAccumulator</span><span class="params">(object)</span>:</span></div><div class="line">    plt.figure(num=<span class="keyword">None</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>), dpi=<span class="number">100</span>, facecolor=<span class="string">'w'</span>, edgecolor=<span class="string">'k'</span>)</div><div class="line">    plt.ion()</div><div class="line">    ax = plt.gca()</div><div class="line">    ax.set_autoscale_on(<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    fig = gcf()</div><div class="line">    fig.canvas.set_window_title(<span class="string">'VisualAccumulator'</span>)</div><div class="line"></div><div class="line">    line, = plot([], [], linestyle=<span class="string">'none'</span>, marker=<span class="string">'.'</span>, color=<span class="string">'grey'</span>, lw=<span class="number">0.2</span>)</div><div class="line">    line_ave, = plot([], [], linestyle=<span class="string">'none'</span>, marker=<span class="string">'.'</span>, color=<span class="string">'black'</span>, lw=<span class="number">0.2</span>)</div><div class="line"></div><div class="line">    xdata, ydata = [], []</div><div class="line">    xdata_ave, ydata_ave = [], []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x=<span class="number">1000</span>, y=<span class="number">1000</span>)</span>:</span></div><div class="line">        self.n = <span class="number">0</span></div><div class="line">        self.total = <span class="number">0</span></div><div class="line"></div><div class="line">        xlim(<span class="number">0</span>, x)</div><div class="line">        ylim(<span class="number">0</span>, y)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_point</span><span class="params">(self, x, y, ave=False)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ave:</div><div class="line">            <span class="comment"># add data to xdata and ydata</span></div><div class="line">            self.xdata.append(x)</div><div class="line">            self.ydata.append(y)</div><div class="line">            self.line.set_data(self.xdata, self.ydata)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment"># add data to xdata_ave and ydata_ave</span></div><div class="line">            self.xdata_ave.append(x)</div><div class="line">            self.ydata_ave.append(y)</div><div class="line">            self.line_ave.set_data(self.xdata_ave, self.ydata_ave)</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"># Recompute the data limits based on current artists.</span></div><div class="line">        <span class="comment"># Artist: Abstract base class for someone who renders into a FigureCanvas.</span></div><div class="line">        self.ax.relim()</div><div class="line"></div><div class="line">        <span class="comment"># autoscale_view(tight=None, scalex=True, scaley=True):</span></div><div class="line">        <span class="comment">#   Autoscale the view limits using the data limits.</span></div><div class="line">        self.ax.autoscale_view(<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>)</div><div class="line"></div><div class="line">        xmin, xmax = xlim()</div><div class="line">        <span class="keyword">if</span> x&gt;=xmax:</div><div class="line">            xlim(xmin,xmax*<span class="number">1.5</span>)</div><div class="line">            ylim(xlim())</div><div class="line"></div><div class="line">        plt.draw()</div><div class="line">        plt.pause(<span class="number">0.00000000000001</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_data_value</span><span class="params">(self, value=<span class="number">0</span>)</span>:</span></div><div class="line">        self.n +=<span class="number">1</span></div><div class="line">        self.total += value</div><div class="line">        self.add_point(self.n, value)</div><div class="line">        self.add_point(self.n, self.total/self.n, ave=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 测试用例</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    va_test = VisualAccumulator(<span class="number">20</span>, <span class="number">20</span>)</div><div class="line">    va_test.add_data_value(<span class="number">3</span>)</div><div class="line">    va_test.add_data_value(<span class="number">7</span>)</div><div class="line">    va_test.add_data_value(<span class="number">15</span>)</div><div class="line">    va_test.add_data_value(<span class="number">2</span>)</div><div class="line">    plt.pause(<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>可视化查找算法，如：顺序查找</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SequentialSearchST</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        ...</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="comment"># 根据指定的key返回data，没找到key则返回None</span></div><div class="line">        ...</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, data)</span>:</span></div><div class="line">        <span class="comment"># 将指定的key的data值置为data，没找到key则插入为头节点</span></div><div class="line">        ...</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__contains__</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="comment"># 判断指定的key值是否存在</span></div><div class="line">        ...</div><div class="line"></div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">keys</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># 以列表形式返回所有key</span></div><div class="line">        ...</div><div class="line"></div><div class="line"><span class="meta">@timeit</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(file, n=None)</span>:</span></div><div class="line">    va = VisualAccumulator(<span class="number">20</span>,<span class="number">20</span>)</div><div class="line"></div><div class="line">    st = SequentialSearchST()</div><div class="line"></div><div class="line">    <span class="keyword">with</span> open(file, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">            <span class="keyword">for</span> word <span class="keyword">in</span> line.split():</div><div class="line">                <span class="keyword">if</span> len(word) &lt; n:</div><div class="line">                    <span class="keyword">continue</span></div><div class="line">                <span class="keyword">elif</span> word <span class="keyword">not</span> <span class="keyword">in</span> st:</div><div class="line">                    cmp_times = st.put(word, <span class="number">1</span>)</div><div class="line">                    va.add_data_value(cmp_times)</div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    cmp_times = st.put(word, st.get(word) + <span class="number">1</span>)</div><div class="line">                    va.add_data_value(cmp_times)</div><div class="line"></div><div class="line">    st.max.data = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> st.keys:</div><div class="line">        tmp = st.get(key)</div><div class="line">        <span class="keyword">if</span> tmp &gt; st.max.data:</div><div class="line">            st.max.key = key</div><div class="line">            st.max.data = tmp</div><div class="line"></div><div class="line">    print(st.max)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    min_len = <span class="number">8</span></div><div class="line">    </div><div class="line">    <span class="comment"># 查找双城记的前2000行，过滤长度小于8的单词</span></div><div class="line">    main(file=<span class="string">'tale2k.txt'</span>, n=min_len)</div></pre></td></tr></table></figure>
+<ul>
+<li>查找过程：</li>
+</ul>
+<p><img src="/src/img/visualaccumulator.png" alt=""></p>
+<p><img src="/src/img/visualaccumulator-1.png" alt=""></p>
+<ul>
+<li>运行结果：</li>
+</ul>
+<p><img src="/src/img/2016-08-01 15:21:06屏幕截图.png" alt=""> </p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://www.cuixiaochen.com/2016/08/10/Matplotlib-制作可视化累加器-visual-accumulator/" target="_blank" rel="external">http://www.cuixiaochen.com/2016/08/10/Matplotlib-制作可视化累加器-visual-accumulator/</a>
+                </p>
+                <footer><cite><a href="http://www.cuixiaochen.com">@XiaochenCui_Blog</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/08/10/Bash-script-笔记（一）/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Bash script 笔记（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Matplotlib-制作可视化累加器-visual-accumulator" data-title="Matplotlib 制作可视化累加器(visual accumulator)" data-url="http://www.cuixiaochen.com/2016/08/10/Matplotlib-制作可视化累加器-visual-accumulator/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"cuixiaochen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "Matplotlib 制作可视化累加器(visual accumulator)",
+    pic: "/img/cxc.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://www.cuixiaochen.com/2016/08/10/Matplotlib-制作可视化累加器-visual-accumulator/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82276339-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+</body>
+</html>

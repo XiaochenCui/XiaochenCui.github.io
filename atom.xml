@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>CuiXiaochen_Blog</title>
+  <title>XiaochenCui_Blog</title>
   <subtitle>千里之行 始于足下</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2016-08-10T09:07:01.967Z</updated>
+  <updated>2016-08-10T12:53:50.002Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -16,29 +16,349 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://www.cuixiaochen.com/2016/08/10/hello-world/"/>
-    <id>http://www.cuixiaochen.com/2016/08/10/hello-world/</id>
-    <published>2016-08-10T10:41:22.628Z</published>
-    <updated>2016-08-10T09:07:01.967Z</updated>
+    <title>Matplotlib 制作可视化累加器(visual accumulator)</title>
+    <link href="http://www.cuixiaochen.com/2016/08/10/Matplotlib-%E5%88%B6%E4%BD%9C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B4%AF%E5%8A%A0%E5%99%A8-visual-accumulator/"/>
+    <id>http://www.cuixiaochen.com/2016/08/10/Matplotlib-制作可视化累加器-visual-accumulator/</id>
+    <published>2016-08-10T10:59:19.000Z</published>
+    <updated>2016-08-10T12:53:50.002Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<p>用matplotlib制作的可视化累加器，主要用于查找算法的可视化。</p>
+<a id="more"></a>
+<h1 id="matplotlib-简介"><a href="#matplotlib-简介" class="headerlink" title="matplotlib 简介"></a>matplotlib 简介</h1><p><a href="http://matplotlib.org/index.html" target="_blank" rel="external">matplotlib</a> 是一个2D的python图形库,主要用于在多个平台上生产可交互的高质量图像，并提供多种文件格式供保存。matplotlib可用于多种python平台（如：python shell,ipython,web应用,以及六种gui toolkits）。</p>
+<p>例如：</p>
+<p><img src="/src/img/logo_sidebar_horiz.png" alt=""> </p>
+<h1 id="可视化累加器"><a href="#可视化累加器" class="headerlink" title="可视化累加器"></a>可视化累加器</h1><p>用于查找及搜索算法的可视化，动态显示算法的时间消耗。</p>
+<h2 id="api"><a href="#api" class="headerlink" title="api"></a>api</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VisualAccumulator</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_point</span><span class="params">(self, x, y)</span>:</span></div><div class="line">        <span class="comment"># 在图片上添加点(x, y)</span></div><div class="line">        ...</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_data_value</span><span class="params">(self, value=<span class="number">0</span>)</span>:</span></div><div class="line">        <span class="comment"># 添加数据value，并计算平均值</span></div><div class="line">        ...</div></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> warnings</div><div class="line"><span class="keyword">import</span> matplotlib.cbook</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> matplotlib.pyplot <span class="keyword">import</span> xlim,ylim</div><div class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> plot,gcf</div><div class="line">warnings.filterwarnings(<span class="string">"ignore"</span>,category=matplotlib.cbook.mplDeprecation)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">VisualAccumulator</span><span class="params">(object)</span>:</span></div><div class="line">    plt.figure(num=<span class="keyword">None</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>), dpi=<span class="number">100</span>, facecolor=<span class="string">'w'</span>, edgecolor=<span class="string">'k'</span>)</div><div class="line">    plt.ion()</div><div class="line">    ax = plt.gca()</div><div class="line">    ax.set_autoscale_on(<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    fig = gcf()</div><div class="line">    fig.canvas.set_window_title(<span class="string">'VisualAccumulator'</span>)</div><div class="line"></div><div class="line">    line, = plot([], [], linestyle=<span class="string">'none'</span>, marker=<span class="string">'.'</span>, color=<span class="string">'grey'</span>, lw=<span class="number">0.2</span>)</div><div class="line">    line_ave, = plot([], [], linestyle=<span class="string">'none'</span>, marker=<span class="string">'.'</span>, color=<span class="string">'black'</span>, lw=<span class="number">0.2</span>)</div><div class="line"></div><div class="line">    xdata, ydata = [], []</div><div class="line">    xdata_ave, ydata_ave = [], []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x=<span class="number">1000</span>, y=<span class="number">1000</span>)</span>:</span></div><div class="line">        self.n = <span class="number">0</span></div><div class="line">        self.total = <span class="number">0</span></div><div class="line"></div><div class="line">        xlim(<span class="number">0</span>, x)</div><div class="line">        ylim(<span class="number">0</span>, y)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_point</span><span class="params">(self, x, y, ave=False)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ave:</div><div class="line">            <span class="comment"># add data to xdata and ydata</span></div><div class="line">            self.xdata.append(x)</div><div class="line">            self.ydata.append(y)</div><div class="line">            self.line.set_data(self.xdata, self.ydata)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment"># add data to xdata_ave and ydata_ave</span></div><div class="line">            self.xdata_ave.append(x)</div><div class="line">            self.ydata_ave.append(y)</div><div class="line">            self.line_ave.set_data(self.xdata_ave, self.ydata_ave)</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"># Recompute the data limits based on current artists.</span></div><div class="line">        <span class="comment"># Artist: Abstract base class for someone who renders into a FigureCanvas.</span></div><div class="line">        self.ax.relim()</div><div class="line"></div><div class="line">        <span class="comment"># autoscale_view(tight=None, scalex=True, scaley=True):</span></div><div class="line">        <span class="comment">#   Autoscale the view limits using the data limits.</span></div><div class="line">        self.ax.autoscale_view(<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>)</div><div class="line"></div><div class="line">        xmin, xmax = xlim()</div><div class="line">        <span class="keyword">if</span> x&gt;=xmax:</div><div class="line">            xlim(xmin,xmax*<span class="number">1.5</span>)</div><div class="line">            ylim(xlim())</div><div class="line"></div><div class="line">        plt.draw()</div><div class="line">        plt.pause(<span class="number">0.00000000000001</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_data_value</span><span class="params">(self, value=<span class="number">0</span>)</span>:</span></div><div class="line">        self.n +=<span class="number">1</span></div><div class="line">        self.total += value</div><div class="line">        self.add_point(self.n, value)</div><div class="line">        self.add_point(self.n, self.total/self.n, ave=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 测试用例</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    va_test = VisualAccumulator(<span class="number">20</span>, <span class="number">20</span>)</div><div class="line">    va_test.add_data_value(<span class="number">3</span>)</div><div class="line">    va_test.add_data_value(<span class="number">7</span>)</div><div class="line">    va_test.add_data_value(<span class="number">15</span>)</div><div class="line">    va_test.add_data_value(<span class="number">2</span>)</div><div class="line">    plt.pause(<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>可视化查找算法，如：顺序查找</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SequentialSearchST</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        ...</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="comment"># 根据指定的key返回data，没找到key则返回None</span></div><div class="line">        ...</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, data)</span>:</span></div><div class="line">        <span class="comment"># 将指定的key的data值置为data，没找到key则插入为头节点</span></div><div class="line">        ...</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__contains__</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="comment"># 判断指定的key值是否存在</span></div><div class="line">        ...</div><div class="line"></div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">keys</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># 以列表形式返回所有key</span></div><div class="line">        ...</div><div class="line"></div><div class="line"><span class="meta">@timeit</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(file, n=None)</span>:</span></div><div class="line">    va = VisualAccumulator(<span class="number">20</span>,<span class="number">20</span>)</div><div class="line"></div><div class="line">    st = SequentialSearchST()</div><div class="line"></div><div class="line">    <span class="keyword">with</span> open(file, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">            <span class="keyword">for</span> word <span class="keyword">in</span> line.split():</div><div class="line">                <span class="keyword">if</span> len(word) &lt; n:</div><div class="line">                    <span class="keyword">continue</span></div><div class="line">                <span class="keyword">elif</span> word <span class="keyword">not</span> <span class="keyword">in</span> st:</div><div class="line">                    cmp_times = st.put(word, <span class="number">1</span>)</div><div class="line">                    va.add_data_value(cmp_times)</div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    cmp_times = st.put(word, st.get(word) + <span class="number">1</span>)</div><div class="line">                    va.add_data_value(cmp_times)</div><div class="line"></div><div class="line">    st.max.data = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> st.keys:</div><div class="line">        tmp = st.get(key)</div><div class="line">        <span class="keyword">if</span> tmp &gt; st.max.data:</div><div class="line">            st.max.key = key</div><div class="line">            st.max.data = tmp</div><div class="line"></div><div class="line">    print(st.max)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    min_len = <span class="number">8</span></div><div class="line">    </div><div class="line">    <span class="comment"># 查找双城记的前2000行，过滤长度小于8的单词</span></div><div class="line">    main(file=<span class="string">'tale2k.txt'</span>, n=min_len)</div></pre></td></tr></table></figure>
+<ul>
+<li>查找过程：</li>
+</ul>
+<p><img src="/src/img/visualaccumulator.png" alt=""></p>
+<p><img src="/src/img/visualaccumulator-1.png" alt=""></p>
+<ul>
+<li>运行结果：</li>
+</ul>
+<p><img src="/src/img/2016-08-01 15:21:06屏幕截图.png" alt=""> </p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;用matplotlib制作的可视化累加器，主要用于查找算法的可视化。&lt;/p&gt;
     
     </summary>
     
+    
+      <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
+    
+      <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
+    
+      <category term="算法" scheme="http://www.cuixiaochen.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bash script 笔记（一）</title>
+    <link href="http://www.cuixiaochen.com/2016/08/10/Bash-script-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://www.cuixiaochen.com/2016/08/10/Bash-script-笔记（一）/</id>
+    <published>2016-08-10T10:59:00.000Z</published>
+    <updated>2016-08-10T12:44:53.095Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录 bash script 中一些容易写错的语法</p>
+<a id="more"></a>
+<ul>
+<li><p>I/O Redirection<br>参考: <a href="http://www.tldp.org/LDP/abs/html/io-redirection.html" target="_blank" rel="external">I/0 Redirection</a> </p>
+</li>
+<li><p>source<br>参考: <a href="https://bash.cyberciti.biz/guide/Source_command" target="_blank" rel="external">Source command - Linux Shell Scripting Tutorial - A Beginner’s handbook</a><br>The source command can be used to load any functions file into the current shell script or a command prompt.</p>
+</li>
+<li><p>$@<br>$@ is all of the parameters passed to the script.</p>
+</li>
+<li><p>$?<br>$? is the return code (status code) of the last command or script executed.0 == success, any other number means a failure</p>
+</li>
+<li><p>local<br>声明一个局部变量</p>
+</li>
+<li><p>awk<br>参考: <a href="http://www.cyberciti.biz/faq/bash-scripting-using-awk/" target="_blank" rel="external">How To Use awk In Bash Scripting</a> </p>
+</li>
+</ul>
+<p>(未完待续)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录 bash script 中一些容易写错的语法&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="bash script" scheme="http://www.cuixiaochen.com/tags/bash-script/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flask-mail 探究</title>
+    <link href="http://www.cuixiaochen.com/2016/08/10/flask-mail-%E6%8E%A2%E7%A9%B6/"/>
+    <id>http://www.cuixiaochen.com/2016/08/10/flask-mail-探究/</id>
+    <published>2016-08-10T10:58:01.000Z</published>
+    <updated>2016-08-10T12:40:16.965Z</updated>
+    
+    <content type="html"><![CDATA[<p>mail发送中文，附件等问题</p>
+<a id="more"></a>
+<p>由FLASKY_MAIL_SENDER = ‘Flasky Admin flasky@example.com‘配置项所引发的问题</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;mail发送中文，附件等问题&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="flask" scheme="http://www.cuixiaochen.com/tags/flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bash script 快速入门指南（译）</title>
+    <link href="http://www.cuixiaochen.com/2016/08/10/Bash-script-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%88%E8%AF%91%EF%BC%89/"/>
+    <id>http://www.cuixiaochen.com/2016/08/10/Bash-script-快速入门指南（译）/</id>
+    <published>2016-08-10T10:57:28.000Z</published>
+    <updated>2016-08-10T12:39:00.859Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文地址： <a href="http://www.panix.com/~elflord/unix/bash-tute.html" target="_blank" rel="external">bash-tute</a> </p>
+<a id="more"></a>
+<h1 id="使用-Bash-shell-编写脚本-script-的入门指南"><a href="#使用-Bash-shell-编写脚本-script-的入门指南" class="headerlink" title="使用 Bash shell 编写脚本(script)的入门指南"></a>使用 Bash shell 编写脚本(script)的入门指南</h1><h2 id="一个简单的-shell-script"><a href="#一个简单的-shell-script" class="headerlink" title="一个简单的 shell script"></a>一个简单的 shell script</h2><p>一个 shell script 不只是将多个指令简单地排列在一起并运行。一般来说，shell script 应该在第一行作如下声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div></pre></td></tr></table></figure>
+<p>这行声明会指定 script 运行在 bash shell 中，而不管用户当前使用的是哪一种交互式 shell 。不同的shell语法差异很大，所以这行声明非常重要。</p>
+<h3 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h3><p>以下是一个简单的shell script例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">echo &quot;hello, $USER. I wish to list some files of yours&quot;</div><div class="line">echo &quot;listing files in the current directory, $PWD&quot;</div><div class="line">ls  # list files</div></pre></td></tr></table></figure>
+<p>首先，注意第４行。在一个bash script中，跟在符号#后面的被视作注释（除了第一行的shell声明），shell 将会忽略注释。注释的作用是帮助人们阅读script。</p>
+<p>$USER 和 $PWD 是<strong>变量</strong>。这两个变量属于被shell预定义的标准变量，他们不需要在script中特别定义。如果变量名在双引号内部，这个变量将会被被<strong>展开</strong>。展开表示shell将会先用变量的值替换变量，然后再执行指令。</p>
+<p>接下来我们会详细讨论变量。</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>所有编程语言都需要变量。定义变量的方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">X=&quot;hello&quot;</div></pre></td></tr></table></figure>
+<p>引用变量的方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$X</div></pre></td></tr></table></figure>
+<p>$X表示的是变量X的值。在语法上要注意以下几点：</p>
+<ul>
+<li>符号 = 两边不能有空格。这样写是错误的：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">X = hello</div></pre></td></tr></table></figure>
+<ul>
+<li>双引号并不是必需的，但当变量的值中包含空格时，就必须加双引号，如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">X=hello world # 错误</div><div class="line">X=&quot;hello world&quot; # 正确</div></pre></td></tr></table></figure>
+<p>这是因为shell会把命令行解析为一堆命令以及被空格分隔的命令参数。foo=baris 被解析为一个命令。但foo = bar会被错误地解析，foo因为被空格分隔导致它被解析成了一个单独的命令。同理，X=hello world也是错误的。</p>
+<h2 id="单引号-VS-双引号"><a href="#单引号-VS-双引号" class="headerlink" title="单引号 VS 双引号"></a>单引号 VS 双引号</h2><p>一般情况下，将变量名包在双引号里可以使变量展开。单引号则不会展开变量。</p>
+<p>例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">echo -n &apos;$USER=&apos; # -n option stops echo from breaking the line</div><div class="line">echo &quot;$USER&quot;</div><div class="line">echo &quot;\$USER=$USER&quot;  # this does the same thing as the first two lines</div></pre></td></tr></table></figure>
+<p>输出结果如下（假设你的用户名是elford）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$USER=elflord</div><div class="line">$USER=elflord</div></pre></td></tr></table></figure>
+<p>综上，双引号更灵活，单引号更直观。所以，当两种引号都可以用的时候优先选择单引号。</p>
+<h3 id="使用引号保护你的变量"><a href="#使用引号保护你的变量" class="headerlink" title="使用引号保护你的变量"></a>使用引号保护你的变量</h3><p>用引号保护变量很管用。当变量中包含空格或者变量是一个空的字符串时，更需要用引号保护变量。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">X=&quot;&quot;</div><div class="line">if [ -n $X ]; then 	# -n tests to see if the argument is non empty</div><div class="line">	echo &quot;the variable X is not the empty string&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">the variable X is not the empty string # 错误</div></pre></td></tr></table></figure>
+<p>这里出现的结果不符合预期是因为shell把$X展开成了空字符串，所以表达式[-n]返回true(此时-n没有参数，返回true)。正确的script应该这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">X=&quot;&quot;</div><div class="line">if [ -n &quot;$X&quot; ]; then 	# -n tests to see if the argument is non empty</div><div class="line">	echo &quot;the variable X is not the empty string&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>在这个例子中，表达式被展开为[ -n “” ]，并返回false。因为-n被给予参数””(空字符串)。</p>
+<h3 id="变量在运行时会被展开"><a href="#变量在运行时会被展开" class="headerlink" title="变量在运行时会被展开"></a>变量在运行时会被展开</h3><p>下面这个例子可以证明shell确实“展开”了变量（就像前文提到的一样）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">LS=&quot;ls&quot;</div><div class="line">LS_FLAGS=&quot;-al&quot;</div><div class="line"></div><div class="line">$LS $LS_FLAGS $HOME</div></pre></td></tr></table></figure>
+<p>这个script的最后一行实际上执行了下面这个指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al /home/elflord # （假设你的home目录在/home/elford）</div></pre></td></tr></table></figure>
+<p>这个script的机制是：shell将变量替换为变量的值，然后执行指令。</p>
+<h3 id="使用大括号保护你的变量"><a href="#使用大括号保护你的变量" class="headerlink" title="使用大括号保护你的变量"></a>使用大括号保护你的变量</h3><p>假设你想输出变量X的值，然后紧接着输出字母”abc”。那么应该如何做？先试一下这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">X=ABC</div><div class="line">echo &quot;$Xabc&quot;</div></pre></td></tr></table></figure>
+<p>输出为空，因为shell认为我们在请求变量Xabc，而变量Xabc并未被定义。解决的办法是用大括号将变量X与其它字母隔开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">X=ABC</div><div class="line">echo &quot;$&#123;X&#125;abc&quot;</div></pre></td></tr></table></figure>
+<h2 id="条件语句，if-then-elif"><a href="#条件语句，if-then-elif" class="headerlink" title="条件语句，if/then/elif"></a>条件语句，if/then/elif</h2><p>条件语句if…的语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if condition</div><div class="line">then</div><div class="line">	statement1</div><div class="line">	statement2</div><div class="line">	..........</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>if…else…的语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if condition</div><div class="line">then</div><div class="line">	statement1</div><div class="line">	statement2</div><div class="line">	..........</div><div class="line">else</div><div class="line">	statement3</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>此外，你还可以在if后面使用多个elif：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">if condition1</div><div class="line">then</div><div class="line">	statement1</div><div class="line">	statement2</div><div class="line">	..........</div><div class="line">elif condition2</div><div class="line">then</div><div class="line">	statement3</div><div class="line">	statement4</div><div class="line">	........    </div><div class="line">elif condition3</div><div class="line">then</div><div class="line">	statement5</div><div class="line">	statement6</div><div class="line">	........    </div><div class="line">	</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>在实际使用中，任何指令都可以作为分支判断条件。当指令返回值为０时（也就是说指令运行的结果为成功），相应代码块中的指令就会开始执行。<br>在本文中，我们只使用”test”或”[ ]”执行判断。</p>
+<h3 id="Test指令与操作"><a href="#Test指令与操作" class="headerlink" title="Test指令与操作"></a>Test指令与操作</h3><p>判断条件中的指令大多数时候都是test指令。Test根据各操作的成功或失败来返回真或假（更准确地说，以０或非０状态退出），例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test operand1 operator operand2</div></pre></td></tr></table></figure>
+<p>如果在test中只需要一个操作数，那么test指令可以简写为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ operand1 operator operand2 ]</div></pre></td></tr></table></figure>
+<p>用法实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">X=3</div><div class="line">Y=4</div><div class="line">empty_string=&quot;&quot;</div><div class="line">if [ $X -lt $Y ]	# is $X less than $Y ? </div><div class="line">then</div><div class="line">	echo &quot;\$X=$&#123;X&#125;, which is smaller than \$Y=$&#123;Y&#125;&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">if [ -n &quot;$empty_string&quot; ]; then</div><div class="line">	echo &quot;empty string is non_empty&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">if [ -e &quot;$&#123;HOME&#125;/.fvwmrc&quot; ]; then 			# 测试 ~/.fvwmrc 是否存在</div><div class="line">	echo &quot;you have a .fvwmrc file&quot;</div><div class="line">	if [ -L &quot;$&#123;HOME&#125;/.fvwmrc&quot; ]; then 		# 测试 ~/.fvwmrc 是否是符号链接(symbolic link)</div><div class="line">		echo &quot;it&apos;s a symbolic link</div><div class="line">	elif [ -f &quot;$&#123;HOME&#125;/.fvwmrc&quot; ]; then 	# 测试 ~/.fvwmrc 是否是常规文件(regular file)</div><div class="line">		echo &quot;it&apos;s a regular file&quot;</div><div class="line">	fi</div><div class="line">else</div><div class="line">	echo &quot;you have no .fvwmrc file&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<h3 id="一些需要注意的地方"><a href="#一些需要注意的地方" class="headerlink" title="一些需要注意的地方"></a>一些需要注意的地方</h3><p>test指令的正确格式是“操作数&lt;空格&gt;操作符&lt;空格&gt;操作数”或者“操作符&lt;空格&gt;操作数”，空格是必需的。如果第一个连续字符串以’-‘开头，它会被解析为操作符，否则被解析为操作数。例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if [ 1=2 ]; then </div><div class="line">	echo &quot;hello&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>将会输出hello，因为shell找到了一个操作数，但没有找到任何操作符。</p>
+<p>另一个需要注意的是引号，不用引号保护变量有可能造成bug。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">X=&quot;-n&quot;</div><div class="line">Y=&quot;&quot;</div><div class="line">if [ $X = $Y ] ; then</div><div class="line">	echo &quot;X=Y&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>这个script不会输出预期的结果，因为shell将表达式展开为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ -n = ]</div></pre></td></tr></table></figure>
+<p>然而字符串”=”的长度不为０。</p>
+<h3 id="test操作符的简短总结"><a href="#test操作符的简短总结" class="headerlink" title="test操作符的简短总结"></a>test操作符的简短总结</h3><p>常用的test操作符：</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>返回值为真的情况</th>
+<th>操作数的个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>操作数不为０（或长度不为０）</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>操作数为０（或长度为０）</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>操作的目录存在</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>操作的文件存在</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-eq</td>
+<td>两个操作数为整数且相等</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-neq</td>
+<td>两个操作数为整数且不相等</td>
+<td>2</td>
+</tr>
+<tr>
+<td>=</td>
+<td>两个操作数相等（可比较字符串）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>两个操作数不相等（可比较字符串）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>操作数１小于操作数２（且都为整数）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>操作数１大于操作数２（且都为整数）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>操作数１大于等于操作数２（且都为整数）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>操作数１小于等于操作数２（且都为整数）</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>在bash中，循环分为两种：</p>
+<ul>
+<li>for循环</li>
+<li>while循环</li>
+</ul>
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><p>for 循环用法实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">for X in red green blue</div><div class="line">do</div><div class="line">	echo $X</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>for循环会遍历用空格分隔的各项（如果单项里面包含空格，则需要用引号保护这一项）。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">colour1=&quot;red&quot;</div><div class="line">colour2=&quot;light blue&quot;</div><div class="line">colour3=&quot;dark green&quot;</div><div class="line">for X in &quot;$colour1&quot; $colour2&quot; $colour3&quot;</div><div class="line">do</div><div class="line">	echo $X</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>当不确定遍历的项中是否包含空格时，用引号保护它。</p>
+<h3 id="for循环中的通配符"><a href="#for循环中的通配符" class="headerlink" title="for循环中的通配符"></a>for循环中的通配符</h3><p>符号 * 可以匹配任意字符串。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo *</div></pre></td></tr></table></figure>
+<p>会输出当前目录下的所有文件和文件夹。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo *.jpg</div></pre></td></tr></table></figure>
+<p>会输出所有jpeg文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo $&#123;HOME&#125;/public_html/*.jpg</div></pre></td></tr></table></figure>
+<p>会输出public_html目录下的所有jpeg文件。</p>
+<p>如上所示，* 通配符在操作文件时十分管用，尤其是用在for循环中，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">for X in *.html</div><div class="line">do</div><div class="line">		grep -L &apos;&lt;UL&gt;&apos; &quot;$X&quot;                     # 通过正则匹配查找目录下所有html文件中的ul标签</div><div class="line">done</div></pre></td></tr></table></figure>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>while循环在条件判断为真时执行内部代码块，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">X=0</div><div class="line">while [ $X -le 20 ]</div><div class="line">do</div><div class="line">	echo $X</div><div class="line">	X=$((X+1))</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>bash不允许C语言风格的for循环：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for (X=1,X&lt;10; X++)</div></pre></td></tr></table></figure>
+<p>不允许for循环的其中一个原因是：bash是一种解释型语言，所以它的执行效率很低，正因如此，重型循环(heavy iteration)不被允许。</p>
+<h2 id="指令替换"><a href="#指令替换" class="headerlink" title="指令替换"></a>指令替换</h2><p>在bash中，指令替换是一个很有用的功能，它帮助你使用某条指令的输出去执行另一条指令。例如：把一条指令的输出设为变量X的值。</p>
+<p>指令替换有两种方式：</p>
+<ul>
+<li>括号展开</li>
+<li>反引号展开(``)</li>
+</ul>
+<p>括号展开的格式为：$(commands) ，它将会被展开为commands的输出。括号展开允许嵌套，所以commands中可以包含括号展开。</p>
+<p>反引号展开则将 <code>commands</code> 展开为 commands 的输出。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">files=&quot;$(ls)&quot;</div><div class="line">web_files=`ls public_html`</div><div class="line">echo &quot;$files&quot;      # 用双引号保护内部的空格</div><div class="line">echo &quot;$web_files&quot;  # 用双引号保护内部的空格</div><div class="line">X=`expr 3 \* 2 + 4` # 利用 expr 进行运算</div><div class="line">echo &quot;$X&quot;</div></pre></td></tr></table></figure>
+<p>括号展开的优势在于容易嵌套。而且大多数 bourne shell 的变种都支持括号展开 （如：POSIX）。然而反引号展开的可读性更强，而且最基础的 shell 都能支持它（如：#!/bin/sh 的所有版本）</p>
+<p>注：上例中echo表达式中的字符串必须用引号保护。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原文地址： &lt;a href=&quot;http://www.panix.com/~elflord/unix/bash-tute.html&quot;&gt;bash-tute&lt;/a&gt; &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="bash script" scheme="http://www.cuixiaochen.com/tags/bash-script/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mongodb 常见报错及解决方案</title>
+    <link href="http://www.cuixiaochen.com/2016/08/10/Mongodb-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://www.cuixiaochen.com/2016/08/10/Mongodb-常见报错及解决方案/</id>
+    <published>2016-08-10T10:55:35.000Z</published>
+    <updated>2016-08-10T11:20:32.983Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在使用mongodb的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考</p>
+<a id="more"></a>
+<p><strong>WARNING: soft rlimits too low. rlimits set to processes, files. Number of processes should be at least 32767.5 : 0.5 times number of files.</strong></p>
+<p>解决方案: 切换至root用户，更改相关设置</p>
+<ol>
+<li><p>查看ulimit:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ulimit -a</div></pre></td></tr></table></figure>
+</li>
+<li><p>更改相关ulimit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">ulimit</span> -n &lt;value&gt;</div></pre></td></tr></table></figure>
+<p> 推荐设置:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="_">-f</span> (file size): unlimited</div><div class="line">-t (cpu time): unlimited</div><div class="line">-v (virtual memory): unlimited [1]</div><div class="line">-n (open files): 64000</div><div class="line">-m (memory size): unlimited [1] [2]</div><div class="line">-u (processes/threads): 64000</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启mongodb</p>
+</li>
+</ol>
+<p>参考: <a href="https://docs.mongodb.com/manual/reference/ulimit/" target="_blank" rel="external">UNIX ulimit Settings — MongoDB Manual 3.2</a> </p>
+<p><strong>BadValue Invalid or no user locale set. Please ensure LANG and/or LC_* environment variables are set correctly</strong></p>
+<p>解决方案: 设置locale</p>
+<ol>
+<li><p>设置 /etc/default/locale 为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LANG=en_US.UTF-8</div><div class="line">LANGUAGE=en_US</div><div class="line">LC_ALL=en_US.UTF-8</div></pre></td></tr></table></figure>
+<p> 或者:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LANG=&quot;en_US.UTF-8&quot;</div><div class="line">LANGUAGE=&quot;en_US:en&quot;</div><div class="line">LC_ALL=&quot;en_US.UTF-8&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启mongodb</p>
+</li>
+</ol>
+<p>参考: <a href="http://askubuntu.com/questions/536875/error-in-installing-mongo-in-virtual-machine/537324" target="_blank" rel="external">virtualbox - error in installing mongo in virtual machine - Ask Ubuntu</a> </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在使用mongodb的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mongodb" scheme="http://www.cuixiaochen.com/tags/mongodb/"/>
     
   </entry>
   
