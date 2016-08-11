@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2016-08-10T13:12:59.076Z</updated>
+  <updated>2016-08-11T02:37:24.036Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>Matplotlib 制作可视化累加器(visual accumulator)</title>
-    <link href="http://www.cuixiaochen.com/2016/08/10/Matplotlib-%E5%88%B6%E4%BD%9C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B4%AF%E5%8A%A0%E5%99%A8-visual-accumulator/"/>
-    <id>http://www.cuixiaochen.com/2016/08/10/Matplotlib-制作可视化累加器-visual-accumulator/</id>
-    <published>2016-08-10T10:59:19.000Z</published>
-    <updated>2016-08-10T13:12:59.076Z</updated>
+    <link href="http://www.cuixiaochen.com/2016/08/01/Matplotlib-%E5%88%B6%E4%BD%9C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B4%AF%E5%8A%A0%E5%99%A8-visual-accumulator/"/>
+    <id>http://www.cuixiaochen.com/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/</id>
+    <published>2016-08-01T03:05:19.000Z</published>
+    <updated>2016-08-11T02:37:24.036Z</updated>
     
     <content type="html"><![CDATA[<p>用matplotlib制作的可视化累加器，主要用于查找算法的可视化。</p>
 <a id="more"></a>
@@ -60,10 +60,10 @@
   
   <entry>
     <title>Bash script 笔记（一）</title>
-    <link href="http://www.cuixiaochen.com/2016/08/10/Bash-script-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://www.cuixiaochen.com/2016/08/10/Bash-script-笔记（一）/</id>
-    <published>2016-08-10T10:59:00.000Z</published>
-    <updated>2016-08-10T12:44:53.095Z</updated>
+    <link href="http://www.cuixiaochen.com/2016/07/03/Bash-script-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/</id>
+    <published>2016-07-03T06:55:32.000Z</published>
+    <updated>2016-08-11T02:36:58.862Z</updated>
     
     <content type="html"><![CDATA[<p>记录 bash script 中一些容易写错的语法</p>
 <a id="more"></a>
@@ -97,10 +97,10 @@
   
   <entry>
     <title>flask-mail 探究</title>
-    <link href="http://www.cuixiaochen.com/2016/08/10/flask-mail-%E6%8E%A2%E7%A9%B6/"/>
-    <id>http://www.cuixiaochen.com/2016/08/10/flask-mail-探究/</id>
-    <published>2016-08-10T10:58:01.000Z</published>
-    <updated>2016-08-10T12:40:16.965Z</updated>
+    <link href="http://www.cuixiaochen.com/2016/06/30/flask-mail-%E6%8E%A2%E7%A9%B6/"/>
+    <id>http://www.cuixiaochen.com/2016/06/30/flask-mail-探究/</id>
+    <published>2016-06-30T12:32:01.000Z</published>
+    <updated>2016-08-11T02:36:34.927Z</updated>
     
     <content type="html"><![CDATA[<p>mail发送中文，附件等问题</p>
 <a id="more"></a>
@@ -120,10 +120,10 @@
   
   <entry>
     <title>Bash script 快速入门指南（译）</title>
-    <link href="http://www.cuixiaochen.com/2016/08/10/Bash-script-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%88%E8%AF%91%EF%BC%89/"/>
-    <id>http://www.cuixiaochen.com/2016/08/10/Bash-script-快速入门指南（译）/</id>
-    <published>2016-08-10T10:57:28.000Z</published>
-    <updated>2016-08-10T12:57:41.075Z</updated>
+    <link href="http://www.cuixiaochen.com/2016/06/15/Bash-script-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%88%E8%AF%91%EF%BC%89/"/>
+    <id>http://www.cuixiaochen.com/2016/06/15/Bash-script-快速入门指南（译）/</id>
+    <published>2016-06-15T03:04:28.000Z</published>
+    <updated>2016-08-11T02:36:16.410Z</updated>
     
     <content type="html"><![CDATA[<p>原文地址： <a href="http://www.panix.com/~elflord/unix/bash-tute.html" target="_blank" rel="external">bash-tute</a> </p>
 <a id="more"></a>
@@ -315,10 +315,10 @@
   
   <entry>
     <title>Mongodb 常见报错及解决方案</title>
-    <link href="http://www.cuixiaochen.com/2016/08/10/Mongodb-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://www.cuixiaochen.com/2016/08/10/Mongodb-常见报错及解决方案/</id>
-    <published>2016-08-10T10:55:35.000Z</published>
-    <updated>2016-08-10T11:20:32.983Z</updated>
+    <link href="http://www.cuixiaochen.com/2016/05/20/Mongodb-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://www.cuixiaochen.com/2016/05/20/Mongodb-常见报错及解决方案/</id>
+    <published>2016-05-20T06:55:35.000Z</published>
+    <updated>2016-08-11T02:35:45.103Z</updated>
     
     <content type="html"><![CDATA[<p>最近在使用mongodb的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考</p>
 <a id="more"></a>

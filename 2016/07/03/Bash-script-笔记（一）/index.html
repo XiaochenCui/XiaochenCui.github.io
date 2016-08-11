@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>flask-mail 探究 | XiaochenCui_Blog | 千里之行 始于足下</title>
+  <title>Bash script 笔记（一） | XiaochenCui_Blog | 千里之行 始于足下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="flask">
-  <meta name="description" content="mail发送中文，附件等问题">
+  <meta name="keywords" content="bash script">
+  <meta name="description" content="记录 bash script 中一些容易写错的语法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flask-mail 探究">
-<meta property="og:url" content="http://www.cuixiaochen.com/2016/08/10/flask-mail-探究/index.html">
+<meta property="og:title" content="Bash script 笔记（一）">
+<meta property="og:url" content="http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/index.html">
 <meta property="og:site_name" content="XiaochenCui_Blog">
-<meta property="og:description" content="mail发送中文，附件等问题">
-<meta property="og:updated_time" content="2016-08-10T12:40:16.965Z">
+<meta property="og:description" content="记录 bash script 中一些容易写错的语法">
+<meta property="og:updated_time" content="2016-08-11T02:36:58.862Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flask-mail 探究">
-<meta name="twitter:description" content="mail发送中文，附件等问题">
+<meta name="twitter:title" content="Bash script 笔记（一）">
+<meta name="twitter:description" content="记录 bash script 中一些容易写错的语法">
   
     <link rel="alternative" href="/atom.xml" title="XiaochenCui_Blog" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;p&gt;mail发送中文，附件等问题&lt;/p&gt;">
+  <meta name="summary" content="&lt;p&gt;记录 bash script 中一些容易写错的语法&lt;/p&gt;">
   <link rel="shortcut icon" href="/img/home.png">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -94,7 +94,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">flask-mail 探究</div>
+        <div class="flex-col header-title ellipsis">Bash script 笔记（一）</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -115,11 +115,11 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">flask-mail 探究</h1>
+    <h1 class="author">Bash script 笔记（一）</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-08-10T10:58:01.000Z" itemprop="datePublished" class="page-time">
-  2016-08-10
+            <time datetime="2016-07-03T06:55:32.000Z" itemprop="datePublished" class="page-time">
+  2016-07-03
 </time>
 
 
@@ -129,11 +129,11 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="post-flask-mail-探究" 
+      <article id="post-Bash-script-笔记（一）" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meat flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flask/">flask</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash-script/">bash script</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -188,14 +188,28 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>mail发送中文，附件等问题</p>
+            <p>记录 bash script 中一些容易写错的语法</p>
 <a id="more"></a>
-<p>由FLASKY_MAIL_SENDER = ‘Flasky Admin flasky@example.com‘配置项所引发的问题</p>
+<ul>
+<li><p>I/O Redirection<br>参考: <a href="http://www.tldp.org/LDP/abs/html/io-redirection.html" target="_blank" rel="external">I/0 Redirection</a> </p>
+</li>
+<li><p>source<br>参考: <a href="https://bash.cyberciti.biz/guide/Source_command" target="_blank" rel="external">Source command - Linux Shell Scripting Tutorial - A Beginner’s handbook</a><br>The source command can be used to load any functions file into the current shell script or a command prompt.</p>
+</li>
+<li><p>$@<br>$@ is all of the parameters passed to the script.</p>
+</li>
+<li><p>$?<br>$? is the return code (status code) of the last command or script executed.0 == success, any other number means a failure</p>
+</li>
+<li><p>local<br>声明一个局部变量</p>
+</li>
+<li><p>awk<br>参考: <a href="http://www.cyberciti.biz/faq/bash-scripting-using-awk/" target="_blank" rel="external">How To Use awk In Bash Scripting</a> </p>
+</li>
+</ul>
+<p>(未完待续)</p>
 
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.cuixiaochen.com/2016/08/10/flask-mail-探究/" target="_blank" rel="external">http://www.cuixiaochen.com/2016/08/10/flask-mail-探究/</a>
+                <a href="http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/" target="_blank" rel="external">http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/</a>
                 </p>
                 <footer><cite><a href="http://www.cuixiaochen.com">@XiaochenCui_Blog</a></cite></footer>
             </blockquote>
@@ -204,18 +218,18 @@
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/2016/08/10/Bash-script-笔记（一）/" id="post-prev" class="post-nav-link">
+      <a href="/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Bash script 笔记（一）</h4>
+        <h4 class="title">Matplotlib 制作可视化累加器(visual accumulator)</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/08/10/Bash-script-快速入门指南（译）/" id="post-next" class="post-nav-link">
+      <a href="/2016/06/30/flask-mail-探究/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Bash script 快速入门指南（译）</h4>
+        <h4 class="title">flask-mail 探究</h4>
       </a>
     </div>
   
@@ -226,7 +240,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="flask-mail-探究" data-title="flask-mail 探究" data-url="http://www.cuixiaochen.com/2016/08/10/flask-mail-探究/index.html"></div>
+	<div class="ds-thread" data-thread-key="Bash-script-笔记（一）" data-title="Bash script 笔记（一）" data-url="http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -257,10 +271,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "flask-mail 探究",
+    title: "Bash script 笔记（一）",
     pic: "/img/cxc.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.cuixiaochen.com/2016/08/10/flask-mail-探究/index.html"
+    url: "http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/index.html"
 };
 </script>
 <div class="global-share" id="global-share">
