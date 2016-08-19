@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2016-08-19T08:41:07.358Z</updated>
+  <updated>2016-08-19T08:42:33.668Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://www.cuixiaochen.com/2016/08/19/Python-%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E7%89%88%EF%BC%88%E4%B8%AA%E4%BA%BA%E9%95%9C%E5%83%8F%EF%BC%89/"/>
     <id>http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/</id>
     <published>2016-08-19T08:37:45.000Z</published>
-    <updated>2016-08-19T08:41:07.358Z</updated>
+    <updated>2016-08-19T08:42:33.668Z</updated>
     
-    <content type="html"><![CDATA[<p>本文仅供个人收录，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a> </p>
+    <content type="html"><![CDATA[<p>本文仅供个人备份，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a> </p>
 <a id="more"></a>
 <h1 id="Python-资源大全中文版"><a href="#Python-资源大全中文版" class="headerlink" title="Python 资源大全中文版"></a>Python 资源大全中文版</h1><p>我想很多程序员应该记得 GitHub 上有一个 Awesome - XXX 系列的资源整理。<a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">awesome-python</a> 是 vinta 发起维护的 Python 资源列表，内容包括：Web框架、网络爬虫、网络内容提取、模板引擎、数据库、数据可视化、图片处理、文本处理、自然语言处理、机器学习、日志、代码分析等。由伯乐在线持续更新。</p>
 <p>Awesome 系列虽然挺全，但基本只对收录的资源做了极为简要的介绍，如果有更详细的中文介绍，对相应开发者的帮助会更大。这也是我们发起这个开源项目的初衷。</p>
@@ -1124,12 +1124,12 @@
 <li>Python开发者 微博：<a href="http://weibo.com/u/5305630013" target="_blank" rel="external">@Python开发者</a></li>
 <li>Python开发者：人生苦短，我用 Python。Python 越来越受广大程序员的喜爱。「Python开发者」是最受欢迎的、专注分享Python技术的微信公众号，主要分享 Python 相关的技术文章、工具资源和资讯等。<br><br><img src="http://ww3.sinaimg.cn/small/63918611gw1epb2cbm6cmj2046046wek.jpg" width="150" height="150"></li>
 </ul>
-<p>本文仅供个人收录，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a> </p>
+<p>本文仅供个人备份，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a> </p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;本文仅供个人收录，读者请移步原地址： &lt;a href=&quot;https://github.com/jobbole/awesome-python-cn/blob/master/README.md&quot;&gt;Python 资源大全中文版&lt;/a&gt; &lt;/p&gt;
+      &lt;p&gt;本文仅供个人备份，读者请移步原地址： &lt;a href=&quot;https://github.com/jobbole/awesome-python-cn/blob/master/README.md&quot;&gt;Python 资源大全中文版&lt;/a&gt; &lt;/p&gt;
     
     </summary>
     
