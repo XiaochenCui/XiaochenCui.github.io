@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2016-08-19T08:42:33.668Z</updated>
+  <updated>2016-08-20T15:32:09.026Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SwanDB-轻型数据库</title>
+    <link href="http://www.cuixiaochen.com/2016/08/20/SwanDB-%E8%BD%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://www.cuixiaochen.com/2016/08/20/SwanDB-轻型数据库/</id>
+    <published>2016-08-20T15:24:54.000Z</published>
+    <updated>2016-08-20T15:32:09.026Z</updated>
+    
+    <content type="html"><![CDATA[<p>史诗级巨坑，8月底开坑</p>
+<a id="more"></a>
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><ul>
+<li><a href="http://www.aosabook.org/en/500L/dbdb-dog-bed-database.html" target="_blank" rel="external">500 Lines or Less | DBDB: Dog Bed Database</a> </li>
+<li><a href="http://aosabook.org/en/500L/an-archaeology-inspired-database.html" target="_blank" rel="external">500 Lines or Less | An Archaeology-Inspired Database</a> </li>
+<li><a href="https://www.postgresql.org/" target="_blank" rel="external">PostgreSQL: The world’s most advanced open source database</a> </li>
+<li><a href="http://couchdb.apache.org/" target="_blank" rel="external">Apache CouchDB</a> </li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;史诗级巨坑，8月底开坑&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库设计" scheme="http://www.cuixiaochen.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 资源大全中文版（个人镜像）</title>
