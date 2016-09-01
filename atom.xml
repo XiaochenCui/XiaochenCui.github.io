@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2016-08-27T06:28:01.211Z</updated>
+  <updated>2016-08-29T15:01:55.793Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python 中方法及变量的访问控制(Controlling Access)</title>
+    <link href="http://www.cuixiaochen.com/2016/08/27/Python-%E4%B8%AD%E6%96%B9%E6%B3%95%E5%8F%8A%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-Controlling-Access/"/>
+    <id>http://www.cuixiaochen.com/2016/08/27/Python-中方法及变量的访问控制-Controlling-Access/</id>
+    <published>2016-08-27T12:44:36.000Z</published>
+    <updated>2016-08-29T15:01:55.793Z</updated>
+    
+    <content type="html"><![CDATA[<p>未完待续</p>
+<a id="more"></a>
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><ul>
+<li><a href="https://docs.python.org/3/library/functions.html#property" target="_blank" rel="external">2. Built-in Functions — Python 3.5.2 documentation</a> </li>
+<li><a href="http://stackoverflow.com/questions/1641219/does-python-have-private-variables-in-classes" target="_blank" rel="external">class - Does Python have “private” variables in classes? - Stack Overflow</a> </li>
+<li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">PEP 8 – Style Guide for Python Code | Python.org</a> </li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;未完待续&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CheetahDB-轻型数据库</title>
     <link href="http://www.cuixiaochen.com/2016/08/20/CheetahDB-%E8%BD%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>http://www.cuixiaochen.com/2016/08/20/CheetahDB-轻型数据库/</id>
     <published>2016-08-20T15:24:54.000Z</published>
-    <updated>2016-08-27T06:28:01.211Z</updated>
+    <updated>2016-08-27T12:44:24.606Z</updated>
     
     <content type="html"><![CDATA[<p>未完待续</p>
 <a id="more"></a>
