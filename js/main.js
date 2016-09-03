@@ -77,51 +77,35 @@
 
             var tocOfs = offset(toc),
                 tocTop = tocOfs.y,
-                headerH = header.clientHeight,
-                titles = d.getElementById('post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
+                tocH = toc.offsetHeight,
+                isScroll = tocH > w.innerHeight,
+                titles = d.getElementById('post-content').querySelectorAll('h1, h2, h3, h4, h5, h6'),
+                cssTop = 150,
+                minTop = -1 * (tocH - w.innerHeight) - cssTop;
 
-            toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');  
+            function scroll(top) {
 
-            [].forEach.call(toc.querySelectorAll('a[href*="#"]'), function(el){
-                
-                el.addEventListener('click', function(e){
-                    e.preventDefault();
-                    docEl.scrollTop = offset(d.querySelector(this.hash)).y - headerH + 10;
-                })
-            });
-
-            function setActive(top) {
-
-                for (i = 0, len = titles.length; i < len; i++) {
-                    if (top > offset(titles[i]).y - headerH) {
-                        toc.querySelector('li.active').classList.remove('active');
-
-                        var active = toc.querySelector('a[href="#' + titles[i].id + '"]').parentNode;
-                        active.classList.add('active');
-
-                        if(active.offsetTop >= toc.clientHeight - headerH) {
-                            toc.scrollTop = active.offsetTop - toc.clientHeight + parseInt(w.innerHeight/3);
-                        } else {
-                            toc.scrollTop = 0;
-                        }
-                    } 
+                for (var id, i = 0, len = titles.length; i < len; i++) {
+                    if (top > offset(titles[i]).y) {
+                        id = titles[i].id;
+                    }
                 }
 
-                if(top < offset(titles[0]).y) {
-                    toc.querySelector('li.active').classList.remove('active');
-                    toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');  
-                }
+                var top = cssTop - toc.querySelectorAll('a[href="#' + id + '"]')[0].offsetTop;
+
+                toc.style.top = (top < minTop ? minTop : top) + 'px';
             }
 
             return function(top) {
-                if (top > tocTop - headerH) {
+                if (top > tocTop) {
                     toc.classList.add('fixed');
+
+                    if (isScroll) {
+                        scroll(top);
+                    }
                 } else {
                     toc.classList.remove('fixed');
-                    
                 }
-
-                setActive(top);
 
             };
         })(),
