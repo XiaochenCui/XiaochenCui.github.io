@@ -95,6 +95,7 @@
             });
 
             function setActive(top) {
+
                 for (i = 0, len = titles.length; i < len; i++) {
                     if (top > offset(titles[i]).y - headerH) {
                         toc.querySelector('li.active').classList.remove('active');
