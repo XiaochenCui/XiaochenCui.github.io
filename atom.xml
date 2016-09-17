@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2016-08-19T08:42:33.668Z</updated>
+  <updated>2016-09-17T08:32:56.202Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>twisted 中用户输入数据的接收</title>
+    <link href="http://www.cuixiaochen.com/2016/09/17/twisted-%E4%B8%AD%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6/"/>
+    <id>http://www.cuixiaochen.com/2016/09/17/twisted-中用户输入数据的接收/</id>
+    <published>2016-09-17T08:32:56.000Z</published>
+    <updated>2016-09-17T08:32:56.202Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>网络应用客户端中对于用户输入的响应。</p>
+<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p>主要是由于twisted默认换行符为b’\r\n’，导致在linux环境下用户输入回车(‘\n’)后系统无响应</p>
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"><span class="keyword">from</span> cxctools.string <span class="keyword">import</span> to_bytes, to_str</div><div class="line"><span class="keyword">from</span> twisted.protocols <span class="keyword">import</span> basic</div><div class="line"><span class="keyword">from</span> twisted.internet <span class="keyword">import</span> protocol, stdio</div><div class="line"><span class="keyword">from</span> twisted.python <span class="keyword">import</span> log</div><div class="line"><span class="keyword">from</span> twisted.internet <span class="keyword">import</span> reactor, error</div><div class="line"></div><div class="line"><span class="keyword">from</span> game_server.network.protocol <span class="keyword">import</span> JsonReceiver</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInputProtocol</span><span class="params">(basic.LineReceiver)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, callback)</span>:</span></div><div class="line">        self.callback = callback</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lineReceived</span><span class="params">(self, line)</span>:</span></div><div class="line">        self.callback(line)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GameClientProtocol</span><span class="params">(JsonReceiver)</span>:</span></div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connectionMade</span><span class="params">(self)</span>:</span></div><div class="line">        stdio.StandardIO(UserInputProtocol(self.user_input_received))</div><div class="line">        self.out(<span class="string">"Connect to server!"</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">user_input_received</span><span class="params">(self, string)</span>:</span></div><div class="line">        self.sendLine(<span class="string">'User has input a data'</span>+to_str(string)) <span class="comment"># to_str()是自定义的辅助函数，用来将参数转换为str并返回</span></div><div class="line"></div><div class="line">    ...</div></pre></td></tr></table></figure>
+<p>以上代码可在windows下运行，但在linux下无法运行。</p>
+<h2 id="检查函数调用"><a href="#检查函数调用" class="headerlink" title="检查函数调用"></a>检查函数调用</h2><p>从 connectionMade() 中的 stdio.StandardIO 开始依次查看，可以发现输入的数据最后由 twisted.protocols.basic 中的 LineReceiver(protocol.Protocol, _PauseableMixin).dataReceived(self, data) 处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LineReceiver</span><span class="params">(protocol.Protocol, _PauseableMixin)</span>:</span></div><div class="line">    </div><div class="line">    ...</div><div class="line">    </div><div class="line">    line_mode = <span class="number">1</span></div><div class="line">    _buffer = <span class="string">b''</span></div><div class="line">    _busyReceiving = <span class="keyword">False</span></div><div class="line">    delimiter = <span class="string">b'\r\n'</span></div><div class="line">    MAX_LENGTH = <span class="number">16384</span></div><div class="line"></div><div class="line">    ...</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dataReceived</span><span class="params">(self, data)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        Protocol.dataReceived.</div><div class="line">        Translates bytes into lines, and calls lineReceived (or</div><div class="line">        rawDataReceived, depending on mode.)</div><div class="line">        """</div><div class="line">        ...</div></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在自定义的 UserInputProtocol 类中定义类变量即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> os <span class="keyword">import</span> linesep <span class="keyword">as</span> delimiter</div><div class="line"></div><div class="line">delimiter = to_bytes(delimiter)</div><div class="line"><span class="comment"># delimiter = b'\n'</span></div><div class="line"><span class="comment"># to_bytes()是自定义的辅助函数，用来将参数转换为bytes并返回</span></div></pre></td></tr></table></figure>
+<p>或者直接定义 delimiter</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delimiter = <span class="string">b'\n'</span></div></pre></td></tr></table></figure>
+<p>若是在 python2.x 环境中，则不需要转换为bytes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> os <span class="keyword">import</span> linesep <span class="keyword">as</span> delimiter  <span class="comment"># @UnusedImport</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;应用&quot;&gt;&lt;a href=&quot;#应用&quot; class=&quot;headerlink&quot; title=&quot;应用&quot;&gt;&lt;/a&gt;应用&lt;/h1&gt;&lt;p&gt;网络应用客户端中对于用户输入的响应。&lt;/p&gt;
+&lt;h1 id=&quot;问题来源&quot;&gt;&lt;a href=&quot;#问题来源&quot; class=&quot;headerlink
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
+    
+      <category term="twisted" scheme="http://www.cuixiaochen.com/tags/twisted/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 资源大全中文版（个人镜像）</title>
@@ -1219,9 +1254,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
-    
       <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
+    
+      <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
     
       <category term="算法" scheme="http://www.cuixiaochen.com/tags/%E7%AE%97%E6%B3%95/"/>
     
