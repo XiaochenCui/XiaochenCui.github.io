@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://www.cuixiaochen.com/2016/09/17/twisted-中用户输入数据的接收/index.html">
 <meta property="og:site_name" content="XiaochenCui_Blog">
 <meta property="og:description" content="总结：别在python3下用twisted…">
-<meta property="og:updated_time" content="2016-09-17T08:51:29.561Z">
+<meta property="og:updated_time" content="2016-09-17T08:53:33.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="twisted 中用户输入数据的接收">
 <meta name="twitter:description" content="总结：别在python3下用twisted…">
@@ -211,7 +211,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delimiter = <span class="string">b'\n'</span></div></pre></td></tr></table></figure>
 <p>若是在 python2.x 环境中，则不需要转换为bytes:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> os <span class="keyword">import</span> linesep <span class="keyword">as</span> delimiter  <span class="comment"># @UnusedImport</span></div></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>twisted的文档一直是其弱项，而其开发组的哲学是“懂的人不看也懂，不懂的看了也不懂”。所以在学习twisted的过程中，看源代码是非常重要的，而且twisted项目的代码质量较高，在看源代码的过程也可以进一步增强对twisted的理解。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>twisted的文档一直是其弱项，而其开发组的哲学是“懂的人不看也懂，不懂的看了也不懂”。所以在学习twisted的过程中，读源代码是非常重要的。另一方面，twisted的源代码质量很高，在读的过程中可以进一步加深理解。</p>
 
             <blockquote>
                 <p>
