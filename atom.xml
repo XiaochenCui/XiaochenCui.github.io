@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2016-09-17T08:41:47.769Z</updated>
+  <updated>2016-09-17T08:46:19.376Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -20,9 +20,11 @@
     <link href="http://www.cuixiaochen.com/2016/09/17/twisted-%E4%B8%AD%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6/"/>
     <id>http://www.cuixiaochen.com/2016/09/17/twisted-中用户输入数据的接收/</id>
     <published>2016-09-17T08:32:56.000Z</published>
-    <updated>2016-09-17T08:41:47.769Z</updated>
+    <updated>2016-09-17T08:46:19.376Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>网络应用客户端中对于用户输入的响应。</p>
+    <content type="html"><![CDATA[<p>总结：别在python3下用twisted…</p>
+<a id="more"></a>
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>twisted 中对于用户输入的响应。</p>
 <h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p>主要是由于twisted默认换行符为b’\r\n’，导致在linux环境下用户输入回车(‘\n’)后系统无响应</p>
 <h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInputProtocol</span><span class="params">(basic.LineReceiver)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, callback)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        初始化callbakc函数</div><div class="line">        </div><div class="line">        :param callback: </div><div class="line">        """</div><div class="line">        self.callback = callback</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lineReceived</span><span class="params">(self, line)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        接到一行数据后调用callbakc函数</div><div class="line">        </div><div class="line">        :param line: bytes </div><div class="line">        """</div><div class="line">        self.callback(line)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GameClientProtocol</span><span class="params">(basic.LineReceiver)</span>:</span></div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connectionMade</span><span class="params">(self)</span>:</span></div><div class="line">        stdio.StandardIO(UserInputProtocol(self.user_input_received)) <span class="comment"># 连接成功后注册UserInputProtocol，用UserInputProtocol处理用户的输入。</span></div><div class="line">        self.out(<span class="string">"Connect to server!"</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">user_input_received</span><span class="params">(self, string)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        处理用户输入数据，在此例中，处理方式为将数据发送出去。</div><div class="line">        </div><div class="line">        :param string: </div><div class="line">        """</div><div class="line">        self.sendLine(<span class="string">'User has input a data'</span>+to_str(string)) <span class="comment"># to_str()是自定义的辅助函数，用来将参数转换为str并返回</span></div><div class="line"></div><div class="line">    ...</div></pre></td></tr></table></figure>
 <p>以上代码可在windows下运行，但在linux下无法运行。</p>
@@ -38,8 +40,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;应用&quot;&gt;&lt;a href=&quot;#应用&quot; class=&quot;headerlink&quot; title=&quot;应用&quot;&gt;&lt;/a&gt;应用&lt;/h1&gt;&lt;p&gt;网络应用客户端中对于用户输入的响应。&lt;/p&gt;
-&lt;h1 id=&quot;问题来源&quot;&gt;&lt;a href=&quot;#问题来源&quot; class=&quot;headerlink
+      &lt;p&gt;总结：别在python3下用twisted…&lt;/p&gt;
     
     </summary>
     
