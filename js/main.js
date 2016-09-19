@@ -84,6 +84,10 @@
                 headerH = header.clientHeight,
                 titles = d.getElementById('post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
 
+            if (!titles[0]) {
+                return noop;
+            }
+
             toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');  
 
             [].forEach.call(toc.querySelectorAll('a[href*="#"]'), function(el){
