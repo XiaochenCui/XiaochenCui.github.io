@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mongodb 常见报错及解决方案 | XiaochenCui_Blog | 千里之行 始于足下</title>
+  <title>Mongodb 常见报错及解决方案 | XiaochenCui_Blog | How many roads must a man walk down before you call him a man</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://www.cuixiaochen.com/2016/05/20/Mongodb-常见报错及解决方案/index.html">
 <meta property="og:site_name" content="XiaochenCui_Blog">
 <meta property="og:description" content="最近在使用mongodb的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考">
-<meta property="og:updated_time" content="2016-08-11T02:35:45.103Z">
+<meta property="og:updated_time" content="2016-09-22T02:31:32.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongodb 常见报错及解决方案">
 <meta name="twitter:description" content="最近在使用mongodb的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考">
@@ -196,7 +196,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#soft-rlimits-too-low"><span class="post-toc-text">soft rlimits too low</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BadValue-Invalid-or-no-user-locale-set"><span class="post-toc-text">BadValue Invalid or no user locale set</span></a></li></ol>
             </nav>
             
         </aside>
@@ -206,31 +206,32 @@
             <div class="post-content" id="post-content" itemprop="postContent">
             <p>最近在使用mongodb的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考</p>
 <a id="more"></a>
-<p><strong>WARNING: soft rlimits too low. rlimits set to processes, files. Number of processes should be at least 32767.5 : 0.5 times number of files.</strong></p>
+<h1 id="soft-rlimits-too-low"><a href="#soft-rlimits-too-low" class="headerlink" title="soft rlimits too low"></a>soft rlimits too low</h1><p><strong>WARNING: soft rlimits too low. rlimits set to processes, files. Number of processes should be at least 32767.5 : 0.5 times number of files.</strong></p>
 <p>解决方案: 切换至root用户，更改相关设置</p>
 <ol>
-<li><p>查看ulimit:</p>
+<li>查看ulimit:</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ulimit -a</div></pre></td></tr></table></figure>
-</li>
-<li><p>更改相关ulimit:</p>
+<ol>
+<li>更改相关ulimit:</li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">ulimit</span> -n &lt;value&gt;</div></pre></td></tr></table></figure>
-<p> 推荐设置:</p>
+<p>推荐设置:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="_">-f</span> (file size): unlimited</div><div class="line">-t (cpu time): unlimited</div><div class="line">-v (virtual memory): unlimited [1]</div><div class="line">-n (open files): 64000</div><div class="line">-m (memory size): unlimited [1] [2]</div><div class="line">-u (processes/threads): 64000</div></pre></td></tr></table></figure>
-</li>
-<li><p>重启mongodb</p>
-</li>
+<ol>
+<li>重启mongodb</li>
 </ol>
 <p>参考: <a href="https://docs.mongodb.com/manual/reference/ulimit/" target="_blank" rel="external">UNIX ulimit Settings — MongoDB Manual 3.2</a> </p>
-<p><strong>BadValue Invalid or no user locale set. Please ensure LANG and/or LC_* environment variables are set correctly</strong></p>
+<h1 id="BadValue-Invalid-or-no-user-locale-set"><a href="#BadValue-Invalid-or-no-user-locale-set" class="headerlink" title="BadValue Invalid or no user locale set"></a>BadValue Invalid or no user locale set</h1><p><strong>BadValue Invalid or no user locale set. Please ensure LANG and/or LC_* environment variables are set correctly</strong></p>
 <p>解决方案: 设置locale</p>
 <ol>
-<li><p>设置 /etc/default/locale 为:</p>
+<li>设置 /etc/default/locale 为:</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LANG=en_US.UTF-8</div><div class="line">LANGUAGE=en_US</div><div class="line">LC_ALL=en_US.UTF-8</div></pre></td></tr></table></figure>
-<p> 或者:</p>
+<p>或者:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LANG=&quot;en_US.UTF-8&quot;</div><div class="line">LANGUAGE=&quot;en_US:en&quot;</div><div class="line">LC_ALL=&quot;en_US.UTF-8&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>重启mongodb</p>
-</li>
+<ol>
+<li>重启mongodb</li>
 </ol>
 <p>参考: <a href="http://askubuntu.com/questions/536875/error-in-installing-mongo-in-virtual-machine/537324" target="_blank" rel="external">virtualbox - error in installing mongo in virtual machine - Ask Ubuntu</a> </p>
 
