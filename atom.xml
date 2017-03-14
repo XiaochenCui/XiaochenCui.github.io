@@ -1143,7 +1143,7 @@
     <link href="http://www.cuixiaochen.com/2016/08/18/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98%E8%A7%A3%E6%B3%95%E6%B1%87%E6%80%BB%E5%8F%8A%E5%88%86%E6%9E%90-python/"/>
     <id>http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/</id>
     <published>2016-08-18T12:26:29.000Z</published>
-    <updated>2016-08-21T13:25:09.086Z</updated>
+    <updated>2017-03-03T11:54:18.963Z</updated>
     
     <content type="html"><![CDATA[<p>N皇后问题是回溯算法的典型案例，本文通过N皇后问题复习递归/回溯算法并运用一些python函数库简化程序。</p>
 <a id="more"></a>
