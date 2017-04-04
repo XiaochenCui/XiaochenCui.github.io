@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-01-01T09:09:45.791Z</updated>
+  <updated>2017-04-04T08:55:33.786Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.cuixiaochen.com/2016/08/19/Python-%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E7%89%88%EF%BC%88%E4%B8%AA%E4%BA%BA%E9%95%9C%E5%83%8F%EF%BC%89/"/>
     <id>http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/</id>
     <published>2016-08-19T08:37:45.000Z</published>
-    <updated>2017-01-01T09:09:45.791Z</updated>
+    <updated>2017-04-04T08:55:33.786Z</updated>
     
     <content type="html"><![CDATA[<p>本文仅供个人备份，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a> </p>
 <a id="more"></a>
@@ -1143,7 +1143,7 @@
     <link href="http://www.cuixiaochen.com/2016/08/18/N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98%E8%A7%A3%E6%B3%95%E6%B1%87%E6%80%BB%E5%8F%8A%E5%88%86%E6%9E%90-python/"/>
     <id>http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/</id>
     <published>2016-08-18T12:26:29.000Z</published>
-    <updated>2017-03-03T11:54:18.963Z</updated>
+    <updated>2017-04-04T08:55:15.814Z</updated>
     
     <content type="html"><![CDATA[<p>N皇后问题是回溯算法的典型案例，本文通过N皇后问题复习递归/回溯算法并运用一些python函数库简化程序。</p>
 <a id="more"></a>
@@ -1180,7 +1180,7 @@
     
       <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
     
-      <category term="算法" scheme="http://www.cuixiaochen.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="algorithm" scheme="http://www.cuixiaochen.com/tags/algorithm/"/>
     
   </entry>
   
@@ -1189,7 +1189,7 @@
     <link href="http://www.cuixiaochen.com/2016/08/01/Matplotlib-%E5%88%B6%E4%BD%9C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B4%AF%E5%8A%A0%E5%99%A8-visual-accumulator/"/>
     <id>http://www.cuixiaochen.com/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/</id>
     <published>2016-08-01T03:05:19.000Z</published>
-    <updated>2017-01-01T09:09:45.923Z</updated>
+    <updated>2017-04-04T08:56:11.167Z</updated>
     
     <content type="html"><![CDATA[<p>用matplotlib制作的可视化累加器，主要用于查找算法的可视化。</p>
 <a id="more"></a>
@@ -1223,7 +1223,7 @@
     
       <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
     
-      <category term="算法" scheme="http://www.cuixiaochen.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="algorithm" scheme="http://www.cuixiaochen.com/tags/algorithm/"/>
     
   </entry>
   
@@ -1232,7 +1232,7 @@
     <link href="http://www.cuixiaochen.com/2016/07/03/Bash-script-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/</id>
     <published>2016-07-03T06:55:32.000Z</published>
-    <updated>2017-01-01T09:09:45.235Z</updated>
+    <updated>2017-04-04T08:56:44.147Z</updated>
     
     <content type="html"><![CDATA[<p>记录 bash script 中一些容易写错的语法</p>
 <a id="more"></a>
@@ -1269,7 +1269,7 @@
     <link href="http://www.cuixiaochen.com/2016/06/15/Bash-script-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%EF%BC%88%E8%AF%91%EF%BC%89/"/>
     <id>http://www.cuixiaochen.com/2016/06/15/Bash-script-快速入门指南（译）/</id>
     <published>2016-06-15T03:04:28.000Z</published>
-    <updated>2017-01-01T09:09:45.347Z</updated>
+    <updated>2017-04-04T08:56:57.227Z</updated>
     
     <content type="html"><![CDATA[<p>原文地址： <a href="http://www.panix.com/~elflord/unix/bash-tute.html" target="_blank" rel="external">bash-tute</a> </p>
 <a id="more"></a>
@@ -1464,7 +1464,7 @@
     <link href="http://www.cuixiaochen.com/2016/05/20/Mongodb-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
     <id>http://www.cuixiaochen.com/2016/05/20/Mongodb-常见报错及解决方案/</id>
     <published>2016-05-20T06:55:35.000Z</published>
-    <updated>2017-01-10T08:36:25.312Z</updated>
+    <updated>2017-04-04T08:55:47.874Z</updated>
     
     <content type="html"><![CDATA[<p>最近在使用mongodb的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考</p>
 <a id="more"></a>
