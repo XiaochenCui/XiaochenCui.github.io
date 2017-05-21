@@ -3,27 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Bash script 笔记（一） | XiaochenCui_Blog | 千里之行 始于足下</title>
+  <title>XiaochenCui_Blog | 千里之行 始于足下</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="bash script">
-  <meta name="description" content="记录 bash script 中一些容易写错的语法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Bash script 笔记（一）">
-<meta property="og:url" content="http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/index.html">
+  <meta name="keywords" content="blog technology">
+  <meta name="description" content="“Programmers who do take factor-of-a-billion speedups when they are available are likely to be able to address problems that could not otherwise be contemplated.”
+Algorithms 4th Edition
+“Bad programme">
+<meta property="og:type" content="website">
+<meta property="og:title" content="XiaochenCui_Blog">
+<meta property="og:url" content="http://www.cuixiaochen.com/motto/index.html">
 <meta property="og:site_name" content="XiaochenCui_Blog">
-<meta property="og:description" content="记录 bash script 中一些容易写错的语法">
-<meta property="og:updated_time" content="2017-04-04T08:56:44.147Z">
+<meta property="og:description" content="“Programmers who do take factor-of-a-billion speedups when they are available are likely to be able to address problems that could not otherwise be contemplated.”
+Algorithms 4th Edition
+“Bad programme">
+<meta property="og:updated_time" content="2017-05-21T06:11:19.095Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bash script 笔记（一）">
-<meta name="twitter:description" content="记录 bash script 中一些容易写错的语法">
+<meta name="twitter:title" content="XiaochenCui_Blog">
+<meta name="twitter:description" content="“Programmers who do take factor-of-a-billion speedups when they are available are likely to be able to address problems that could not otherwise be contemplated.”
+Algorithms 4th Edition
+“Bad programme">
   
     <link rel="alternative" href="/atom.xml" title="XiaochenCui_Blog" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;p&gt;记录 bash script 中一些容易写错的语法&lt;/p&gt;">
+  <meta name="summary" content="崔晓晨的个人博客">
   <link rel="shortcut icon" href="/img/home.png">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -31,7 +37,7 @@
 <body>
   <div id="loading" class="active"></div>
 
-  <nav id="menu" class="hide" >
+  <nav id="menu"  >
    <div class="inner flex-row-vertical">
   <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
       <i class="icon icon-lg icon-close"></i>
@@ -90,7 +96,7 @@
             </a>
           </li>
       
-          <li class="waves-block waves-effect">
+          <li class="waves-block waves-effect active">
             <a href="/motto"  >
               <i class="icon icon-lg icon-diamond"></i>
               motto
@@ -117,7 +123,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Bash script 笔记（一）</div>
+        <div class="flex-col header-title ellipsis">XiaochenCui_Blog</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -138,26 +144,20 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">Bash script 笔记（一）</h1>
+    <h1 class="author">XiaochenCui_Blog</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-07-03T06:55:32.000Z" itemprop="datePublished" class="page-time">
-  2016-07-03
-</time>
-
-
+        千里之行 始于足下
         
     </h5>
   </div>
 </header>
 
     <div class="container body-wrap">
-      <article id="post-Bash-script-笔记（一）" 
-  class="article article-type-post" itemprop="blogPost">
+      <article id="page-undefined" 
+  class="article article-type-page" itemprop="blogPost">
     <div class="post-meta flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash-script/">bash script</a></li></ul>
-
     </div>
     <div class="post-body">
         <aside class="post-widget" id="post-widget">
@@ -211,73 +211,30 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>记录 bash script 中一些容易写错的语法</p>
-<a id="more"></a>
-<ul>
-<li><p>I/O Redirection<br>参考: <a href="http://www.tldp.org/LDP/abs/html/io-redirection.html" target="_blank" rel="external">I/0 Redirection</a> </p>
-</li>
-<li><p>source<br>参考: <a href="https://bash.cyberciti.biz/guide/Source_command" target="_blank" rel="external">Source command - Linux Shell Scripting Tutorial - A Beginner’s handbook</a><br>The source command can be used to load any functions file into the current shell script or a command prompt.</p>
-</li>
-<li><p>$@<br>$@ is all of the parameters passed to the script.</p>
-</li>
-<li><p>$?<br>$? is the return code (status code) of the last command or script executed.0 == success, any other number means a failure</p>
-</li>
-<li><p>local<br>声明一个局部变量</p>
-</li>
-<li><p>awk<br>参考: <a href="http://www.cyberciti.biz/faq/bash-scripting-using-awk/" target="_blank" rel="external">How To Use awk In Bash Scripting</a> </p>
-</li>
-</ul>
-<p>(未完待续)</p>
+            <blockquote><p>“Programmers who do take factor-of-a-billion speedups when they are available are likely to be able to address problems that could not otherwise be contemplated.”</p>
+<footer><strong>Algorithms 4th Edition</strong></footer></blockquote>
+<blockquote><p>“Bad programmers worry about the code. Good programmers worry about data structures and their relationships.”</p>
+<footer><strong>Linus Torvalds</strong></footer></blockquote>
+<blockquote><p>“Keep it simple and stupid, don’t be too smart.”</p>
+<footer><strong>N.S. Navy</strong></footer></blockquote>
+<blockquote><p>“No programming language is perfect. There is not even a single best language; there are only languages well suited or perhaps poorly suited for particular purposes.”</p>
+<footer><strong>Herbert Mayer</strong></footer></blockquote>
+<blockquote><p>“If you’re going through hell, keep going.”</p>
+<footer><strong>Winston Churchill</strong></footer></blockquote>
 
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/" target="_blank" rel="external">http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/</a>
+                <a href="http://www.cuixiaochen.com/motto/index.html" target="_blank" rel="external">http://www.cuixiaochen.com/motto/index.html</a>
                 </p>
                 <footer><cite><a href="http://www.cuixiaochen.com">@XiaochenCui_Blog</a></cite></footer>
             </blockquote>
             </div>
             
-<nav class="post-nav">
-  
-    <div class="waves-block waves-effect prev fl">
-      <a href="/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Matplotlib 制作可视化累加器(visual accumulator)</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next fr">
-      <a href="/2016/06/15/Bash-script-快速入门指南（译）/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Bash script 快速入门指南（译）</h4>
-      </a>
-    </div>
-  
-</nav>
-
 
             
             
 
-
-<section id="comments">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'cuixiaochen'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
 
 
         </div>
@@ -290,10 +247,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "Bash script 笔记（一）",
+    title: "XiaochenCui_Blog",
     pic: "/img/lego1.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/index.html"
+    url: "http://www.cuixiaochen.com/motto/index.html"
 };
 </script>
 <div class="global-share" id="global-share">
