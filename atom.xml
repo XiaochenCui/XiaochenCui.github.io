@@ -1189,7 +1189,7 @@
     <link href="http://www.cuixiaochen.com/2016/08/01/Matplotlib-%E5%88%B6%E4%BD%9C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B4%AF%E5%8A%A0%E5%99%A8-visual-accumulator/"/>
     <id>http://www.cuixiaochen.com/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/</id>
     <published>2016-08-01T03:05:19.000Z</published>
-    <updated>2017-07-27T07:55:05.914Z</updated>
+    <updated>2017-07-27T08:09:20.953Z</updated>
     
     <content type="html"><![CDATA[<p>用 matplotlib 制作的可视化累加器，主要用于查找算法的可视化。</p>
 <a id="more"></a>
@@ -1209,7 +1209,7 @@
 <ul>
 <li>运行结果：</li>
 </ul>
-<p><img src="/src/img/2016-08-01 15:21:06 屏幕截图.png" alt=""></p>
+<p><img src="/src/img/operation_result.png" alt=""></p>
 ]]></content>
     
     <summary type="html">
