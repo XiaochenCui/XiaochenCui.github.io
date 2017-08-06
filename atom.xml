@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-07-27T07:54:42.014Z</updated>
+  <updated>2017-08-06T10:36:02.947Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -14,6 +14,104 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Process Vs Thread</title>
+    <link href="http://www.cuixiaochen.com/2017/08/05/Process-Vs-Thread/"/>
+    <id>http://www.cuixiaochen.com/2017/08/05/Process-Vs-Thread/</id>
+    <published>2017-08-05T14:32:40.000Z</published>
+    <updated>2017-08-06T10:36:02.947Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Key difference:</strong><br>Thread and Process are two closely related terms in multi-threading. The main difference between the two terms is that the threads are a part of a process, i.e. a process may contain one or more threads, but a thread cannot contain a process.</p>
+<a id="more"></a>
+<h1 id="Difference-between-process-and-thread"><a href="#Difference-between-process-and-thread" class="headerlink" title="Difference between process and thread"></a>Difference between process and thread</h1><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Process</th>
+<th style="text-align:center">Thread</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Definition</td>
+<td style="text-align:center">An executing instance of a programis called a process.</td>
+<td style="text-align:center">A thread is a subset of the process.</td>
+</tr>
+<tr>
+<td style="text-align:center">Process</td>
+<td style="text-align:center">It has its own copy of the data segment of the parent process.</td>
+<td style="text-align:center">It has direct access to the data segment of its process.</td>
+</tr>
+<tr>
+<td style="text-align:center">Communication</td>
+<td style="text-align:center">Process must use inter-process communication to communicate with sibling processes.</td>
+<td style="text-align:center">Threads can directly communicate with other threads of its process.</td>
+</tr>
+<tr>
+<td style="text-align:center">Overheads</td>
+<td style="text-align:center">Process have considerable overhead.</td>
+<td style="text-align:center">Threads have almost no overhead.</td>
+</tr>
+<tr>
+<td style="text-align:center">Creation</td>
+<td style="text-align:center">New processes require duplication of the parent process.</td>
+<td style="text-align:center">New threads are easily created.</td>
+</tr>
+<tr>
+<td style="text-align:center">Control</td>
+<td style="text-align:center">Processes can only exercise control over child processes.</td>
+<td style="text-align:center">Threads can exercise considerable control over threads of the same process.</td>
+</tr>
+<tr>
+<td style="text-align:center">Changes</td>
+<td style="text-align:center">Any changes in the parent process does not affect child processes.</td>
+<td style="text-align:center">Any change in the main thread may affect the behavior of the other threads of the process.</td>
+</tr>
+<tr>
+<td style="text-align:center">Memory</td>
+<td style="text-align:center">Run in separate memory spaces.</td>
+<td style="text-align:center">Run in shared memory spaces.</td>
+</tr>
+<tr>
+<td style="text-align:center">File descriptors</td>
+<td style="text-align:center">Most file descriptors are not shared.</td>
+<td style="text-align:center">It shared file descriptors.</td>
+</tr>
+<tr>
+<td style="text-align:center">File system</td>
+<td style="text-align:center">There is no sharing of file system context.</td>
+<td style="text-align:center">It shares file system context.</td>
+</tr>
+<tr>
+<td style="text-align:center">Signal</td>
+<td style="text-align:center">It does not share signal handling.</td>
+<td style="text-align:center">It shares signal handling.</td>
+</tr>
+<tr>
+<td style="text-align:center">Controlled by</td>
+<td style="text-align:center">Process is controlled by the operating system.</td>
+<td style="text-align:center">Threads are controlled by programmer in program.</td>
+</tr>
+<tr>
+<td style="text-align:center">Dependence</td>
+<td style="text-align:center">Processes are independent.</td>
+<td style="text-align:center">Threads are dependent.</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Key difference:&lt;/strong&gt;&lt;br&gt;Thread and Process are two closely related terms in multi-threading. The main difference between the two terms is that the threads are a part of a process, i.e. a process may contain one or more threads, but a thread cannot contain a process.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="operation system" scheme="http://www.cuixiaochen.com/tags/operation-system/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 资源大全中文版（个人镜像）</title>
@@ -1189,7 +1287,7 @@
     <link href="http://www.cuixiaochen.com/2016/08/01/Matplotlib-%E5%88%B6%E4%BD%9C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B4%AF%E5%8A%A0%E5%99%A8-visual-accumulator/"/>
     <id>http://www.cuixiaochen.com/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/</id>
     <published>2016-08-01T03:05:19.000Z</published>
-    <updated>2017-07-27T08:09:20.953Z</updated>
+    <updated>2017-07-27T08:10:30.194Z</updated>
     
     <content type="html"><![CDATA[<p>用 matplotlib 制作的可视化累加器，主要用于查找算法的可视化。</p>
 <a id="more"></a>
