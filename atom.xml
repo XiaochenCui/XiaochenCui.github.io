@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-08-06T10:36:02.947Z</updated>
+  <updated>2017-08-20T08:10:46.913Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日目标自查列表</title>
+    <link href="http://www.cuixiaochen.com/2017/08/20/%E6%AF%8F%E6%97%A5%E7%9B%AE%E6%A0%87%E8%87%AA%E6%9F%A5%E5%88%97%E8%A1%A8/"/>
+    <id>http://www.cuixiaochen.com/2017/08/20/每日目标自查列表/</id>
+    <published>2017-08-20T07:47:03.000Z</published>
+    <updated>2017-08-20T08:10:46.913Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>学习如逆水行舟，不进则退；生命更甚，不进则亡。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="2017-年"><a href="#2017-年" class="headerlink" title="2017 年"></a>2017 年</h1><h2 id="8-月"><a href="#8-月" class="headerlink" title="8 月"></a>8 月</h2><h3 id="20-日"><a href="#20-日" class="headerlink" title="20 日"></a>20 日</h3><ul>
+<li>[ ] 了解地理信息索引</li>
+<li>[x] 收拾房间</li>
+<li>[ ] 做一道 leetcode</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;学习如逆水行舟，不进则退；生命更甚，不进则亡。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="life" scheme="http://www.cuixiaochen.com/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>Process Vs Thread</title>
@@ -1227,7 +1258,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文仅供个人备份，读者请移步原地址： &lt;a href=&quot;https://github.com/jobbole/awesome-python-cn/blob/master/README.md&quot;&gt;Python 资源大全中文版&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;本文仅供个人备份，读者请移步原地址： &lt;a href=&quot;https://github.com/jobbole/awesome-python-cn/blob/master/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python 资源大全中文版&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -1317,9 +1348,9 @@
     </summary>
     
     
-      <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
-    
       <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
+    
+      <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
     
       <category term="algorithm" scheme="http://www.cuixiaochen.com/tags/algorithm/"/>
     
@@ -1548,7 +1579,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;原文地址： &lt;a href=&quot;http://www.panix.com/~elflord/unix/bash-tute.html&quot;&gt;bash-tute&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;原文地址： &lt;a href=&quot;http://www.panix.com/~elflord/unix/bash-tute.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bash-tute&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
