@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-09-12T12:00:32.664Z</updated>
+  <updated>2017-09-01T14:04:03.195Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -14,39 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>减肥计划</title>
-    <link href="http://www.cuixiaochen.com/2017/09/12/%E5%87%8F%E8%82%A5%E8%AE%A1%E5%88%92/"/>
-    <id>http://www.cuixiaochen.com/2017/09/12/减肥计划/</id>
-    <published>2017-09-12T11:55:41.000Z</published>
-    <updated>2017-09-12T12:00:32.664Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>将体重减到 140 斤</p>
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><ul>
-<li><p>将晚饭削减至 50%（如果 10 天后效果不明显，取消晚饭）</p>
-</li>
-<li><p>吃饭的时候吃慢点</p>
-</li>
-<li><p>每天至少走路 30 分钟</p>
-</li>
-</ul>
-<h1 id="减肥过程可视化"><a href="#减肥过程可视化" class="headerlink" title="减肥过程可视化"></a>减肥过程可视化</h1><ul>
-<li>matplotlib</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;/a&gt;目标&lt;/h1&gt;&lt;p&gt;将体重减到 140 斤&lt;/p&gt;
-&lt;h1 id=&quot;实现方法&quot;&gt;&lt;a href=&quot;#实现方法&quot; class=&quot;headerlink&quot; title
-    
-    </summary>
-    
-    
-      <category term="life" scheme="http://www.cuixiaochen.com/tags/life/"/>
-    
-  </entry>
   
   <entry>
     <title>谈论婚姻时，我们在谈论什么</title>
@@ -75,30 +42,6 @@
     <summary type="html">
     
       &lt;p&gt;　　那时候我在上《中国近代文学史》，老师花费了两个礼拜和我们讲述了四位著名作家的生平，尤其是他们的婚姻部分。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="life" scheme="http://www.cuixiaochen.com/tags/life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>教我如何不想她</title>
-    <link href="http://www.cuixiaochen.com/2017/08/26/%E6%95%99%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%8D%E6%83%B3%E5%A5%B9/"/>
-    <id>http://www.cuixiaochen.com/2017/08/26/教我如何不想她/</id>
-    <published>2017-08-26T07:03:02.000Z</published>
-    <updated>2017-08-26T07:04:06.243Z</updated>
-    
-    <content type="html"><![CDATA[<p>教我如何不想她</p>
-<a id="more"></a>
-<p>天上飘着些微云，<br>地上吹着些微风。<br>啊！<br>微风吹动了我的头发，<br>教我如何不想她？<br>月光恋爱着海洋，<br>海洋恋爱着月光。<br>啊！<br>这般蜜也似的银夜。<br>教我如何不想她？<br>水面落花慢慢流，<br>水底鱼儿慢慢游。<br>啊！<br>燕子你说些什么话？<br>教我如何不想她？<br>枯树在冷风里摇，<br>野火在暮色中烧。<br>啊！<br>西天还有些儿残霞，<br>教我如何不想她？</p>
-<p>——— 刘半农 1920.9.4</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;教我如何不想她&lt;/p&gt;
     
     </summary>
     
