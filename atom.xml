@@ -1317,9 +1317,9 @@
     </summary>
     
     
-      <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
-    
       <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
+    
+      <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
     
       <category term="algorithm" scheme="http://www.cuixiaochen.com/tags/algorithm/"/>
     
@@ -1562,7 +1562,7 @@
     <link href="http://www.cuixiaochen.com/2016/05/20/Mongodb-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
     <id>http://www.cuixiaochen.com/2016/05/20/Mongodb-常见报错及解决方案/</id>
     <published>2016-05-20T06:55:35.000Z</published>
-    <updated>2017-07-27T07:54:55.646Z</updated>
+    <updated>2017-09-24T05:38:13.483Z</updated>
     
     <content type="html"><![CDATA[<p>最近在使用 mongodb 的过程中遇到了一些棘手的错误，所以做了一个笔记以供参考</p>
 <a id="more"></a>
@@ -1592,7 +1592,10 @@
 <li><p>重启 mongodb</p>
 </li>
 </ol>
-<p>参考：<a href="http://askubuntu.com/questions/536875/error-in-installing-mongo-in-virtual-machine/537324" target="_blank" rel="external">virtualbox - error in installing mongo in virtual machine - Ask Ubuntu</a></p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://askubuntu.com/questions/536875/error-in-installing-mongo-in-virtual-machine/537324" target="_blank" rel="external">virtualbox - error in installing mongo in virtual machine - Ask Ubuntu</a></li>
+</ul>
 ]]></content>
     
     <summary type="html">
