@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-08-06T10:36:02.947Z</updated>
+  <updated>2017-09-28T06:06:14.883Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello, named pipe</title>
+    <link href="http://www.cuixiaochen.com/2017/09/28/Hello-named-pipe/"/>
+    <id>http://www.cuixiaochen.com/2017/09/28/Hello-named-pipe/</id>
+    <published>2017-09-28T06:02:13.000Z</published>
+    <updated>2017-09-28T06:06:14.883Z</updated>
+    
+    <content type="html"><![CDATA[<p>参考：</p>
+<ul>
+<li><a href="http://www.linuxjournal.com/article/2156" target="_blank" rel="external">Introduction to Named Pipes</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.linuxjournal.com/article/2156&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Introduction to Named Pipes&lt;/a&gt;&lt;/li&gt;
+&lt;
+    
+    </summary>
+    
+    
+      <category term="Inter-process communication" scheme="http://www.cuixiaochen.com/tags/Inter-process-communication/"/>
+    
+  </entry>
   
   <entry>
     <title>Process Vs Thread</title>
@@ -1317,9 +1344,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
-    
       <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
+    
+      <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
     
       <category term="algorithm" scheme="http://www.cuixiaochen.com/tags/algorithm/"/>
     
