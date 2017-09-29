@@ -1,178 +1,359 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <title>N 皇后问题解法汇总及分析 (python) | XiaochenCui_Blog | 千里之行 始于足下</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="theme-color" content="#3F51B5">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
   
   
-  <meta name="keywords" content="python,algorithm">
-  <meta name="description" content="N 皇后问题是回溯算法的典型案例，本文通过 N 皇后问题复习递归 / 回溯算法并运用一些 python 函数库简化程序。">
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python,algorithm," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="XiaochenCui_Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="N 皇后问题是回溯算法的典型案例，本文通过 N 皇后问题复习递归 / 回溯算法并运用一些 python 函数库简化程序。">
 <meta name="keywords" content="python,algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="N 皇后问题解法汇总及分析 (python)">
 <meta property="og:url" content="http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/index.html">
 <meta property="og:site_name" content="XiaochenCui_Blog">
 <meta property="og:description" content="N 皇后问题是回溯算法的典型案例，本文通过 N 皇后问题复习递归 / 回溯算法并运用一些 python 函数库简化程序。">
-<meta property="og:locale" content="CN">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-07-27T07:54:51.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="N 皇后问题解法汇总及分析 (python)">
 <meta name="twitter:description" content="N 皇后问题是回溯算法的典型案例，本文通过 N 皇后问题复习递归 / 回溯算法并运用一些 python 函数库简化程序。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/"/>
+
+
+
+
+
+  <title>N 皇后问题解法汇总及分析 (python) | XiaochenCui_Blog</title>
   
-    <link rel="alternative" href="/atom.xml" title="XiaochenCui_Blog" type="application/atom+xml">
-  
-  <meta name="summary" content="&lt;p&gt;N 皇后问题是回溯算法的典型案例，本文通过 N 皇后问题复习递归 / 回溯算法并运用一些 python 函数库简化程序。&lt;/p&gt;">
-  <link rel="shortcut icon" href="/img/home.png">
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <nav id="menu" class="hide" >
-   <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src="/img/lego1.jpg"></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">Xiaochen Cui</h5>
-        <a href="mailto:jcnlcxc.new@gmail.com" title="jcnlcxc.new@gmail.com" class="mail">jcnlcxc.new@gmail.com</a>
-      </hgroup>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaochenCui_Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle">千里之行 始于足下</p>
+      
   </div>
-  <div class="scroll-wrap flex-col">
-    <ul class="nav">
-      
-          <li class="waves-block waves-effect">
-            <a href="/"  >
-              <i class="icon icon-lg icon-home"></i>
-              主页
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/archives"  >
-              <i class="icon icon-lg icon-archives"></i>
-              文章
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/tags"  >
-              <i class="icon icon-lg icon-tags"></i>
-              标签
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="https://github.com/XiaochenCui" target="_blank" >
-              <i class="icon icon-lg icon-github"></i>
-              Github
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="http://www.cnblogs.com/cuixiaochen/" target="_blank" >
-              <i class="icon icon-lg icon-book"></i>
-              旧博客
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/aboutme"  >
-              <i class="icon icon-lg icon-tree"></i>
-              关于我
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/motto"  >
-              <i class="icon icon-lg icon-diamond"></i>
-              motto
-            </a>
-          </li>
-      
-    </ul>
 
-    <footer class="footer">
-  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
-  <p>XiaochenCui_Blog &copy; 2017</p>
-  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
-  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
-  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
-</footer>
-
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
 </div>
 
-  </nav>
-  <main id="main">
-    <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">N 皇后问题解法汇总及分析 (python)</div>
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            存档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaochen Cui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui_Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">N 皇后问题解法汇总及分析 (python)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-18T20:26:29+08:00">
+                2016-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/18/N皇后问题解法汇总及分析-python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/08/18/N皇后问题解法汇总及分析-python/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        
-        
-    </div>
-</header>
-<header class="content-header">
-  <div class="container">
-    <h1 class="author">N 皇后问题解法汇总及分析 (python)</h1>
-    <h5 class="subtitle">
-        
-            <time datetime="2016-08-18T12:26:29.000Z" itemprop="datePublished" class="page-time">
-  2016-08-18
-</time>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-        
-    </h5>
-  </div>
-</header>
+      
+      
 
-    <div class="container body-wrap">
-      <article id="post-N皇后问题解法汇总及分析-python" 
-  class="article article-type-post" itemprop="blogPost">
-    <div class="post-meta flex-row">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    <div class="post-body">
-        <aside class="post-widget" id="post-widget">
-
-            
-
-            
-            <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最容易理解的递归解法"><span class="post-toc-number">1.</span> <span class="post-toc-text">最容易理解的递归解法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Raymond-Hettingers-的解法（使用-permutations）"><span class="post-toc-number">2.</span> <span class="post-toc-text">Raymond Hettingers 的解法（使用 permutations）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Steve-Howell-的解法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Steve Howell 的解法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#由-Steve-Howell-的解法改进而来的回溯解法"><span class="post-toc-number">4.</span> <span class="post-toc-text">由 Steve Howell 的解法改进而来的回溯解法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基于-permutations-的回溯解法"><span class="post-toc-number">5.</span> <span class="post-toc-text">基于 permutations 的回溯解法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考链接</span></a></li></ol>
-            </nav>
-            
-        </aside>
-
-        <div class="post-main">
-
-            <div class="post-content" id="post-content" itemprop="postContent">
-            <p>N 皇后问题是回溯算法的典型案例，本文通过 N 皇后问题复习递归 / 回溯算法并运用一些 python 函数库简化程序。</p>
+      
+        <p>N 皇后问题是回溯算法的典型案例，本文通过 N 皇后问题复习递归 / 回溯算法并运用一些 python 函数库简化程序。</p>
 <a id="more"></a>
 <h3 id="最容易理解的递归解法"><a href="#最容易理解的递归解法" class="headerlink" title="最容易理解的递归解法"></a>最容易理解的递归解法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># board 存储一种解法（作为缓存）</span></div><div class="line">        self.board = []</div><div class="line">        <span class="comment"># boards 存储所有解法（作为结果）</span></div><div class="line">        self.boards = []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve_n_queens</span><span class="params">(self, n)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :param n: int:</div><div class="line">        :return: self.boards: list[list[int]]</div><div class="line">        """</div><div class="line">        self.board = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]</div><div class="line">        self.solve_line(<span class="number">0</span>, n)</div><div class="line">        <span class="keyword">return</span> self.boards</div><div class="line"></div><div class="line">    <span class="comment"># 解决前 row 列</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve_line</span><span class="params">(self, row, n)</span>:</span></div><div class="line">        <span class="keyword">if</span> row == n:</div><div class="line">            self.boards.append([i <span class="keyword">for</span> i <span class="keyword">in</span> self.board])</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">for</span> col <span class="keyword">in</span> range(n):</div><div class="line">                <span class="keyword">if</span> self.is_valid(row, col):</div><div class="line">                    self.board[row] = col</div><div class="line">                    self.solve_line(row + <span class="number">1</span>, n)</div><div class="line">                    self.board[row] = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="comment"># 监测 (row,col) 是否与 0~row-1 行发生冲突</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_valid</span><span class="params">(self, row, col)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(row):</div><div class="line">            <span class="keyword">if</span> self.board[i] == col:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            <span class="keyword">if</span> i+self.board[i] == row+col:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">            <span class="keyword">if</span> i-self.board[i] == row-col:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    s = Solution()</div><div class="line">    r = s.solve_n_queens(<span class="number">8</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> r:</div><div class="line">        print(i)</div></pre></td></tr></table></figure>
 <h3 id="Raymond-Hettingers-的解法（使用-permutations）"><a href="#Raymond-Hettingers-的解法（使用-permutations）" class="headerlink" title="Raymond Hettingers 的解法（使用 permutations）"></a>Raymond Hettingers 的解法（使用 permutations）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations</div><div class="line"></div><div class="line">n = <span class="number">8</span></div><div class="line">cols = range(n)</div><div class="line"><span class="keyword">for</span> vec <span class="keyword">in</span> permutations(cols):</div><div class="line">    <span class="keyword">if</span> n == len(set(vec[i]+i <span class="keyword">for</span> i <span class="keyword">in</span> cols)) \</div><div class="line">         == len(set(vec[i]-i <span class="keyword">for</span> i <span class="keyword">in</span> cols)):</div><div class="line">        <span class="keyword">print</span> ( vec )</div></pre></td></tr></table></figure>
@@ -197,114 +378,386 @@
 </ul>
 <p>（未完待续）</p>
 
-
-            
-            
-            <blockquote>
-                <p>
-                本文地址：
-                <a href="http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/" target="_blank" rel="external">http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/</a>
-                </p>
-                <footer><cite><a href="http://www.cuixiaochen.com">@XiaochenCui_Blog</a></cite></footer>
-            </blockquote>
-            </div>
-            
-<nav class="post-nav">
-  
-    <div class="waves-block waves-effect prev fl">
-      <a href="/2016/08/19/Python-资源大全中文版（个人镜像）/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Python 资源大全中文版（个人镜像）</h4>
-      </a>
+      
     </div>
-  
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/" rel="next" title="Matplotlib 制作可视化累加器 (visual accumulator)">
+                <i class="fa fa-chevron-left"></i> Matplotlib 制作可视化累加器 (visual accumulator)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/19/Python-资源大全中文版（个人镜像）/" rel="prev" title="Python 资源大全中文版（个人镜像）">
+                Python 资源大全中文版（个人镜像） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-    <div class="waves-block waves-effect next fr">
-      <a href="/2016/08/01/Matplotlib-制作可视化累加器-visual-accumulator/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Matplotlib 制作可视化累加器 (visual accumulator)</h4>
-      </a>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
-  
-</nav>
+  </div>
 
 
-            
-            
+          </div>
+          
 
 
-<section id="comments">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'cuixiaochen'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-</article>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/lego1.jpg"
+               alt="Xiaochen Cui" />
+          <p class="site-author-name" itemprop="name">Xiaochen Cui</p>
+           
+              <p class="site-description motion-element" itemprop="description">崔晓晨的个人博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最容易理解的递归解法"><span class="nav-number">1.</span> <span class="nav-text">最容易理解的递归解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Raymond-Hettingers-的解法（使用-permutations）"><span class="nav-number">2.</span> <span class="nav-text">Raymond Hettingers 的解法（使用 permutations）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Steve-Howell-的解法"><span class="nav-number">3.</span> <span class="nav-text">Steve Howell 的解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#由-Steve-Howell-的解法改进而来的回溯解法"><span class="nav-number">4.</span> <span class="nav-text">由 Steve Howell 的解法改进而来的回溯解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于-permutations-的回溯解法"><span class="nav-number">5.</span> <span class="nav-text">基于 permutations 的回溯解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
 
     </div>
-  </main>
-<div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-
-<script src="/js/main.js"></script>
+  </aside>
 
 
+        
+      </div>
+    </main>
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaochen Cui</span>
 </div>
-<script type="text/template" id="search-tpl">
-<li class="item">
-    <a href="/{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</script>
-
-<script src="/js/search.js"></script>
 
 
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
 
 
+        
 
+        
+      </div>
+    </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
-<!-- Google Analytics -->
+  </div>
+
+  
+
 <script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-82276339-1', 'auto');
-ga('send', 'pageview');
-
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
-<!-- End Google Analytics -->
 
 
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://cuixiaochen.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.cuixiaochen.com/2016/08/18/N皇后问题解法汇总及分析-python/';
+          this.page.identifier = '2016/08/18/N皇后问题解法汇总及分析-python/';
+          this.page.title = 'N 皇后问题解法汇总及分析 (python)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cuixiaochen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

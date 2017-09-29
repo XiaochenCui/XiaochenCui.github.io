@@ -1,180 +1,361 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <title>Python 资源大全中文版（个人镜像） | XiaochenCui_Blog | 千里之行 始于足下</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="theme-color" content="#3F51B5">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
   
   
-  <meta name="keywords" content="python">
-  <meta name="description" content="本文仅供个人备份，读者请移步原地址： Python 资源大全中文版">
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="XiaochenCui_Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="本文仅供个人备份，读者请移步原地址： Python 资源大全中文版">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 资源大全中文版（个人镜像）">
 <meta property="og:url" content="http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/index.html">
 <meta property="og:site_name" content="XiaochenCui_Blog">
 <meta property="og:description" content="本文仅供个人备份，读者请移步原地址： Python 资源大全中文版">
-<meta property="og:locale" content="CN">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww3.sinaimg.cn/small/63918611gw1epb2cbm6cmj2046046wek.jpg">
 <meta property="og:updated_time" content="2017-07-27T07:54:42.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 资源大全中文版（个人镜像）">
 <meta name="twitter:description" content="本文仅供个人备份，读者请移步原地址： Python 资源大全中文版">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/small/63918611gw1epb2cbm6cmj2046046wek.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/"/>
+
+
+
+
+
+  <title>Python 资源大全中文版（个人镜像） | XiaochenCui_Blog</title>
   
-    <link rel="alternative" href="/atom.xml" title="XiaochenCui_Blog" type="application/atom+xml">
-  
-  <meta name="summary" content="&lt;p&gt;本文仅供个人备份，读者请移步原地址： &lt;a href=&quot;https://github.com/jobbole/awesome-python-cn/blob/master/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python 资源大全中文版&lt;/a&gt;&lt;/p&gt;">
-  <link rel="shortcut icon" href="/img/home.png">
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <nav id="menu" class="hide" >
-   <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src="/img/lego1.jpg"></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">Xiaochen Cui</h5>
-        <a href="mailto:jcnlcxc.new@gmail.com" title="jcnlcxc.new@gmail.com" class="mail">jcnlcxc.new@gmail.com</a>
-      </hgroup>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaochenCui_Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle">千里之行 始于足下</p>
+      
   </div>
-  <div class="scroll-wrap flex-col">
-    <ul class="nav">
-      
-          <li class="waves-block waves-effect">
-            <a href="/"  >
-              <i class="icon icon-lg icon-home"></i>
-              主页
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/archives"  >
-              <i class="icon icon-lg icon-archives"></i>
-              文章
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/tags"  >
-              <i class="icon icon-lg icon-tags"></i>
-              标签
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="https://github.com/XiaochenCui" target="_blank" >
-              <i class="icon icon-lg icon-github"></i>
-              Github
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="http://www.cnblogs.com/cuixiaochen/" target="_blank" >
-              <i class="icon icon-lg icon-book"></i>
-              旧博客
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/aboutme"  >
-              <i class="icon icon-lg icon-tree"></i>
-              关于我
-            </a>
-          </li>
-      
-          <li class="waves-block waves-effect">
-            <a href="/motto"  >
-              <i class="icon icon-lg icon-diamond"></i>
-              motto
-            </a>
-          </li>
-      
-    </ul>
 
-    <footer class="footer">
-  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
-  <p>XiaochenCui_Blog &copy; 2017</p>
-  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
-  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
-  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
-</footer>
-
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
 </div>
 
-  </nav>
-  <main id="main">
-    <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Python 资源大全中文版（个人镜像）</div>
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            存档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaochen Cui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui_Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python 资源大全中文版（个人镜像）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-19T16:37:45+08:00">
+                2016-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/19/Python-资源大全中文版（个人镜像）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/08/19/Python-资源大全中文版（个人镜像）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        
-        
-    </div>
-</header>
-<header class="content-header">
-  <div class="container">
-    <h1 class="author">Python 资源大全中文版（个人镜像）</h1>
-    <h5 class="subtitle">
-        
-            <time datetime="2016-08-19T08:37:45.000Z" itemprop="datePublished" class="page-time">
-  2016-08-19
-</time>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-        
-    </h5>
-  </div>
-</header>
+      
+      
 
-    <div class="container body-wrap">
-      <article id="post-Python-资源大全中文版（个人镜像）" 
-  class="article article-type-post" itemprop="blogPost">
-    <div class="post-meta flex-row">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    <div class="post-body">
-        <aside class="post-widget" id="post-widget">
-
-            
-
-            
-            <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python-资源大全中文版"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python 资源大全中文版</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#我们要做什么？"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">我们要做什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何参与本项目？"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">如何参与本项目？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何为列表贡献新资源？"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">如何为列表贡献新资源？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本项目的参与者"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">本项目的参与者</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#奖励计划"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">奖励计划</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境管理"><span class="post-toc-number">1.0.6.</span> <span class="post-toc-text">环境管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#包管理"><span class="post-toc-number">1.0.7.</span> <span class="post-toc-text">包管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#包仓库"><span class="post-toc-number">1.0.8.</span> <span class="post-toc-text">包仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分发"><span class="post-toc-number">1.0.9.</span> <span class="post-toc-text">分发</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建工具"><span class="post-toc-number">1.0.10.</span> <span class="post-toc-text">构建工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#交互式解析器"><span class="post-toc-number">1.0.11.</span> <span class="post-toc-text">交互式解析器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件"><span class="post-toc-number">1.0.12.</span> <span class="post-toc-text">文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日期和时间"><span class="post-toc-number">1.0.13.</span> <span class="post-toc-text">日期和时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文本处理"><span class="post-toc-number">1.0.14.</span> <span class="post-toc-text">文本处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特殊文本格式处理"><span class="post-toc-number">1.0.15.</span> <span class="post-toc-text">特殊文本格式处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自然语言处理"><span class="post-toc-number">1.0.16.</span> <span class="post-toc-text">自然语言处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文档"><span class="post-toc-number">1.0.17.</span> <span class="post-toc-text">文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置"><span class="post-toc-number">1.0.18.</span> <span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令行工具"><span class="post-toc-number">1.0.19.</span> <span class="post-toc-text">命令行工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载器"><span class="post-toc-number">1.0.20.</span> <span class="post-toc-text">下载器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图像处理"><span class="post-toc-number">1.0.21.</span> <span class="post-toc-text">图像处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OCR"><span class="post-toc-number">1.0.22.</span> <span class="post-toc-text">OCR</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#音频"><span class="post-toc-number">1.0.23.</span> <span class="post-toc-text">音频</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Video"><span class="post-toc-number">1.0.24.</span> <span class="post-toc-text">Video</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#地理位置"><span class="post-toc-number">1.0.25.</span> <span class="post-toc-text">地理位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP"><span class="post-toc-number">1.0.26.</span> <span class="post-toc-text">HTTP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据库"><span class="post-toc-number">1.0.27.</span> <span class="post-toc-text">数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据库驱动"><span class="post-toc-number">1.0.28.</span> <span class="post-toc-text">数据库驱动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ORM"><span class="post-toc-number">1.0.29.</span> <span class="post-toc-text">ORM</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Web-框架"><span class="post-toc-number">1.0.30.</span> <span class="post-toc-text">Web 框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#权限"><span class="post-toc-number">1.0.31.</span> <span class="post-toc-text">权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CMS"><span class="post-toc-number">1.0.32.</span> <span class="post-toc-text">CMS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电子商务"><span class="post-toc-number">1.0.33.</span> <span class="post-toc-text">电子商务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RESTful-API"><span class="post-toc-number">1.0.34.</span> <span class="post-toc-text">RESTful API</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证"><span class="post-toc-number">1.0.35.</span> <span class="post-toc-text">验证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模板引擎"><span class="post-toc-number">1.0.36.</span> <span class="post-toc-text">模板引擎</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Queue"><span class="post-toc-number">1.0.37.</span> <span class="post-toc-text">Queue</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搜索"><span class="post-toc-number">1.0.38.</span> <span class="post-toc-text">搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态消息"><span class="post-toc-number">1.0.39.</span> <span class="post-toc-text">动态消息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#资源管理"><span class="post-toc-number">1.0.40.</span> <span class="post-toc-text">资源管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缓存"><span class="post-toc-number">1.0.41.</span> <span class="post-toc-text">缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电子邮件"><span class="post-toc-number">1.0.42.</span> <span class="post-toc-text">电子邮件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#国际化"><span class="post-toc-number">1.0.43.</span> <span class="post-toc-text">国际化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#URL-处理"><span class="post-toc-number">1.0.44.</span> <span class="post-toc-text">URL 处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTML-处理"><span class="post-toc-number">1.0.45.</span> <span class="post-toc-text">HTML 处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网页内容提取"><span class="post-toc-number">1.0.46.</span> <span class="post-toc-text">网页内容提取</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表单"><span class="post-toc-number">1.0.47.</span> <span class="post-toc-text">表单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据验证"><span class="post-toc-number">1.0.48.</span> <span class="post-toc-text">数据验证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反垃圾技术"><span class="post-toc-number">1.0.49.</span> <span class="post-toc-text">反垃圾技术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标记"><span class="post-toc-number">1.0.50.</span> <span class="post-toc-text">标记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#管理面板"><span class="post-toc-number">1.0.51.</span> <span class="post-toc-text">管理面板</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#静态站点生成器"><span class="post-toc-number">1.0.52.</span> <span class="post-toc-text">静态站点生成器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程"><span class="post-toc-number">1.0.53.</span> <span class="post-toc-text">进程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#并发和并行"><span class="post-toc-number">1.0.54.</span> <span class="post-toc-text">并发和并行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络"><span class="post-toc-number">1.0.55.</span> <span class="post-toc-text">网络</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#WebSocket"><span class="post-toc-number">1.0.56.</span> <span class="post-toc-text">WebSocket</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#WSGI-服务器"><span class="post-toc-number">1.0.57.</span> <span class="post-toc-text">WSGI 服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RPC-服务器"><span class="post-toc-number">1.0.58.</span> <span class="post-toc-text">RPC 服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密码学"><span class="post-toc-number">1.0.59.</span> <span class="post-toc-text">密码学</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图形用户界面"><span class="post-toc-number">1.0.60.</span> <span class="post-toc-text">图形用户界面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#游戏开发"><span class="post-toc-number">1.0.61.</span> <span class="post-toc-text">游戏开发</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日志"><span class="post-toc-number">1.0.62.</span> <span class="post-toc-text">日志</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Testing"><span class="post-toc-number">1.0.63.</span> <span class="post-toc-text">Testing</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码分析和-Lint-工具"><span class="post-toc-number">1.0.64.</span> <span class="post-toc-text">代码分析和 Lint 工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Debugging-Tools"><span class="post-toc-number">1.0.65.</span> <span class="post-toc-text">Debugging Tools</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Science-and-Data-Analysis"><span class="post-toc-number">1.0.66.</span> <span class="post-toc-text">Science and Data Analysis</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据可视化"><span class="post-toc-number">1.0.67.</span> <span class="post-toc-text">数据可视化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算机视觉"><span class="post-toc-number">1.0.68.</span> <span class="post-toc-text">计算机视觉</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#机器学习"><span class="post-toc-number">1.0.69.</span> <span class="post-toc-text">机器学习</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MapReduce"><span class="post-toc-number">1.0.70.</span> <span class="post-toc-text">MapReduce</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数式编程"><span class="post-toc-number">1.0.71.</span> <span class="post-toc-text">函数式编程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三方-API"><span class="post-toc-number">1.0.72.</span> <span class="post-toc-text">第三方 API</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DevOps-工具"><span class="post-toc-number">1.0.73.</span> <span class="post-toc-text">DevOps 工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#任务调度"><span class="post-toc-number">1.0.74.</span> <span class="post-toc-text">任务调度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#外来函数接口"><span class="post-toc-number">1.0.75.</span> <span class="post-toc-text">外来函数接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#高性能"><span class="post-toc-number">1.0.76.</span> <span class="post-toc-text">高性能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#微软的-Windows-平台"><span class="post-toc-number">1.0.77.</span> <span class="post-toc-text">微软的 Windows 平台</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络可视化和-SDN"><span class="post-toc-number">1.0.78.</span> <span class="post-toc-text">网络可视化和 SDN</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#硬件"><span class="post-toc-number">1.0.79.</span> <span class="post-toc-text">硬件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#兼容性"><span class="post-toc-number">1.0.80.</span> <span class="post-toc-text">兼容性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#杂项"><span class="post-toc-number">1.0.81.</span> <span class="post-toc-text">杂项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算法和设计模式"><span class="post-toc-number">1.0.82.</span> <span class="post-toc-text">算法和设计模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编辑器插件"><span class="post-toc-number">1.0.83.</span> <span class="post-toc-text">编辑器插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#集成开发环境"><span class="post-toc-number">1.0.84.</span> <span class="post-toc-text">集成开发环境</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#持续集成"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">持续集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码质量"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">代码质量</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">资源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网站"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">网站</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#周刊"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">周刊</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Twitter"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Twitter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学习指南"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">学习指南</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#websites"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">知名网站</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.2.5.1.</span> <span class="post-toc-text">中文站点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.2.5.2.</span> <span class="post-toc-text">英文站点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#weibo-weixin"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">微博、微信公众号</span></a></li></ol></li></ol></li></ol>
-            </nav>
-            
-        </aside>
-
-        <div class="post-main">
-
-            <div class="post-content" id="post-content" itemprop="postContent">
-            <p>本文仅供个人备份，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a></p>
+      
+        <p>本文仅供个人备份，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a></p>
 <a id="more"></a>
 <h1 id="Python-资源大全中文版"><a href="#Python-资源大全中文版" class="headerlink" title="Python 资源大全中文版"></a>Python 资源大全中文版</h1><p>我想很多程序员应该记得 GitHub 上有一个 Awesome - XXX 系列的资源整理。<a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">awesome-python</a> 是 vinta 发起维护的 Python 资源列表，内容包括：Web 框架、网络爬虫、网络内容提取、模板引擎、数据库、数据可视化、图片处理、文本处理、自然语言处理、机器学习、日志、代码分析等。由伯乐在线持续更新。</p>
 <p>Awesome 系列虽然挺全，但基本只对收录的资源做了极为简要的介绍，如果有更详细的中文介绍，对相应开发者的帮助会更大。这也是我们发起这个开源项目的初衷。</p>
@@ -1278,114 +1459,384 @@
 </ul>
 <p>本文仅供个人备份，读者请移步原地址： <a href="https://github.com/jobbole/awesome-python-cn/blob/master/README.md" target="_blank" rel="external">Python 资源大全中文版</a></p>
 
-
-            
-            
-            <blockquote>
-                <p>
-                本文地址：
-                <a href="http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/" target="_blank" rel="external">http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/</a>
-                </p>
-                <footer><cite><a href="http://www.cuixiaochen.com">@XiaochenCui_Blog</a></cite></footer>
-            </blockquote>
-            </div>
-            
-<nav class="post-nav">
-  
-    <div class="waves-block waves-effect prev fl">
-      <a href="/2017/08/05/Process-Vs-Thread/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Process Vs Thread</h4>
-      </a>
+      
     </div>
-  
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/18/N皇后问题解法汇总及分析-python/" rel="next" title="N 皇后问题解法汇总及分析 (python)">
+                <i class="fa fa-chevron-left"></i> N 皇后问题解法汇总及分析 (python)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/05/Process-Vs-Thread/" rel="prev" title="Process Vs Thread">
+                Process Vs Thread <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
   
-    <div class="waves-block waves-effect next fr">
-      <a href="/2016/08/18/N皇后问题解法汇总及分析-python/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">N 皇后问题解法汇总及分析 (python)</h4>
-      </a>
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
     </div>
-  
-</nav>
+  </div>
 
 
-            
-            
+          </div>
+          
 
 
-<section id="comments">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'cuixiaochen'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-</article>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/lego1.jpg"
+               alt="Xiaochen Cui" />
+          <p class="site-author-name" itemprop="name">Xiaochen Cui</p>
+           
+              <p class="site-description motion-element" itemprop="description">崔晓晨的个人博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-资源大全中文版"><span class="nav-number">1.</span> <span class="nav-text">Python 资源大全中文版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我们要做什么？"><span class="nav-number">1.0.1.</span> <span class="nav-text">我们要做什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何参与本项目？"><span class="nav-number">1.0.2.</span> <span class="nav-text">如何参与本项目？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何为列表贡献新资源？"><span class="nav-number">1.0.3.</span> <span class="nav-text">如何为列表贡献新资源？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本项目的参与者"><span class="nav-number">1.0.4.</span> <span class="nav-text">本项目的参与者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奖励计划"><span class="nav-number">1.0.5.</span> <span class="nav-text">奖励计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境管理"><span class="nav-number">1.0.6.</span> <span class="nav-text">环境管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包管理"><span class="nav-number">1.0.7.</span> <span class="nav-text">包管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包仓库"><span class="nav-number">1.0.8.</span> <span class="nav-text">包仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分发"><span class="nav-number">1.0.9.</span> <span class="nav-text">分发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建工具"><span class="nav-number">1.0.10.</span> <span class="nav-text">构建工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交互式解析器"><span class="nav-number">1.0.11.</span> <span class="nav-text">交互式解析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件"><span class="nav-number">1.0.12.</span> <span class="nav-text">文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期和时间"><span class="nav-number">1.0.13.</span> <span class="nav-text">日期和时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本处理"><span class="nav-number">1.0.14.</span> <span class="nav-text">文本处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊文本格式处理"><span class="nav-number">1.0.15.</span> <span class="nav-text">特殊文本格式处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自然语言处理"><span class="nav-number">1.0.16.</span> <span class="nav-text">自然语言处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档"><span class="nav-number">1.0.17.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.0.18.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行工具"><span class="nav-number">1.0.19.</span> <span class="nav-text">命令行工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载器"><span class="nav-number">1.0.20.</span> <span class="nav-text">下载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像处理"><span class="nav-number">1.0.21.</span> <span class="nav-text">图像处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OCR"><span class="nav-number">1.0.22.</span> <span class="nav-text">OCR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#音频"><span class="nav-number">1.0.23.</span> <span class="nav-text">音频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Video"><span class="nav-number">1.0.24.</span> <span class="nav-text">Video</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地理位置"><span class="nav-number">1.0.25.</span> <span class="nav-text">地理位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">1.0.26.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">1.0.27.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库驱动"><span class="nav-number">1.0.28.</span> <span class="nav-text">数据库驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ORM"><span class="nav-number">1.0.29.</span> <span class="nav-text">ORM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-框架"><span class="nav-number">1.0.30.</span> <span class="nav-text">Web 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限"><span class="nav-number">1.0.31.</span> <span class="nav-text">权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMS"><span class="nav-number">1.0.32.</span> <span class="nav-text">CMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电子商务"><span class="nav-number">1.0.33.</span> <span class="nav-text">电子商务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful-API"><span class="nav-number">1.0.34.</span> <span class="nav-text">RESTful API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">1.0.35.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板引擎"><span class="nav-number">1.0.36.</span> <span class="nav-text">模板引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">1.0.37.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索"><span class="nav-number">1.0.38.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态消息"><span class="nav-number">1.0.39.</span> <span class="nav-text">动态消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源管理"><span class="nav-number">1.0.40.</span> <span class="nav-text">资源管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">1.0.41.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电子邮件"><span class="nav-number">1.0.42.</span> <span class="nav-text">电子邮件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#国际化"><span class="nav-number">1.0.43.</span> <span class="nav-text">国际化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL-处理"><span class="nav-number">1.0.44.</span> <span class="nav-text">URL 处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-处理"><span class="nav-number">1.0.45.</span> <span class="nav-text">HTML 处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网页内容提取"><span class="nav-number">1.0.46.</span> <span class="nav-text">网页内容提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单"><span class="nav-number">1.0.47.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据验证"><span class="nav-number">1.0.48.</span> <span class="nav-text">数据验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反垃圾技术"><span class="nav-number">1.0.49.</span> <span class="nav-text">反垃圾技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记"><span class="nav-number">1.0.50.</span> <span class="nav-text">标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理面板"><span class="nav-number">1.0.51.</span> <span class="nav-text">管理面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态站点生成器"><span class="nav-number">1.0.52.</span> <span class="nav-text">静态站点生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">1.0.53.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发和并行"><span class="nav-number">1.0.54.</span> <span class="nav-text">并发和并行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络"><span class="nav-number">1.0.55.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket"><span class="nav-number">1.0.56.</span> <span class="nav-text">WebSocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WSGI-服务器"><span class="nav-number">1.0.57.</span> <span class="nav-text">WSGI 服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RPC-服务器"><span class="nav-number">1.0.58.</span> <span class="nav-text">RPC 服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码学"><span class="nav-number">1.0.59.</span> <span class="nav-text">密码学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形用户界面"><span class="nav-number">1.0.60.</span> <span class="nav-text">图形用户界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏开发"><span class="nav-number">1.0.61.</span> <span class="nav-text">游戏开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志"><span class="nav-number">1.0.62.</span> <span class="nav-text">日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testing"><span class="nav-number">1.0.63.</span> <span class="nav-text">Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分析和-Lint-工具"><span class="nav-number">1.0.64.</span> <span class="nav-text">代码分析和 Lint 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debugging-Tools"><span class="nav-number">1.0.65.</span> <span class="nav-text">Debugging Tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Science-and-Data-Analysis"><span class="nav-number">1.0.66.</span> <span class="nav-text">Science and Data Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据可视化"><span class="nav-number">1.0.67.</span> <span class="nav-text">数据可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机视觉"><span class="nav-number">1.0.68.</span> <span class="nav-text">计算机视觉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习"><span class="nav-number">1.0.69.</span> <span class="nav-text">机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MapReduce"><span class="nav-number">1.0.70.</span> <span class="nav-text">MapReduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.0.71.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三方-API"><span class="nav-number">1.0.72.</span> <span class="nav-text">第三方 API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps-工具"><span class="nav-number">1.0.73.</span> <span class="nav-text">DevOps 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务调度"><span class="nav-number">1.0.74.</span> <span class="nav-text">任务调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外来函数接口"><span class="nav-number">1.0.75.</span> <span class="nav-text">外来函数接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能"><span class="nav-number">1.0.76.</span> <span class="nav-text">高性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微软的-Windows-平台"><span class="nav-number">1.0.77.</span> <span class="nav-text">微软的 Windows 平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络可视化和-SDN"><span class="nav-number">1.0.78.</span> <span class="nav-text">网络可视化和 SDN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬件"><span class="nav-number">1.0.79.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容性"><span class="nav-number">1.0.80.</span> <span class="nav-text">兼容性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂项"><span class="nav-number">1.0.81.</span> <span class="nav-text">杂项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法和设计模式"><span class="nav-number">1.0.82.</span> <span class="nav-text">算法和设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器插件"><span class="nav-number">1.0.83.</span> <span class="nav-text">编辑器插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成开发环境"><span class="nav-number">1.0.84.</span> <span class="nav-text">集成开发环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务"><span class="nav-number">1.1.</span> <span class="nav-text">服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成"><span class="nav-number">1.1.1.</span> <span class="nav-text">持续集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码质量"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码质量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源"><span class="nav-number">1.2.</span> <span class="nav-text">资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网站"><span class="nav-number">1.2.1.</span> <span class="nav-text">网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#周刊"><span class="nav-number">1.2.2.</span> <span class="nav-text">周刊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Twitter"><span class="nav-number">1.2.3.</span> <span class="nav-text">Twitter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习指南"><span class="nav-number">1.2.4.</span> <span class="nav-text">学习指南</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websites"><span class="nav-number">1.2.5.</span> <span class="nav-text">知名网站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">中文站点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">英文站点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weibo-weixin"><span class="nav-number">1.2.6.</span> <span class="nav-text">微博、微信公众号</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
 
     </div>
-  </main>
-<div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-
-<script src="/js/main.js"></script>
+  </aside>
 
 
+        
+      </div>
+    </main>
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaochen Cui</span>
 </div>
-<script type="text/template" id="search-tpl">
-<li class="item">
-    <a href="/{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</script>
-
-<script src="/js/search.js"></script>
 
 
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
 
 
+        
 
+        
+      </div>
+    </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
-<!-- Google Analytics -->
+  </div>
+
+  
+
 <script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-82276339-1', 'auto');
-ga('send', 'pageview');
-
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
-<!-- End Google Analytics -->
 
 
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://cuixiaochen.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.cuixiaochen.com/2016/08/19/Python-资源大全中文版（个人镜像）/';
+          this.page.identifier = '2016/08/19/Python-资源大全中文版（个人镜像）/';
+          this.page.title = 'Python 资源大全中文版（个人镜像）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cuixiaochen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
