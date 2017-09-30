@@ -1346,9 +1346,9 @@
     
       <category term="python" scheme="http://www.cuixiaochen.com/tags/python/"/>
     
-      <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
-    
       <category term="algorithm" scheme="http://www.cuixiaochen.com/tags/algorithm/"/>
+    
+      <category term="matplotlib" scheme="http://www.cuixiaochen.com/tags/matplotlib/"/>
     
   </entry>
   
@@ -1357,7 +1357,7 @@
     <link href="http://www.cuixiaochen.com/2016/07/03/Bash-script-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/</id>
     <published>2016-07-03T06:55:32.000Z</published>
-    <updated>2017-07-27T07:55:10.830Z</updated>
+    <updated>2017-09-30T04:26:21.615Z</updated>
     
     <content type="html"><![CDATA[<p>记录 bash script 中一些容易写错的语法</p>
 <a id="more"></a>
@@ -1369,6 +1369,8 @@
 <li><p>$@<br>$@ is all of the parameters passed to the script.</p>
 </li>
 <li><p>$?<br>$? is the return code (status code) of the last command or script executed.0 == success, any other number means a failure</p>
+</li>
+<li><p>$!<br>最后的子进程 pid （评论区补充）</p>
 </li>
 <li><p>local<br>声明一个局部变量</p>
 </li>
