@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-10-06T12:21:32.232Z</updated>
+  <updated>2017-10-06T12:24:16.117Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://www.cuixiaochen.com/2017/09/28/Hello-named-pipe/"/>
     <id>http://www.cuixiaochen.com/2017/09/28/Hello-named-pipe/</id>
     <published>2017-09-28T06:02:13.000Z</published>
-    <updated>2017-10-06T12:21:32.232Z</updated>
+    <updated>2017-10-06T12:24:16.117Z</updated>
     
     <content type="html"><![CDATA[<h1 id="初识-named-pipe"><a href="#初识-named-pipe" class="headerlink" title="初识 named pipe"></a>初识 named pipe</h1><p>Pipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 <code>ls | grep hi</code> 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。</p>
+<a id="more"></a>
 <p>在这篇文章中我们要介绍的是另一个概念：named pipe, 它和 pipe 都属于常见的<a href="https://en.wikipedia.org/wiki/Inter-process_communication" target="_blank" rel="external">进程间通信</a> 方式。Named pipe 也被称作 FIFO(First In, First Out)。Named pipe 中的 ‘name’ 实际上指的是文件名。在<code>ls -l</code>命令中，pipe 文件的 mode string <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 列会被标注为 p。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">prw-rw-r--  1 xiaochen xiaochen    0 Oct  1 10:43 example_p</div></pre></td></tr></table></figure></p>
 <h1 id="Named-pipe-的简单使用"><a href="#Named-pipe-的简单使用" class="headerlink" title="Named pipe 的简单使用"></a>Named pipe 的简单使用</h1><p>在较新的 linux 系统上，named pipe 可以用 mkfifo 命令创建（在早先的 linux 版本中则为 mknod 命令）。</p>
 <p>首先，用<code>mkfifo example_p</code>指令创建一个名叫 ‘example_p’的 named pipe；然后在一个窗口中运行命令<code>ls -l &gt; example_p</code>，在另一个窗口中运行命令<code>cat &lt;example_p</code>。我们将会看到，<code>ls -l</code>的结果输出在了第二个窗口中。</p>
@@ -53,7 +54,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;初识-named-pipe&quot;&gt;&lt;a href=&quot;#初识-named-pipe&quot; class=&quot;headerlink&quot; title=&quot;初识 named pipe&quot;&gt;&lt;/a&gt;初识 named pipe&lt;/h1&gt;&lt;p&gt;Pipe 是我们在使用 linux 时经常会使用到的
+      &lt;h1 id=&quot;初识-named-pipe&quot;&gt;&lt;a href=&quot;#初识-named-pipe&quot; class=&quot;headerlink&quot; title=&quot;初识 named pipe&quot;&gt;&lt;/a&gt;初识 named pipe&lt;/h1&gt;&lt;p&gt;Pipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 &lt;code&gt;ls | grep hi&lt;/code&gt; 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。&lt;/p&gt;
     
     </summary>
     

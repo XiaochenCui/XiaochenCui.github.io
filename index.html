@@ -323,7 +323,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-06T20:21:32+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-06T20:24:16+08:00">
                 2017-10-06
               </time>
             
@@ -369,36 +369,14 @@
 
       
         
-          
-            <h1 id="初识-named-pipe"><a href="#初识-named-pipe" class="headerlink" title="初识 named pipe"></a>初识 named pipe</h1><p>Pipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 <code>ls | grep hi</code> 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。</p>
-<p>在这篇文章中我们要介绍的是另一个概念：named pipe, 它和 pipe 都属于常见的<a href="https://en.wikipedia.org/wiki/Inter-process_communication" target="_blank" rel="external">进程间通信</a> 方式。Named pipe 也被称作 FIFO(First In, First Out)。Named pipe 中的 ‘name’ 实际上指的是文件名。在<code>ls -l</code>命令中，pipe 文件的 mode string <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 列会被标注为 p。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">prw-rw-r--  1 xiaochen xiaochen    0 Oct  1 10:43 example_p</div></pre></td></tr></table></figure></p>
-<h1 id="Named-pipe-的简单使用"><a href="#Named-pipe-的简单使用" class="headerlink" title="Named pipe 的简单使用"></a>Named pipe 的简单使用</h1><p>在较新的 linux 系统上，named pipe 可以用 mkfifo 命令创建（在早先的 linux 版本中则为 mknod 命令）。</p>
-<p>首先，用<code>mkfifo example_p</code>指令创建一个名叫 ‘example_p’的 named pipe；然后在一个窗口中运行命令<code>ls -l &gt; example_p</code>，在另一个窗口中运行命令<code>cat &lt;example_p</code>。我们将会看到，<code>ls -l</code>的结果输出在了第二个窗口中。</p>
-<p><img src="/src/img/namepipe_1.png" alt=""></p>
-<h1 id="一个由-named-pipe-组成的循环"><a href="#一个由-named-pipe-组成的循环" class="headerlink" title="一个由 named pipe 组成的循环"></a>一个由 named pipe 组成的循环</h1><p>在一个窗口中输入指令<code>echo -n x | cat - pipe1 &gt; pipe2 &amp;</code>，在另一个窗口中输入指令<code>cat &lt;pipe2 &gt; pipe1</code>。虽然屏幕上没有任何输出，但当你用 top 命令查看当前的系统进程，就会发现 cat 命令在疯狂地运行 (cat 在将 x 来来回回地复制）。</p>
-<p>如果用 Ctrl+C 强制终止第二行指令，可能会出现提示”broken pipe”（也可能不会出现，原因见下一段）。这个错误提示表示一个进程将数据写入 pipe 的时候，pipe 另一端的进程终止了，数据无处可去了。通常情况下，写入者这时会停止写入数据并关闭 pipe。</p>
-<p>错误提示”broken pipe”是否会出现取决于用户执行 Ctrl+C 的时机。如果用户执行 Ctrl+C 的时候第二个 cat 刚好写入了数据（即 x 刚好写入了 pipe1），那么 pipe1 会被关闭，且第一个 cat 会因此立即终止。这种情况下就不会出现任何提示。</p>
-<p>而在另一种情况下，第二个 cat 正在等待第一个 cat 将 x 写入 pipe2，而用户执行了 Ctrl+C 使其终止，也使 pipe2 关闭，导致第一个 cat 无法将数据写入 pipe2。这时就会出现错误提示”broken pipe”。</p>
-<h1 id="Named-pipe-的实际应用：用-wireshark-远程监控网络通信"><a href="#Named-pipe-的实际应用：用-wireshark-远程监控网络通信" class="headerlink" title="Named pipe 的实际应用：用 wireshark 远程监控网络通信"></a>Named pipe 的实际应用：用 wireshark 远程监控网络通信</h1><p>在本地依次执行以下命令，通过 ssh 调用 tcpdump 并将输出写入到 pipe，然后将 pipe 接入到 wireshark。</p>
-<ol>
-<li>创建 named pipe</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkfifo /tmp/remote</div></pre></td></tr></table></figure>
-<ol>
-<li>从命令行启动 wireshark</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wireshark -k -i /tmp/remote</div></pre></td></tr></table></figure>
-<p>-k: start capturing immediately (def: do nothing)<br>-i <interface>: name or idx of interface (def: first non-loopback)</interface></p>
-<ol>
-<li>通过 ssh 远程启动 tcpdump 并将数据包重定向到先前创建的 named pipe</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh root@firewall &quot;tcpdump -s 0 -U -n -w - -i eth0 not port 22&quot; &gt; /tmp/remote</div></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://www.linuxjournal.com/article/2156" target="_blank" rel="external">Introduction to Named Pipes</a></li>
-<li><a href="https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-machine-with-wireshark" target="_blank" rel="external">How can I sniff the traffic of remote machine with wireshark? - Server Fault</a></li>
-</ul>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">mode strings:<br>d : directory<br>s : socket<br>p : pipe<br>D : Door<br>l : symbolic link etc.</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
-          
+          <h1 id="初识-named-pipe"><a href="#初识-named-pipe" class="headerlink" title="初识 named pipe"></a>初识 named pipe</h1><p>Pipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 <code>ls | grep hi</code> 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/28/Hello-named-pipe/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
