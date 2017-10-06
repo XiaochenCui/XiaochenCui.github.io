@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-10-06T12:24:16.117Z</updated>
+  <updated>2017-10-06T12:44:30.504Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.cuixiaochen.com/2017/09/28/Hello-named-pipe/"/>
     <id>http://www.cuixiaochen.com/2017/09/28/Hello-named-pipe/</id>
     <published>2017-09-28T06:02:13.000Z</published>
-    <updated>2017-10-06T12:24:16.117Z</updated>
+    <updated>2017-10-06T12:44:30.504Z</updated>
     
     <content type="html"><![CDATA[<h1 id="初识-named-pipe"><a href="#初识-named-pipe" class="headerlink" title="初识 named pipe"></a>初识 named pipe</h1><p>Pipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 <code>ls | grep hi</code> 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。</p>
 <a id="more"></a>
@@ -34,18 +34,17 @@
 <p>而在另一种情况下，第二个 cat 正在等待第一个 cat 将 x 写入 pipe2，而用户执行了 Ctrl+C 使其终止，也使 pipe2 关闭，导致第一个 cat 无法将数据写入 pipe2。这时就会出现错误提示”broken pipe”。</p>
 <h1 id="Named-pipe-的实际应用：用-wireshark-远程监控网络通信"><a href="#Named-pipe-的实际应用：用-wireshark-远程监控网络通信" class="headerlink" title="Named pipe 的实际应用：用 wireshark 远程监控网络通信"></a>Named pipe 的实际应用：用 wireshark 远程监控网络通信</h1><p>在本地依次执行以下命令，通过 ssh 调用 tcpdump 并将输出写入到 pipe，然后将 pipe 接入到 wireshark。</p>
 <ol>
-<li>创建 named pipe</li>
+<li><p>创建 named pipe</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkfifo /tmp/remote</div></pre></td></tr></table></figure>
+</li>
+<li><p>从命令行启动 wireshark</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wireshark -k -i /tmp/remote</div></pre></td></tr></table></figure>
+<p> -k: start capturing immediately (def: do nothing)<br> -i <interface>: name or idx of interface (def: first non-loopback)</interface></p>
+</li>
+<li><p>通过 ssh 远程启动 tcpdump 并将数据包重定向到先前创建的 named pipe</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh root@firewall &quot;tcpdump -s 0 -U -n -w - -i eth0 not port 22&quot; &gt; /tmp/remote</div></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkfifo /tmp/remote</div></pre></td></tr></table></figure>
-<ol>
-<li>从命令行启动 wireshark</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wireshark -k -i /tmp/remote</div></pre></td></tr></table></figure>
-<p>-k: start capturing immediately (def: do nothing)<br>-i <interface>: name or idx of interface (def: first non-loopback)</interface></p>
-<ol>
-<li>通过 ssh 远程启动 tcpdump 并将数据包重定向到先前创建的 named pipe</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh root@firewall &quot;tcpdump -s 0 -U -n -w - -i eth0 not port 22&quot; &gt; /tmp/remote</div></pre></td></tr></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="http://www.linuxjournal.com/article/2156" target="_blank" rel="external">Introduction to Named Pipes</a></li>
 <li><a href="https://serverfault.com/questions/362529/how-can-i-sniff-the-traffic-of-remote-machine-with-wireshark" target="_blank" rel="external">How can I sniff the traffic of remote machine with wireshark? - Server Fault</a></li>
