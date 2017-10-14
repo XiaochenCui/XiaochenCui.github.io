@@ -105,7 +105,7 @@
 <meta property="og:description" content="初识 named pipePipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 ls | grep hi 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.cuixiaochen.com/src/img/namepipe_1.png">
-<meta property="og:updated_time" content="2017-10-06T12:44:30.504Z">
+<meta property="og:updated_time" content="2017-10-07T00:17:09.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello, named pipe">
 <meta name="twitter:description" content="初识 named pipePipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 ls | grep hi 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。">
@@ -322,8 +322,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-06T20:44:30+08:00">
-                2017-10-06
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-07T08:17:09+08:00">
+                2017-10-07
               </time>
             
           </span>
@@ -369,7 +369,7 @@
       
         <h1 id="初识-named-pipe"><a href="#初识-named-pipe" class="headerlink" title="初识 named pipe"></a>初识 named pipe</h1><p>Pipe 是我们在使用 linux 时经常会使用到的的一个工具，它可以帮助我们把两个独立的程序组合在一起。如命令 <code>ls | grep hi</code> 可以帮助我们找出当前路径下所有文件名中包含 ‘hi’ 的文件。</p>
 <a id="more"></a>
-<p>在这篇文章中我们要介绍的是另一个概念：named pipe, 它和 pipe 都属于常见的<a href="https://en.wikipedia.org/wiki/Inter-process_communication" target="_blank" rel="external">进程间通信</a> 方式。Named pipe 也被称作 FIFO(First In, First Out)。Named pipe 中的 ‘name’ 实际上指的是文件名。在<code>ls -l</code>命令中，pipe 文件的 mode string <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 列会被标注为 p。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">prw-rw-r--  1 xiaochen xiaochen    0 Oct  1 10:43 example_p</div></pre></td></tr></table></figure></p>
+<p>在这篇文章中我们要介绍的是另一个概念：named pipe, 它和 pipe 都属于常见的<a href="https://en.wikipedia.org/wiki/Inter-process_communication" target="_blank" rel="external">进程间通信</a> 方式。 Named pipe 也被称作 FIFO(First In, First Out)。Named pipe 中的 ‘name’ 实际上指的是文件名。在<code>ls -l</code>命令中，pipe 文件的 mode string <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 列会被标注为 p。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">prw-rw-r--  1 xiaochen xiaochen    0 Oct  1 10:43 example_p</div></pre></td></tr></table></figure></p>
 <h1 id="Named-pipe-的简单使用"><a href="#Named-pipe-的简单使用" class="headerlink" title="Named pipe 的简单使用"></a>Named pipe 的简单使用</h1><p>在较新的 linux 系统上，named pipe 可以用 mkfifo 命令创建（在早先的 linux 版本中则为 mknod 命令）。</p>
 <p>首先，用<code>mkfifo example_p</code>指令创建一个名叫 ‘example_p’的 named pipe；然后在一个窗口中运行命令<code>ls -l &gt; example_p</code>，在另一个窗口中运行命令<code>cat &lt;example_p</code>。我们将会看到，<code>ls -l</code>的结果输出在了第二个窗口中。</p>
 <p><img src="/src/img/namepipe_1.png" alt=""></p>
@@ -433,6 +433,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/14/twisted-中用户输入数据的接收/" rel="prev" title="twisted 中用户输入数据的接收">
+                twisted 中用户输入数据的接收 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -516,7 +520,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -529,7 +533,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
