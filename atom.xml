@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cuixiaochen.com/"/>
-  <updated>2017-10-15T07:39:33.617Z</updated>
+  <updated>2017-10-16T05:29:29.898Z</updated>
   <id>http://www.cuixiaochen.com/</id>
   
   <author>
@@ -20,26 +20,36 @@
     <link href="http://www.cuixiaochen.com/2017/10/15/Time-sequences-of-Linux-related-events/"/>
     <id>http://www.cuixiaochen.com/2017/10/15/Time-sequences-of-Linux-related-events/</id>
     <published>2017-10-14T16:05:54.000Z</published>
-    <updated>2017-10-15T07:39:33.617Z</updated>
+    <updated>2017-10-16T05:29:29.898Z</updated>
     
     <content type="html"><![CDATA[<ul>
-<li><strong><em>1969 年夏</em></strong><br>Ken Thompson 趁夫人回家乡加利福尼亚度假，在一个月内开发出了 UNIX 操作系统</li>
-<li><strong><em>1984 年</em></strong><br>Richard M. Stallman 创办了 GNU(GNU’s Not UNIX) 和 FSF(the Free Software Foundation), 旨在开发一个类似 UNIX 并且是自由软件的完整操作系统</li>
-<li><strong><em>1987 年</em></strong><br>Andrew S. Tanenbaum 编写了 MINIX 系统</li>
-<li><strong><em>1988 年 9 月</em></strong><br>第一个正式的 POSIX 标准（即 POSIX.1 标准）被批准</li>
-<li><strong><em>1991 年 3 月 29 日</em></strong><br>Linus 第一次向 comp.os.minix 发帖，题目是”gcc on minix-386 doesn’t optimize”</li>
-<li><strong><em>1991 年 7 月 3 日</em></strong><br>Linus 在 comp.os.minix 上发布的信息提到了正在搜集 POSIX 的资料</li>
-<li><strong><em>1991 年 9 月 17 日</em></strong><br>Linux 0.01 版内核编制完成</li>
-<li><strong><em>1991 年 10 月 5 日</em></strong><br>Linux 第一次正式向外公布</li>
-<li><strong><em>1992 年 1 月 15 日</em></strong><br>Linux 0.12 版内核编制完成（增加了数学协处理器的软件模拟程序。增加了作业控制、虚拟控制台、文件符号链接和 swapping 功能）</li>
+<li><p><strong><em>1969 年夏</em></strong><br>Ken Thompson 趁夫人回家乡加利福尼亚度假，在一个月内开发出了 UNIX 操作系统</p>
+</li>
+<li><p><strong><em>1984 年</em></strong><br>Richard M. Stallman 创办了 GNU(GNU’s Not UNIX) 和 FSF(the Free Software Foundation), 旨在开发一个类似 UNIX 并且是自由软件的完整操作系统</p>
+</li>
+<li><p><strong><em>1987 年</em></strong><br>Andrew S. Tanenbaum 编写了 MINIX 系统</p>
+</li>
+<li><p><strong><em>1988 年 9 月</em></strong><br>第一个正式的 POSIX 标准（即 POSIX.1 标准）被批准</p>
+</li>
+<li><p><strong><em>1991 年 3 月 29 日</em></strong><br>Linus 第一次向 comp.os.minix 发帖，题目是”gcc on minix-386 doesn’t optimize”</p>
+</li>
+<li><p><strong><em>1991 年 7 月 3 日</em></strong><br>Linus 在 comp.os.minix 上发布的信息提到了正在搜集 POSIX 的资料</p>
+</li>
+<li><p><strong><em>1991 年 9 月 17 日</em></strong><br>Linux 0.01 版内核编制完成</p>
+</li>
+<li><p><strong><em>1991 年 10 月 5 日</em></strong><br>Linux 第一次正式向外公布</p>
+</li>
+<li><p><strong><em>1992 年 1 月 15 日</em></strong><br>Linux 0.12 版内核编制完成（增加了数学协处理器的软件模拟程序。增加了作业控制、虚拟控制台、文件符号链接和 swapping 功能）</p>
+</li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
       &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;1969 年夏&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;Ken Thompson 趁夫人回家乡加利福尼亚度假，在一个月内开发出了 UNIX 操作系统&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;1984 年&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;Ri
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;1969 年夏&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;Ken Thompson 趁夫人回家乡加利福尼亚度假，在一个月内开发出了 UNIX 操作系统&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;1984 年&lt;/em&gt;&lt;/st
     
     </summary>
     
@@ -1447,7 +1457,7 @@
     <link href="http://www.cuixiaochen.com/2016/07/03/Bash-script-%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://www.cuixiaochen.com/2016/07/03/Bash-script-笔记（一）/</id>
     <published>2016-07-03T06:55:32.000Z</published>
-    <updated>2017-09-30T04:26:21.615Z</updated>
+    <updated>2017-10-16T05:27:25.437Z</updated>
     
     <content type="html"><![CDATA[<p>记录 bash script 中一些容易写错的语法</p>
 <a id="more"></a>
@@ -1461,6 +1471,8 @@
 <li><p>$?<br>$? is the return code (status code) of the last command or script executed.0 == success, any other number means a failure</p>
 </li>
 <li><p>$!<br>最后的子进程 pid （评论区补充）</p>
+</li>
+<li><p>$_<br>上一个命令最后一个参数</p>
 </li>
 <li><p>local<br>声明一个局部变量</p>
 </li>
