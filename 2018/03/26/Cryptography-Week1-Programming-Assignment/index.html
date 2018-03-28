@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.0.5">
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.5',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="cryptograhpy," />
+
+
+<meta name="description" content="在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们用实际例子来破解它。">
+<meta name="keywords" content="cryptograhpy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cryptography Week1 Programming Assignment">
+<meta property="og:url" content="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/index.html">
+<meta property="og:site_name" content="XiaochenCui&#39;s Blog">
+<meta property="og:description" content="在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们用实际例子来破解它。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/02-stream-v2-annotated.001.jpeg">
+<meta property="og:image" content="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/topic.png">
+<meta property="og:updated_time" content="2018-03-28T16:02:16.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cryptography Week1 Programming Assignment">
+<meta name="twitter:description" content="在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们用实际例子来破解它。">
+<meta name="twitter:image" content="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/02-stream-v2-annotated.001.jpeg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>Cryptography Week1 Programming Assignment | XiaochenCui's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82276339-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-82276339-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaochenCui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">千里之行，始于足下</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cui Xiaochen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cryptography Week1 Programming Assignment</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-26T23:07:34+08:00">2018-03-26</time>
+            
+
+            
+            
+              
+                
+              
+            
+
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-03-29T00:02:16+08:00">2018-03-29</time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/26/Cryptography-Week1-Programming-Assignment/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/26/Cryptography-Week1-Programming-Assignment/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们用实际例子来破解它。<br><a id="more"></a></p>
+<h1 id="简要证明"><a href="#简要证明" class="headerlink" title="简要证明"></a>简要证明</h1><img src="/2018/03/26/Cryptography-Week1-Programming-Assignment/02-stream-v2-annotated.001.jpeg">
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img src="/2018/03/26/Cryptography-Week1-Programming-Assignment/topic.png">
+<h1 id="破解思路"><a href="#破解思路" class="headerlink" title="破解思路"></a>破解思路</h1><p>我们首先定义合法字符集为{英文字母，[,], [.], [“], [ ]}</p>
+<p>由于所有密文都是用同一密钥加密的，所以对于密文 c1, c2: result = c1 ^ c2 ^ x (x 为合法字符）</p>
+<p>result = m1 ^ key ^ m2 ^ key ^ x (m1, m2, k 均为密文 c1, c2 以及密钥串 key 在同一位置的值）</p>
+<p>排除意外碰撞，当前仅当 m1 == x 或 m2 == x 时，result 为合法字符</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ciphertexts_hex = [</span><br><span class="line">    <span class="string">"315c4eeaa8b5f8aaf9174145bf43e1784b8fa00dc71d885a804e5ee9fa40b16349c146fb778cdf2d3aff021dfff5b403b510d0d0455468aeb98622b137dae857553ccd8883a7bc37520e06e515d22c954eba5025b8cc57ee59418ce7dc6bc41556bdb36bbca3e8774301fbcaa3b83b220809560987815f65286764703de0f3d524400a19b159610b11ef3e"</span>,</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">"32510ba9babebbbefd001547a810e67149caee11d945cd7fc81a05e9f85aac650e9052ba6a8cd8257bf14d13e6f0a803b54fde9e77472dbff89d71b57bddef121336cb85ccb8f3315f4b52e301d16e9f52f904"</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Transfer cipher to bytes</span></span><br><span class="line">ciphertexts = list(map(binascii.unhexlify, ciphertexts_hex))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get character range</span></span><br><span class="line">valid_character_range = (string.ascii_letters + <span class="string">".,: "</span>).encode(<span class="string">"ascii"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># for target_cipher in ciphertexts:</span></span><br><span class="line"><span class="comment"># for start_index, start_cipher in enumerate(ciphertexts):</span></span><br><span class="line">target_cipher = ciphertexts[<span class="number">-1</span>]</span><br><span class="line">dic_list = [defaultdict(int) <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(target_cipher))]</span><br><span class="line"><span class="keyword">for</span> xored_cipher <span class="keyword">in</span> ciphertexts[:<span class="number">10</span>]:</span><br><span class="line">    <span class="keyword">for</span> character_index, character <span class="keyword">in</span> enumerate(target_cipher):</span><br><span class="line">        <span class="keyword">if</span> character_index &lt; len(xored_cipher):</span><br><span class="line">            xored_character = xored_cipher[character_index]</span><br><span class="line">            <span class="comment"># Assume each letter in turn</span></span><br><span class="line">            <span class="keyword">for</span> word <span class="keyword">in</span> valid_character_range:</span><br><span class="line">                <span class="keyword">if</span> character_index &lt; len(xored_cipher):</span><br><span class="line">                    <span class="comment"># Derivation:</span></span><br><span class="line">                    <span class="comment"># xor = key ^ m1 ^ key ^ m2 ^ word</span></span><br><span class="line">                    <span class="comment">#     = m1 ^ m2 ^ word</span></span><br><span class="line">                    <span class="comment"># If m1 == word:</span></span><br><span class="line">                    <span class="comment"># then xor = m2 (xor is valid)</span></span><br><span class="line">                    <span class="comment"># or m2 == word:</span></span><br><span class="line">                    <span class="comment"># then xor = m1 (xor is valid)</span></span><br><span class="line">                    xor = character ^ xored_character ^ word</span><br><span class="line">                    <span class="keyword">if</span> xor <span class="keyword">in</span> valid_character_range:</span><br><span class="line">                        m2 = chr(xor)</span><br><span class="line">                        key = xored_character ^ xor</span><br><span class="line">                        m1 = chr(character ^ key)</span><br><span class="line">                        dic_list[character_index][m2] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">''</span>.join([max(dic, key=dic.get) <span class="keyword">for</span> dic <span class="keyword">in</span> dic_list]))</span><br></pre></td></tr></table></figure>
+<p>运行得到的值为：<br><code>The sicuet cesiage is: Wrzn using a stream cipher, tever use the key more than onye</code></p>
+<p>可以看到，并没有得到准确的原文，这里有两个因素：</p>
+<ul>
+<li>合法字符集的范围可能不准确</li>
+<li>我们并不能判断 c1 ^ c2 ^ x 为 m1 还是 m2</li>
+</ul>
+<p>dic_list 中的每个 dict 都表示了相应位置每个合法字符的可能性，通过列出每个 dict 出现频次最高的 3 个字符，我们可以还原出原文：</p>
+<blockquote>
+<p>The secret message is: when using a stream cipher, never use the key more than once</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cryptograhpy/" rel="tag"># cryptograhpy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/11/42065/" rel="next" title="42065">
+                <i class="fa fa-chevron-left"></i> 42065
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lego1.jpg"
+                alt="Cui Xiaochen" />
+            
+              <p class="site-author-name" itemprop="name">Cui Xiaochen</p>
+              <p class="site-description motion-element" itemprop="description">记录生活与技术的点点滴滴</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简要证明"><span class="nav-number">1.</span> <span class="nav-text">简要证明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#破解思路"><span class="nav-number">3.</span> <span class="nav-text">破解思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cui Xiaochen</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.5</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.5"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.5"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://cuixiaochen.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/';
+        this.page.identifier = '2018/03/26/Cryptography-Week1-Programming-Assignment/';
+        this.page.title = 'Cryptography Week1 Programming Assignment';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cuixiaochen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

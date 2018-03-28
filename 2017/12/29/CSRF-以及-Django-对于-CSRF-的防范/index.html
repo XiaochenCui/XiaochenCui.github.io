@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=6.0.5">
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.5',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="django,web,security," />
+
+
+<meta name="description" content="Cross-site Request Forgery 简称 CSRF 或 one-click attack, 是指未经授权 (authorization) 的指令从用户的浏览器发送到了服务器。不同于 XSS(Cross-Site Scripting) 的是，CSRF 不需要向被服务器信任的页面注入代码。它利用互联网的开放性，从未被信任的页面向服务器发送请求。">
+<meta name="keywords" content="django,web,security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSRF 以及 Django 对于 CSRF 的防范">
+<meta property="og:url" content="http://cuixiaochen.com/2017/12/29/CSRF-以及-Django-对于-CSRF-的防范/index.html">
+<meta property="og:site_name" content="XiaochenCui&#39;s Blog">
+<meta property="og:description" content="Cross-site Request Forgery 简称 CSRF 或 one-click attack, 是指未经授权 (authorization) 的指令从用户的浏览器发送到了服务器。不同于 XSS(Cross-Site Scripting) 的是，CSRF 不需要向被服务器信任的页面注入代码。它利用互联网的开放性，从未被信任的页面向服务器发送请求。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-26T15:29:58.589Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSRF 以及 Django 对于 CSRF 的防范">
+<meta name="twitter:description" content="Cross-site Request Forgery 简称 CSRF 或 one-click attack, 是指未经授权 (authorization) 的指令从用户的浏览器发送到了服务器。不同于 XSS(Cross-Site Scripting) 的是，CSRF 不需要向被服务器信任的页面注入代码。它利用互联网的开放性，从未被信任的页面向服务器发送请求。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://cuixiaochen.com/2017/12/29/CSRF-以及-Django-对于-CSRF-的防范/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>CSRF 以及 Django 对于 CSRF 的防范 | XiaochenCui's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82276339-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-82276339-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaochenCui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">千里之行，始于足下</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2017/12/29/CSRF-以及-Django-对于-CSRF-的防范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cui Xiaochen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSRF 以及 Django 对于 CSRF 的防范</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T23:51:53+08:00">2017-12-29</time>
+            
+
+            
+            
+              
+                
+              
+            
+
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-03-26T23:29:58+08:00">2018-03-26</time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/29/CSRF-以及-Django-对于-CSRF-的防范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/29/CSRF-以及-Django-对于-CSRF-的防范/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank" rel="noopener">Cross-site Request Forgery</a> 简称 CSRF 或 one-click attack, 是指未经授权 (authorization) 的指令从用户的浏览器发送到了服务器。不同于 <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener">XSS(Cross-Site Scripting)</a> 的是，CSRF 不需要向被服务器信任的页面注入代码。它利用互联网的开放性，从未被信任的页面向服务器发送请求。<br><a id="more"></a></p>
+<h1 id="一个简单的-CSRF-示例"><a href="#一个简单的-CSRF-示例" class="headerlink" title="一个简单的 CSRF 示例"></a>一个简单的 CSRF 示例</h1><p>假设一个网站用 GET 请求来删除用户数据，如 /delete_my_data。当用户点击页面上的这个链接时，请求携带着用户的 cookie 通过了网站的验证并成功删除了用户的数据。</p>
+<p>当攻击者想要发起攻击时，只需要让用户加载这个 URL 就好了。不过仅仅在页面中写一个链接可能并不起作用，因为用户不一定会点击这个链接，但我们可以通过一张图片链接达成我们的目标：</p>
+<p><code>&lt;img src=&quot;http://application.com/delete_my_items&quot; /&gt;</code></p>
+<p>只要在页面中包含这个图片链接，或者通过 email 发送这个图片链接，我们的攻击就奏效了。</p>
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>图片等资源链接的加载不受 hostname 的限制，所以我们从包含恶意链接的页面向目标服务器请求图片一般情况下是可行的。而由于请求是由用户的浏览器发出的，请求将会携带 application.com 的 cookie，使得用户可以通过权限认证，最终使我们的攻击达到了目的。</p>
+<p>CSRF 的关键点就是欺骗浏览器，使其发送一个不符合用户本意的 HTTP 请求。所以我们的攻击不需要偷取用户的认证信息。这也就是为什么某些银行网站会在用户 2 分钟内无操作后将用户登出，或者用一次性令牌来保证转账的安全性。</p>
+<h1 id="实施-CSRF-的前提"><a href="#实施-CSRF-的前提" class="headerlink" title="实施 CSRF 的前提"></a>实施 CSRF 的前提</h1><p>需要说明的是，只有当以下几点条件<strong>同时</strong>成立时 CSRF 才能奏效：</p>
+<ul>
+<li>被攻击的服务器不检查 <a href="https://en.wikipedia.org/wiki/HTTP_referer" target="_blank" rel="noopener">Referer HTTP header</a>, 致使接受了外部页面发来的请求。</li>
+<li>用户的表单提交会造成服务器的数据变更，或是某个 URL 有副作用 (side effects)。</li>
+<li>攻击者可以明确请求中所需的数据。比如在一些非常简陋的网站中，权限认证仅仅通过 cookie 进行，使攻击者只需要在请求中填写不敏感的数据。</li>
+<li>用户必须加载包含攻击代码的恶意页面。</li>
+</ul>
+<h1 id="防护-CSRF-的对策"><a href="#防护-CSRF-的对策" class="headerlink" title="防护 CSRF 的对策"></a>防护 CSRF 的对策</h1><p>首先，不要使用 GET 进行任何有<a href="https://tools.ietf.org/html/rfc7231.html#section-4.2.1" target="_blank" rel="noopener">副作用</a> 的操作。</p>
+<p>但是，仅仅使用 POST 是不够的，攻击者可以通过 JavaScript 使得页面在加载时提交一个表单，制造一个虚假的 POST 请求。</p>
+<p>以下介绍几条防范 CSRF 的对策：</p>
+<h2 id="使用-Referer-HTTP-header"><a href="#使用-Referer-HTTP-header" class="headerlink" title="使用 Referer HTTP header"></a>使用 Referer HTTP header</h2><p>通过检查 Referer HTTP header 可以很轻松的验证请求是否是由我们的 web 应用内部的页面发送的。虽然 Referer 可以被恶意的 user agent 很容易地欺骗，但是对于普通用户使用的常规浏览器，并不会遇到恶意 user agent。</p>
+<p>这个方法同时假设恶意的 HTML/JavaScript 不回被注入你自己的页面。否则的话，referer 将会是正确的。</p>
+<p>这个方法存在的问题是 referer stripping 是很常见的，<a href="http://www.adambarth.com/papers/2008/barth-jackson-mitchell-b.pdf" target="_blank" rel="noopener">有高达 11% 的 HTTP 请求不包含 referrer</a>。所以，严格的 referer 检查会导致你的应用的十分之一的用户无法发送 POST 请求。</p>
+<p>同时，在 POST 请求中用 origin header 来代替 referer header 可以更好地保护用户地隐私。</p>
+<h2 id="Session-token"><a href="#Session-token" class="headerlink" title="Session token"></a>Session token</h2><p>这个解决方法采用的是一次性口令的思路，token 被存放在用户的 session 里，用户的每一次表单提交都需要携带 token。</p>
+<p>在具体实施时，可以将 token 放到表单的一个隐藏字段中。如果攻击者想要发送请求，他必须获取到特定的 token，但是由于 JavaScript 不能读取外部页面的表单，攻击将无法进行。</p>
+<h2 id="Double-submitted-cookie"><a href="#Double-submitted-cookie" class="headerlink" title="Double-submitted cookie"></a>Double-submitted cookie</h2><p>这是前一种方案的改进，思路是将表单携带的 token 和 cookie 相匹配，而不是和 session 中的值。</p>
+<p>由于 <a href="https://en.wikipedia.org/wiki/Same-origin_policy" target="_blank" rel="noopener">same origin policy</a>，JavaScript 代码不能获取官方站点的 cookie，所以当官方表单将 cookie 中的值放入表单中一起发送时，攻击者需要去猜测这个值并放入请求中。如果这个值足够长，那么攻击者几乎不可能猜到它。</p>
+<p>这个方案的优点在于减少了服务器的资源占用。</p>
+<h1 id="Django-对于-CSRF-的防范"><a href="#Django-对于-CSRF-的防范" class="headerlink" title="Django 对于 CSRF 的防范"></a>Django 对于 CSRF 的防范</h1><p>Django 中的 CsrfViewMiddleware 可以帮助我们防范 CSRF</p>
+<h2 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h2><ol>
+<li><p>使用 <a href="https://github.com/django/django/blob/master/django/middleware/csrf.py#L74" target="_blank" rel="noopener">django.middleware.csrf.get_token()</a> 来生成 token。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_token</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return the CSRF token required for a POST form. The token is an</span></span><br><span class="line"><span class="string">    alphanumeric value. A new token is created if one is not already set.</span></span><br><span class="line"><span class="string">    A side effect of calling this function is to make the csrf_protect</span></span><br><span class="line"><span class="string">    decorator and the CsrfViewMiddleware add a CSRF cookie and a 'Vary: Cookie'</span></span><br><span class="line"><span class="string">    header to the outgoing response.  For this reason, you may need to use this</span></span><br><span class="line"><span class="string">    function lazily, as is done by the csrf context processor.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">"CSRF_COOKIE"</span> <span class="keyword">not</span> <span class="keyword">in</span> request.META:</span><br><span class="line">        <span class="comment"># 对于 header 中不包含 CSRF_COOKIE 的请求，我们会生成一个新的 csrf_secret 并为其加盐</span></span><br><span class="line">        csrf_secret = _get_new_csrf_string()</span><br><span class="line">        request.META[<span class="string">"CSRF_COOKIE"</span>] = _salt_cipher_secret(csrf_secret)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 对于 header 中已经包含 CSRF_COOKIE 的请求，我们则会取出它</span></span><br><span class="line">        csrf_secret = _unsalt_cipher_token(request.META[<span class="string">"CSRF_COOKIE"</span>])</span><br><span class="line">    request.meta[<span class="string">"csrf_cookie_used"</span>] = true</span><br><span class="line">    <span class="comment"># 最后，为 csrf_secret 重新加盐</span></span><br><span class="line">    <span class="keyword">return</span> _salt_cipher_secret(csrf_secret)</span><br></pre></td></tr></table></figure>
+<p> _get_new_csrf_string:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_get_new_csrf_string</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> get_random_string(CSRF_SECRET_LENGTH, allowed_chars=CSRF_ALLOWED_CHARS)</span><br></pre></td></tr></table></figure>
+<p> 这个函数使用 django 自带的 get_random_string 方法生成一个随机的字符串做为 csrf_string （默认长度为 32, 默认包含字母和数字）</p>
+<p> django.utils.crypto.get_random_string:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_string</span><span class="params">(length=<span class="number">12</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                      allowed_chars=<span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span></span></span><br><span class="line"><span class="function"><span class="params">                                    <span class="string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return a securely generated random string.</span></span><br><span class="line"><span class="string">    The default length of 12 with the a-z, A-Z, 0-9 character set returns</span></span><br><span class="line"><span class="string">    a 71-bit value. log_2((26+26+10)^12) =~ 71 bits</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> using_sysrandom:</span><br><span class="line">        <span class="comment"># This is ugly, and a hack, but it makes things better than</span></span><br><span class="line">        <span class="comment"># the alternative of predictability. This re-seeds the PRNG</span></span><br><span class="line">        <span class="comment"># using a value that is hard for an attacker to predict, every</span></span><br><span class="line">        <span class="comment"># time a random string is required. This may change the</span></span><br><span class="line">        <span class="comment"># properties of the chosen random sequence slightly, but this</span></span><br><span class="line">        <span class="comment"># is better than absolute predictability.</span></span><br><span class="line">        random.seed(</span><br><span class="line">            hashlib.sha256(</span><br><span class="line">                (<span class="string">'%s%s%s'</span> % (random.getstate(), time.time(), settings.SECRET_KEY)).encode()</span><br><span class="line">            ).digest()</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(random.choice(allowed_chars) <span class="keyword">for</span> i <span class="keyword">in</span> range(length))</span><br></pre></td></tr></table></figure>
+<p> 在用 _get_new_csrf_string 取得一个随机字符串后，用 _salt_cipher_secret 对其进行加盐：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_salt_cipher_secret</span><span class="params">(secret)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Given a secret (assumed to be a string of CSRF_ALLOWED_CHARS), generate a</span></span><br><span class="line"><span class="string">    token by adding a salt and using it to encrypt the secret.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    salt = _get_new_csrf_string()</span><br><span class="line">    chars = CSRF_ALLOWED_CHARS</span><br><span class="line">    pairs = zip((chars.index(x) <span class="keyword">for</span> x <span class="keyword">in</span> secret), (chars.index(x) <span class="keyword">for</span> x <span class="keyword">in</span> salt))</span><br><span class="line">    cipher = <span class="string">''</span>.join(chars[(x + y) % len(chars)] <span class="keyword">for</span> x, y <span class="keyword">in</span> pairs)</span><br><span class="line">    <span class="keyword">return</span> salt + cipher</span><br></pre></td></tr></table></figure>
+<p> 加盐的流程是</p>
+<ol>
+<li><p>取得一个新的 csrf_string, 和传进来的 csrf_string 相加（即同位相加，超出取余），得到 cipher</p>
+</li>
+<li><p>拼接 salt 和 cipher，得到我们最终需要的 csrf_token</p>
+</li>
+</ol>
+</li>
+<li><p>Django 发送出去的 POST 表单都会携带一个 csrfmiddlewaretoken 字段。</p>
+</li>
+<li><p>对于没有以 <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1" target="_blank" rel="noopener">safe methods</a> 发送的请求 (POST，PUT,DELETE), 必须携带 CSRF cookie, 即 csrfmiddlewaretoken 字段必须存在且正确。否则用户将会接收到 403 响应。</p>
+</li>
+</ol>
+<p>未完待续</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank" rel="noopener">Cross-site request Forgery wiki</a></li>
+<li><a href="https://dzone.com/articles/cross-site-request-forgery" target="_blank" rel="noopener">Cross-Site Request Forgery explained</a></li>
+<li><a href="https://docs.djangoproject.com/en/1.11/ref/csrf/" target="_blank" rel="noopener">Django Cross Site Request Forgery protection</a></li>
+<li><a href="http://www.django-rest-framework.org/api-guide/authentication/#api-reference" target="_blank" rel="noopener">Authentication - Django REST framework</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/django/" rel="tag"># django</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/security/" rel="tag"># security</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/10/Cryptography-study-notes-2-Some-ancient-encryption-algorithms/" rel="next" title="Cryptography study notes (2): Some ancient encryption algorithms">
+                <i class="fa fa-chevron-left"></i> Cryptography study notes (2): Some ancient encryption algorithms
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/01/终极挖山机-42055/" rel="prev" title="终极挖山机：42055">
+                终极挖山机：42055 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/lego1.jpg"
+                alt="Cui Xiaochen" />
+            
+              <p class="site-author-name" itemprop="name">Cui Xiaochen</p>
+              <p class="site-description motion-element" itemprop="description">记录生活与技术的点点滴滴</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一个简单的-CSRF-示例"><span class="nav-number">1.</span> <span class="nav-text">一个简单的 CSRF 示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作原理"><span class="nav-number">2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实施-CSRF-的前提"><span class="nav-number">3.</span> <span class="nav-text">实施 CSRF 的前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#防护-CSRF-的对策"><span class="nav-number">4.</span> <span class="nav-text">防护 CSRF 的对策</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Referer-HTTP-header"><span class="nav-number">4.1.</span> <span class="nav-text">使用 Referer HTTP header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session-token"><span class="nav-number">4.2.</span> <span class="nav-text">Session token</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Double-submitted-cookie"><span class="nav-number">4.3.</span> <span class="nav-text">Double-submitted cookie</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Django-对于-CSRF-的防范"><span class="nav-number">5.</span> <span class="nav-text">Django 对于 CSRF 的防范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作机制"><span class="nav-number">5.1.</span> <span class="nav-text">工作机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cui Xiaochen</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.5</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.5"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.5"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://cuixiaochen.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://cuixiaochen.com/2017/12/29/CSRF-以及-Django-对于-CSRF-的防范/';
+        this.page.identifier = '2017/12/29/CSRF-以及-Django-对于-CSRF-的防范/';
+        this.page.title = 'CSRF 以及 Django 对于 CSRF 的防范';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cuixiaochen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
