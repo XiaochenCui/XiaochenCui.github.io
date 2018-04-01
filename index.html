@@ -279,6 +279,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/03/30/array-in-shell-script/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cui Xiaochen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/30/array-in-shell-script/" itemprop="url">Arrays in bash</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T23:11:33+08:00">2018-03-30</time>
+            
+
+            
+            
+              
+                
+              
+            
+
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-04-01T15:18:09+08:00">2018-04-01</time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/30/array-in-shell-script/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/30/array-in-shell-script/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Shell script 中的 array 一直是一个比较模糊的概念，在网上找到的相关文章也讲得不太详细。本文参考了多篇文章，以尽量详尽地讲解一下 bash 中的 array。</p>
+<h1 id="Array-基础语法"><a href="#Array-基础语法" class="headerlink" title="Array 基础语法"></a>Array 基础语法</h1><h2 id="Array-初始化"><a href="#Array-初始化" class="headerlink" title="Array 初始化"></a>Array 初始化</h2><p>Array 有多种方式进行初始化：</p>
+<ul>
+<li>使用 <code>array_name[xx]</code></li>
+<li>使用显式声明语句 <code>declare -a array_name</code></li>
+<li><code>array_name=( XXX YYY ZZZ ... )</code></li>
+<li><code>array_name=([xx]=XXX [yy]=YYY ...)</code></li>
+</ul>
+<p>下面我们通过代码演示一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># array_name[xx]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Array members need not be consecutive or contiguous.</span></span><br><span class="line"><span class="comment"># Some members of the array can be left uninitialized.</span></span><br><span class="line"><span class="comment"># Gaps in the array are okay.</span></span><br><span class="line"></span><br><span class="line">array_1[11]=24</span><br><span class="line">array_1[15]=37</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_1[11]&#125;</span> <span class="comment"># output 24</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_1[12]&#125;</span> <span class="comment"># output blank (null variable)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># declare -a array_name</span></span><br><span class="line"><span class="built_in">declare</span> -a array2</span><br><span class="line"></span><br><span class="line"><span class="comment"># array_name=( XXX YYY ZZZ ... )</span></span><br><span class="line">array_3=( zero one two three four )</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_3[0]&#125;</span> <span class="comment"># output zero</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># array_name=([xx]=XXX [yy]=YYY ...)</span></span><br><span class="line">array_4=([17]=seventeen [24]=twenty-four)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_4[17]&#125;</span> <span class="comment"># output seventeen</span></span><br></pre></td></tr></table></figure>
+<p>下面举一个实际应用中初始化 array 的例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">base64_charset=( &#123;A..Z&#125; &#123;a..z&#125; &#123;0..9&#125; + / = )</span><br><span class="line">               <span class="comment">#  Using extended brace expansion</span></span><br><span class="line">               <span class="comment">#+ to initialize the elements of the array.</span></span><br><span class="line">               <span class="comment">#  Excerpted from vladz's "base64.sh" script</span></span><br><span class="line">               <span class="comment">#+ in the "Contributed Scripts" appendix.</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，用 <code>array=( element1 element2 ... elementN )</code> 这种方式初始化 array 非常方便</p>
+<h2 id="一切皆是-array"><a href="#一切皆是-array" class="headerlink" title="一切皆是 array"></a>一切皆是 array</h2><p>需要注意的是，即使我们并没有按照前面提到的几种方法将一个变量声明为 array, 我们仍然可以对其进行 array 相关的操作。<br>换句话来说：<strong>所有变量都可以被看作 array</strong> 。</p>
+<p>比如说，下面这个例子中的变量 <code>string</code> 其实也是一个 array（包含一个元素）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">string=abcABC123ABCabc</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[@]&#125;</span>               <span class="comment"># abcABC123ABCabc</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[*]&#125;</span>               <span class="comment"># abcABC123ABCabc</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[0]&#125;</span>               <span class="comment"># abcABC123ABCabc</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[1]&#125;</span>               <span class="comment"># No output!</span></span><br><span class="line">                                <span class="comment"># Why?</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#string[@]&#125;</span>              <span class="comment"># 1</span></span><br><span class="line">                                <span class="comment"># One element in the array.</span></span><br><span class="line">                                <span class="comment"># The string itself.</span></span><br></pre></td></tr></table></figure>
+<h2 id="取-array-中元素的值"><a href="#取-array-中元素的值" class="headerlink" title="取 array 中元素的值"></a>取 array 中元素的值</h2><p>使用花括号可以拿到 array 中元素的值：<code>${array_name[xx]}</code></p>
+<h2 id="Array-中的元素索引"><a href="#Array-中的元素索引" class="headerlink" title="Array 中的元素索引"></a>Array 中的元素索引</h2><ul>
+<li>整数索引从 0 开始</li>
+<li>元素的整数索引不必是连续的，即元素之间可以有 gap</li>
+</ul>
+<h2 id="取-array-长度"><a href="#取-array-长度" class="headerlink" title="取 array 长度"></a>取 array 长度</h2><ul>
+<li><code>${#array_name}</code></li>
+<li><code>${#array_name[*]}</code></li>
+<li><code>${#array_name[@]}</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">array=( zero one two three four five )</span><br><span class="line"><span class="comment"># Element 0   1   2    3     4    5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array&#125;</span>         <span class="comment">#  4</span></span><br><span class="line">                       <span class="comment">#  Length of first element of array.</span></span><br><span class="line">                       <span class="comment">#  (Alternate notation)</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array[*]&#125;</span>      <span class="comment">#  6</span></span><br><span class="line">                       <span class="comment">#  Number of elements in array.</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array[@]&#125;</span>      <span class="comment">#  6</span></span><br><span class="line">                       <span class="comment">#  Number of elements in array.</span></span><br></pre></td></tr></table></figure>
+<h2 id="取-array-中某一元素的长度"><a href="#取-array-中某一元素的长度" class="headerlink" title="取 array 中某一元素的长度"></a>取 array 中某一元素的长度</h2><p><code>${#array_name[n]}</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">array=( zero one two three four five )</span><br><span class="line"><span class="comment"># Element 0   1   2    3     4    5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array[0]&#125;</span>      <span class="comment">#  4</span></span><br><span class="line">                       <span class="comment">#  Length of first element of array.</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array[1]&#125;</span>      <span class="comment">#  3</span></span><br><span class="line">                       <span class="comment">#  Length of second element of array.</span></span><br><span class="line">                       <span class="comment">#  Arrays in Bash have zero-based indexing.</span></span><br></pre></td></tr></table></figure>
+<h2 id="对-array-进行切片"><a href="#对-array-进行切片" class="headerlink" title="对 array 进行切片"></a>对 array 进行切片</h2><p>Array 对切片和 python 中的切片很像：</p>
+<ul>
+<li><code>${array_name[@]:start}</code> 从 start 开始的所有元素（包含 start ）</li>
+<li><code>${array_name[@]:start:end}</code> 从 start 到 end 的所有元素（包含 start，不包含 end ）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">arrayZ=( one two three four five five )</span><br><span class="line"></span><br><span class="line">echo $&#123;arrayZ[@]:0&#125;     # one two three four five five</span><br><span class="line">#                ^        All elements.</span><br><span class="line"></span><br><span class="line">echo $&#123;arrayZ[@]:1&#125;     # two three four five five</span><br><span class="line">#                ^        All elements following element[0].</span><br><span class="line"></span><br><span class="line">echo $&#123;arrayZ[@]:1:2&#125;   # two three</span><br><span class="line">#                  ^      Only the two elements after element[0].</span><br><span class="line"></span><br><span class="line">echo $&#123;arrayZ[@]:1:4&#125;   # two three four five</span><br></pre></td></tr></table></figure>
+<h1 id="Array-进阶语法"><a href="#Array-进阶语法" class="headerlink" title="Array 进阶语法"></a>Array 进阶语法</h1><h2 id="对-array-中的第一个元素切片"><a href="#对-array-中的第一个元素切片" class="headerlink" title="对 array 中的第一个元素切片"></a>对 array 中的第一个元素切片</h2><ul>
+<li><code>$(array_name:start)</code> 返回 array_name[0][start:] （包含 start ）</li>
+<li><code>$(array_name:start:end)</code> 返回 array_name[0][start:end] （包含 start ，包含 end ）</li>
+</ul>
+<p>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">array=( zero one two three four five )</span><br><span class="line"><span class="comment"># Element 0   1   2    3     4    5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[0]&#125;</span>       <span class="comment">#  zero</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array:0&#125;</span>        <span class="comment">#  zero</span></span><br><span class="line">                       <span class="comment">#  Parameter expansion of first element,</span></span><br><span class="line">                       <span class="comment">#+ starting at position # 0 (1st character).</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array:1&#125;</span>        <span class="comment">#  ero</span></span><br><span class="line">                       <span class="comment">#  Parameter expansion of first element,</span></span><br><span class="line">                       <span class="comment">#+ starting at position # 1 (2nd character).</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array:1:2&#125;</span>      <span class="comment">#  er</span></span><br><span class="line">                       <span class="comment">#  Parameter expansion of first element,</span></span><br><span class="line">                       <span class="comment">#+ starting at position # 1 (2nd character).</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="切除子字符串"><a href="#切除子字符串" class="headerlink" title="切除子字符串"></a>切除子字符串</h2><p><code>${array_name[scope][flag][pattern]}</code></p>
+<p>scope:</p>
+<ul>
+<li><code>@</code> | <code>*</code>   表示对全部元素进行操作</li>
+<li>n 表示对只第 n 个元素进行操作</li>
+</ul>
+<p>flag:</p>
+<ul>
+<li><code>#</code> 最短匹配，从头部开始</li>
+<li><code>##</code> 最长匹配，从头部开始</li>
+<li><code>%</code> 最短匹配，从尾部开始</li>
+<li><code>%%</code> 最长匹配，从尾部开始</li>
+</ul>
+<p>pattern: 通配符，可以使用 * 匹配任意长度字符串</p>
+<ul>
+<li><code>${array_name[@]#pattern}</code> 移除 pattern 的最短匹配（从字符串头部开始匹配）</li>
+<li><code>${array_name[@]##pattern}</code> 移除 pattern 的最长匹配（从字符串头部开始匹配）</li>
+<li><code>${array_name[@]*pattern}</code> 移除 pattern 的最短匹配（从字符串尾部开始匹配）</li>
+<li><code>${array_name[@]**pattern}</code> 移除 pattern 的最长匹配（从字符串尾部开始匹配）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Substring Removal</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Removes shortest match from front of string(s).</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;arrayZ[@]#f*r&#125;</span>   <span class="comment"># one two three five five</span></span><br><span class="line"><span class="comment">#               ^       # Applied to all elements of the array.</span></span><br><span class="line">                        <span class="comment"># Matches "four" and removes it.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Longest match from front of string(s)</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;arrayZ[@]##t*e&#125;</span>  <span class="comment"># one two four five five</span></span><br><span class="line"><span class="comment">#               ^^      # Applied to all elements of the array.</span></span><br><span class="line">                        <span class="comment"># Matches "three" and removes it.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Shortest match from back of string(s)</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;arrayZ[@]%h*e&#125;</span>   <span class="comment"># one two t four five five</span></span><br><span class="line"><span class="comment">#               ^       # Applied to all elements of the array.</span></span><br><span class="line">                        <span class="comment"># Matches "hree" and removes it.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Longest match from back of string(s)</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;arrayZ[@]%%t*e&#125;</span>  <span class="comment"># one two four five five</span></span><br><span class="line"><span class="comment">#               ^^      # Applied to all elements of the array.</span></span><br><span class="line">                        <span class="comment"># Matches "three" and removes it.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;arrayZ[1]#t*&#125;</span>    <span class="comment"># one wo three five five</span></span><br><span class="line">                        <span class="comment"># Applied to second element of the array.</span></span><br><span class="line">                        <span class="comment"># Matches "t" and removes it.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;arrayZ[1]##t*&#125;</span>    <span class="comment"># one three five five</span></span><br><span class="line">                        <span class="comment"># Applied to second element of the array.</span></span><br><span class="line">                        <span class="comment"># Matches "two" and removes it.</span></span><br></pre></td></tr></table></figure>
+<h1 id="Array-演进史"><a href="#Array-演进史" class="headerlink" title="Array 演进史"></a>Array 演进史</h1><p>在 bash-2.0 中，bash 增加了对于用整数作为数组索引的支持，且索引部分可以使用算术表达式：</p>
+<blockquote>
+<p>The shell now supports integer-indexed arrays of unlimited length, with a new compound assignment syntax and changes to the appropriate builtin commands (declare/typeset, read, readonly, etc.).  The array index may be an arithmetic expression.</p>
+<p>– <a href="http://tiswww.case.edu/php/chet/bash/NEWS" target="_blank" rel="noopener">bash release note</a></p>
+</blockquote>
+<p>未完待续</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://tiswww.case.edu/php/chet/bash/NEWS" target="_blank" rel="noopener">bash release note</a></li>
+<li><a href="http://tldp.org/LDP/abs/html/arrays.html" target="_blank" rel="noopener">Arrays</a></li>
+<li><a href="https://peniwize.wordpress.com/2011/04/09/how-to-read-all-lines-of-a-file-into-a-bash-array/" target="_blank" rel="noopener">How to read all lines of a file into a bash array | Peniwize’s Weblog</a></li>
+<li><a href="http://mywiki.wooledge.org/BashGuide/Arrays" target="_blank" rel="noopener">http://mywiki.wooledge.org/BashGuide/Arrays</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -331,7 +554,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-03-29T07:47:55+08:00">2018-03-29</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-03-30T23:10:42+08:00">2018-03-30</time>
             
           </span>
 
@@ -1430,7 +1653,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-03-26T23:29:58+08:00">2018-03-26</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-03-30T23:12:46+08:00">2018-03-30</time>
             
           </span>
 
@@ -1678,163 +1901,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cui Xiaochen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/lego1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaochenCui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/09/Cryptography-study-notes-1-Overview/" itemprop="url">Cryptography study notes (1): Overview</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-09T23:45:56+08:00">2017-12-09</time>
-            
-
-            
-            
-              
-                
-              
-            
-
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-03-26T23:29:58+08:00">2018-03-26</time>
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/09/Cryptography-study-notes-1-Overview/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/09/Cryptography-study-notes-1-Overview/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Stury-objectives"><a href="#Stury-objectives" class="headerlink" title="Stury objectives:"></a>Stury objectives:</h1><ul>
-<li>Learn how crypto primitives work.</li>
-<li>Learn how to use them correctly and reason about security.
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/09/Cryptography-study-notes-1-Overview/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1886,7 +1952,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1921,7 +1987,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
