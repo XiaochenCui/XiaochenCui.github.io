@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="Shell script 中的 array 一直是一个比较模糊的概念，在网上找到的相关文章也讲得不太详细。本文参考了多篇文章，以尽量详尽地讲解一下 bash 中的 array。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-01T07:22:55.862Z">
+<meta property="og:updated_time" content="2018-04-01T07:58:42.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arrays in bash">
 <meta name="twitter:description" content="Shell script 中的 array 一直是一个比较模糊的概念，在网上找到的相关文章也讲得不太详细。本文参考了多篇文章，以尽量详尽地讲解一下 bash 中的 array。">
@@ -330,7 +330,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-01T15:22:55+08:00">2018-04-01</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-04-01T15:58:42+08:00">2018-04-01</time>
             
           </span>
 
@@ -389,7 +389,14 @@
 <h2 id="一切皆是-array"><a href="#一切皆是-array" class="headerlink" title="一切皆是 array"></a>一切皆是 array</h2><p>需要注意的是，即使我们并没有按照前面提到的几种方法将一个变量声明为 array, 我们仍然可以对其进行 array 相关的操作。<br>换句话来说：<strong>所有变量都可以被看作 array</strong> 。</p>
 <p>比如说，下面这个例子中的变量 <code>string</code> 其实也是一个 array（包含一个元素）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">string=abcABC123ABCabc</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[@]&#125;</span>               <span class="comment"># abcABC123ABCabc</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[*]&#125;</span>               <span class="comment"># abcABC123ABCabc</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[0]&#125;</span>               <span class="comment"># abcABC123ABCabc</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string[1]&#125;</span>               <span class="comment"># No output!</span></span><br><span class="line">                                <span class="comment"># Why?</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#string[@]&#125;</span>              <span class="comment"># 1</span></span><br><span class="line">                                <span class="comment"># One element in the array.</span></span><br><span class="line">                                <span class="comment"># The string itself.</span></span><br></pre></td></tr></table></figure>
-<h2 id="取-array-中元素的值"><a href="#取-array-中元素的值" class="headerlink" title="取 array 中元素的值"></a>取 array 中元素的值</h2><p>使用花括号可以拿到 array 中元素的值：<code>${array_name[xx]}</code></p>
+<h2 id="取-array-中元素的值"><a href="#取-array-中元素的值" class="headerlink" title="取 array 中元素的值"></a>取 array 中元素的值</h2><p>在中括号中加数字或字符串索引可以取到 array 中某一元素的值：<code>${array_name[xx]}</code></p>
+<p>正常情况下，不要放置字符串索引，除非你精通 array</p>
+<ul>
+<li>当索引为数字时，会返回相应的值（在那个索引的值被指定的情况下）</li>
+<li>当索引为字符串且不是变量名时，无论那个字符串是什么，都会返回 array 中最后一个字符串索引对应元素的值</li>
+<li>当索引为变量名时，其会被展开（不需要加 <code>$</code> 符号）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">array_0=([far]=faraway [he]=hello [24]=kebu [no]=nothing [17]=docker)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[17]&#125;</span>     <span class="comment"># docker</span></span><br><span class="line">                        <span class="comment"># Output corresponding value if key exist</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>    <span class="comment"># nothing</span></span><br><span class="line">                        <span class="comment"># Output last element's value whose key is string</span></span><br><span class="line"></span><br><span class="line">far=<span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>   <span class="comment"># nothing</span></span><br><span class="line"></span><br><span class="line">far=24</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>   <span class="comment"># kube</span></span><br></pre></td></tr></table></figure>
 <h2 id="Array-中的元素索引"><a href="#Array-中的元素索引" class="headerlink" title="Array 中的元素索引"></a>Array 中的元素索引</h2><ul>
 <li>整数索引从 0 开始</li>
 <li>元素的整数索引不必是连续的，即元素之间可以有 gap</li>
