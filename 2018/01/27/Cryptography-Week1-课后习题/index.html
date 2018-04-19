@@ -108,14 +108,13 @@
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/1.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/2.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/3.png">
-<meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/latex3.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/4.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/5.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/6.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/7.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/9.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/10.png">
-<meta property="og:updated_time" content="2018-03-26T15:29:58.589Z">
+<meta property="og:updated_time" content="2018-04-19T08:22:29.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cryptography Week1 课后习题">
 <meta name="twitter:description" content="先压缩再加密，效率更高。压缩的过程相当于丢掉了一部分冗余信息，使得总信息量减少，从而减少了加密的工作量。">
@@ -341,7 +340,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-03-26T23:29:58+08:00">2018-03-26</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-04-19T16:22:29+08:00">2018-04-19</time>
             
           </span>
 
@@ -398,7 +397,14 @@
 </ul>
 <img src="/2018/01/27/Cryptography-Week1-课后习题/3.png">
 <p>计算过程：</p>
-<img src="/2018/01/27/Cryptography-Week1-课后习题/latex3.png">
+<p><span class="math display">\[
+    \begin{align*}
+        Adv_{PRG}(A,G) &amp;= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(A(r)}=1) - \underset{k\leftarrow{K}}{Pr(A(G&#39;(k))}=1)\right|\\
+        &amp;= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(LSB(r)}=1) - \underset{k\leftarrow{K}}{Pr(LSB(G(k_1)\wedge G(k_2))}=1)\right|\\
+        &amp;= \left|\frac{1}{2} - \frac{1}{4}\right|\\
+        &amp;= \frac{1}{4}
+    \end{align*}
+\]</span></p>
 <img src="/2018/01/27/Cryptography-Week1-课后习题/4.png">
 <img src="/2018/01/27/Cryptography-Week1-课后习题/5.png">
 <p>此题应该选第一个选项</p>
@@ -803,6 +809,36 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
   
