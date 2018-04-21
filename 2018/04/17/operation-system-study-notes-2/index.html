@@ -106,7 +106,9 @@
 <meta property="og:description" content="习题 什么是 multiprogramming？ 在第二代操作系统（如 7094 机）上，若当前作业因等待磁带或其他 I/O 操作而暂停时，CPU 就只能简单地原地踏步直至该 I/O 完成。在很多情况下，I/O 操作等待的时间通常占到 80% ~ 90%, 所以要通过 multiprogramming 的方式来减少 CPU 资源的浪费。 具体方案就是将内存分成多个部分，每个部分存放不同的作业（如下">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://cuixiaochen.com/2018/04/17/operation-system-study-notes-2/multi-programmed-system.jpg">
-<meta property="og:updated_time" content="2018-04-19T08:57:38.606Z">
+<meta property="og:image" content="http://cuixiaochen.com/2018/04/17/operation-system-study-notes-2/caching-stuff.jpg">
+<meta property="og:image" content="http://cuixiaochen.com/2018/04/17/operation-system-study-notes-2/system.jpg.png">
+<meta property="og:updated_time" content="2018-04-21T03:50:53.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统学习笔记：第一章习题及解答">
 <meta name="twitter:description" content="习题 什么是 multiprogramming？ 在第二代操作系统（如 7094 机）上，若当前作业因等待磁带或其他 I/O 操作而暂停时，CPU 就只能简单地原地踏步直至该 I/O 完成。在很多情况下，I/O 操作等待的时间通常占到 80% ~ 90%, 所以要通过 multiprogramming 的方式来减少 CPU 资源的浪费。 具体方案就是将内存分成多个部分，每个部分存放不同的作业（如下">
@@ -332,7 +334,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-19T16:57:38+08:00">2018-04-19</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-04-21T11:50:53+08:00">2018-04-21</time>
             
           </span>
 
@@ -415,6 +417,52 @@
 </li>
 <li><p>假设一个计算机系统有高速缓存、内存 (RAM) 以及磁盘，操作系统用虚拟内存。读取缓存中的一个词需要 2ns，RAM 需要 10ns，磁盘需要 10ms。如果缓存的命中率是 95%，内存的是（缓存失效时）99%，读取一个词的平均时间是多少？</p>
 <p>$2ns\times95\%+10ns\times(1-95\%)\times99\%+10ms\times(1-95\%)(1-99\%) = 5002.395ns$</p>
+</li>
+<li><p>一位校对人员注意到在一部将要出版的操作系统教科书手稿中有一个多次出现的拼写错误。这本书大致有 700 页。每页 50 行，一行 80 个字符。若把文稿用电子扫描，那么，主副本进入图 1-9 中的每个存储系统的层次要花费多少时间？对于内存储方式，考虑所给定的存取时间是每次一个字符，对于磁盘设备，假定存取时间是每次一个 1024 字符的盘块，而对于磁带，假设给定开始时间后的存取时间和磁盘存取时间相同。</p>
+<img src="/2018/04/17/operation-system-study-notes-2/caching-stuff.jpg">
+<p>答：原稿包含 80*50*700 = 2800000 字符。如果这些字符放在寄存器中，cpu 访问它们需要 2.8ms（在这里我们假设这些字符可以一次性放入寄存器），在 Cache 中需要 5.6ms，在内存中需要 28ms。整本书大约有 2700 个 1024 字节的数据块，因此从磁盘读取它们大约需要 27 秒，从磁带读取大约需要 2 分钟 7 秒。（根据书中的数据计算）</p>
+</li>
+<li><p>在用户程序进行一个系统调用，以读写磁盘文件时，该程序提供指示说明了所需要的文件，一个指向数据缓冲区的指针以及计数。然后，控制权转给操作系统，它调用相关的驱动程序。假设驱动程序启动磁盘并且直到中断发生才终止。在从磁盘读的情况下，很明显，调用者会被阻塞（因为文件中没有数据）。在向磁盘写时会发生什么情况？需要把调用者阻塞一直等到磁盘传送完成为止吗？</p>
+<p>这道题暂时无法解答</p>
+</li>
+<li><p>什么是陷阱指令？在操作系统中解释它的用途。</p>
+<p>TRAP 指令将处理器的执行模式从用户态切换到内核态，它使用户可以调用操作系统内核中的函数。</p>
+</li>
+<li><p>陷阱和中断的主要差别是什么？</p>
+<p>陷阱是由程序造成的，而且与程序同步；中断由外部事件和时钟造成。</p>
+</li>
+<li><p>在分时系统中为什么需要进程表？在只有一个进程存在的个人计算机系统中，该进程控制整个机器直到进程结束，这种机器也需要进程表吗？</p>
+<p>进程表的作用是在进程暂时被挂起时保存进程打开的所有文件的当前读取位置。单进程操作系统中不需要进程表，因为进程不会被挂起。</p>
+</li>
+<li><p>说明有没有理由要在一个非空的目录中安装一个文件系统？如果要这样做，如何做？</p>
+<p>这道题暂时无法解答</p>
+</li>
+<li><p>在一个操作系统中系统调用的目的是什么？</p>
+<p>进入内核，调用操作系统服务</p>
+</li>
+<li><p>对于下列系统调用 ，给出引起失败的条件：fork、exec 以及 unlink。</p>
+<p>fork: fork 失败的主要原因有两个：(a) 系统中已经有了太多的进程（进程表中没有空闲的槽）；(b) 该实际用户 ID 的进程总数超过了系统限制（在 POSIX.1 中，CHILD_MAX 代表了每个实际用户 ID 的最大进程数，可在运行时通过调用 <code>long sysconf(int _SC_CHLID_MAX)</code> 取得）<br>exec: 给定的 pathname/filename 不合法，这里的不合法有两种情况：(a) 不存在，(b) 存在但不是一个可用的 shell 脚本<br>unlink: 待我详细阅读相关资料后再给出解答</p>
+</li>
+<li><p>在 <code>count = write(fd, buffer, nbytes);</code> 调用中，能在 count 中而不是 nbytes 中返回值吗？如果能，为什么？</p>
+<p>能，因为当 write 调用失败时返回 -1，否则返回实际写入当字节数</p>
+</li>
+<li><p>有一个文件，其文件描述符是 fd，内含下列字节序列：3，1，4，1，5，9，2，6，5，3，5。<br>有如下系统调用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lseek(fd, <span class="number">3</span>, SEEK_SET);</span><br><span class="line">read(fd, &amp;buffer, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<p>其中 lseek 调用寻找文件中的第 3 个字节。在读操作完成之后，buffer 中的内容是什么？</p>
+<p>1, 5, 9, 2</p>
+</li>
+<li><p>假设一个 10MB 的文件在磁盘连续扇区的同一个轨道上（轨道号：50）。磁盘的磁头臂此时位于第 100 号轨道。要想从磁盘上找回这个文件，需要多长时间？ 假设磁头臂从一个柱面移动到下一个柱面需要 1ms，当文件的开始部分存储在的扇区旋转到磁头下需要 5ms，并且读的速率是 100MB/s。</p>
+<p>155ms（在 SSD 普及的今天，这道题基本没有意义）</p>
+</li>
+<li><p>块特殊文件和字符特殊文件的基本差别是什么？</p>
+<p>块特殊文件 (block special file) 提供对设备带缓冲的访问<br>字符特殊文件 (character special file) 提供对设备不带缓冲的访问</p>
+</li>
+<li><p>如下图所示，库调用被称为 read，而系统调用自身也被称为 read，这两者都有相问的名字是正常的吗？ 如果不是，哪一个更重要？</p>
+<p>是正常的，因为系统调用实际上并没有名称。当库函数 read 陷入内核时，它将系统调用的编号放在操作系统所期望的地方（寄存器或堆栈）中，然后由内核根据编号执行相应的系统调用，整个过程中不会用到任何名称。而对于库调用来说名称是很重要的，因为我们写的程序中需要使用这个名称。</p>
+<img src="/2018/04/17/operation-system-study-notes-2/system.jpg.png">
+</li>
+<li><p>在分布式系统中，C-S 模式很普遍。这种模式能用在单个计算机的系统中吗？</p>
+<p>可以</p>
 <p>未完待续</p>
 </li>
 </ol>
