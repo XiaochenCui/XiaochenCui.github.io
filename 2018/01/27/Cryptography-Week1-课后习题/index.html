@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/7.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/9.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/10.png">
-<meta property="og:updated_time" content="2018-04-19T08:22:29.314Z">
+<meta property="og:updated_time" content="2018-04-30T15:47:45.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cryptography Week1 课后习题">
 <meta name="twitter:description" content="先压缩再加密，效率更高。压缩的过程相当于丢掉了一部分冗余信息，使得总信息量减少，从而减少了加密的工作量。">
@@ -340,7 +340,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-19T16:22:29+08:00">2018-04-19</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-04-30T23:47:45+08:00">2018-04-30</time>
             
           </span>
 
@@ -397,14 +397,16 @@
 </ul>
 <img src="/2018/01/27/Cryptography-Week1-课后习题/3.png">
 <p>计算过程：</p>
-<p><span class="math display">\[
-    \begin{align*}
-        Adv_{PRG}(A,G) &amp;= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(A(r)}=1) - \underset{k\leftarrow{K}}{Pr(A(G&#39;(k))}=1)\right|\\
-        &amp;= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(LSB(r)}=1) - \underset{k\leftarrow{K}}{Pr(LSB(G(k_1)\wedge G(k_2))}=1)\right|\\
-        &amp;= \left|\frac{1}{2} - \frac{1}{4}\right|\\
-        &amp;= \frac{1}{4}
-    \end{align*}
-\]</span></p>
+
+$$
+	\begin{align*}
+		Adv_{PRG}(A,G) &= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(A(r)}=1) - \underset{k\leftarrow{K}}{Pr(A(G'(k))}=1)\right|\\
+		&= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(LSB(r)}=1) - \underset{k\leftarrow{K}}{Pr(LSB(G(k_1)\wedge G(k_2))}=1)\right|\\
+		&= \left|\frac{1}{2} - \frac{1}{4}\right|\\
+		&= \frac{1}{4}
+	\end{align*}
+$$
+
 <img src="/2018/01/27/Cryptography-Week1-课后习题/4.png">
 <img src="/2018/01/27/Cryptography-Week1-课后习题/5.png">
 <p>此题应该选第一个选项</p>
@@ -537,7 +539,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -576,7 +578,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
