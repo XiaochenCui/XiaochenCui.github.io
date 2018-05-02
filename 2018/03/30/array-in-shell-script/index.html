@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="Shell script 中的 array 一直是一个比较模糊的概念，在网上找到的相关文章也讲得不太详细。本文参考了多篇文章，以尽量详尽地讲解一下 bash 中的 array。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-30T15:42:06.865Z">
+<meta property="og:updated_time" content="2018-05-02T13:03:35.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arrays in bash">
 <meta name="twitter:description" content="Shell script 中的 array 一直是一个比较模糊的概念，在网上找到的相关文章也讲得不太详细。本文参考了多篇文章，以尽量详尽地讲解一下 bash 中的 array。">
@@ -330,7 +330,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-30T23:42:06+08:00">2018-04-30</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-05-02T21:03:35+08:00">2018-05-02</time>
             
           </span>
 
@@ -397,7 +397,7 @@
 <li>当索引为字符串且不是变量名时，无论那个字符串是什么，都会返回 array 中最后一个字符串索引对应元素的值</li>
 <li>当索引为变量名时，其会被展开（不需要加 <code>$</code> 符号）</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">array_0=([far]=faraway [he]=hello [24]=kebu [no]=nothing [17]=docker)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[17]&#125;</span>     <span class="comment"># docker</span></span><br><span class="line">                        <span class="comment"># Output corresponding value if key exist</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>    <span class="comment"># nothing</span></span><br><span class="line">                        <span class="comment"># Output last element's value whose key is string</span></span><br><span class="line"></span><br><span class="line">far=<span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>   <span class="comment"># nothing</span></span><br><span class="line"></span><br><span class="line">far=24</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>   <span class="comment"># kube</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">array_0=([far]=faraway [he]=hello [24]=kube [no]=love [17]=docker)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[17]&#125;</span>     <span class="comment"># docker</span></span><br><span class="line">                        <span class="comment"># Output corresponding value if key exist</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>    <span class="comment"># love</span></span><br><span class="line">                        <span class="comment"># Output last element's value whose key is string</span></span><br><span class="line"></span><br><span class="line">far=<span class="string">"hi"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>   <span class="comment"># love</span></span><br><span class="line"></span><br><span class="line">far=24</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array_0[far]&#125;</span>   <span class="comment"># kube</span></span><br></pre></td></tr></table></figure>
 <h2 id="Array-中的元素索引"><a href="#Array-中的元素索引" class="headerlink" title="Array 中的元素索引"></a>Array 中的元素索引</h2><ul>
 <li>整数索引从 0 开始</li>
 <li>元素的整数索引不必是连续的，即元素之间可以有 gap</li>
