@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="Shell script 中的 array 一直是一个比较模糊的概念，在网上找到的相关文章也讲得不太详细。本文参考了多篇文章，以尽量详尽地讲解一下 bash 中的 array。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-02T13:03:35.537Z">
+<meta property="og:updated_time" content="2018-05-02T13:07:22.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arrays in bash">
 <meta name="twitter:description" content="Shell script 中的 array 一直是一个比较模糊的概念，在网上找到的相关文章也讲得不太详细。本文参考了多篇文章，以尽量详尽地讲解一下 bash 中的 array。">
@@ -330,7 +330,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-05-02T21:03:35+08:00">2018-05-02</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-05-02T21:07:22+08:00">2018-05-02</time>
             
           </span>
 
@@ -403,9 +403,9 @@
 <li>元素的整数索引不必是连续的，即元素之间可以有 gap</li>
 </ul>
 <h2 id="取-array-长度"><a href="#取-array-长度" class="headerlink" title="取 array 长度"></a>取 array 长度</h2><ul>
-<li><code>${#array_name}</code></li>
-<li><code>${#array_name[*]}</code></li>
-<li><code>${#array_name[@]}</code></li>
+<li><code>${#array_name}</code> array 中第一个元素的长度</li>
+<li><code>${#array_name[*]}</code> array 的长度</li>
+<li><code>${#array_name[@]}</code> array 的长度</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">array=( zero one two three four five )</span><br><span class="line"><span class="comment"># Element 0   1   2    3     4    5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array&#125;</span>         <span class="comment">#  4</span></span><br><span class="line">                       <span class="comment">#  Length of first element of array.</span></span><br><span class="line">                       <span class="comment">#  (Alternate notation)</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array[*]&#125;</span>      <span class="comment">#  6</span></span><br><span class="line">                       <span class="comment">#  Number of elements in array.</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#array[@]&#125;</span>      <span class="comment">#  6</span></span><br><span class="line">                       <span class="comment">#  Number of elements in array.</span></span><br></pre></td></tr></table></figure>
 <h2 id="取-array-中某一元素的长度"><a href="#取-array-中某一元素的长度" class="headerlink" title="取 array 中某一元素的长度"></a>取 array 中某一元素的长度</h2><p><code>${#array_name[n]}</code></p>
