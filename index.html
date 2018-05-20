@@ -361,57 +361,14 @@
 
       
         
-          
-            <img src="/2018/05/20/Cryptography-Week-2-Problem-Set/1.png" width="700">
-
-$2^{128}\approx3.4e+38$
-
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/2.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/3.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/4.png" width="700">
-
-$$
-	\begin{align*}
-        m = 0^{64}:& \\
-        &L_1 = 0^{32} R_1 \\
-        &R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\
-        &L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\
-        &R_2 = 0^{32} \oplus F(k_2, 0^{32}\oplus F(k_1,0^{32})) \\
-        m = 1^{32}0^{32}:& \\
-        &L_1 = 0^{32} R_1 \\
-        &R_1 = 1^{32} \oplus F(k_1, 0^{32}) \\
-        &L_2 = 1^{32} \oplus F(k_1, 0^{32}) \\
-        &R_2 = 0^{32} \oplus F(k_2, 1^{32}\oplus F(k_1,0^{32})) \\
-	\end{align*}
-$$
-
-<p>Therefore:<br>
-$$
-    \underset{m = 0^{64}}{L_2} \oplus \underset{m = 1^{32}0^{32}}{L_2} \equiv 1^{32}
-$$
-</p>
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/5.png" width="700">
-
-$$
-	\begin{align*}
-        c' &= F(k, IV \oplus m_1) \\
-        &= F(k, F(k, c_0) \oplus c_0 \oplus c_0) \\
-        &= F(k, F(k, c_0) \oplus c_0 \oplus F(k, c_0)) \\
-        &= F(k, c_0)
-	\end{align*}
-$$
-
-<p>Therefore:<br>
-$$
-    c_1 = c'_0
-$$
-</p>
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/6.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/7.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/8.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/9.png" width="700">
-
-          
+          <img src="/2018/05/20/Cryptography-Week-2-Problem-Set/1.png" width="700">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/20/Cryptography-Week-2-Problem-Set/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
