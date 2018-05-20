@@ -94,28 +94,38 @@
 
 
   
-  <meta name="keywords" content="redis," />
+  <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="Repos redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
-<meta name="keywords" content="redis">
+<meta name="description" content="$2^{128}\approx3.4e+38$      $$ 	\begin{align*}         m = 0^{64}:&amp; \\         &amp;L_1 = 0^{32} R_1 \\         &amp;R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\         &amp;L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\">
+<meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis 学习资料">
-<meta property="og:url" content="http://cuixiaochen.com/2018/04/30/redis-study-references/index.html">
+<meta property="og:title" content="Cryptography Week 2 - Problem Set">
+<meta property="og:url" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="Repos redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
+<meta property="og:description" content="$2^{128}\approx3.4e+38$      $$ 	\begin{align*}         m = 0^{64}:&amp; \\         &amp;L_1 = 0^{32} R_1 \\         &amp;R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\         &amp;L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-10T15:01:28.517Z">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/1.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/2.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/3.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/4.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/5.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/6.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/7.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/8.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/9.png">
+<meta property="og:updated_time" content="2018-05-20T15:28:52.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis 学习资料">
-<meta name="twitter:description" content="Repos redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
+<meta name="twitter:title" content="Cryptography Week 2 - Problem Set">
+<meta name="twitter:description" content="$2^{128}\approx3.4e+38$      $$ 	\begin{align*}         m = 0^{64}:&amp; \\         &amp;L_1 = 0^{32} R_1 \\         &amp;R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\         &amp;L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\">
+<meta name="twitter:image" content="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://cuixiaochen.com/2018/04/30/redis-study-references/"/>
+  <link rel="canonical" href="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/"/>
 
 
 
@@ -124,7 +134,7 @@
     sidebar: "",
   };
 </script>
-  <title>Redis 学习资料 | XiaochenCui's Blog</title>
+  <title>Cryptography Week 2 - Problem Set | XiaochenCui's Blog</title>
   
 
 
@@ -280,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/04/30/redis-study-references/">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cui Xiaochen">
@@ -297,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Redis 学习资料</h1>
+          <h1 class="post-title" itemprop="name headline">Cryptography Week 2 - Problem Set</h1>
         
 
         <div class="post-meta">
@@ -309,28 +319,14 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-30T23:11:04+08:00">2018-04-30</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T21:44:00+08:00">2018-05-20</time>
             
 
             
             
               
-                
-              
             
 
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-05-10T23:01:28+08:00">2018-05-10</time>
             
           </span>
 
@@ -343,9 +339,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/30/redis-study-references/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/20/Cryptography-Week-2-Problem-Set/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/30/redis-study-references/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/20/Cryptography-Week-2-Problem-Set/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,42 +369,54 @@
       
 
       
-        <h1 id="Repos"><a href="#Repos" class="headerlink" title="Repos"></a>Repos</h1><ul>
-<li><a href="https://github.com/antirez/redis" target="_blank" rel="noopener">redis</a></li>
-<li><a href="https://github.com/huangz1990/redis-3.0-annotated" target="_blank" rel="noopener">redis-3.0-annotated</a><br>带有详细注释的 Redis 3.0 代码<a id="more"></a>
-</li>
-</ul>
-<h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><ul>
-<li><a href="https://book.douban.com/subject/25900156/" target="_blank" rel="noopener">Redis 设计与实现</a><br>通俗易懂，深入浅出</li>
-<li><a href="https://book.douban.com/subject/26612779/" target="_blank" rel="noopener">Redis 实战</a><br>入门书籍，价值不大</li>
-</ul>
-<h1 id="Blogs"><a href="#Blogs" class="headerlink" title="Blogs"></a>Blogs</h1><h2 id="Redlock"><a href="#Redlock" class="headerlink" title="Redlock"></a>Redlock</h2><ul>
-<li><a href="https://redis.io/topics/distlock" target="_blank" rel="noopener">Distributed locks with Redis</a></li>
-<li><a href="https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html" target="_blank" rel="noopener">How to do distributed locking - Martin Kleppmann</a></li>
-<li><a href="http://antirez.com/news/101" target="_blank" rel="noopener">Is Redlock safe? - antirez</a></li>
-<li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html" target="_blank" rel="noopener">基于 Redis 的分布式锁到底安全吗（上）？</a></li>
-<li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning-part2.html" target="_blank" rel="noopener">基于 Redis 的分布式锁到底安全吗（下）？</a></li>
-</ul>
-<h2 id="RESP-REdis-Serialization-Protocol"><a href="#RESP-REdis-Serialization-Protocol" class="headerlink" title="RESP(REdis Serialization Protocol)"></a>RESP(REdis Serialization Protocol)</h2><ul>
-<li><a href="https://redis.io/topics/protocol" target="_blank" rel="noopener">Redis Protocol specification</a></li>
-<li><a href="https://www.compose.com/articles/how-to-talk-raw-redis/" target="_blank" rel="noopener">How to talk raw Redis</a></li>
-</ul>
-<h2 id="Persistence"><a href="#Persistence" class="headerlink" title="Persistence"></a>Persistence</h2><ul>
-<li><a href="http://oldblog.antirez.com/post/redis-persistence-demystified.html" target="_blank" rel="noopener">Redis persistence demystified</a></li>
-</ul>
-<h2 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h2><ul>
-<li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format" target="_blank" rel="noopener">Redis RDB Dump File Format</a></li>
-<li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile" target="_blank" rel="noopener">Redis RDB Version History</a></li>
-</ul>
-<h1 id="Maillists"><a href="#Maillists" class="headerlink" title="Maillists"></a>Maillists</h1><ul>
-<li><a href="https://groups.google.com/forum/#!forum/redis-db" target="_blank" rel="noopener">Redis DB</a></li>
-<li><a href="https://groups.google.com/forum/#!forum/redis-dev" target="_blank" rel="noopener">redis-dev</a></li>
-</ul>
-<h1 id="Twitter"><a href="#Twitter" class="headerlink" title="Twitter"></a>Twitter</h1><ul>
-<li><a href="https://twitter.com/redisfeed" target="_blank" rel="noopener">@redisfeed</a></li>
-<li><a href="https://twitter.com/antirez" target="_blank" rel="noopener">@antirez</a></li>
-</ul>
-<p>待补充</p>
+        <img src="/2018/05/20/Cryptography-Week-2-Problem-Set/1.png" width="700">
+
+$2^{128}\approx3.4e+38$
+
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/2.png" width="700">
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/3.png" width="700">
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/4.png" width="700">
+
+$$
+	\begin{align*}
+        m = 0^{64}:& \\
+        &L_1 = 0^{32} R_1 \\
+        &R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\
+        &L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\
+        &R_2 = 0^{32} \oplus F(k_2, 0^{32}\oplus F(k_1,0^{32})) \\
+        m = 1^{32}0^{32}:& \\
+        &L_1 = 0^{32} R_1 \\
+        &R_1 = 1^{32} \oplus F(k_1, 0^{32}) \\
+        &L_2 = 1^{32} \oplus F(k_1, 0^{32}) \\
+        &R_2 = 0^{32} \oplus F(k_2, 1^{32}\oplus F(k_1,0^{32})) \\
+	\end{align*}
+$$
+
+<p>Therefore:<br>
+$$
+    \underset{m = 0^{64}}{L_2} \oplus \underset{m = 1^{32}0^{32}}{L_2} \equiv 1^{32}
+$$
+</p>
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/5.png" width="700">
+
+$$
+	\begin{align*}
+        c' &= F(k, IV \oplus m_1) \\
+        &= F(k, F(k, c_0) \oplus c_0 \oplus c_0) \\
+        &= F(k, F(k, c_0) \oplus c_0 \oplus F(k, c_0)) \\
+        &= F(k, c_0)
+	\end{align*}
+$$
+
+<p>Therefore:<br>
+$$
+    c_1 = c'_0
+$$
+</p>
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/6.png" width="700">
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/7.png" width="700">
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/8.png" width="700">
+<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/9.png" width="700">
 
       
     </div>
@@ -429,7 +437,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/redis/" rel="tag"># redis</a>
+            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
           
         </div>
       
@@ -442,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/17/operation-system-study-notes-2/" rel="next" title="操作系统学习笔记：第一章习题及解答">
-                <i class="fa fa-chevron-left"></i> 操作系统学习笔记：第一章习题及解答
+              <a href="/2018/05/15/extern-in-clang/" rel="next" title="extern keyword in clang">
+                <i class="fa fa-chevron-left"></i> extern keyword in clang
               </a>
             
           </div>
@@ -451,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/15/extern-in-clang/" rel="prev" title="extern keyword in clang">
-                extern keyword in clang <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,17 +517,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -609,22 +604,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Repos"><span class="nav-number">1.</span> <span class="nav-text">Repos</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Books"><span class="nav-number">2.</span> <span class="nav-text">Books</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Blogs"><span class="nav-number">3.</span> <span class="nav-text">Blogs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redlock"><span class="nav-number">3.1.</span> <span class="nav-text">Redlock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESP-REdis-Serialization-Protocol"><span class="nav-number">3.2.</span> <span class="nav-text">RESP(REdis Serialization Protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Persistence"><span class="nav-number">3.3.</span> <span class="nav-text">Persistence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB"><span class="nav-number">3.4.</span> <span class="nav-text">RDB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maillists"><span class="nav-number">4.</span> <span class="nav-text">Maillists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Twitter"><span class="nav-number">5.</span> <span class="nav-text">Twitter</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -780,9 +759,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://cuixiaochen.com/2018/04/30/redis-study-references/';
-        this.page.identifier = '2018/04/30/redis-study-references/';
-        this.page.title = 'Redis 学习资料';
+        this.page.url = 'http://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/';
+        this.page.identifier = '2018/05/20/Cryptography-Week-2-Problem-Set/';
+        this.page.title = 'Cryptography Week 2 - Problem Set';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
