@@ -97,25 +97,27 @@
   <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta name="description" content="这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
 <meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cryptography study notes (1): Overview">
-<meta property="og:url" content="http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/index.html">
+<meta property="og:title" content="Cryptography Week 2 - Programming Assignment">
+<meta property="og:url" content="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta property="og:description" content="这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-30T15:42:06.865Z">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/pa.png">
+<meta property="og:updated_time" content="2018-06-06T23:40:59.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cryptography study notes (1): Overview">
-<meta name="twitter:description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta name="twitter:title" content="Cryptography Week 2 - Programming Assignment">
+<meta name="twitter:description" content="这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
+<meta name="twitter:image" content="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/pa.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/"/>
+  <link rel="canonical" href="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/"/>
 
 
 
@@ -124,7 +126,7 @@
     sidebar: "",
   };
 </script>
-  <title>Cryptography study notes (1): Overview | XiaochenCui's Blog</title>
+  <title>Cryptography Week 2 - Programming Assignment | XiaochenCui's Blog</title>
   
 
 
@@ -280,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cui Xiaochen">
@@ -297,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cryptography study notes (1): Overview</h1>
+          <h1 class="post-title" itemprop="name headline">Cryptography Week 2 - Programming Assignment</h1>
         
 
         <div class="post-meta">
@@ -309,7 +311,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-09T23:45:56+08:00">2017-12-09</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-05T09:33:29+08:00">2018-06-05</time>
             
 
             
@@ -330,7 +332,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-30T23:42:06+08:00">2018-04-30</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-07T07:40:59+08:00">2018-06-07</time>
             
           </span>
 
@@ -343,9 +345,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/09/Cryptography-study-notes-1-Overview/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/05/cryptography-week-2-programming-assignment/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/09/Cryptography-study-notes-1-Overview/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/05/cryptography-week-2-programming-assignment/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,23 +375,11 @@
       
 
       
-        <h1 id="Stury-objectives"><a href="#Stury-objectives" class="headerlink" title="Stury objectives:"></a>Stury objectives:</h1><ul>
-<li>Learn how crypto primitives work.</li>
-<li>Learn how to use them correctly and reason about security.<a id="more"></a>
-</li>
-</ul>
-<h1 id="Cryptography-is"><a href="#Cryptography-is" class="headerlink" title="Cryptography is:"></a>Cryptography is:</h1><ul>
-<li>A tremendous tool.</li>
-<li>The basis for many security mechanisms.</li>
-</ul>
-<h1 id="Cryptography-is-not"><a href="#Cryptography-is-not" class="headerlink" title="Cryptography is not:"></a>Cryptography is not:</h1><ul>
-<li>The solution to all security problems.</li>
-<li>Reliable unless implemented and used properly.</li>
-<li>Something you should try to invent yourself.</li>
-</ul>
-<h1 id="Central-theorem"><a href="#Central-theorem" class="headerlink" title="Central theorem"></a>Central theorem</h1><ul>
-<li>Any computation you’d like to do, any function F you’d like to compute, that you can compute with a trusted authority, you can also do without a trusted authority.</li>
-</ul>
+        <p>这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。<br><a id="more"></a></p>
+<img src="/2018/06/05/cryptography-week-2-programming-assignment/pa.png">
+<p>在这里我们仅贴出核心代码，完整代码在：<a href="https://github.com/XiaochenCui/cryptography-homework" target="_blank" rel="noopener">https://github.com/XiaochenCui/cryptography-homework</a></p>
+<h1 id="CBC-Cipher-Block-Chaining"><a href="#CBC-Cipher-Block-Chaining" class="headerlink" title="CBC (Cipher Block Chaining)"></a>CBC (Cipher Block Chaining)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    cipher_block = iv</span><br><span class="line">    ciphertext = iv</span><br><span class="line">    <span class="keyword">for</span> msg_block <span class="keyword">in</span> msg_block_generator(msg, padding=<span class="keyword">True</span>):</span><br><span class="line">        cipher_block = cipher.encrypt(xor(cipher_block, msg_block))</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> cipher_block <span class="keyword">in</span> cipher_block_generator(cipher_text):</span><br><span class="line">        msg_block = xor(cipher.decrypt(cipher_block), iv)</span><br><span class="line">        iv = cipher_block</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">if</span> msg[<span class="number">-16</span>:] == <span class="string">b'\x16'</span> * <span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> msg[:<span class="number">-16</span>]</span><br><span class="line">    pad_bytes = msg[<span class="number">-1</span>]</span><br><span class="line">    reminder = len(msg) - pad_bytes</span><br><span class="line">    <span class="keyword">if</span> msg[reminder:] == bytes([pad_bytes]) * pad_bytes:</span><br><span class="line">        <span class="keyword">return</span> msg[:reminder]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'Cipher_text is invalid'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="CTR-Counter-mode"><a href="#CTR-Counter-mode" class="headerlink" title="CTR (Counter mode)"></a>CTR (Counter mode)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    ciphertext = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, msg_block <span class="keyword">in</span> enumerate(msg_block_generator(msg, padding=<span class="keyword">False</span>)):</span><br><span class="line">        cipher_block = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        cipher_block = byte.xor(msg_block, cipher_block)</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, cipher_block <span class="keyword">in</span> enumerate(cipher_block_generator(cipher_text)):</span><br><span class="line">        iv_encrypted = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        msg_block = byte.xor(cipher_block, iv_encrypted)</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">return</span> msg</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -423,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/08/原先的博客被误删除，博客生涯从头开始/" rel="next" title="原先的博客被误删除，博客生涯从头开始">
-                <i class="fa fa-chevron-left"></i> 原先的博客被误删除，博客生涯从头开始
+              <a href="/2018/05/20/Cryptography-Week-2-Problem-Set/" rel="next" title="Cryptography Week 2 - Problem Set">
+                <i class="fa fa-chevron-left"></i> Cryptography Week 2 - Problem Set
               </a>
             
           </div>
@@ -432,10 +422,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/10/Cryptography-study-notes-2-Some-ancient-encryption-algorithms/" rel="prev" title="Cryptography study notes (2): Some ancient encryption algorithms">
-                Cryptography study notes (2): Some ancient encryption algorithms <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Stury-objectives"><span class="nav-number">1.</span> <span class="nav-text">Stury objectives:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptography-is"><span class="nav-number">2.</span> <span class="nav-text">Cryptography is:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptography-is-not"><span class="nav-number">3.</span> <span class="nav-text">Cryptography is not:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Central-theorem"><span class="nav-number">4.</span> <span class="nav-text">Central theorem</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CBC-Cipher-Block-Chaining"><span class="nav-number">1.</span> <span class="nav-text">CBC (Cipher Block Chaining)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CTR-Counter-mode"><span class="nav-number">2.</span> <span class="nav-text">CTR (Counter mode)</span></a></li></ol></div>
             
 
           </div>
@@ -757,9 +743,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/';
-        this.page.identifier = '2017/12/09/Cryptography-study-notes-1-Overview/';
-        this.page.title = 'Cryptography study notes (1): Overview';
+        this.page.url = 'http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/';
+        this.page.identifier = '2018/06/05/cryptography-week-2-programming-assignment/';
+        this.page.title = 'Cryptography Week 2 - Programming Assignment';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
