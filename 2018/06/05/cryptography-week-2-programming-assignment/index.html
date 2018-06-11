@@ -97,19 +97,19 @@
   <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
+<meta name="description" content="这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
 <meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cryptography Week 2 - Programming Assignment">
 <meta property="og:url" content="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
+<meta property="og:description" content="这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/pa.png">
-<meta property="og:updated_time" content="2018-06-06T23:40:59.404Z">
+<meta property="og:updated_time" content="2018-06-09T12:30:27.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cryptography Week 2 - Programming Assignment">
-<meta name="twitter:description" content="这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
+<meta name="twitter:description" content="这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。">
 <meta name="twitter:image" content="http://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/pa.png">
 
 
@@ -332,7 +332,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-07T07:40:59+08:00">2018-06-07</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-09T20:30:27+08:00">2018-06-09</time>
             
           </span>
 
@@ -375,7 +375,7 @@
       
 
       
-        <p>这次我们的任务是实现 cbc 和 ctr，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。<br><a id="more"></a></p>
+        <p>这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。<br><a id="more"></a></p>
 <img src="/2018/06/05/cryptography-week-2-programming-assignment/pa.png">
 <p>在这里我们仅贴出核心代码，完整代码在：<a href="https://github.com/XiaochenCui/cryptography-homework" target="_blank" rel="noopener">https://github.com/XiaochenCui/cryptography-homework</a></p>
 <h1 id="CBC-Cipher-Block-Chaining"><a href="#CBC-Cipher-Block-Chaining" class="headerlink" title="CBC (Cipher Block Chaining)"></a>CBC (Cipher Block Chaining)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    cipher_block = iv</span><br><span class="line">    ciphertext = iv</span><br><span class="line">    <span class="keyword">for</span> msg_block <span class="keyword">in</span> msg_block_generator(msg, padding=<span class="keyword">True</span>):</span><br><span class="line">        cipher_block = cipher.encrypt(xor(cipher_block, msg_block))</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> cipher_block <span class="keyword">in</span> cipher_block_generator(cipher_text):</span><br><span class="line">        msg_block = xor(cipher.decrypt(cipher_block), iv)</span><br><span class="line">        iv = cipher_block</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">if</span> msg[<span class="number">-16</span>:] == <span class="string">b'\x16'</span> * <span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> msg[:<span class="number">-16</span>]</span><br><span class="line">    pad_bytes = msg[<span class="number">-1</span>]</span><br><span class="line">    reminder = len(msg) - pad_bytes</span><br><span class="line">    <span class="keyword">if</span> msg[reminder:] == bytes([pad_bytes]) * pad_bytes:</span><br><span class="line">        <span class="keyword">return</span> msg[:reminder]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'Cipher_text is invalid'</span>)</span><br></pre></td></tr></table></figure>
@@ -513,7 +513,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
