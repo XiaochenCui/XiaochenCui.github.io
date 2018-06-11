@@ -94,29 +94,30 @@
 
 
   
-  <meta name="keywords" content="devops" />
+  <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="做最优秀的的 devops 个人邮箱：jcnlcxc.new@gmail.com新浪微博：XiaochenCuigithub: XiaochenCui">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://cuixiaochen.com/about/index.html">
+<meta name="description" content="本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）">
+<meta name="keywords" content="cryptography">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cryptography Week 3 - Programming Assignment">
+<meta property="og:url" content="http://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="做最优秀的的 devops 个人邮箱：jcnlcxc.new@gmail.com新浪微博：XiaochenCuigithub: XiaochenCui">
+<meta property="og:description" content="本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://cuixiaochen.com/images/cxc.jpg">
-<meta property="og:updated_time" content="2018-03-26T15:29:58.672Z">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/pa.png">
+<meta property="og:updated_time" content="2018-06-11T23:54:00.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="做最优秀的的 devops 个人邮箱：jcnlcxc.new@gmail.com新浪微博：XiaochenCuigithub: XiaochenCui">
-<meta name="twitter:image" content="http://cuixiaochen.com/images/cxc.jpg">
+<meta name="twitter:title" content="Cryptography Week 3 - Programming Assignment">
+<meta name="twitter:description" content="本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）">
+<meta name="twitter:image" content="http://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/pa.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://cuixiaochen.com/about/"/>
+  <link rel="canonical" href="http://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/"/>
 
 
 
@@ -125,7 +126,7 @@
     sidebar: "",
   };
 </script>
-  <title>about | XiaochenCui's Blog</title>
+  <title>Cryptography Week 3 - Programming Assignment | XiaochenCui's Blog</title>
   
 
 
@@ -267,46 +268,165 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cui Xiaochen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">about</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>做最优秀的的 devops</p>
-<p>个人邮箱：<a href="mailto:jcnlcxc.new@gmail.com" target="_blank" rel="noopener">jcnlcxc.new@gmail.com</a><br>新浪微博：<a href="https://weibo.com/2090353743/profile?topnav=1&amp;wvr=6" target="_blank" rel="noopener">XiaochenCui</a><br>github: <a href="https://github.com/XiaochenCui" target="_blank" rel="noopener">XiaochenCui</a></p>
-<p><img src="/images/cxc.jpg" alt=""></p>
-
+          <h1 class="post-title" itemprop="name headline">Cryptography Week 3 - Programming Assignment</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-12T07:44:36+08:00">2018-06-12</time>
+            
+
+            
+            
+              
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/12/cryptography-week-3-program-assignment/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/12/cryptography-week-3-program-assignment/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）<br><a id="more"></a></p>
+<img src="/2018/06/12/cryptography-week-3-program-assignment/pa.png">
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> Crypto.Hash <span class="keyword">import</span> SHA256</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">file_block_generator</span><span class="params">(content)</span>:</span></span><br><span class="line">    block_count, reminder = divmod(len(content), <span class="number">1024</span>)</span><br><span class="line">    <span class="keyword">for</span> block_index <span class="keyword">in</span> range(block_count + <span class="number">1</span>)[::<span class="number">-1</span>]:</span><br><span class="line">        start = block_index * <span class="number">1024</span></span><br><span class="line">        end = <span class="number">1024</span> * (block_index + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> end &gt; len(content):</span><br><span class="line">            end = len(content)</span><br><span class="line">        block = content[start:end]</span><br><span class="line">        <span class="keyword">yield</span> block</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">blocked_hash</span><span class="params">(content)</span>:</span></span><br><span class="line">    h = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">for</span> block <span class="keyword">in</span> file_block_generator(content):</span><br><span class="line">        <span class="keyword">if</span> h:</span><br><span class="line">            block = block + h</span><br><span class="line">        h = SHA256.new()</span><br><span class="line">        h.update(block)</span><br><span class="line">        h = h.digest()</span><br><span class="line">    <span class="keyword">return</span> h</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">import</span> sys</span><br><span class="line">    f = open(sys.argv[<span class="number">1</span>], <span class="string">'rb'</span>)</span><br><span class="line">    h = blocked_hash(f.read())</span><br><span class="line">    print(binascii.hexlify(h))</span><br></pre></td></tr></table></figure>
+<p>由于本题比较简单，在此不做过多讲解</p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/11/cryptography-week-3-problem-set/" rel="next" title="Cryptography Week 3 - Problem Set">
+                <i class="fa fa-chevron-left"></i> Cryptography Week 3 - Problem Set
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -584,9 +704,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://cuixiaochen.com/about/index.html';
-        this.page.identifier = 'about/index.html';
-        this.page.title = 'about';
+        this.page.url = 'http://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/';
+        this.page.identifier = '2018/06/12/cryptography-week-3-program-assignment/';
+        this.page.title = 'Cryptography Week 3 - Programming Assignment';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
