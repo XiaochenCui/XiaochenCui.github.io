@@ -94,26 +94,28 @@
 
 
   
-  <meta name="keywords" content="devops" />
+  <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="记录生活与技术的点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XiaochenCui&#39;s Blog">
-<meta property="og:url" content="http://cuixiaochen.com/tags/orm/index.html">
+<meta name="description" content="The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.比较了 encrypt-then-MAC 和 MAC-then-encrypt Authenticated-Encryption with Associated-Data, P.Rogaway, Pro">
+<meta name="keywords" content="cryptography">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些关于 Authenticated Encryption 的 paper">
+<meta property="og:url" content="http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="记录生活与技术的点点滴滴">
+<meta property="og:description" content="The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.比较了 encrypt-then-MAC 和 MAC-then-encrypt Authenticated-Encryption with Associated-Data, P.Rogaway, Pro">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-06-18T13:34:21.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaochenCui&#39;s Blog">
-<meta name="twitter:description" content="记录生活与技术的点点滴滴">
+<meta name="twitter:title" content="一些关于 Authenticated Encryption 的 paper">
+<meta name="twitter:description" content="The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.比较了 encrypt-then-MAC 和 MAC-then-encrypt Authenticated-Encryption with Associated-Data, P.Rogaway, Pro">
 
 
 
 
 
 
-  <link rel="canonical" href="http://cuixiaochen.com/tags/orm/"/>
+  <link rel="canonical" href="http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/"/>
 
 
 
@@ -122,7 +124,7 @@
     sidebar: "",
   };
 </script>
-  <title>Tag: orm | XiaochenCui's Blog</title>
+  <title>一些关于 Authenticated Encryption 的 paper | XiaochenCui's Blog</title>
   
 
 
@@ -178,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,58 +264,188 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>orm<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cui Xiaochen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/01/9-Django-Tips-for-Working-with-Databases-Translate/" itemprop="url">
-              
-                <span itemprop="name">Django 操作数据库时的 9 条小提示（译）</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">一些关于 Authenticated Encryption 的 paper</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-01T16:06:39+08:00"
-              content="2018-02-01" >
-          02-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-18T21:12:28+08:00">2018-06-18</time>
+            
 
-    </header>
-  </article>
+            
+            
+              
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/18/some-paper-about-auth-enc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/18/some-paper-about-auth-enc/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><a href="https://iacr.org/archive/crypto2001/21390309.pdf" target="_blank" rel="noopener">The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.</a><br>比较了 encrypt-then-MAC 和 MAC-then-encrypt</li>
+<li><a href="http://web.cs.ucdavis.edu/~rogaway/papers/ad.pdf" target="_blank" rel="noopener">Authenticated-Encryption with Associated-Data, P.Rogaway, Proc. of CCS 2002.</a><br>讨论了 OCB<a id="more"></a></li>
+<li><a href="https://www.iacr.org/cryptodb/archive/2003/CRYPTO/1069/1069.pdf" target="_blank" rel="noopener">Password Interception in a SSL/TLS Channel, B.Canvel, A.Hiltgen, S.Vaudenay, M.Vuagnoux, Crypto 2003.</a><br>介绍了 padding oracle attack</li>
+<li><a href="http://www.isg.rhul.ac.uk/~kp/SandPfinal.pdf" target="_blank" rel="noopener">Plaintext Recovery Attacks Against SSH, M.Albrecht, K.Paterson and G.Watson, IEEE S&amp;P 2009.</a><br>介绍了 length attack</li>
+<li><a href="https://www.cs.columbia.edu/~smb/papers/badesp.pdf" target="_blank" rel="noopener">Problem areas for the IP security protocols, S.Bellovin, Usenix Security 1996.</a><br>介绍了一些对于没有提供 integrity 而只是提供 CPA security 的协议的攻击方法，并借此告诉我们在加密中只提供 CPA security 是不安全的</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/12/cryptography-week-3-program-assignment/" rel="next" title="Cryptography Week 3 - Programming Assignment">
+                <i class="fa fa-chevron-left"></i> Cryptography Week 3 - Programming Assignment
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -551,6 +683,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
 
   
 
@@ -565,6 +701,23 @@
     <script id="dsq-count-scr" src="https://cuixiaochen.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/';
+        this.page.identifier = '2018/06/18/some-paper-about-auth-enc/';
+        this.page.title = '一些关于 Authenticated Encryption 的 paper';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cuixiaochen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
