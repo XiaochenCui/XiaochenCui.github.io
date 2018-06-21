@@ -279,6 +279,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/21/architect-fuel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cui Xiaochen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/21/architect-fuel/" itemprop="url">架构思考：东风集团传统能源车平台</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-21T23:03:16+08:00">2018-06-21</time>
+            
+
+            
+            
+              
+                
+              
+            
+
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-22T00:24:31+08:00">2018-06-22</time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/21/architect-fuel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/21/architect-fuel/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此平台主要提供对车辆的监控及控制。</p>
+<h2 id="协议选择"><a href="#协议选择" class="headerlink" title="协议选择"></a>协议选择</h2><p>通信协议基于 TCP 并兼容 GB32960。</p>
+<p>注 1：由于硬件限制，我们并未使用 mqtt。</p>
+<p>注 2：由于保密级别的限制，在此不对协议做过多介绍</p>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>现有平台的容量预计为 10 万台车。车载终端在正常行驶情况下每 30 秒向平台发送一次数据包，数据包中包含车辆的实时信息，数据包大小按 1KB 记。当车辆出现异常时，车载终端以每秒一次的频率向平台发送报警数据包。</p>
+<p>由此可粗略估算得出：QPS 大概为 5000，每天新增数据包总量大约为 500G。</p>
+<h1 id="基础设施选择"><a href="#基础设施选择" class="headerlink" title="基础设施选择"></a>基础设施选择</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>由于所有数据包都需要存储以在日后做车况分析、数据统计以及故障排查，所以我们只能选择列式存储，具体的方案是使用 HBASE。业务逻辑相关的数据使用 MySQL/PostgreSQL 进行存储。</p>
+<h2 id="消息总线"><a href="#消息总线" class="headerlink" title="消息总线"></a>消息总线</h2><p>由于该平台对 availability 和 durability 的要求极高，所以必须要有一个稳健的消息总线，数据包在到达系统的第一时间进入消息总线，以保证系统的 reliability 以及 fault tolerance。</p>
+<p>消息总线的选择主要有 <a href="https://kafka.apache.org/documentation/#introduction" target="_blank" rel="noopener">Kafka</a>, <a href="https://redis.io/topics/streams-intro" target="_blank" rel="noopener">Redis Streams</a> 以及 <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">Rabbitmq</a>。</p>
+<p>Kafka 的主要优势在于数据可靠性以及较高的性能。</p>
+<p>Redis Streams 的主要优势在于其性能最高，而且由于我们的系统本来也需要 Redis 的支持，选择 Redis Streams 可以利用已有的 infrastructure。但由于 Redis 在接受到数据后先将其贮存到内存，随后再通过持久化的方式写入磁盘，可靠性不如 Kafka。</p>
+<p>Rabbitmq 的主要优势在于其完整支持 <a href="https://www.amqp.org/" target="_blank" rel="noopener">AMQP</a> 协议，但其开启持久化后性能不足。</p>
+<p>综上，我们选择 Apache Kafka 作为系统的消息总线。</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>使用 Redis</p>
+<h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><p>未完待续</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -318,6 +483,18 @@
               
             
 
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-18T21:34:21+08:00">2018-06-18</time>
             
           </span>
 
@@ -462,6 +639,18 @@
             
 
             
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-12T07:54:00+08:00">2018-06-12</time>
+            
           </span>
 
           
@@ -602,6 +791,18 @@
               
             
 
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-11T21:28:35+08:00">2018-06-11</time>
             
           </span>
 
@@ -1626,166 +1827,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cui Xiaochen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/lego1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaochenCui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/26/Cryptography-Week1-Programming-Assignment/" itemprop="url">Cryptography Week 1 - Programming Assignment</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-26T23:07:34+08:00">2018-03-26</time>
-            
-
-            
-            
-              
-                
-              
-            
-
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-12T08:01:05+08:00">2018-06-12</time>
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/26/Cryptography-Week1-Programming-Assignment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/26/Cryptography-Week1-Programming-Assignment/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们来动手破解它。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/26/Cryptography-Week1-Programming-Assignment/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1832,7 +1878,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1871,7 +1917,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
