@@ -331,7 +331,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-22T00:25:28+08:00">2018-06-22</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-22T00:25:57+08:00">2018-06-22</time>
             
           </span>
 
@@ -375,24 +375,15 @@
 
       
         
-          
-            <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此平台主要提供对车辆的监控及控制。</p>
-<h2 id="协议选择"><a href="#协议选择" class="headerlink" title="协议选择"></a>协议选择</h2><p>通信协议基于 TCP 并兼容 GB32960。</p>
-<p>注 1：由于硬件限制，我们并未使用 mqtt。</p>
-<p>注 2：由于保密级别的限制，在此不对协议做过多介绍</p>
-<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>现有平台的容量预计为 10 万台车。车载终端在正常行驶情况下每 30 秒向平台发送一次数据包，数据包中包含车辆的实时信息，数据包大小按 1KB 记。当车辆出现异常时，车载终端以每秒一次的频率向平台发送报警数据包。</p>
-<p>由此可粗略估算得出：QPS 大概为 5000，每天新增数据包总量大约为 500G。</p>
-<h1 id="基础设施选择"><a href="#基础设施选择" class="headerlink" title="基础设施选择"></a>基础设施选择</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>由于所有数据包都需要存储以在日后做车况分析、数据统计以及故障排查，所以我们只能选择列式存储，具体的方案是使用 HBASE。业务逻辑相关的数据使用 MySQL/PostgreSQL 进行存储。</p>
-<h2 id="消息总线"><a href="#消息总线" class="headerlink" title="消息总线"></a>消息总线</h2><p>由于该平台对 availability 和 durability 的要求极高，所以必须要有一个稳健的消息总线，数据包在到达系统的第一时间进入消息总线，以保证系统的 reliability 以及 fault tolerance。</p>
-<p>消息总线的选择主要有 <a href="https://kafka.apache.org/documentation/#introduction" target="_blank" rel="noopener">Kafka</a>, <a href="https://redis.io/topics/streams-intro" target="_blank" rel="noopener">Redis Streams</a> 以及 <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">Rabbitmq</a>。</p>
-<p>Kafka 的主要优势在于数据可靠性以及较高的性能。</p>
-<p>Redis Streams 的主要优势在于其性能最高，而且由于我们的系统本来也需要 Redis 的支持，选择 Redis Streams 可以利用已有的 infrastructure。但由于 Redis 在接受到数据后先将其贮存到内存，随后再通过持久化的方式写入磁盘，可靠性不如 Kafka。</p>
-<p>Rabbitmq 的主要优势在于其完整支持 <a href="https://www.amqp.org/" target="_blank" rel="noopener">AMQP</a> 协议，但其开启持久化后性能不足。</p>
-<p>综上，我们选择 Apache Kafka 作为系统的消息总线。</p>
-<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>使用 Redis</p>
-<h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><p>未完待续</p>
-
-          
+          <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此平台主要提供对车辆的监控及控制。</p>
+<h2 id="协议选择"><a href="#协议选择" class="headerlink" title="协议选择"></a>协议选择</h2><p>通信协议基于 TCP 并兼容 GB32960。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/21/architect-fuel/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
