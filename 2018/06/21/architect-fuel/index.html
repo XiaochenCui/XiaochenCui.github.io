@@ -105,10 +105,12 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="概览此平台主要提供对车辆的监控及控制。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-21T16:26:09.157Z">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/21/architect-fuel/fuel.png">
+<meta property="og:updated_time" content="2018-06-22T08:06:27.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Architecture - 东风集团传统能源车平台">
 <meta name="twitter:description" content="概览此平台主要提供对车辆的监控及控制。">
+<meta name="twitter:image" content="http://cuixiaochen.com/2018/06/21/architect-fuel/fuel.png">
 
 
 
@@ -330,7 +332,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-22T00:26:09+08:00">2018-06-22</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-22T16:06:27+08:00">2018-06-22</time>
             
           </span>
 
@@ -374,7 +376,7 @@
 
       
         <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此平台主要提供对车辆的监控及控制。<br><a id="more"></a></p>
-<h2 id="协议选择"><a href="#协议选择" class="headerlink" title="协议选择"></a>协议选择</h2><p>通信协议基于 TCP 并兼容 GB32960。</p>
+<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p>通信协议基于 TCP 并兼容 GB32960。</p>
 <p>注 1：由于硬件限制，我们并未使用 mqtt。</p>
 <p>注 2：由于保密级别的限制，在此不对协议做过多介绍</p>
 <h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>现有平台的容量预计为 10 万台车。车载终端在正常行驶情况下每 30 秒向平台发送一次数据包，数据包中包含车辆的实时信息，数据包大小按 1KB 记。当车辆出现异常时，车载终端以每秒一次的频率向平台发送报警数据包。</p>
@@ -387,7 +389,9 @@
 <p>Rabbitmq 的主要优势在于其完整支持 <a href="https://www.amqp.org/" target="_blank" rel="noopener">AMQP</a> 协议，但其开启持久化后性能不足。</p>
 <p>综上，我们选择 Apache Kafka 作为系统的消息总线。</p>
 <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>使用 Redis</p>
-<h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><p>未完待续</p>
+<h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><h2 id="架构简图"><a href="#架构简图" class="headerlink" title="架构简图"></a>架构简图</h2><p>系统架构简图如下，有部分省略</p>
+<img src="/2018/06/21/architect-fuel/fuel.png">
+<p>未完待续</p>
 
       
     </div>
@@ -556,6 +560,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
@@ -592,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#协议选择"><span class="nav-number">1.1.</span> <span class="nav-text">协议选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-number">1.2.</span> <span class="nav-text">并发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础设施选择"><span class="nav-number">2.</span> <span class="nav-text">基础设施选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">2.1.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息总线"><span class="nav-number">2.2.</span> <span class="nav-text">消息总线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.3.</span> <span class="nav-text">缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统架构"><span class="nav-number">3.</span> <span class="nav-text">系统架构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#协议"><span class="nav-number">1.1.</span> <span class="nav-text">协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-number">1.2.</span> <span class="nav-text">并发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础设施选择"><span class="nav-number">2.</span> <span class="nav-text">基础设施选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">2.1.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息总线"><span class="nav-number">2.2.</span> <span class="nav-text">消息总线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.3.</span> <span class="nav-text">缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统架构"><span class="nav-number">3.</span> <span class="nav-text">系统架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#架构简图"><span class="nav-number">3.1.</span> <span class="nav-text">架构简图</span></a></li></ol></li></ol></div>
             
 
           </div>
