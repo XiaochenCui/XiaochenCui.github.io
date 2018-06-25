@@ -97,25 +97,25 @@
   <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.比较了 encrypt-then-MAC 和 MAC-then-encrypt Authenticated-Encryption with Associated-Data, P.Rogaway, Pro">
+<meta name="description" content="Cryptographic Extraction and Key Derivation: The HKDF Scheme. H.Krawczyk, Crypto 2010 Deterministic Authenticated-Encryption: A Provable-Security Treatment of the Keywrap Problem. P.Rogaway, T.Shrimp">
 <meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一些关于 Authenticated Encryption 的 paper">
-<meta property="og:url" content="http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/index.html">
+<meta property="og:title" content="一些关于 Authenticated Encryption 的 paper（二）">
+<meta property="og:url" content="http://cuixiaochen.com/2018/06/25/some-pater-about-auth-enc-2/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.比较了 encrypt-then-MAC 和 MAC-then-encrypt Authenticated-Encryption with Associated-Data, P.Rogaway, Pro">
+<meta property="og:description" content="Cryptographic Extraction and Key Derivation: The HKDF Scheme. H.Krawczyk, Crypto 2010 Deterministic Authenticated-Encryption: A Provable-Security Treatment of the Keywrap Problem. P.Rogaway, T.Shrimp">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-18T13:34:21.507Z">
+<meta property="og:updated_time" content="2018-06-25T14:27:48.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一些关于 Authenticated Encryption 的 paper">
-<meta name="twitter:description" content="The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.比较了 encrypt-then-MAC 和 MAC-then-encrypt Authenticated-Encryption with Associated-Data, P.Rogaway, Pro">
+<meta name="twitter:title" content="一些关于 Authenticated Encryption 的 paper（二）">
+<meta name="twitter:description" content="Cryptographic Extraction and Key Derivation: The HKDF Scheme. H.Krawczyk, Crypto 2010 Deterministic Authenticated-Encryption: A Provable-Security Treatment of the Keywrap Problem. P.Rogaway, T.Shrimp">
 
 
 
 
 
 
-  <link rel="canonical" href="http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/"/>
+  <link rel="canonical" href="http://cuixiaochen.com/2018/06/25/some-pater-about-auth-enc-2/"/>
 
 
 
@@ -124,7 +124,7 @@
     sidebar: "",
   };
 </script>
-  <title>一些关于 Authenticated Encryption 的 paper | XiaochenCui's Blog</title>
+  <title>一些关于 Authenticated Encryption 的 paper（二） | XiaochenCui's Blog</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/25/some-pater-about-auth-enc-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cui Xiaochen">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一些关于 Authenticated Encryption 的 paper</h1>
+          <h1 class="post-title" itemprop="name headline">一些关于 Authenticated Encryption 的 paper（二）</h1>
         
 
         <div class="post-meta">
@@ -309,7 +309,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-18T21:12:28+08:00">2018-06-18</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-25T22:17:46+08:00">2018-06-25</time>
             
 
             
@@ -329,9 +329,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/18/some-paper-about-auth-enc/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/25/some-pater-about-auth-enc-2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/18/some-paper-about-auth-enc/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/25/some-pater-about-auth-enc-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -360,11 +360,11 @@
 
       
         <ul>
-<li><a href="https://iacr.org/archive/crypto2001/21390309.pdf" target="_blank" rel="noopener">The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.</a><br>比较了 encrypt-then-MAC 和 MAC-then-encrypt</li>
-<li><a href="http://web.cs.ucdavis.edu/~rogaway/papers/ad.pdf" target="_blank" rel="noopener">Authenticated-Encryption with Associated-Data, P.Rogaway, Proc. of CCS 2002.</a><br>讨论了 OCB<a id="more"></a></li>
-<li><a href="https://www.iacr.org/cryptodb/archive/2003/CRYPTO/1069/1069.pdf" target="_blank" rel="noopener">Password Interception in a SSL/TLS Channel, B.Canvel, A.Hiltgen, S.Vaudenay, M.Vuagnoux, Crypto 2003.</a><br>介绍了 padding oracle attack</li>
-<li><a href="http://www.isg.rhul.ac.uk/~kp/SandPfinal.pdf" target="_blank" rel="noopener">Plaintext Recovery Attacks Against SSH, M.Albrecht, K.Paterson and G.Watson, IEEE S&amp;P 2009.</a><br>介绍了 length attack</li>
-<li><a href="https://www.cs.columbia.edu/~smb/papers/badesp.pdf" target="_blank" rel="noopener">Problem areas for the IP security protocols, S.Bellovin, Usenix Security 1996.</a><br>介绍了一些对于没有提供 integrity 而只是提供 CPA security 的协议的攻击方法，并借此告诉我们在加密中只提供 CPA security 是不安全的</li>
+<li><a href="https://eprint.iacr.org/2010/264.pdf" target="_blank" rel="noopener">Cryptographic Extraction and Key Derivation: The HKDF Scheme. H.Krawczyk, Crypto 2010</a></li>
+<li><a href="http://web.cs.ucdavis.edu/~rogaway/papers/keywrap.pdf" target="_blank" rel="noopener">Deterministic Authenticated-Encryption: A Provable-Security Treatment of the Keywrap Problem. P.Rogaway, T.Shrimption, Enrocrypt 2006</a><a id="more"></a></li>
+<li><a href="https://eprint.iacr.org/2003/147.pdf" target="_blank" rel="noopener">A Parallelizable Enciphering Mode. S.Halevi, P.Rogaway, CT-RSA 2004</a></li>
+<li><a href="http://web.cs.ucdavis.edu/~rogaway/papers/offsets.pdf" target="_blank" rel="noopener">Efficient Instantiations of Tweakable Blockciphers and Refinements to Modes OCB and PMAC. P.Rogaway, Asiacrypt 2004</a></li>
+<li><a href="http://web.cs.ucdavis.edu/~rogaway/papers/thorp.pdf" target="_blank" rel="noopener">How to Encipher Messages on a Small Domain: Deterministic Encryption and the Thorp Shuffle. B.Morris, P.Rogaway, T.Stegers, Crypto 2009</a></li>
 </ul>
 
       
@@ -399,8 +399,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/12/cryptography-week-3-program-assignment/" rel="next" title="Cryptography Week 3 - Programming Assignment">
-                <i class="fa fa-chevron-left"></i> Cryptography Week 3 - Programming Assignment
+              <a href="/2018/06/21/architect-fuel/" rel="next" title="Architecture - 东风集团传统能源车平台">
+                <i class="fa fa-chevron-left"></i> Architecture - 东风集团传统能源车平台
               </a>
             
           </div>
@@ -408,10 +408,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/21/architect-fuel/" rel="prev" title="Architecture - 东风集团传统能源车平台">
-                Architecture - 东风集团传统能源车平台 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -710,9 +706,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/';
-        this.page.identifier = '2018/06/18/some-paper-about-auth-enc/';
-        this.page.title = '一些关于 Authenticated Encryption 的 paper';
+        this.page.url = 'http://cuixiaochen.com/2018/06/25/some-pater-about-auth-enc-2/';
+        this.page.identifier = '2018/06/25/some-pater-about-auth-enc-2/';
+        this.page.title = '一些关于 Authenticated Encryption 的 paper（二）';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
