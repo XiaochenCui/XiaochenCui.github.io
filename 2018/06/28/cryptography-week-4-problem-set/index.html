@@ -97,25 +97,36 @@
   <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta name="description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 y则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5">
 <meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cryptography study notes (1): Overview">
-<meta property="og:url" content="http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/index.html">
+<meta property="og:title" content="Cryptography Week 4 - Problem Set">
+<meta property="og:url" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta property="og:description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 y则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-30T15:42:06.865Z">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/1.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/2.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/3.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/4.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/5.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/6.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/7.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/8.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/9.png">
+<meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/10.png">
+<meta property="og:updated_time" content="2018-06-28T12:53:22.805Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cryptography study notes (1): Overview">
-<meta name="twitter:description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta name="twitter:title" content="Cryptography Week 4 - Problem Set">
+<meta name="twitter:description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 y则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5">
+<meta name="twitter:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/"/>
+  <link rel="canonical" href="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/"/>
 
 
 
@@ -124,7 +135,7 @@
     sidebar: "",
   };
 </script>
-  <title>Cryptography study notes (1): Overview | XiaochenCui's Blog</title>
+  <title>Cryptography Week 4 - Problem Set | XiaochenCui's Blog</title>
   
 
 
@@ -280,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/">
+    <link itemprop="mainEntityOfPage" href="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cui Xiaochen">
@@ -297,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cryptography study notes (1): Overview</h1>
+          <h1 class="post-title" itemprop="name headline">Cryptography Week 4 - Problem Set</h1>
         
 
         <div class="post-meta">
@@ -309,28 +320,14 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-09T23:45:56+08:00">2017-12-09</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-28T20:23:36+08:00">2018-06-28</time>
             
 
             
             
               
-                
-              
             
 
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-30T23:42:06+08:00">2018-04-30</time>
             
           </span>
 
@@ -343,9 +340,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/09/Cryptography-study-notes-1-Overview/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/28/cryptography-week-4-problem-set/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/09/Cryptography-study-notes-1-Overview/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/28/cryptography-week-4-problem-set/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,23 +370,19 @@
       
 
       
-        <h1 id="Stury-objectives"><a href="#Stury-objectives" class="headerlink" title="Stury objectives:"></a>Stury objectives:</h1><ul>
-<li>Learn how crypto primitives work.</li>
-<li>Learn how to use them correctly and reason about security.<a id="more"></a>
-</li>
-</ul>
-<h1 id="Cryptography-is"><a href="#Cryptography-is" class="headerlink" title="Cryptography is:"></a>Cryptography is:</h1><ul>
-<li>A tremendous tool.</li>
-<li>The basis for many security mechanisms.</li>
-</ul>
-<h1 id="Cryptography-is-not"><a href="#Cryptography-is-not" class="headerlink" title="Cryptography is not:"></a>Cryptography is not:</h1><ul>
-<li>The solution to all security problems.</li>
-<li>Reliable unless implemented and used properly.</li>
-<li>Something you should try to invent yourself.</li>
-</ul>
-<h1 id="Central-theorem"><a href="#Central-theorem" class="headerlink" title="Central theorem"></a>Central theorem</h1><ul>
-<li>Any computation you’d like to do, any function F you’d like to compute, that you can compute with a trusted authority, you can also do without a trusted authority.</li>
-</ul>
+        <img src="/2018/06/28/cryptography-week-4-problem-set/1.png" width="700">
+<p>我们可以从 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack" target="_blank" rel="noopener">Padding oracle attack</a> 中找到伪造密文的思路：<br>设：$1 \oplus x = 5$, IV 中的对应字节为 y<br>则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$<br>所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5<br><a id="more"></a></p>
+<img src="/2018/06/28/cryptography-week-4-problem-set/2.png" width="700">
+<p>第二个选项中提供的加密系统由于不会输出 bottom，所以一定不提供 authenticated encryption<br>第三个选项中的加密系统只需保持 $c_1 \equiv c_2$，即可成功进行 chosen ciphertext attack</p>
+<img src="/2018/06/28/cryptography-week-4-problem-set/3.png" width="700">
+<p>Dan Boneh 教授已经强调过无数次：”Never implements encrypt method by yourself”</p>
+<p>4 ~ 10 题都比较简单，在此不做讲解<br><img src="/2018/06/28/cryptography-week-4-problem-set/4.png" width="700"></p>
+<img src="/2018/06/28/cryptography-week-4-problem-set/5.png" width="700">
+<img src="/2018/06/28/cryptography-week-4-problem-set/6.png" width="700">
+<img src="/2018/06/28/cryptography-week-4-problem-set/7.png" width="700">
+<img src="/2018/06/28/cryptography-week-4-problem-set/8.png" width="700">
+<img src="/2018/06/28/cryptography-week-4-problem-set/9.png" width="700">
+<img src="/2018/06/28/cryptography-week-4-problem-set/10.png" width="700">
 
       
     </div>
@@ -423,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/08/原先的博客被误删除，博客生涯从头开始/" rel="next" title="原先的博客被误删除，博客生涯从头开始">
-                <i class="fa fa-chevron-left"></i> 原先的博客被误删除，博客生涯从头开始
+              <a href="/2018/06/25/some-pater-about-auth-enc-2/" rel="next" title="一些关于 Authenticated Encryption 的 paper（二）">
+                <i class="fa fa-chevron-left"></i> 一些关于 Authenticated Encryption 的 paper（二）
               </a>
             
           </div>
@@ -433,8 +426,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/10/Cryptography-study-notes-2-Some-ancient-encryption-algorithms/" rel="prev" title="Cryptography study notes (2): Some ancient encryption algorithms">
-                Cryptography study notes (2): Some ancient encryption algorithms <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/28/cryptography-week-4-program-assigment/" rel="prev" title="cryptography week 4 program assigment">
+                cryptography week 4 program assigment <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -494,17 +487,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -588,22 +572,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Stury-objectives"><span class="nav-number">1.</span> <span class="nav-text">Stury objectives:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptography-is"><span class="nav-number">2.</span> <span class="nav-text">Cryptography is:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptography-is-not"><span class="nav-number">3.</span> <span class="nav-text">Cryptography is not:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Central-theorem"><span class="nav-number">4.</span> <span class="nav-text">Central theorem</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -759,9 +727,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/';
-        this.page.identifier = '2017/12/09/Cryptography-study-notes-1-Overview/';
-        this.page.title = 'Cryptography study notes (1): Overview';
+        this.page.url = 'http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/';
+        this.page.identifier = '2018/06/28/cryptography-week-4-problem-set/';
+        this.page.title = 'Cryptography Week 4 - Problem Set';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
