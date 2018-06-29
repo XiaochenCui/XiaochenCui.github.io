@@ -97,13 +97,13 @@
   <meta name="keywords" content="cryptography," />
 
 
-<meta name="description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 y则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5">
+<meta name="description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 $y$则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 $y$ 更改为 $y’$ 可使 message 中的相应字节变更为 5">
 <meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cryptography Week 4 - Problem Set">
 <meta property="og:url" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 y则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5">
+<meta property="og:description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 $y$则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 $y$ 更改为 $y’$ 可使 message 中的相应字节变更为 5">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/1.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/2.png">
@@ -115,10 +115,10 @@
 <meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/8.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/9.png">
 <meta property="og:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/10.png">
-<meta property="og:updated_time" content="2018-06-28T12:53:22.805Z">
+<meta property="og:updated_time" content="2018-06-29T12:13:32.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cryptography Week 4 - Problem Set">
-<meta name="twitter:description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 y则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5">
+<meta name="twitter:description" content="我们可以从 Padding oracle attack 中找到伪造密文的思路：设：$1 \oplus x = 5$, IV 中的对应字节为 $y$则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$所以：将 $y$ 更改为 $y’$ 可使 message 中的相应字节变更为 5">
 <meta name="twitter:image" content="http://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/1.png">
 
 
@@ -326,8 +326,22 @@
             
             
               
+                
+              
             
 
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-29T20:13:32+08:00">2018-06-29</time>
             
           </span>
 
@@ -371,7 +385,7 @@
 
       
         <img src="/2018/06/28/cryptography-week-4-problem-set/1.png" width="700">
-<p>我们可以从 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack" target="_blank" rel="noopener">Padding oracle attack</a> 中找到伪造密文的思路：<br>设：$1 \oplus x = 5$, IV 中的对应字节为 y<br>则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$<br>所以：将 y 更改为 y’ 可使 message 中的相应字节变更为 5<br><a id="more"></a></p>
+<p>我们可以从 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack" target="_blank" rel="noopener">Padding oracle attack</a> 中找到伪造密文的思路：<br>设：$1 \oplus x = 5$, IV 中的对应字节为 $y$<br>则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$<br>所以：将 $y$ 更改为 $y’$ 可使 message 中的相应字节变更为 5<br><a id="more"></a></p>
 <img src="/2018/06/28/cryptography-week-4-problem-set/2.png" width="700">
 <p>第二个选项中提供的加密系统由于不会输出 bottom，所以一定不提供 authenticated encryption<br>第三个选项中的加密系统只需保持 $c_1 \equiv c_2$，即可成功进行 chosen ciphertext attack</p>
 <img src="/2018/06/28/cryptography-week-4-problem-set/3.png" width="700">
