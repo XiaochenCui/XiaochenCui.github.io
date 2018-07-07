@@ -94,28 +94,28 @@
 
 
   
-  <meta name="keywords" content="cryptography," />
+  <meta name="keywords" content="sicp,scheme,functional programming," />
 
 
-<meta name="description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
-<meta name="keywords" content="cryptography">
+<meta name="description" content="If art interprets our dream, the computer executes them in the guise of programs!– Alan J. Perlis  前言SICP 从 lisp 语法开始，为我们构成了一个包含计算机理论学科的闭环系统。今天开始我们要借助这本书更深入地理解程序的本质，">
+<meta name="keywords" content="sicp,scheme,functional programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cryptography study notes (1): Overview">
-<meta property="og:url" content="https://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/index.html">
+<meta property="og:title" content="SICP 学习环境的搭建">
+<meta property="og:url" content="https://cuixiaochen.com/2018/07/07/sicp-env/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta property="og:description" content="If art interprets our dream, the computer executes them in the guise of programs!– Alan J. Perlis  前言SICP 从 lisp 语法开始，为我们构成了一个包含计算机理论学科的闭环系统。今天开始我们要借助这本书更深入地理解程序的本质，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-30T15:42:06.865Z">
+<meta property="og:updated_time" content="2018-07-07T12:03:46.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cryptography study notes (1): Overview">
-<meta name="twitter:description" content="Stury objectives: Learn how crypto primitives work. Learn how to use them correctly and reason about security.">
+<meta name="twitter:title" content="SICP 学习环境的搭建">
+<meta name="twitter:description" content="If art interprets our dream, the computer executes them in the guise of programs!– Alan J. Perlis  前言SICP 从 lisp 语法开始，为我们构成了一个包含计算机理论学科的闭环系统。今天开始我们要借助这本书更深入地理解程序的本质，">
 
 
 
 
 
 
-  <link rel="canonical" href="https://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/"/>
+  <link rel="canonical" href="https://cuixiaochen.com/2018/07/07/sicp-env/"/>
 
 
 
@@ -124,7 +124,7 @@
     sidebar: "",
   };
 </script>
-  <title>Cryptography study notes (1): Overview | XiaochenCui's Blog</title>
+  <title>SICP 学习环境的搭建 | XiaochenCui's Blog</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/">
+    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/07/07/sicp-env/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xiaochen Cui">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cryptography study notes (1): Overview</h1>
+          <h1 class="post-title" itemprop="name headline">SICP 学习环境的搭建</h1>
         
 
         <div class="post-meta">
@@ -309,28 +309,14 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-09T23:45:56+08:00">2017-12-09</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-07T19:11:23+08:00">2018-07-07</time>
             
 
             
             
               
-                
-              
             
 
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-30T23:42:06+08:00">2018-04-30</time>
             
           </span>
 
@@ -343,9 +329,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/09/Cryptography-study-notes-1-Overview/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/07/sicp-env/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/09/Cryptography-study-notes-1-Overview/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/07/sicp-env/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,22 +359,20 @@
       
 
       
-        <h1 id="Stury-objectives"><a href="#Stury-objectives" class="headerlink" title="Stury objectives:"></a>Stury objectives:</h1><ul>
-<li>Learn how crypto primitives work.</li>
-<li>Learn how to use them correctly and reason about security.<a id="more"></a>
-</li>
-</ul>
-<h1 id="Cryptography-is"><a href="#Cryptography-is" class="headerlink" title="Cryptography is:"></a>Cryptography is:</h1><ul>
-<li>A tremendous tool.</li>
-<li>The basis for many security mechanisms.</li>
-</ul>
-<h1 id="Cryptography-is-not"><a href="#Cryptography-is-not" class="headerlink" title="Cryptography is not:"></a>Cryptography is not:</h1><ul>
-<li>The solution to all security problems.</li>
-<li>Reliable unless implemented and used properly.</li>
-<li>Something you should try to invent yourself.</li>
-</ul>
-<h1 id="Central-theorem"><a href="#Central-theorem" class="headerlink" title="Central theorem"></a>Central theorem</h1><ul>
-<li>Any computation you’d like to do, any function F you’d like to compute, that you can compute with a trusted authority, you can also do without a trusted authority.</li>
+        <blockquote>
+<p>If art interprets our dream, the computer executes them in the guise of programs!<br>– Alan J. Perlis</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SICP 从 lisp 语法开始，为我们构成了一个包含计算机理论学科的闭环系统。今天开始我们要借助这本书更深入地理解程序的本质，<br><a id="more"></a></p>
+<p>在运行环境方面，有两种选择：<a href="https://www.gnu.org/software/mit-scheme/" target="_blank" rel="noopener">mit-scheme</a>, <a href="https://racket-lang.org/" target="_blank" rel="noopener">racket</a>。其中 racket 提供图形化界面的 DrRacket 以及命令行界面 racket。笔者倾向于使用命令行界面的 racket 作为运行环境，并使用 vim 作为代码编辑器。接下来我将简单介绍一下三种运行环境的安装及基本使用，并列出一些讲解进阶使用的文章供大家更舒服地编写 scheme。</p>
+<h1 id="mit-scheme"><a href="#mit-scheme" class="headerlink" title="mit-scheme"></a>mit-scheme</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>brew install mit-scheme</code></p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>相比于 racket 的 REPL，mit-scheme 缺少了诸如自动补全、快速跳转之类的功能</p>
+<h1 id="racket"><a href="#racket" class="headerlink" title="racket"></a>racket</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p>可以从 <a href="https://racket-lang.org/" target="_blank" rel="noopener">racket</a> 下载安装包进行安装，也可以直接通过命令行 <code>brew cask install racket</code> 安装完整的 racket 客户端。如果通过 <code>brew install racket</code> 安装，则仅会安装一个最精简的、不包括 DrRacket 的 racket 客户端。</p>
+<h2 id="加载-scheme-源文件"><a href="#加载-scheme-源文件" class="headerlink" title="加载 scheme 源文件"></a>加载 scheme 源文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">racket -f &lt;file&gt;  # 详见 racket -h</span><br></pre></td></tr></table></figure>
+<p>或在 REPL 中执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; (load &quot;example.scm&quot;)</span><br></pre></td></tr></table></figure>
+<h1 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h1><p>由于笔者还未做深入研究，在这里先列出一些链接。</p>
+<ul>
+<li><a href="https://racket-zh.org/faq" target="_blank" rel="noopener">Racket 常见问题</a></li>
 </ul>
 
       
@@ -410,7 +394,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
+            <a href="/tags/sicp/" rel="tag"># sicp</a>
+          
+            <a href="/tags/scheme/" rel="tag"># scheme</a>
+          
+            <a href="/tags/functional-programming/" rel="tag"># functional programming</a>
           
         </div>
       
@@ -423,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/08/原先的博客被误删除，博客生涯从头开始/" rel="next" title="原先的博客被误删除，博客生涯从头开始">
-                <i class="fa fa-chevron-left"></i> 原先的博客被误删除，博客生涯从头开始
+              <a href="/2018/06/28/cryptography-week-4-program-assigment/" rel="next" title="Cryptography Week 4 - Programming Project">
+                <i class="fa fa-chevron-left"></i> Cryptography Week 4 - Programming Project
               </a>
             
           </div>
@@ -432,10 +420,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/10/Cryptography-study-notes-2-Some-ancient-encryption-algorithms/" rel="prev" title="Cryptography study notes (2): Some ancient encryption algorithms">
-                Cryptography study notes (2): Some ancient encryption algorithms <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,7 +588,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Stury-objectives"><span class="nav-number">1.</span> <span class="nav-text">Stury objectives:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptography-is"><span class="nav-number">2.</span> <span class="nav-text">Cryptography is:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cryptography-is-not"><span class="nav-number">3.</span> <span class="nav-text">Cryptography is not:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Central-theorem"><span class="nav-number">4.</span> <span class="nav-text">Central theorem</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mit-scheme"><span class="nav-number">2.</span> <span class="nav-text">mit-scheme</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#racket"><span class="nav-number">3.</span> <span class="nav-text">racket</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-1"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载-scheme-源文件"><span class="nav-number">3.2.</span> <span class="nav-text">加载 scheme 源文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拓展阅读"><span class="nav-number">4.</span> <span class="nav-text">拓展阅读</span></a></li></ol></div>
             
 
           </div>
@@ -765,9 +749,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://cuixiaochen.com/2017/12/09/Cryptography-study-notes-1-Overview/';
-        this.page.identifier = '2017/12/09/Cryptography-study-notes-1-Overview/';
-        this.page.title = 'Cryptography study notes (1): Overview';
+        this.page.url = 'https://cuixiaochen.com/2018/07/07/sicp-env/';
+        this.page.identifier = '2018/07/07/sicp-env/';
+        this.page.title = 'SICP 学习环境的搭建';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
