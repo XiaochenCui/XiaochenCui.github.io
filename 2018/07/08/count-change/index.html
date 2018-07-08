@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-08T08:09:16.378Z">
+<meta property="og:updated_time" content="2018-07-08T08:14:32.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="换零钱问题的详细分析及解答">
 <meta name="twitter:description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。">
@@ -402,6 +402,9 @@ $$
 <p>迭代解法 (DP)：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ time racket -t chapter-1/count-change-iteration.scm</span><br><span class="line">11712101</span><br><span class="line">racket -t chapter-1/count-change-iteration.scm  0.40s user 0.08s system 95% cpu 0.501 total</span><br></pre></td></tr></table></figure>
 <p>可以看到，在 x 为 2000 时，树形递归解法消耗的时间是迭代解法的 148 倍。且由于前者的时间复杂度为指数级别，随着 x 的增加，其消耗时间的增长速度会越来越快。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://stackoverflow.com/questions/1485022/sicp-making-change" target="_blank" rel="noopener">SICP making change</a></li>
+</ul>
 
       
     </div>
@@ -620,7 +623,7 @@ $$
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#消除递归"><span class="nav-number">3.</span> <span class="nav-text">消除递归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">4.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">5.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-number">5.2.</span> <span class="nav-text">改进</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与原有树形递归解法的比较"><span class="nav-number">6.</span> <span class="nav-text">与原有树形递归解法的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时间"><span class="nav-number">6.1.</span> <span class="nav-text">运行时间</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#消除递归"><span class="nav-number">3.</span> <span class="nav-text">消除递归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">4.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">5.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-number">5.2.</span> <span class="nav-text">改进</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与原有树形递归解法的比较"><span class="nav-number">6.</span> <span class="nav-text">与原有树形递归解法的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时间"><span class="nav-number">6.1.</span> <span class="nav-text">运行时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
