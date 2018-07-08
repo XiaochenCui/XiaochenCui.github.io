@@ -97,18 +97,18 @@
   <meta name="keywords" content="sicp,algorithm,dynamic programming," />
 
 
-<meta name="description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细分析此题的迭代解法并给出运行时间的对比。 题目给了半美元、四分之一美元、10 美分、5 美分和 1 美分的硬币，将 1 美元换成零钱，一共有多少种不同方式？ 消除递归谈到消除递归，最简单、通用的方法就是使用辅助栈 (auxiliary stack)。简单来说就是将参数推入栈中，然后开">
+<meta name="description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。">
 <meta name="keywords" content="sicp,algorithm,dynamic programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="换零钱问题的详细分析及解答">
 <meta property="og:url" content="https://cuixiaochen.com/2018/07/08/count-change/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细分析此题的迭代解法并给出运行时间的对比。 题目给了半美元、四分之一美元、10 美分、5 美分和 1 美分的硬币，将 1 美元换成零钱，一共有多少种不同方式？ 消除递归谈到消除递归，最简单、通用的方法就是使用辅助栈 (auxiliary stack)。简单来说就是将参数推入栈中，然后开">
+<meta property="og:description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-08T08:04:59.485Z">
+<meta property="og:updated_time" content="2018-07-08T08:09:16.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="换零钱问题的详细分析及解答">
-<meta name="twitter:description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细分析此题的迭代解法并给出运行时间的对比。 题目给了半美元、四分之一美元、10 美分、5 美分和 1 美分的硬币，将 1 美元换成零钱，一共有多少种不同方式？ 消除递归谈到消除递归，最简单、通用的方法就是使用辅助栈 (auxiliary stack)。简单来说就是将参数推入栈中，然后开">
+<meta name="twitter:description" content="概述换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。">
 
 
 
@@ -359,7 +359,7 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细分析此题的迭代解法并给出运行时间的对比。</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>换零钱问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。<br><a id="more"></a></p>
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给了半美元、四分之一美元、10 美分、5 美分和 1 美分的硬币，将 1 美元换成零钱，一共有多少种不同方式？</p>
 <h1 id="消除递归"><a href="#消除递归" class="headerlink" title="消除递归"></a>消除递归</h1><p>谈到消除递归，最简单、通用的方法就是使用辅助栈 (auxiliary stack)。简单来说就是将参数推入栈中，然后开始迭代，直到得到我们想要的结果。</p>
 <p>具体到本题，我们将使用自底向上的动态规划 (dynamic programming) 来解决问题，同时因为我们身（天）经（天）百（刷）战（题），很容易在给出一般性的动态规划解法之后进行优化，将所需的栈空间压缩到 O(1)。</p>
