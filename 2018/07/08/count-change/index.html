@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="概述Counting change 问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-08T08:25:28.421Z">
+<meta property="og:updated_time" content="2018-07-10T14:43:00.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Counting Change 问题的详细分析及解答">
 <meta name="twitter:description" content="概述Counting change 问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。">
@@ -317,8 +317,22 @@
             
             
               
+                
+              
             
 
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-07-10T22:43:00+08:00">2018-07-10</time>
             
           </span>
 
@@ -363,7 +377,7 @@
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Counting change 问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。<br><a id="more"></a></p>
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给了半美元、四分之一美元、10 美分、5 美分和 1 美分的硬币，将 1 美元换成零钱，一共有多少种不同方式？</p>
-<h1 id="消除递归"><a href="#消除递归" class="headerlink" title="消除递归"></a>消除递归</h1><p>谈到消除递归，最简单、通用的方法就是使用辅助栈 (auxiliary stack)。简单来说就是将参数推入栈中，然后开始迭代，直到得到我们想要的结果。</p>
+<h1 id="消除递归"><a href="#消除递归" class="headerlink" title="消除递归"></a>消除递归</h1><p>消除递归最通用的方法是使用辅助栈 (auxiliary stack)。简单来说就是将参数推入栈中，然后开始迭代，直到得到我们想要的结果。</p>
 <p>具体到本题，我们将使用自底向上的动态规划 (dynamic programming) 来解决问题，同时因为我们身（天）经（天）百（刷）战（题），很容易在给出一般性的动态规划解法之后进行优化，将所需的栈空间压缩到 O(1)。</p>
 <h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>设 $f(x, n)$ 为使用最小面值的 n 种硬币换 x 美分的方法总数。</p>
 <p>我们从 $f(x, 1)$ 开始分析。此时 $n=1$，表示只使用 1 美分硬币换 x 美分。显然得出，$f(0, 1)=1$。同时（a 为最小面值硬币的面值）：</p>
@@ -380,12 +394,13 @@ $$
 $$
 
 <p>因为此题中最小面值的硬币面值为 1 美分，所以 $\underset{x&gt;0}{f(x, 1)}=1$</p>
-<p>接下来，我们开始推导到 n=2 时到情况，即使用最小面值到 2 种硬币换 x 美分。有 $f(x, 2)=f(x, 1)+f(x-a, 2)$（其中 a 为面值第二小到硬币到面值，在此题中为 5。且有：</p>
+<p>接下来，我们开始推导到 n=2 时到情况，即使用面值最小的 2 种硬币换 x 美分。设 a 为面值第二小的硬币的面值（在此题中为 5）。则有：</p>
 
 $$
     \begin{align*}
         f(x, 2)=\left\{
                     \begin{array}{ll}
+                        f(x, 1)+f(x-a, 2), & \text{for } x > 0\\
                         1, & \text{for } x \equiv 0\\
                         0, & \text{for } x < 0\\
                     \end{array}
@@ -399,7 +414,7 @@ $$
 <h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>简单改进一下，即可将空间占用降低至 $O(1)$，同时时间复杂度不变</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待填坑</span><br></pre></td></tr></table></figure>
 <h1 id="与原有树形递归解法的比较"><a href="#与原有树形递归解法的比较" class="headerlink" title="与原有树形递归解法的比较"></a>与原有树形递归解法的比较</h1><h2 id="运行时间"><a href="#运行时间" class="headerlink" title="运行时间"></a>运行时间</h2><p>我们在硬件相同、运行环境相同的情况下分别用这两种解法计算 (count-change 2000)</p>
-<p>树叶递归解法：</p>
+<p>树形递归解法：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ time racket -t chapter-1/count-change-tree-recusive.scm</span><br><span class="line">11712101</span><br><span class="line">racket -t chapter-1/count-change-tree-recusive.scm  74.17s user 0.25s system 99% cpu 1:14.45 total</span><br></pre></td></tr></table></figure>
 <p>迭代解法 (DP)：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ time racket -t chapter-1/count-change-iteration.scm</span><br><span class="line">11712101</span><br><span class="line">racket -t chapter-1/count-change-iteration.scm  0.40s user 0.08s system 95% cpu 0.501 total</span><br></pre></td></tr></table></figure>
