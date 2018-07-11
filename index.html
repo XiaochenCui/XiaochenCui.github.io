@@ -281,6 +281,280 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/07/11/fib/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaochen Cui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/lego1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaochenCui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/fib/" itemprop="url">Closed Form Expression For Fibonacci Numbers 的证明</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T07:11:39+08:00">2018-07-11</time>
+            
+
+            
+            
+              
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/11/fib/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/11/fib/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此题出自 SICP 第一章练习题 1.13</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$.</p>
+<h1 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h1><h2 id="phi-和-psi-的性质"><a href="#phi-和-psi-的性质" class="headerlink" title="$\phi$ 和 $\psi$ 的性质"></a>$\phi$ 和 $\psi$ 的性质</h2><p>由题目所设 $\phi=(1+\sqrt5)/2$ 易得：</p>
+
+$$
+    \begin{align*}
+        \phi^2 = \phi+1 \\
+        1/\phi + 1 = \phi \\
+    \end{align*}
+$$
+
+<p>由 $\psi=(1-\sqrt5)/2$ 易得：</p>
+
+$$
+    \begin{align*}
+        \psi^2 = \psi + 1 \\
+        1/\psi + 1 = \psi\\
+    \end{align*}
+$$
+
+<h2 id="归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5"><a href="#归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5" class="headerlink" title="归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$"></a>归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$</h2><p>$\text{for } n=0:$<br>
+$$
+    \begin{align*}
+        (\phi^n-\psi^n)/\sqrt5 =& (\phi^0-\psi^0)/\sqrt5 \\
+                               =& 0 \\
+    \end{align*}
+$$
+</p>
+<p>$\text{for } n=1:$<br>
+$$
+    \begin{align*}
+        (\phi^n-\psi^n)/\sqrt5 =& (\phi^1-\psi^1)/\sqrt5 \\
+                               =& 1 \\
+    \end{align*}
+$$
+</p>
+<p>$\text{for } n=2:$<br>
+$$
+    \begin{align*}
+        (\phi^n-\psi^n)/\sqrt5 =& (\phi^2-\psi^2)/\sqrt5 \\
+                               =& 1 \\
+    \end{align*}
+$$
+</p>
+<p>现在开始采用归纳证明法</p>
+<p>假设下列两个等式成立：</p>
+
+$$
+    \begin{align*}
+        Fib(n)   =& (\phi^n-\psi^n)/\sqrt5 \\
+        Fib(n-1) =& (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\
+    \end{align*}
+$$
+
+<p>我们现在需要证明以下等式成立：</p>
+
+$$
+    \begin{align*}
+        Fib(n+1) =& (\phi^{n+1}-\psi^{n+1})/\sqrt5 \\
+    \end{align*}
+$$
+
+<p>通过 Fibonacci 序列的性质与之前提到的 $\phi$ 和 $\psi$ 的性质，可给出如下的证明过程：</p>
+
+$$
+    \begin{align*}
+        Fib(n+1) =& Fib(n) + Fib(n-1) \\
+                 =& (\phi^n-\psi^n)/\sqrt5 + (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\
+                 =& ((\phi^n-\psi^n) + (\phi^{n-1}-\psi^{n-1}))/\sqrt5 \\
+                 =& ((\phi^n+\phi^{n-1}) - (\psi^n+\psi^{n-1}))/\sqrt5 \\
+                 =& (\phi^{n+1} * (\phi^{-1}+\phi^{-2}) - \psi^{n+1} * (\psi^{-1}+\psi^{-2})) / \sqrt5 \\
+                 =& (\phi^{n+1} * \phi^{-1} * (1+\phi^{-1}) - \psi^{n+1} * \psi^{-1} * (1+\psi^{-1})) / \sqrt5 \\
+                 =& (\phi^{n+1} * 1/\phi * (1+1/\phi) - \psi^{n+1} * 1/\psi * (1+1/\psi)) / \sqrt5 \\
+                 =& (\phi^{n+1} * 1/\phi * \phi - \psi^{n+1} * 1/\psi * \psi) / \sqrt5 \\
+                 =& (\phi^{n+1} - \psi^{n+1}) / \sqrt5 \\
+    \end{align*}
+$$
+
+<h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>我们首先简单转化一下之前证明过的等式：</p>
+
+$$
+    \begin{align*}
+        Fib(n) =& (\phi^n-\psi^n)/\sqrt5 \\
+        Fib(n) =& \phi^n/\sqrt5 - \psi^n/\sqrt5 \\
+        \phi^n/\sqrt5 - Fib(n) =& \psi^n/\sqrt5 \\
+    \end{align*}
+$$
+
+<p>做以上变换是因为我们的目的是证明 $Fib(n)$ 和 $\phi^n/\sqrt5$ 之间的关系。现在我们需要做的就是证明这两者的差总是小于 $1/2$。即证明：</p>
+
+$$
+    \begin{align*}
+        \psi^n/\sqrt5 \leq 1/2
+    \end{align*}
+$$
+
+<p>即证明：</p>
+
+$$
+    \begin{align*}
+        \psi^n \leq \sqrt5/2
+    \end{align*}
+$$
+
+<p>由于 $\psi=(1-\sqrt5)/2$，我们可以计算求得：</p>
+
+$$
+    \begin{align*}
+        \psi \approx -0.618304
+    \end{align*}
+$$
+
+<p>由于 $Fib(n)$ 总是整数且 $n \geq 0$，$\psi &lt; 1$，可以得出：</p>
+
+$$
+    \begin{align*}
+        \psi^n \leq 1
+    \end{align*}
+$$
+
+<p>同时：</p>
+
+$$
+    \begin{align*}
+        \sqrt5/2 \approx 1.118
+    \end{align*}
+$$
+
+<p>因为 $\psi^n \leq 1$，且 $\sqrt5/2 &gt; 1$，所以：</p>
+
+$$
+    \begin{align*}
+        \psi^n < \sqrt5/2
+    \end{align*}
+$$
+
+<p>因此，$Fib(n)$ 是最接近 $\psi^n/\sqrt5$ 的整数。</p>
+<p>完。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/07/08/count-change/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3223,164 +3497,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/01/07/操作系统学习笔记（一）：基本概念/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xiaochen Cui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/lego1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaochenCui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/07/操作系统学习笔记（一）：基本概念/" itemprop="url">操作系统学习笔记：基本概念</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T15:29:54+08:00">2018-01-07</time>
-            
-
-            
-            
-              
-                
-              
-            
-
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-04-30T23:42:06+08:00">2018-04-30</time>
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/07/操作系统学习笔记（一）：基本概念/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/07/操作系统学习笔记（一）：基本概念/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>几个基本概念的简要介绍</p>
-<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><ul>
-<li>进程 (process) 本质上是正在执行的一个程序。</li>
-<li>与每个进程相关的是进程的地址空间 (address space), 这是从某个最小值的存储位置（通常是零）到某个最大值存储位置的列表。在这个地址空间中，进程可以进行读写。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/07/操作系统学习笔记（一）：基本概念/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3432,7 +3548,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -3481,7 +3597,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

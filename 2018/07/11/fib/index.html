@@ -94,23 +94,21 @@
 
 
   
-  <meta name="keywords" content="architecture," />
+  <meta name="keywords" content="sicp,number theory," />
 
 
-<meta name="description" content="概览本文将主要从消息总线、存储方案、查询方案以及指令下发等方面介绍东风传统能源车平台的技术架构。">
-<meta name="keywords" content="architecture">
+<meta name="description" content="概览此题出自 SICP 第一章练习题 1.13 题目Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers">
+<meta name="keywords" content="sicp,number theory">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Architecture - 东风集团传统能源车平台">
-<meta property="og:url" content="https://cuixiaochen.com/2018/06/21/architect-fuel/index.html">
+<meta property="og:title" content="Closed Form Expression For Fibonacci Numbers 的证明">
+<meta property="og:url" content="https://cuixiaochen.com/2018/07/11/fib/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="概览本文将主要从消息总线、存储方案、查询方案以及指令下发等方面介绍东风传统能源车平台的技术架构。">
+<meta property="og:description" content="概览此题出自 SICP 第一章练习题 1.13 题目Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cuixiaochen.com/2018/06/21/architect-fuel/fuel.png">
-<meta property="og:updated_time" content="2018-06-25T14:30:28.355Z">
+<meta property="og:updated_time" content="2018-07-11T12:34:47.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Architecture - 东风集团传统能源车平台">
-<meta name="twitter:description" content="概览本文将主要从消息总线、存储方案、查询方案以及指令下发等方面介绍东风传统能源车平台的技术架构。">
-<meta name="twitter:image" content="https://cuixiaochen.com/2018/06/21/architect-fuel/fuel.png">
+<meta name="twitter:title" content="Closed Form Expression For Fibonacci Numbers 的证明">
+<meta name="twitter:description" content="概览此题出自 SICP 第一章练习题 1.13 题目Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers">
 
 
 
@@ -119,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="https://cuixiaochen.com/2018/06/21/architect-fuel/"/>
+  <link rel="canonical" href="https://cuixiaochen.com/2018/07/11/fib/"/>
 
 
 
@@ -128,7 +126,7 @@
     sidebar: "",
   };
 </script>
-  <title>Architecture - 东风集团传统能源车平台 | XiaochenCui's Blog</title>
+  <title>Closed Form Expression For Fibonacci Numbers 的证明 | XiaochenCui's Blog</title>
   
 
 
@@ -284,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/06/21/architect-fuel/">
+    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/07/11/fib/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xiaochen Cui">
@@ -301,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Architecture - 东风集团传统能源车平台</h1>
+          <h1 class="post-title" itemprop="name headline">Closed Form Expression For Fibonacci Numbers 的证明</h1>
         
 
         <div class="post-meta">
@@ -313,28 +311,14 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-21T23:03:16+08:00">2018-06-21</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T07:11:39+08:00">2018-07-11</time>
             
 
             
             
               
-                
-              
             
 
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-25T22:30:28+08:00">2018-06-25</time>
             
           </span>
 
@@ -347,9 +331,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/21/architect-fuel/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/11/fib/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/21/architect-fuel/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/11/fib/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -377,23 +361,144 @@
       
 
       
-        <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>本文将主要从消息总线、存储方案、查询方案以及指令下发等方面介绍东风传统能源车平台的技术架构。<br><a id="more"></a><br>此平台主要提供对车辆的监控及控制。</p>
-<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p>通信协议基于 TCP 并兼容 GB32960。</p>
-<p>注 1：由于硬件限制，我们并未使用 mqtt。</p>
-<p>注 2：由于保密级别的限制，在此不对协议做过多介绍</p>
-<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>现有平台的容量预计为 10 万台车。车载终端在正常行驶情况下每 30 秒向平台发送一次数据包，数据包中包含车辆的实时信息，数据包大小按 1KB 记。当车辆出现异常时，车载终端以每秒一次的频率向平台发送报警数据包。</p>
-<p>由此可粗略估算得出：QPS 大概为 5000，每天新增数据包总量大约为 500G。</p>
-<h1 id="基础设施选择"><a href="#基础设施选择" class="headerlink" title="基础设施选择"></a>基础设施选择</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>由于所有数据包都需要存储以在日后做车况分析、数据统计以及故障排查，所以我们只能选择列式存储，具体的方案是使用 HBASE。业务逻辑相关的数据使用 MySQL/PostgreSQL 进行存储。</p>
-<h2 id="消息总线"><a href="#消息总线" class="headerlink" title="消息总线"></a>消息总线</h2><p>由于该平台对 availability 和 durability 的要求极高，所以必须要有一个稳健的消息总线，数据包在到达系统的第一时间进入消息总线，以保证系统的 reliability 以及 fault tolerance。</p>
-<p>消息总线的选择主要有 <a href="https://kafka.apache.org/documentation/#introduction" target="_blank" rel="noopener">Kafka</a>, <a href="https://redis.io/topics/streams-intro" target="_blank" rel="noopener">Redis Streams</a> 以及 <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">Rabbitmq</a>。</p>
-<p>Kafka 的主要优势在于数据可靠性以及较高的性能。</p>
-<p>Redis Streams 的主要优势在于其性能最高，而且由于我们的系统本来也需要 Redis 的支持，选择 Redis Streams 可以利用已有的 infrastructure。但由于 Redis 在接受到数据后先将其贮存到内存，随后再通过持久化的方式写入磁盘，可靠性不如 Kafka。</p>
-<p>Rabbitmq 的主要优势在于其完整支持 <a href="https://www.amqp.org/" target="_blank" rel="noopener">AMQP</a> 协议，但其开启持久化后性能不足。</p>
-<p>综上，我们选择 Apache Kafka 作为系统的消息总线。</p>
-<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>使用 Redis</p>
-<h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><h2 id="架构简图"><a href="#架构简图" class="headerlink" title="架构简图"></a>架构简图</h2><p>系统架构简图如下，有部分省略</p>
-<img src="/2018/06/21/architect-fuel/fuel.png">
-<p>未完待续</p>
+        <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此题出自 SICP 第一章练习题 1.13</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$.</p>
+<h1 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h1><h2 id="phi-和-psi-的性质"><a href="#phi-和-psi-的性质" class="headerlink" title="$\phi$ 和 $\psi$ 的性质"></a>$\phi$ 和 $\psi$ 的性质</h2><p>由题目所设 $\phi=(1+\sqrt5)/2$ 易得：</p>
+
+$$
+    \begin{align*}
+        \phi^2 = \phi+1 \\
+        1/\phi + 1 = \phi \\
+    \end{align*}
+$$
+
+<p>由 $\psi=(1-\sqrt5)/2$ 易得：</p>
+
+$$
+    \begin{align*}
+        \psi^2 = \psi + 1 \\
+        1/\psi + 1 = \psi\\
+    \end{align*}
+$$
+
+<h2 id="归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5"><a href="#归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5" class="headerlink" title="归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$"></a>归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$</h2><p>$\text{for } n=0:$<br>
+$$
+    \begin{align*}
+        (\phi^n-\psi^n)/\sqrt5 =& (\phi^0-\psi^0)/\sqrt5 \\
+                               =& 0 \\
+    \end{align*}
+$$
+</p>
+<p>$\text{for } n=1:$<br>
+$$
+    \begin{align*}
+        (\phi^n-\psi^n)/\sqrt5 =& (\phi^1-\psi^1)/\sqrt5 \\
+                               =& 1 \\
+    \end{align*}
+$$
+</p>
+<p>$\text{for } n=2:$<br>
+$$
+    \begin{align*}
+        (\phi^n-\psi^n)/\sqrt5 =& (\phi^2-\psi^2)/\sqrt5 \\
+                               =& 1 \\
+    \end{align*}
+$$
+</p>
+<p>现在开始采用归纳证明法</p>
+<p>假设下列两个等式成立：</p>
+
+$$
+    \begin{align*}
+        Fib(n)   =& (\phi^n-\psi^n)/\sqrt5 \\
+        Fib(n-1) =& (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\
+    \end{align*}
+$$
+
+<p>我们现在需要证明以下等式成立：</p>
+
+$$
+    \begin{align*}
+        Fib(n+1) =& (\phi^{n+1}-\psi^{n+1})/\sqrt5 \\
+    \end{align*}
+$$
+
+<p>通过 Fibonacci 序列的性质与之前提到的 $\phi$ 和 $\psi$ 的性质，可给出如下的证明过程：</p>
+
+$$
+    \begin{align*}
+        Fib(n+1) =& Fib(n) + Fib(n-1) \\
+                 =& (\phi^n-\psi^n)/\sqrt5 + (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\
+                 =& ((\phi^n-\psi^n) + (\phi^{n-1}-\psi^{n-1}))/\sqrt5 \\
+                 =& ((\phi^n+\phi^{n-1}) - (\psi^n+\psi^{n-1}))/\sqrt5 \\
+                 =& (\phi^{n+1} * (\phi^{-1}+\phi^{-2}) - \psi^{n+1} * (\psi^{-1}+\psi^{-2})) / \sqrt5 \\
+                 =& (\phi^{n+1} * \phi^{-1} * (1+\phi^{-1}) - \psi^{n+1} * \psi^{-1} * (1+\psi^{-1})) / \sqrt5 \\
+                 =& (\phi^{n+1} * 1/\phi * (1+1/\phi) - \psi^{n+1} * 1/\psi * (1+1/\psi)) / \sqrt5 \\
+                 =& (\phi^{n+1} * 1/\phi * \phi - \psi^{n+1} * 1/\psi * \psi) / \sqrt5 \\
+                 =& (\phi^{n+1} - \psi^{n+1}) / \sqrt5 \\
+    \end{align*}
+$$
+
+<h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>我们首先简单转化一下之前证明过的等式：</p>
+
+$$
+    \begin{align*}
+        Fib(n) =& (\phi^n-\psi^n)/\sqrt5 \\
+        Fib(n) =& \phi^n/\sqrt5 - \psi^n/\sqrt5 \\
+        \phi^n/\sqrt5 - Fib(n) =& \psi^n/\sqrt5 \\
+    \end{align*}
+$$
+
+<p>做以上变换是因为我们的目的是证明 $Fib(n)$ 和 $\phi^n/\sqrt5$ 之间的关系。现在我们需要做的就是证明这两者的差总是小于 $1/2$。即证明：</p>
+
+$$
+    \begin{align*}
+        \psi^n/\sqrt5 \leq 1/2
+    \end{align*}
+$$
+
+<p>即证明：</p>
+
+$$
+    \begin{align*}
+        \psi^n \leq \sqrt5/2
+    \end{align*}
+$$
+
+<p>由于 $\psi=(1-\sqrt5)/2$，我们可以计算求得：</p>
+
+$$
+    \begin{align*}
+        \psi \approx -0.618304
+    \end{align*}
+$$
+
+<p>由于 $Fib(n)$ 总是整数且 $n \geq 0$，$\psi &lt; 1$，可以得出：</p>
+
+$$
+    \begin{align*}
+        \psi^n \leq 1
+    \end{align*}
+$$
+
+<p>同时：</p>
+
+$$
+    \begin{align*}
+        \sqrt5/2 \approx 1.118
+    \end{align*}
+$$
+
+<p>因为 $\psi^n \leq 1$，且 $\sqrt5/2 &gt; 1$，所以：</p>
+
+$$
+    \begin{align*}
+        \psi^n < \sqrt5/2
+    \end{align*}
+$$
+
+<p>因此，$Fib(n)$ 是最接近 $\psi^n/\sqrt5$ 的整数。</p>
+<p>完。</p>
 
       
     </div>
@@ -414,7 +519,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/architecture/" rel="tag"># architecture</a>
+            <a href="/tags/sicp/" rel="tag"># sicp</a>
+          
+            <a href="/tags/number-theory/" rel="tag"># number theory</a>
           
         </div>
       
@@ -427,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/18/some-paper-about-auth-enc/" rel="next" title="一些关于 Authenticated Encryption 的 paper">
-                <i class="fa fa-chevron-left"></i> 一些关于 Authenticated Encryption 的 paper
+              <a href="/2018/07/08/count-change/" rel="next" title="Counting Change 问题的详细分析及解答">
+                <i class="fa fa-chevron-left"></i> Counting Change 问题的详细分析及解答
               </a>
             
           </div>
@@ -436,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/25/some-pater-about-auth-enc-2/" rel="prev" title="一些关于 Authenticated Encryption 的 paper（二）">
-                一些关于 Authenticated Encryption 的 paper（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#协议"><span class="nav-number">1.1.</span> <span class="nav-text">协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-number">1.2.</span> <span class="nav-text">并发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础设施选择"><span class="nav-number">2.</span> <span class="nav-text">基础设施选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">2.1.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息总线"><span class="nav-number">2.2.</span> <span class="nav-text">消息总线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.3.</span> <span class="nav-text">缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统架构"><span class="nav-number">3.</span> <span class="nav-text">系统架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#架构简图"><span class="nav-number">3.1.</span> <span class="nav-text">架构简图</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#证明"><span class="nav-number">3.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#phi-和-psi-的性质"><span class="nav-number">3.1.</span> <span class="nav-text">$\phi$ 和 $\psi$ 的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5"><span class="nav-number">3.2.</span> <span class="nav-text">归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后一步"><span class="nav-number">3.3.</span> <span class="nav-text">最后一步</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -782,9 +885,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://cuixiaochen.com/2018/06/21/architect-fuel/';
-        this.page.identifier = '2018/06/21/architect-fuel/';
-        this.page.title = 'Architecture - 东风集团传统能源车平台';
+        this.page.url = 'https://cuixiaochen.com/2018/07/11/fib/';
+        this.page.identifier = '2018/07/11/fib/';
+        this.page.title = 'Closed Form Expression For Fibonacci Numbers 的证明';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');

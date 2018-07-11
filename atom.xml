@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-07-10T14:43:00.423Z</updated>
+  <updated>2018-07-11T12:34:47.117Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Closed Form Expression For Fibonacci Numbers 的证明</title>
+    <link href="https://cuixiaochen.com/2018/07/11/fib/"/>
+    <id>https://cuixiaochen.com/2018/07/11/fib/</id>
+    <published>2018-07-10T23:11:39.000Z</published>
+    <updated>2018-07-11T12:34:47.117Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此题出自 SICP 第一章练习题 1.13</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$.</p><h1 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h1><h2 id="phi-和-psi-的性质"><a href="#phi-和-psi-的性质" class="headerlink" title="$\phi$ 和 $\psi$ 的性质"></a>$\phi$ 和 $\psi$ 的性质</h2><p>由题目所设 $\phi=(1+\sqrt5)/2$ 易得：</p>$$    \begin{align*}        \phi^2 = \phi+1 \\        1/\phi + 1 = \phi \\    \end{align*}$$<p>由 $\psi=(1-\sqrt5)/2$ 易得：</p>$$    \begin{align*}        \psi^2 = \psi + 1 \\        1/\psi + 1 = \psi\\    \end{align*}$$<h2 id="归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5"><a href="#归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5" class="headerlink" title="归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$"></a>归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$</h2><p>$\text{for } n=0:$<br>$$    \begin{align*}        (\phi^n-\psi^n)/\sqrt5 =& (\phi^0-\psi^0)/\sqrt5 \\                               =& 0 \\    \end{align*}$$</p><p>$\text{for } n=1:$<br>$$    \begin{align*}        (\phi^n-\psi^n)/\sqrt5 =& (\phi^1-\psi^1)/\sqrt5 \\                               =& 1 \\    \end{align*}$$</p><p>$\text{for } n=2:$<br>$$    \begin{align*}        (\phi^n-\psi^n)/\sqrt5 =& (\phi^2-\psi^2)/\sqrt5 \\                               =& 1 \\    \end{align*}$$</p><p>现在开始采用归纳证明法</p><p>假设下列两个等式成立：</p>$$    \begin{align*}        Fib(n)   =& (\phi^n-\psi^n)/\sqrt5 \\        Fib(n-1) =& (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\    \end{align*}$$<p>我们现在需要证明以下等式成立：</p>$$    \begin{align*}        Fib(n+1) =& (\phi^{n+1}-\psi^{n+1})/\sqrt5 \\    \end{align*}$$<p>通过 Fibonacci 序列的性质与之前提到的 $\phi$ 和 $\psi$ 的性质，可给出如下的证明过程：</p>$$    \begin{align*}        Fib(n+1) =& Fib(n) + Fib(n-1) \\                 =& (\phi^n-\psi^n)/\sqrt5 + (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\                 =& ((\phi^n-\psi^n) + (\phi^{n-1}-\psi^{n-1}))/\sqrt5 \\                 =& ((\phi^n+\phi^{n-1}) - (\psi^n+\psi^{n-1}))/\sqrt5 \\                 =& (\phi^{n+1} * (\phi^{-1}+\phi^{-2}) - \psi^{n+1} * (\psi^{-1}+\psi^{-2})) / \sqrt5 \\                 =& (\phi^{n+1} * \phi^{-1} * (1+\phi^{-1}) - \psi^{n+1} * \psi^{-1} * (1+\psi^{-1})) / \sqrt5 \\                 =& (\phi^{n+1} * 1/\phi * (1+1/\phi) - \psi^{n+1} * 1/\psi * (1+1/\psi)) / \sqrt5 \\                 =& (\phi^{n+1} * 1/\phi * \phi - \psi^{n+1} * 1/\psi * \psi) / \sqrt5 \\                 =& (\phi^{n+1} - \psi^{n+1}) / \sqrt5 \\    \end{align*}$$<h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>我们首先简单转化一下之前证明过的等式：</p>$$    \begin{align*}        Fib(n) =& (\phi^n-\psi^n)/\sqrt5 \\        Fib(n) =& \phi^n/\sqrt5 - \psi^n/\sqrt5 \\        \phi^n/\sqrt5 - Fib(n) =& \psi^n/\sqrt5 \\    \end{align*}$$<p>做以上变换是因为我们的目的是证明 $Fib(n)$ 和 $\phi^n/\sqrt5$ 之间的关系。现在我们需要做的就是证明这两者的差总是小于 $1/2$。即证明：</p>$$    \begin{align*}        \psi^n/\sqrt5 \leq 1/2    \end{align*}$$<p>即证明：</p>$$    \begin{align*}        \psi^n \leq \sqrt5/2    \end{align*}$$<p>由于 $\psi=(1-\sqrt5)/2$，我们可以计算求得：</p>$$    \begin{align*}        \psi \approx -0.618304    \end{align*}$$<p>由于 $Fib(n)$ 总是整数且 $n \geq 0$，$\psi &lt; 1$，可以得出：</p>$$    \begin{align*}        \psi^n \leq 1    \end{align*}$$<p>同时：</p>$$    \begin{align*}        \sqrt5/2 \approx 1.118    \end{align*}$$<p>因为 $\psi^n \leq 1$，且 $\sqrt5/2 &gt; 1$，所以：</p>$$    \begin{align*}        \psi^n < \sqrt5/2    \end{align*}$$<p>因此，$Fib(n)$ 是最接近 $\psi^n/\sqrt5$ 的整数。</p><p>完。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h1&gt;&lt;p&gt;此题出自 SICP 第一章练习题 1.13&lt;/p&gt;
+&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="sicp" scheme="https://cuixiaochen.com/tags/sicp/"/>
+    
+      <category term="number theory" scheme="https://cuixiaochen.com/tags/number-theory/"/>
+    
+  </entry>
   
   <entry>
     <title>Counting Change 问题的详细分析及解答</title>
@@ -427,29 +453,6 @@
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统学习笔记：基本概念</title>
-    <link href="https://cuixiaochen.com/2018/01/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
-    <id>https://cuixiaochen.com/2018/01/07/操作系统学习笔记（一）：基本概念/</id>
-    <published>2018-01-07T07:29:54.000Z</published>
-    <updated>2018-04-30T15:42:06.869Z</updated>
-    
-    <content type="html"><![CDATA[<p>几个基本概念的简要介绍</p><h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><ul><li>进程 (process) 本质上是正在执行的一个程序。</li><li>与每个进程相关的是进程的地址空间 (address space), 这是从某个最小值的存储位置（通常是零）到某个最大值存储位置的列表。在这个地址空间中，进程可以进行读写。<a id="more"></a></li><li>在许多操作系统中，与一个进程有关的所有信息，除了该进程自身地址空间的内容以外，均存放在操作系统的一张表中，称为进程表 (process table)，进程表是数组（或链表）结构，当前存在的每个进程都要占用其中一项。</li><li>系统管理器授权每个进程使用一个给定的 UID 标识 (User IDentification)。每个被启动的进程都有一个启动该进程的用户 UID。子进程拥有与父进程一样的 UID。</li></ul><h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul><li>操作系统的一项主要功能是隐藏磁盘和其他 I/O 设备的细节特性，并提供给程序员一个良好的、清晰的独立于设备的抽象文件模型。</li><li>在读写文件之前，首先要打开文件，检查其访问权限。若权限许可，系统将返回一个小整数，称作文件描述符 (file descriptor)，供后续操作使用。若禁止访问，系统则返回一个错误码。</li><li>在 UNIX 中的另一个重要概念是安装文件系统。如下图，在 mount 调用之前，根文件系统在硬盘上，而第二个文件系统在 CD-ROM 上，它们是分离和无关的。<img src="/2018/01/07/操作系统学习笔记（一）：基本概念/mount.png"></li><li>在 UNIX 中，另一个重要的概念是特殊文件 (special file)。提供特殊文件是为了使 I/O 设备看起来像文件一般。按照惯例，特殊文件保存在 /dev 目录中。有两类特殊文件：<ul><li>块特殊文件：<br>由可随机存取的块组成的设备，如磁盘等。比如打开一个块特殊文件，然后读第 4 块，程序可以直接访问设备的第 4 块而不必考虑存放该文件的文件系统结构。</li><li>字符特殊文件：<br>打印机、调制解调器等接收或输出字符流的设备。</li></ul></li><li>管道 (pipe) 是是一种虚文件，可连接两个进程。（关于管道的详细介绍，参见我的另一篇博客：<a href="http://oldblog.cuixiaochen.com/2017/09/28/Hello-named-pipe/" target="_blank" rel="noopener">Hello, named pipe</a>）</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;几个基本概念的简要介绍&lt;/p&gt;
-&lt;h1 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot; title=&quot;进程&quot;&gt;&lt;/a&gt;进程&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;进程 (process) 本质上是正在执行的一个程序。&lt;/li&gt;
-&lt;li&gt;与每个进程相关的是进程的地址空间 (address space), 这是从某个最小值的存储位置（通常是零）到某个最大值存储位置的列表。在这个地址空间中，进程可以进行读写。
-    
-    </summary>
-    
-    
-      <category term="operating system" scheme="https://cuixiaochen.com/tags/operating-system/"/>
     
   </entry>
   
