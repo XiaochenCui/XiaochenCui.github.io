@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-07-11T12:50:08.420Z</updated>
+  <updated>2018-07-15T13:56:10.703Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些关于 Key Exchange Protocol 的 paper</title>
+    <link href="https://cuixiaochen.com/2018/07/15/key-exchange-paper/"/>
+    <id>https://cuixiaochen.com/2018/07/15/key-exchange-paper/</id>
+    <published>2018-07-15T13:48:13.000Z</published>
+    <updated>2018-07-15T13:56:10.703Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="https://www.boazbarak.org/Papers/merkle.pdf" target="_blank" rel="noopener">Mer Puzzles are Optimal, B.Barak, M.Mahmoody-Ghidary, Crypto ‘09</a><br>当我们只使用 symmetric ciphers 和 hash functions 的时候，Merkle Puzzles 是 key exchange 的最优选择。即我们无法在这样的限制下超越 quadratic gap</li><li><a href="http://www.shoup.net/papers/skey.pdf" target="_blank" rel="noopener">On Formal models of key exchange (sections 7-9) V.Shoup, 1999</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.boazbarak.org/Papers/merkle.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Mer Puzzles are Optimal, B.Barak, M.Mahmoody-G
+      
+    
+    </summary>
+    
+    
+      <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
+    
+  </entry>
   
   <entry>
     <title>Closed Form Expression For Fibonacci Numbers 的证明</title>
@@ -429,27 +453,6 @@
       <category term="django" scheme="https://cuixiaochen.com/tags/django/"/>
     
       <category term="orm" scheme="https://cuixiaochen.com/tags/orm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cryptography Week 1 - Problem Set</title>
-    <link href="https://cuixiaochen.com/2018/01/27/Cryptography-Week1-%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"/>
-    <id>https://cuixiaochen.com/2018/01/27/Cryptography-Week1-课后习题/</id>
-    <published>2018-01-27T06:17:56.000Z</published>
-    <updated>2018-05-20T13:55:30.097Z</updated>
-    
-    <content type="html"><![CDATA[<img src="/2018/01/27/Cryptography-Week1-课后习题/1.png" width="700"><p>先压缩再加密，效率更高。压缩的过程相当于丢掉了一部分冗余信息，使得总信息量减少，从而减少了加密的工作量。</p><a id="more"></a><img src="/2018/01/27/Cryptography-Week1-课后习题/2.png"><ul><li>选项 1 不对，因为 G’(k) 可预测 (predictable)</li><li>选项 2 正确</li><li>选项 3 正确</li><li>选项 4 正确（相当于对 G(k) 取非）</li><li>选项 5 不正确，最后一位可预测</li><li>选项 6 不正确，因为其总是生成相同的 key</li></ul><img src="/2018/01/27/Cryptography-Week1-课后习题/3.png"><p>计算过程：</p>$$\begin{align*}Adv_{PRG}(A,G) &= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(A(r)}=1) - \underset{k\leftarrow{K}}{Pr(A(G'(k))}=1)\right|\\&= \left|\underset{r\leftarrow{\{0,1\}^n}}{Pr(LSB(r)}=1) - \underset{k\leftarrow{K}}{Pr(LSB(G(k_1)\wedge G(k_2))}=1)\right|\\&= \left|\frac{1}{2} - \frac{1}{4}\right|\\&= \frac{1}{4}\end{align*}$$<img src="/2018/01/27/Cryptography-Week1-课后习题/4.png"><img src="/2018/01/27/Cryptography-Week1-课后习题/5.png"><p>此题应该选第一个选项</p><img src="/2018/01/27/Cryptography-Week1-课后习题/6.png"><img src="/2018/01/27/Cryptography-Week1-课后习题/7.png"><img src="/2018/01/27/Cryptography-Week1-课后习题/9.png"><img src="/2018/01/27/Cryptography-Week1-课后习题/10.png">]]></content>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;/2018/01/27/Cryptography-Week1-课后习题/1.png&quot; width=&quot;700&quot;&gt;
-&lt;p&gt;先压缩再加密，效率更高。压缩的过程相当于丢掉了一部分冗余信息，使得总信息量减少，从而减少了加密的工作量。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
     
   </entry>
   
