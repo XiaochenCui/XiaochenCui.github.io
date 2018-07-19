@@ -94,24 +94,23 @@
 
 
   
-  <meta name="keywords" content="cryptography," />
+  <meta name="keywords" content="vim,lisp," />
 
 
-<meta name="description" content="在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们来动手破解它。">
-<meta name="keywords" content="cryptography">
+<meta name="description" content="使用 lisp 编程的时候括号是一个很让人头疼的问题，vim 自带的 matchparen 可以起到一定的帮助，但是还是有两个小问题：  需要将光标移到括号上才能知道它对应但是哪个括号 频繁报错，很影响编码效率  在这里向大家推荐两个插件帮大家更舒服地编写 lisp">
+<meta name="keywords" content="vim,lisp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cryptography Week 1 - Programming Assignment">
-<meta property="og:url" content="https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/index.html">
+<meta property="og:title" content="Vim Lisp Plugin 推荐">
+<meta property="og:url" content="https://cuixiaochen.com/2018/07/19/lisp-vim/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们来动手破解它。">
+<meta property="og:description" content="使用 lisp 编程的时候括号是一个很让人头疼的问题，vim 自带的 matchparen 可以起到一定的帮助，但是还是有两个小问题：  需要将光标移到括号上才能知道它对应但是哪个括号 频繁报错，很影响编码效率  在这里向大家推荐两个插件帮大家更舒服地编写 lisp">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/02-stream-v2-annotated.001.jpeg">
-<meta property="og:image" content="https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/topic.png">
-<meta property="og:updated_time" content="2018-06-29T12:26:30.742Z">
+<meta property="og:image" content="https://cuixiaochen.com/2018/07/19/lisp-vim/rainbow.png">
+<meta property="og:updated_time" content="2018-07-19T14:30:12.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cryptography Week 1 - Programming Assignment">
-<meta name="twitter:description" content="在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们来动手破解它。">
-<meta name="twitter:image" content="https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/02-stream-v2-annotated.001.jpeg">
+<meta name="twitter:title" content="Vim Lisp Plugin 推荐">
+<meta name="twitter:description" content="使用 lisp 编程的时候括号是一个很让人头疼的问题，vim 自带的 matchparen 可以起到一定的帮助，但是还是有两个小问题：  需要将光标移到括号上才能知道它对应但是哪个括号 频繁报错，很影响编码效率  在这里向大家推荐两个插件帮大家更舒服地编写 lisp">
+<meta name="twitter:image" content="https://cuixiaochen.com/2018/07/19/lisp-vim/rainbow.png">
 
 
 
@@ -120,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/"/>
+  <link rel="canonical" href="https://cuixiaochen.com/2018/07/19/lisp-vim/"/>
 
 
 
@@ -129,7 +128,7 @@
     sidebar: "",
   };
 </script>
-  <title>Cryptography Week 1 - Programming Assignment | XiaochenCui's Blog</title>
+  <title>Vim Lisp Plugin 推荐 | XiaochenCui's Blog</title>
   
 
 
@@ -285,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/">
+    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/07/19/lisp-vim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xiaochen Cui">
@@ -302,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cryptography Week 1 - Programming Assignment</h1>
+          <h1 class="post-title" itemprop="name headline">Vim Lisp Plugin 推荐</h1>
         
 
         <div class="post-meta">
@@ -314,28 +313,14 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-26T23:07:34+08:00">2018-03-26</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-19T21:57:14+08:00">2018-07-19</time>
             
 
             
             
               
-                
-              
             
 
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-06-29T20:26:30+08:00">2018-06-29</time>
             
           </span>
 
@@ -348,9 +333,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/26/Cryptography-Week1-Programming-Assignment/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/19/lisp-vim/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/26/Cryptography-Week1-Programming-Assignment/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/19/lisp-vim/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,28 +363,22 @@
       
 
       
-        <p>在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们来动手破解它。<br><a id="more"></a></p>
-<h1 id="简要证明"><a href="#简要证明" class="headerlink" title="简要证明"></a>简要证明</h1><img src="/2018/03/26/Cryptography-Week1-Programming-Assignment/02-stream-v2-annotated.001.jpeg">
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img src="/2018/03/26/Cryptography-Week1-Programming-Assignment/topic.png">
-<h1 id="破解思路"><a href="#破解思路" class="headerlink" title="破解思路"></a>破解思路</h1><p>我们首先定义合法字符集为{英文字母，[,], [.], [“], [ ]}<br>由于所有密文都是用同一密钥加密的，所以对于密文 $c_1$, $c_2$:<br>
-$$
-	\begin{align*}
-        result =& c_1 \oplus c_2 \oplus x (x 为合法字符）\\
-        result =& m_1 \oplus key \oplus m_2 \oplus key \oplus x (m_1, m_2, k 均为密文 c_1, c_2 以及密钥串 key 在同一位置的值）\\
-	\end{align*}
-$$
-<br>排除意外碰撞，当且仅当 $m_1 \equiv x$ 或 $m_2 \equiv x$ 时，result 为合法字符</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ciphertexts_hex = [</span><br><span class="line">    <span class="string">"315c4eeaa8b5f8aaf9174145bf43e1784b8fa00dc71d885a804e5ee9fa40b16349c146fb778cdf2d3aff021dfff5b403b510d0d0455468aeb98622b137dae857553ccd8883a7bc37520e06e515d22c954eba5025b8cc57ee59418ce7dc6bc41556bdb36bbca3e8774301fbcaa3b83b220809560987815f65286764703de0f3d524400a19b159610b11ef3e"</span>,</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">"32510ba9babebbbefd001547a810e67149caee11d945cd7fc81a05e9f85aac650e9052ba6a8cd8257bf14d13e6f0a803b54fde9e77472dbff89d71b57bddef121336cb85ccb8f3315f4b52e301d16e9f52f904"</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Transfer cipher to bytes</span></span><br><span class="line">ciphertexts = list(map(binascii.unhexlify, ciphertexts_hex))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get character range</span></span><br><span class="line">valid_character_range = (string.ascii_letters + <span class="string">".,: "</span>).encode(<span class="string">"ascii"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Target cipher is the cipher we want to crack</span></span><br><span class="line">target_cipher = ciphertexts[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># dic_list stores the probability distribution of letters at each position</span></span><br><span class="line">dic_list = [defaultdict(int) <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(target_cipher))]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> xored_cipher <span class="keyword">in</span> ciphertexts[:<span class="number">10</span>]:</span><br><span class="line">    <span class="keyword">for</span> character_index, character <span class="keyword">in</span> enumerate(target_cipher):</span><br><span class="line">        <span class="keyword">if</span> character_index &lt; len(xored_cipher):</span><br><span class="line">            xored_character = xored_cipher[character_index]</span><br><span class="line">            <span class="comment"># Assume each letter in turn</span></span><br><span class="line">            <span class="keyword">for</span> word <span class="keyword">in</span> valid_character_range:</span><br><span class="line">                <span class="keyword">if</span> character_index &lt; len(xored_cipher):</span><br><span class="line">                    <span class="comment"># Derivation:</span></span><br><span class="line">                    <span class="comment"># xor = key ^ m1 ^ key ^ m2 ^ word</span></span><br><span class="line">                    <span class="comment">#     = m1 ^ m2 ^ word</span></span><br><span class="line">                    <span class="comment"># If m1 == word:</span></span><br><span class="line">                    <span class="comment"># then xor = m2 (xor is valid)</span></span><br><span class="line">                    <span class="comment"># or m2 == word:</span></span><br><span class="line">                    <span class="comment"># then xor = m1 (xor is valid)</span></span><br><span class="line">                    xor = character ^ xored_character ^ word</span><br><span class="line">                    <span class="keyword">if</span> xor <span class="keyword">in</span> valid_character_range:</span><br><span class="line">                        m2 = chr(xor)</span><br><span class="line">                        key = xored_character ^ xor</span><br><span class="line">                        m1 = chr(character ^ key)</span><br><span class="line">                        dic_list[character_index][m2] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">''</span>.join([max(dic, key=dic.get) <span class="keyword">for</span> dic <span class="keyword">in</span> dic_list]))</span><br></pre></td></tr></table></figure>
-<p>运行得到的值为：<br><code>The sicuet cesiage is: Wrzn using a stream cipher, tever use the key more than onye</code></p>
-<p>可以看到，并没有得到准确的原文，这里有两个因素：</p>
+        <p>使用 lisp 编程的时候括号是一个很让人头疼的问题，vim 自带的 <a href="https://github.com/vim/vim/blob/master/runtime/plugin/matchparen.vim" target="_blank" rel="noopener">matchparen</a> 可以起到一定的帮助，但是还是有两个小问题：</p>
 <ul>
-<li>合法字符集的范围可能不准确</li>
-<li>我们并不能判断 $c_1 \equiv c_2 \equiv x$ 为 $m_1$ 还是 $m_2$</li>
+<li>需要将光标移到括号上才能知道它对应但是哪个括号</li>
+<li>频繁报错，很影响编码效率</li>
 </ul>
-<p>dic_list 中的每个 dict 都表示了相应位置每个合法字符的可能性，通过列出每个 dict 出现频次最高的 3 个字符，我们可以还原出原文：</p>
-<blockquote>
-<p>The secret message is: when using a stream cipher, never use the key more than once</p>
-</blockquote>
+<p>在这里向大家推荐两个插件帮大家更舒服地编写 lisp<br><a id="more"></a></p>
+<h1 id="auto-pairs"><a href="#auto-pairs" class="headerlink" title="auto-pairs"></a>auto-pairs</h1><p><a href="https://github.com/jiangmiao/auto-pairs" target="_blank" rel="noopener">auto-pairs</a> 是一款非常实用的括号自动补全插件</p>
+<h1 id="rainbow"><a href="#rainbow" class="headerlink" title="rainbow"></a>rainbow</h1><p><a href="https://github.com/luochen1990/rainbow" target="_blank" rel="noopener">rainbow</a> 可以给我们的括号着色，既美观又实用，可谓 lisp 神器</p>
+<h2 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h2><img src="/2018/07/19/lisp-vim/rainbow.png">
+<h2 id="rainbow-的配置"><a href="#rainbow-的配置" class="headerlink" title="rainbow 的配置"></a>rainbow 的配置</h2><h3 id="使-rainbow-默认开启"><a href="#使-rainbow-默认开启" class="headerlink" title="使 rainbow 默认开启"></a>使 rainbow 默认开启</h3><p>与其他常用的 plugin 不同，rainbow 默认是关闭的，我们可以通过配置使其自动开启：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let g:rainbow_active = 1</span><br></pre></td></tr></table></figure>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>rainbow 默认配置的颜色辨识度不高，我为其配置了更有辨识度的配色方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let g:rainbow_conf = &#123;</span><br><span class="line">\    &apos;guifgs&apos;: [&apos;royalblue3&apos;, &apos;darkorange3&apos;, &apos;seagreen3&apos;, &apos;firebrick&apos;],</span><br><span class="line">\    &apos;ctermfgs&apos;: [&apos;darkred&apos;, &apos;blue&apos;, &apos;yellow&apos;, &apos;cyan&apos;, &apos;magenta&apos;, &apos;brown&apos;],</span><br><span class="line">\&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="只为特定类型的文件启用"><a href="#只为特定类型的文件启用" class="headerlink" title="只为特定类型的文件启用"></a>只为特定类型的文件启用</h3><p>由于 rainbow 会使得我们破坏我们写 markdown 等文件的界面，在这里我们通过配置使其只为特定文件开启：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plug &apos;luochen1990/rainbow&apos;, &#123; &apos;for&apos;: &apos;scheme&apos;  &#125;</span><br></pre></td></tr></table></figure>
+<p>我使用的插件管理器是 <a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">plug</a>，由于目前只在编写 scheme 的需要写比较多的括号，所以只为 scheme 源代码文件开启彩虹配色</p>
 
       
     </div>
@@ -420,7 +399,9 @@ $$
       
         <div class="post-tags">
           
-            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+            <a href="/tags/lisp/" rel="tag"># lisp</a>
           
         </div>
       
@@ -433,8 +414,8 @@ $$
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/11/42065/" rel="next" title="42065">
-                <i class="fa fa-chevron-left"></i> 42065
+              <a href="/2018/07/18/sicp-schedule/" rel="next" title="2018 年下半年学习计划">
+                <i class="fa fa-chevron-left"></i> 2018 年下半年学习计划
               </a>
             
           </div>
@@ -442,10 +423,6 @@ $$
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/30/array-in-shell-script/" rel="prev" title="Arrays in bash">
-                Arrays in bash <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -633,7 +610,7 @@ $$
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简要证明"><span class="nav-number">1.</span> <span class="nav-text">简要证明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#破解思路"><span class="nav-number">3.</span> <span class="nav-text">破解思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#auto-pairs"><span class="nav-number">1.</span> <span class="nav-text">auto-pairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rainbow"><span class="nav-number">2.</span> <span class="nav-text">rainbow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图："><span class="nav-number">2.1.</span> <span class="nav-text">效果图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rainbow-的配置"><span class="nav-number">2.2.</span> <span class="nav-text">rainbow 的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使-rainbow-默认开启"><span class="nav-number">2.2.1.</span> <span class="nav-text">使 rainbow 默认开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色"><span class="nav-number">2.2.2.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只为特定类型的文件启用"><span class="nav-number">2.2.3.</span> <span class="nav-text">只为特定类型的文件启用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -794,9 +771,9 @@ $$
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/';
-        this.page.identifier = '2018/03/26/Cryptography-Week1-Programming-Assignment/';
-        this.page.title = 'Cryptography Week 1 - Programming Assignment';
+        this.page.url = 'https://cuixiaochen.com/2018/07/19/lisp-vim/';
+        this.page.identifier = '2018/07/19/lisp-vim/';
+        this.page.title = 'Vim Lisp Plugin 推荐';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
