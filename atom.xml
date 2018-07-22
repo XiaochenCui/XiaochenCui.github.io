@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-07-22T13:46:03.172Z</updated>
+  <updated>2018-07-22T15:09:33.638Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://cuixiaochen.com/2018/07/22/fermat-little-theorem/"/>
     <id>https://cuixiaochen.com/2018/07/22/fermat-little-theorem/</id>
     <published>2018-07-22T14:20:44.000Z</published>
-    <updated>2018-07-22T13:46:03.172Z</updated>
+    <updated>2018-07-22T15:09:33.638Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Fermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expressed as</p>$$    \begin{align*}        a^p \equiv a\: (mod p)    \end{align*}$$<p>未完待续</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="noopener">Fermat’s little theorem</a></li><li><a href="https://primes.utm.edu/notes/proofs/FermatsLittleTheorem.html" target="_blank" rel="noopener">Proof of Fermat’s Little Theorem</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Fermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expressed as</p>$$    \begin{align*}        a^p \equiv a\: (mod p)    \end{align*}$$<p>To be continued</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="noopener">Fermat’s little theorem</a></li><li><a href="https://primes.utm.edu/notes/proofs/FermatsLittleTheorem.html" target="_blank" rel="noopener">Proof of Fermat’s Little Theorem</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -44,15 +44,15 @@
     <link href="https://cuixiaochen.com/2018/07/22/number-theorem/"/>
     <id>https://cuixiaochen.com/2018/07/22/number-theorem/</id>
     <published>2018-07-22T13:36:00.000Z</published>
-    <updated>2018-07-22T13:45:19.634Z</updated>
+    <updated>2018-07-22T16:11:04.403Z</updated>
     
-    <content type="html"><![CDATA[<p>今天我开了一个新的专栏 <a href="categories/Fun-with-number-theory/">Fun with number theory</a>。这个专栏将从费马小定律开始，讲一些简单的数论知识。这些数论知识在公钥密码学、素数检查、复数计算等方面均有应用</p><p>由于本人也是现学现卖，错误及遗漏之处还请大家多多指正</p>]]></content>
+    <content type="html"><![CDATA[<p>一个新的专栏： <a href="categories/Fun-with-number-theory/">Fun with number theory</a>。这个专栏将从费马小定律开始，讲一些简单的数论知识，并介绍这些数论知识在公钥密码学、素数检查、复数计算等方面的应用</p><p>由于本人也是初学者，错误及遗漏之处还请大家多多指正</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;今天我开了一个新的专栏 &lt;a href=&quot;categories/Fun-with-number-theory/&quot;&gt;Fun with number theory&lt;/a&gt;。这个专栏将从费马小定律开始，讲一些简单的数论知识。这些数论知识在公钥密码学、素数检查、复数计算等方面均有应
+        &lt;p&gt;一个新的专栏： &lt;a href=&quot;categories/Fun-with-number-theory/&quot;&gt;Fun with number theory&lt;/a&gt;。这个专栏将从费马小定律开始，讲一些简单的数论知识，并介绍这些数论知识在公钥密码学、素数检查、复数计算等方面的应用&lt;
       
     
     </summary>
