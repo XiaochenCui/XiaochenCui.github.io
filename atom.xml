@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-07-20T11:34:41.030Z</updated>
+  <updated>2018-07-22T13:46:03.172Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Proof of Fermat&#39;s Little Theorem</title>
+    <link href="https://cuixiaochen.com/2018/07/22/fermat-little-theorem/"/>
+    <id>https://cuixiaochen.com/2018/07/22/fermat-little-theorem/</id>
+    <published>2018-07-22T14:20:44.000Z</published>
+    <updated>2018-07-22T13:46:03.172Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Fermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expressed as</p>$$    \begin{align*}        a^p \equiv a\: (mod p)    \end{align*}$$<p>未完待续</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="noopener">Fermat’s little theorem</a></li><li><a href="https://primes.utm.edu/notes/proofs/FermatsLittleTheorem.html" target="_blank" rel="noopener">Proof of Fermat’s Little Theorem</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h1&gt;&lt;p&gt;Fermat’s little theorem states that if $p$ is 
+      
+    
+    </summary>
+    
+      <category term="Fun with number theory" scheme="https://cuixiaochen.com/categories/Fun-with-number-theory/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>新专栏：数论</title>
+    <link href="https://cuixiaochen.com/2018/07/22/number-theorem/"/>
+    <id>https://cuixiaochen.com/2018/07/22/number-theorem/</id>
+    <published>2018-07-22T13:36:00.000Z</published>
+    <updated>2018-07-22T13:45:19.634Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天我开了一个新的专栏 <a href="categories/Fun-with-number-theory/">Fun with number theory</a>。这个专栏将从费马小定律开始，讲一些简单的数论知识。这些数论知识在公钥密码学、素数检查、复数计算等方面均有应用</p><p>由于本人也是现学现卖，错误及遗漏之处还请大家多多指正</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天我开了一个新的专栏 &lt;a href=&quot;categories/Fun-with-number-theory/&quot;&gt;Fun with number theory&lt;/a&gt;。这个专栏将从费马小定律开始，讲一些简单的数论知识。这些数论知识在公钥密码学、素数检查、复数计算等方面均有应
+      
+    
+    </summary>
+    
+      <category term="Fun with number theory" scheme="https://cuixiaochen.com/categories/Fun-with-number-theory/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vim Lisp Plugin 推荐</title>
@@ -72,7 +118,7 @@
     <link href="https://cuixiaochen.com/2018/07/11/fib/"/>
     <id>https://cuixiaochen.com/2018/07/11/fib/</id>
     <published>2018-07-10T23:11:39.000Z</published>
-    <updated>2018-07-16T12:05:56.122Z</updated>
+    <updated>2018-07-22T13:23:00.797Z</updated>
     
     <content type="html"><![CDATA[<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>此题出自 SICP 第一章练习题 1.13</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$.<br><a id="more"></a></p><h1 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h1><h2 id="phi-和-psi-的性质"><a href="#phi-和-psi-的性质" class="headerlink" title="$\phi$ 和 $\psi$ 的性质"></a>$\phi$ 和 $\psi$ 的性质</h2><p>由题目所设 $\phi=(1+\sqrt5)/2$ 易得：</p>$$    \begin{align*}        \phi^2 = \phi+1 \\        1/\phi + 1 = \phi \\    \end{align*}$$<p>由 $\psi=(1-\sqrt5)/2$ 易得：</p>$$    \begin{align*}        \psi^2 = \psi + 1 \\        1/\psi + 1 = \psi\\    \end{align*}$$<h2 id="归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5"><a href="#归纳证明法证明-Fib-n-phi-n-psi-n-sqrt5" class="headerlink" title="归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$"></a>归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$</h2><p>$\text{for } n=0:$<br>$$    \begin{align*}        (\phi^n-\psi^n)/\sqrt5 =& (\phi^0-\psi^0)/\sqrt5 \\                               =& 0 \\    \end{align*}$$</p><p>$\text{for } n=1:$<br>$$    \begin{align*}        (\phi^n-\psi^n)/\sqrt5 =& (\phi^1-\psi^1)/\sqrt5 \\                               =& 1 \\    \end{align*}$$</p><p>$\text{for } n=2:$<br>$$    \begin{align*}        (\phi^n-\psi^n)/\sqrt5 =& (\phi^2-\psi^2)/\sqrt5 \\                               =& 1 \\    \end{align*}$$</p><p>现在开始采用归纳证明法</p><p>假设下列两个等式成立：</p>$$    \begin{align*}        Fib(n)   =& (\phi^n-\psi^n)/\sqrt5 \\        Fib(n-1) =& (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\    \end{align*}$$<p>我们现在需要证明以下等式成立：</p>$$    \begin{align*}        Fib(n+1) =& (\phi^{n+1}-\psi^{n+1})/\sqrt5 \\    \end{align*}$$<p>通过 Fibonacci 序列的性质与之前提到的 $\phi$ 和 $\psi$ 的性质，可给出如下的证明过程：</p>$$    \begin{align*}        Fib(n+1) =& Fib(n) + Fib(n-1) \\                 =& (\phi^n-\psi^n)/\sqrt5 + (\phi^{n-1}-\psi^{n-1})/\sqrt5 \\                 =& ((\phi^n-\psi^n) + (\phi^{n-1}-\psi^{n-1}))/\sqrt5 \\                 =& ((\phi^n+\phi^{n-1}) - (\psi^n+\psi^{n-1}))/\sqrt5 \\                 =& (\phi^{n+1} * (\phi^{-1}+\phi^{-2}) - \psi^{n+1} * (\psi^{-1}+\psi^{-2})) / \sqrt5 \\                 =& (\phi^{n+1} * \phi^{-1} * (1+\phi^{-1}) - \psi^{n+1} * \psi^{-1} * (1+\psi^{-1})) / \sqrt5 \\                 =& (\phi^{n+1} * 1/\phi * (1+1/\phi) - \psi^{n+1} * 1/\psi * (1+1/\psi)) / \sqrt5 \\                 =& (\phi^{n+1} * 1/\phi * \phi - \psi^{n+1} * 1/\psi * \psi) / \sqrt5 \\                 =& (\phi^{n+1} - \psi^{n+1}) / \sqrt5 \\    \end{align*}$$<h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>我们首先简单转化一下之前证明过的等式：</p>$$    \begin{align*}        Fib(n) =& (\phi^n-\psi^n)/\sqrt5 \\        Fib(n) =& \phi^n/\sqrt5 - \psi^n/\sqrt5 \\        \phi^n/\sqrt5 - Fib(n) =& \psi^n/\sqrt5 \\    \end{align*}$$<p>做以上变换是因为我们的目的是证明 $Fib(n)$ 和 $\phi^n/\sqrt5$ 之间的关系。现在我们需要做的就是证明这两者的差总是小于 $1/2$。即证明：</p>$$    \begin{align*}        \psi^n/\sqrt5 \leq 1/2    \end{align*}$$<p>即证明：</p>$$    \begin{align*}        \psi^n \leq \sqrt5/2    \end{align*}$$<p>由于 $\psi=(1-\sqrt5)/2$，我们可以计算求得：</p>$$    \begin{align*}        \psi \approx -0.618304    \end{align*}$$<p>由于 $Fib(n)$ 总是整数且 $n \geq 0$，$|\psi| &lt; 1$，可以得出：</p>$$    \begin{align*}        \psi^n \leq 1    \end{align*}$$<p>同时：</p>$$    \begin{align*}        \sqrt5/2 \approx 1.118    \end{align*}$$<p>因为 $\psi^n \leq 1$，且 $\sqrt5/2 &gt; 1$，所以：</p>$$    \begin{align*}        \psi^n < \sqrt5/2    \end{align*}$$<p>因此，$Fib(n)$ 是最接近 $\psi^n/\sqrt5$ 的整数。</p><p>完。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="http://www.billthelizard.com/2009/12/sicp-exercise-113-fibonacci-and-golden.html" target="_blank" rel="noopener">Bill the Lizard</a></li><li><a href="https://en.wikipedia.org/wiki/Fibonacci_number#Closed-form_expression" target="_blank" rel="noopener">Fibonacci number</a></li><li><a href="https://artofproblemsolving.com/wiki/index.php?title=Binet%27s_Formula" target="_blank" rel="noopener">Binet’s Formula - Art of Problem Solving</a></li></ul>]]></content>
     
@@ -82,6 +128,8 @@
 &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$.&lt;br&gt;
     
     </summary>
+    
+      <category term="Fun with number theory" scheme="https://cuixiaochen.com/categories/Fun-with-number-theory/"/>
     
     
       <category term="sicp" scheme="https://cuixiaochen.com/tags/sicp/"/>
@@ -146,7 +194,7 @@
     <link href="https://cuixiaochen.com/2018/06/28/cryptography-week-4-program-assigment/"/>
     <id>https://cuixiaochen.com/2018/06/28/cryptography-week-4-program-assigment/</id>
     <published>2018-06-28T12:54:02.000Z</published>
-    <updated>2018-06-30T08:19:07.799Z</updated>
+    <updated>2018-07-21T04:07:01.400Z</updated>
     
     <content type="html"><![CDATA[<p>这次我们的目标是利用 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack" target="_blank" rel="noopener">Padding oracle attack</a> 破解加密过的消息，padding oracle attack 的原理相对来讲比较简单，但是在具体的编程破解过程中需要注意几个问题：</p><ul><li>发送 chosen ciphertext 的间隔时间不能太短，不然会收到 500 响应</li><li>在第一个字节被成功 decrypt 之后，可根据 padding 格式跳过一些字节，节省一些时间<a id="more"></a></li><li>当一个 block 被完全 decrypt 之后，需要将 ciphertext 的最后一个 block 丢弃，使当前 decrypt 的 message block 被服务器认为是最后一个 message block，这样才能利用 padding oracle</li><li>除以上几点外还有一些 trival 的小坑需要留心，在此不做赘述</li></ul><img src="/2018/06/28/cryptography-week-4-program-assigment/pp.png"><p>最终代码：<a href="https://github.com/XiaochenCui/cryptography-homework/blob/master/week_4/padding_oracle.py" target="_blank" rel="noopener">github</a></p>]]></content>
     
@@ -169,7 +217,7 @@
     <link href="https://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/"/>
     <id>https://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/</id>
     <published>2018-06-28T12:23:36.000Z</published>
-    <updated>2018-06-29T12:14:21.646Z</updated>
+    <updated>2018-07-21T04:07:06.258Z</updated>
     
     <content type="html"><![CDATA[<img src="/2018/06/28/cryptography-week-4-problem-set/1.png" width="700"><p>我们可以从 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack" target="_blank" rel="noopener">Padding oracle attack</a> 中找到伪造密文的思路：<br>设：$1 \oplus x = 5$, IV 中的对应字节为 $y$<br>则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$<br>所以：将 $y$ 更改为 $y’$ 可使 message 中的相应字节变更为 5<br><a id="more"></a></p><img src="/2018/06/28/cryptography-week-4-problem-set/2.png" width="700"><p>第二个选项中提供的加密系统由于不会输出 bottom，所以一定不提供 authenticated encryption<br>第三个选项中的加密系统只需保持 $c_1 \equiv c_2$，即可成功进行 chosen ciphertext attack</p><img src="/2018/06/28/cryptography-week-4-problem-set/3.png" width="700"><p>Dan Boneh 教授已经强调过无数次：”Never implements encrypt method by yourself”</p><p>4 ~ 10 题都比较简单，在此不做讲解<br><img src="/2018/06/28/cryptography-week-4-problem-set/4.png" width="700"></p><img src="/2018/06/28/cryptography-week-4-problem-set/5.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/6.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/7.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/8.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/9.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/10.png" width="700">]]></content>
     
@@ -254,7 +302,7 @@
     <link href="https://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/"/>
     <id>https://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/</id>
     <published>2018-06-11T23:44:36.000Z</published>
-    <updated>2018-06-11T23:54:00.106Z</updated>
+    <updated>2018-07-21T04:07:10.790Z</updated>
     
     <content type="html"><![CDATA[<p>本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）<br><a id="more"></a></p><img src="/2018/06/12/cryptography-week-3-program-assignment/pa.png"><p>代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> Crypto.Hash <span class="keyword">import</span> SHA256</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">file_block_generator</span><span class="params">(content)</span>:</span></span><br><span class="line">    block_count, reminder = divmod(len(content), <span class="number">1024</span>)</span><br><span class="line">    <span class="keyword">for</span> block_index <span class="keyword">in</span> range(block_count + <span class="number">1</span>)[::<span class="number">-1</span>]:</span><br><span class="line">        start = block_index * <span class="number">1024</span></span><br><span class="line">        end = <span class="number">1024</span> * (block_index + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> end &gt; len(content):</span><br><span class="line">            end = len(content)</span><br><span class="line">        block = content[start:end]</span><br><span class="line">        <span class="keyword">yield</span> block</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">blocked_hash</span><span class="params">(content)</span>:</span></span><br><span class="line">    h = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">for</span> block <span class="keyword">in</span> file_block_generator(content):</span><br><span class="line">        <span class="keyword">if</span> h:</span><br><span class="line">            block = block + h</span><br><span class="line">        h = SHA256.new()</span><br><span class="line">        h.update(block)</span><br><span class="line">        h = h.digest()</span><br><span class="line">    <span class="keyword">return</span> h</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">import</span> sys</span><br><span class="line">    f = open(sys.argv[<span class="number">1</span>], <span class="string">'rb'</span>)</span><br><span class="line">    h = blocked_hash(f.read())</span><br><span class="line">    print(binascii.hexlify(h))</span><br></pre></td></tr></table></figure><p>由于本题比较简单，在此不做过多讲解</p>]]></content>
     
@@ -274,7 +322,7 @@
     <link href="https://cuixiaochen.com/2018/06/11/cryptography-week-3-problem-set/"/>
     <id>https://cuixiaochen.com/2018/06/11/cryptography-week-3-problem-set/</id>
     <published>2018-06-11T12:55:20.000Z</published>
-    <updated>2018-06-11T13:28:35.851Z</updated>
+    <updated>2018-07-21T04:07:15.364Z</updated>
     
     <content type="html"><![CDATA[<p>这周的习题比较简单，不需要过多讲解</p><img src="/2018/06/11/cryptography-week-3-problem-set/1.png" width="700"><a id="more"></a><img src="/2018/06/11/cryptography-week-3-problem-set/2.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/3.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/4.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/5.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/6.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/7.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/8.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/9.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/10.png" width="700">]]></content>
     
@@ -317,7 +365,7 @@
     <link href="https://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/"/>
     <id>https://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/</id>
     <published>2018-06-05T01:33:29.000Z</published>
-    <updated>2018-06-09T12:30:27.285Z</updated>
+    <updated>2018-07-21T04:07:20.226Z</updated>
     
     <content type="html"><![CDATA[<p>这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。<br><a id="more"></a></p><img src="/2018/06/05/cryptography-week-2-programming-assignment/pa.png"><p>在这里我们仅贴出核心代码，完整代码在：<a href="https://github.com/XiaochenCui/cryptography-homework" target="_blank" rel="noopener">https://github.com/XiaochenCui/cryptography-homework</a></p><h1 id="CBC-Cipher-Block-Chaining"><a href="#CBC-Cipher-Block-Chaining" class="headerlink" title="CBC (Cipher Block Chaining)"></a>CBC (Cipher Block Chaining)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    cipher_block = iv</span><br><span class="line">    ciphertext = iv</span><br><span class="line">    <span class="keyword">for</span> msg_block <span class="keyword">in</span> msg_block_generator(msg, padding=<span class="keyword">True</span>):</span><br><span class="line">        cipher_block = cipher.encrypt(xor(cipher_block, msg_block))</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> cipher_block <span class="keyword">in</span> cipher_block_generator(cipher_text):</span><br><span class="line">        msg_block = xor(cipher.decrypt(cipher_block), iv)</span><br><span class="line">        iv = cipher_block</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">if</span> msg[<span class="number">-16</span>:] == <span class="string">b'\x16'</span> * <span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> msg[:<span class="number">-16</span>]</span><br><span class="line">    pad_bytes = msg[<span class="number">-1</span>]</span><br><span class="line">    reminder = len(msg) - pad_bytes</span><br><span class="line">    <span class="keyword">if</span> msg[reminder:] == bytes([pad_bytes]) * pad_bytes:</span><br><span class="line">        <span class="keyword">return</span> msg[:reminder]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'Cipher_text is invalid'</span>)</span><br></pre></td></tr></table></figure><h1 id="CTR-Counter-mode"><a href="#CTR-Counter-mode" class="headerlink" title="CTR (Counter mode)"></a>CTR (Counter mode)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    ciphertext = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, msg_block <span class="keyword">in</span> enumerate(msg_block_generator(msg, padding=<span class="keyword">False</span>)):</span><br><span class="line">        cipher_block = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        cipher_block = byte.xor(msg_block, cipher_block)</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, cipher_block <span class="keyword">in</span> enumerate(cipher_block_generator(cipher_text)):</span><br><span class="line">        iv_encrypted = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        msg_block = byte.xor(cipher_block, iv_encrypted)</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">return</span> msg</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -337,7 +385,7 @@
     <link href="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/"/>
     <id>https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/</id>
     <published>2018-05-20T13:44:00.000Z</published>
-    <updated>2018-06-29T12:26:37.380Z</updated>
+    <updated>2018-07-21T04:07:25.677Z</updated>
     
     <content type="html"><![CDATA[<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/1.png" width="700"><a id="more"></a>$2^{128}\approx3.4e+38$<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/2.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/3.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/4.png" width="700">$$\begin{align*}        m = 0^{64}:& \\        &L_1 = 0^{32} R_1 \\        &R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\        &L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\        &R_2 = 0^{32} \oplus F(k_2, 0^{32}\oplus F(k_1,0^{32})) \\        m = 1^{32}0^{32}:& \\        &L_1 = 0^{32} R_1 \\        &R_1 = 1^{32} \oplus F(k_1, 0^{32}) \\        &L_2 = 1^{32} \oplus F(k_1, 0^{32}) \\        &R_2 = 0^{32} \oplus F(k_2, 1^{32}\oplus F(k_1,0^{32})) \\\end{align*}$$<p>Therefore:<br>$$    \underset{m = 0^{64}}{L_2} \oplus \underset{m = 1^{32}0^{32}}{L_2} \equiv 1^{32}$$</p><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/5.png" width="700">$$\begin{align*}        c' &= F(k, IV \oplus m_1) \\        &= F(k, F(k, c_0) \oplus c_0 \oplus c_0) \\        &= F(k, F(k, c_0) \oplus c_0 \oplus F(k, c_0)) \\        &= F(k, c_0)\end{align*}$$<p>Therefore:<br>$$    c_1 = c'_0$$</p><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/6.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/7.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/8.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/9.png" width="700">]]></content>
     
@@ -415,47 +463,6 @@
     
     
       <category term="shell script" scheme="https://cuixiaochen.com/tags/shell-script/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cryptography Week 1 - Programming Assignment</title>
-    <link href="https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/"/>
-    <id>https://cuixiaochen.com/2018/03/26/Cryptography-Week1-Programming-Assignment/</id>
-    <published>2018-03-26T15:07:34.000Z</published>
-    <updated>2018-06-29T12:26:30.742Z</updated>
-    
-    <content type="html"><![CDATA[<p>在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们来动手破解它。<br><a id="more"></a></p><h1 id="简要证明"><a href="#简要证明" class="headerlink" title="简要证明"></a>简要证明</h1><img src="/2018/03/26/Cryptography-Week1-Programming-Assignment/02-stream-v2-annotated.001.jpeg"><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img src="/2018/03/26/Cryptography-Week1-Programming-Assignment/topic.png"><h1 id="破解思路"><a href="#破解思路" class="headerlink" title="破解思路"></a>破解思路</h1><p>我们首先定义合法字符集为{英文字母，[,], [.], [“], [ ]}<br>由于所有密文都是用同一密钥加密的，所以对于密文 $c_1$, $c_2$:<br>$$\begin{align*}        result =& c_1 \oplus c_2 \oplus x (x 为合法字符）\\        result =& m_1 \oplus key \oplus m_2 \oplus key \oplus x (m_1, m_2, k 均为密文 c_1, c_2 以及密钥串 key 在同一位置的值）\\\end{align*}$$<br>排除意外碰撞，当且仅当 $m_1 \equiv x$ 或 $m_2 \equiv x$ 时，result 为合法字符</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ciphertexts_hex = [</span><br><span class="line">    <span class="string">"315c4eeaa8b5f8aaf9174145bf43e1784b8fa00dc71d885a804e5ee9fa40b16349c146fb778cdf2d3aff021dfff5b403b510d0d0455468aeb98622b137dae857553ccd8883a7bc37520e06e515d22c954eba5025b8cc57ee59418ce7dc6bc41556bdb36bbca3e8774301fbcaa3b83b220809560987815f65286764703de0f3d524400a19b159610b11ef3e"</span>,</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">"32510ba9babebbbefd001547a810e67149caee11d945cd7fc81a05e9f85aac650e9052ba6a8cd8257bf14d13e6f0a803b54fde9e77472dbff89d71b57bddef121336cb85ccb8f3315f4b52e301d16e9f52f904"</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Transfer cipher to bytes</span></span><br><span class="line">ciphertexts = list(map(binascii.unhexlify, ciphertexts_hex))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get character range</span></span><br><span class="line">valid_character_range = (string.ascii_letters + <span class="string">".,: "</span>).encode(<span class="string">"ascii"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Target cipher is the cipher we want to crack</span></span><br><span class="line">target_cipher = ciphertexts[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># dic_list stores the probability distribution of letters at each position</span></span><br><span class="line">dic_list = [defaultdict(int) <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(target_cipher))]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> xored_cipher <span class="keyword">in</span> ciphertexts[:<span class="number">10</span>]:</span><br><span class="line">    <span class="keyword">for</span> character_index, character <span class="keyword">in</span> enumerate(target_cipher):</span><br><span class="line">        <span class="keyword">if</span> character_index &lt; len(xored_cipher):</span><br><span class="line">            xored_character = xored_cipher[character_index]</span><br><span class="line">            <span class="comment"># Assume each letter in turn</span></span><br><span class="line">            <span class="keyword">for</span> word <span class="keyword">in</span> valid_character_range:</span><br><span class="line">                <span class="keyword">if</span> character_index &lt; len(xored_cipher):</span><br><span class="line">                    <span class="comment"># Derivation:</span></span><br><span class="line">                    <span class="comment"># xor = key ^ m1 ^ key ^ m2 ^ word</span></span><br><span class="line">                    <span class="comment">#     = m1 ^ m2 ^ word</span></span><br><span class="line">                    <span class="comment"># If m1 == word:</span></span><br><span class="line">                    <span class="comment"># then xor = m2 (xor is valid)</span></span><br><span class="line">                    <span class="comment"># or m2 == word:</span></span><br><span class="line">                    <span class="comment"># then xor = m1 (xor is valid)</span></span><br><span class="line">                    xor = character ^ xored_character ^ word</span><br><span class="line">                    <span class="keyword">if</span> xor <span class="keyword">in</span> valid_character_range:</span><br><span class="line">                        m2 = chr(xor)</span><br><span class="line">                        key = xored_character ^ xor</span><br><span class="line">                        m1 = chr(character ^ key)</span><br><span class="line">                        dic_list[character_index][m2] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">''</span>.join([max(dic, key=dic.get) <span class="keyword">for</span> dic <span class="keyword">in</span> dic_list]))</span><br></pre></td></tr></table></figure><p>运行得到的值为：<br><code>The sicuet cesiage is: Wrzn using a stream cipher, tever use the key more than onye</code></p><p>可以看到，并没有得到准确的原文，这里有两个因素：</p><ul><li>合法字符集的范围可能不准确</li><li>我们并不能判断 $c_1 \equiv c_2 \equiv x$ 为 $m_1$ 还是 $m_2$</li></ul><p>dic_list 中的每个 dict 都表示了相应位置每个合法字符的可能性，通过列出每个 dict 出现频次最高的 3 个字符，我们可以还原出原文：</p><blockquote><p>The secret message is: when using a stream cipher, never use the key more than once</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在 Week1 的学习中，我们已经知道 Many Time Pad 是不安全的，现在我们来动手破解它。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>42065</title>
-    <link href="https://cuixiaochen.com/2018/03/11/42065/"/>
-    <id>https://cuixiaochen.com/2018/03/11/42065/</id>
-    <published>2018-03-11T15:19:43.000Z</published>
-    <updated>2018-04-30T15:42:06.807Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Lego Technic 42065 RC Tracked Racer 是乐高遥控系列中最迷你的一款，由 370 块积木组成，国内售价在 500 到 800 不等。此车虽然小，可是“麻雀虽小，五脏俱全”，附带有一个遥控模组以及两个电机，被广大乐高玩家称为“买电机送积木”。同时，由于动力比十分高，42065 的机动性也是乐高科技系列里最强的。</p><h1 id="开箱"><a href="#开箱" class="headerlink" title="开箱"></a>开箱</h1><img src="/2018/03/11/42065/IMG_0602.jpg"><a id="more"></a><h1 id="成品展示"><a href="#成品展示" class="headerlink" title="成品展示"></a>成品展示</h1><p>42065 的拼装较为简单，一到两个小时就可以搞定。</p><img src="/2018/03/11/42065/IMG_0610.jpg"><img src="/2018/03/11/42065/IMG_0611.jpg"><h1 id="改装"><a href="#改装" class="headerlink" title="改装"></a>改装</h1><p>Youtube 上的一个玩家改装得很好，非常有参考价值：</p><div class="video-container"><iframe src="//www.youtube.com/embed/sFjIwYFcyA8" frameborder="0" allowfullscreen></iframe></div><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>42065 总体上来讲挺好玩，唯一的缺点就是由于结构非常精简，不太牢固，可以参考上面的改装视频进行加固。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;Lego Technic 42065 RC Tracked Racer 是乐高遥控系列中最迷你的一款，由 370 块积木组成，国内售价在 500 到 800 不等。此车虽然小，可是“麻雀虽小，五脏俱全”，附带有一个遥控模组以及两个电机，被广大乐高玩家称为“买电机送积木”。同时，由于动力比十分高，42065 的机动性也是乐高科技系列里最强的。&lt;/p&gt;
-&lt;h1 id=&quot;开箱&quot;&gt;&lt;a href=&quot;#开箱&quot; class=&quot;headerlink&quot; title=&quot;开箱&quot;&gt;&lt;/a&gt;开箱&lt;/h1&gt;&lt;img src=&quot;/2018/03/11/42065/IMG_0602.jpg&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="lego" scheme="https://cuixiaochen.com/tags/lego/"/>
     
   </entry>
   

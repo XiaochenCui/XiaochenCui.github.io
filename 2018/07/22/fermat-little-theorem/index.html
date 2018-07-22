@@ -94,21 +94,20 @@
 
 
   
-  <meta name="keywords" content="cryptography," />
+  <meta name="keywords" content="devops" />
 
 
-<meta name="description" content="Mer Puzzles are Optimal, B.Barak, M.Mahmoody-Ghidary, Crypto ‘09当我们只使用 symmetric ciphers 和 hash functions 的时候，Merkle Puzzles 是 key exchange 的最优选择。即我们无法在这样的限制下超越 quadratic gap On Formal models of key">
-<meta name="keywords" content="cryptography">
+<meta name="description" content="OverviewFermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expre">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一些关于 Key Exchange Protocol 的 paper">
-<meta property="og:url" content="https://cuixiaochen.com/2018/07/15/key-exchange-paper/index.html">
+<meta property="og:title" content="Proof of Fermat&#39;s Little Theorem">
+<meta property="og:url" content="https://cuixiaochen.com/2018/07/22/fermat-little-theorem/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="Mer Puzzles are Optimal, B.Barak, M.Mahmoody-Ghidary, Crypto ‘09当我们只使用 symmetric ciphers 和 hash functions 的时候，Merkle Puzzles 是 key exchange 的最优选择。即我们无法在这样的限制下超越 quadratic gap On Formal models of key">
+<meta property="og:description" content="OverviewFermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expre">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-15T13:56:10.703Z">
+<meta property="og:updated_time" content="2018-07-22T13:46:03.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一些关于 Key Exchange Protocol 的 paper">
-<meta name="twitter:description" content="Mer Puzzles are Optimal, B.Barak, M.Mahmoody-Ghidary, Crypto ‘09当我们只使用 symmetric ciphers 和 hash functions 的时候，Merkle Puzzles 是 key exchange 的最优选择。即我们无法在这样的限制下超越 quadratic gap On Formal models of key">
+<meta name="twitter:title" content="Proof of Fermat&#39;s Little Theorem">
+<meta name="twitter:description" content="OverviewFermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expre">
 
 
 
@@ -117,7 +116,7 @@
 
 
 
-  <link rel="canonical" href="https://cuixiaochen.com/2018/07/15/key-exchange-paper/"/>
+  <link rel="canonical" href="https://cuixiaochen.com/2018/07/22/fermat-little-theorem/"/>
 
 
 
@@ -126,7 +125,7 @@
     sidebar: "",
   };
 </script>
-  <title>一些关于 Key Exchange Protocol 的 paper | XiaochenCui's Blog</title>
+  <title>Proof of Fermat's Little Theorem | XiaochenCui's Blog</title>
   
 
 
@@ -288,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/07/15/key-exchange-paper/">
+    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/07/22/fermat-little-theorem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xiaochen Cui">
@@ -305,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一些关于 Key Exchange Protocol 的 paper</h1>
+          <h1 class="post-title" itemprop="name headline">Proof of Fermat's Little Theorem</h1>
         
 
         <div class="post-meta">
@@ -317,7 +316,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T21:48:13+08:00">2018-07-15</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-22T22:20:44+08:00">2018-07-22</time>
             
 
             
@@ -329,6 +328,24 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Fun-with-number-theory/" itemprop="url" rel="index"><span itemprop="name">Fun with number theory</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -337,9 +354,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/15/key-exchange-paper/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/22/fermat-little-theorem/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/15/key-exchange-paper/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/22/fermat-little-theorem/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,9 +384,18 @@
       
 
       
-        <ul>
-<li><a href="https://www.boazbarak.org/Papers/merkle.pdf" target="_blank" rel="noopener">Mer Puzzles are Optimal, B.Barak, M.Mahmoody-Ghidary, Crypto ‘09</a><br>当我们只使用 symmetric ciphers 和 hash functions 的时候，Merkle Puzzles 是 key exchange 的最优选择。即我们无法在这样的限制下超越 quadratic gap</li>
-<li><a href="http://www.shoup.net/papers/skey.pdf" target="_blank" rel="noopener">On Formal models of key exchange (sections 7-9) V.Shoup, 1999</a></li>
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Fermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expressed as</p>
+
+$$
+    \begin{align*}
+        a^p \equiv a\: (mod p)
+    \end{align*}
+$$
+
+<p>未完待续</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="noopener">Fermat’s little theorem</a></li>
+<li><a href="https://primes.utm.edu/notes/proofs/FermatsLittleTheorem.html" target="_blank" rel="noopener">Proof of Fermat’s Little Theorem</a></li>
 </ul>
 
       
@@ -389,12 +415,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
-          
-        </div>
-      
 
       
       
@@ -404,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/11/fib/" rel="next" title="Closed Form Expression For Fibonacci Numbers 的证明">
-                <i class="fa fa-chevron-left"></i> Closed Form Expression For Fibonacci Numbers 的证明
+              <a href="/2018/07/22/number-theorem/" rel="next" title="新专栏：数论">
+                <i class="fa fa-chevron-left"></i> 新专栏：数论
               </a>
             
           </div>
@@ -413,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/19/lisp-vim/" rel="prev" title="Vim Lisp Plugin 推荐">
-                Vim Lisp Plugin 推荐 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,8 +491,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -600,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -755,9 +796,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://cuixiaochen.com/2018/07/15/key-exchange-paper/';
-        this.page.identifier = '2018/07/15/key-exchange-paper/';
-        this.page.title = '一些关于 Key Exchange Protocol 的 paper';
+        this.page.url = 'https://cuixiaochen.com/2018/07/22/fermat-little-theorem/';
+        this.page.identifier = '2018/07/22/fermat-little-theorem/';
+        this.page.title = 'Proof of Fermat\'s Little Theorem';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
