@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-08-12T06:39:34.288Z</updated>
+  <updated>2018-08-12T06:49:52.356Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://cuixiaochen.com/2018/08/12/cryptography-week-5-problem-set/"/>
     <id>https://cuixiaochen.com/2018/08/12/cryptography-week-5-problem-set/</id>
     <published>2018-08-12T05:42:10.000Z</published>
-    <updated>2018-08-12T06:39:34.288Z</updated>
+    <updated>2018-08-12T06:49:52.356Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>本章的主要内容是密钥交换 (key exchange) 和数论 (number theory)</p><p>密钥交换部分先后讲了 TTP (Trusted third parties), Merkle Puzzle 和 Diffie-Hellman protocol</p><p>数论部分的核心概念是 Modular arithmetic，并由此展开 Fermat’s theorem, Euler’s theorem 等定理，同时辅以 order, generator 等概念来做 Modular arithmetic<br><a id="more"></a></p><h1 id="Exercise-explanation"><a href="#Exercise-explanation" class="headerlink" title="Exercise explanation"></a>Exercise explanation</h1><img src="/2018/08/12/cryptography-week-5-problem-set/1.png" width="700"><p>此题比较简单，要注意两点：</p><ol><li>密钥不能以明文形式发送，所以发送的应该是 ticket 而不是 key</li><li>三者所持有的密钥应该相同</li></ol><img src="/2018/08/12/cryptography-week-5-problem-set/2.png" width="700"><p>1 和 4 两个选项需要求解离散对数，是正确选项</p><img src="/2018/08/12/cryptography-week-5-problem-set/3.png" width="700"><img src="/2018/08/12/cryptography-week-5-problem-set/4.png" width="700"><p>由于 pk 是公开的，所以对 ciphertext 加 MAC 不能防止 MIMA</p><img src="/2018/08/12/cryptography-week-5-problem-set/5.png" width="700"><p>本题应使用 Extended Euclidean Algorithm</p><img src="/2018/08/12/cryptography-week-5-problem-set/6.png" width="700"><p>求解 Modular inversion 同样可以用 Extended Euclidean Algorithm</p><img src="/2018/08/12/cryptography-week-5-problem-set/7.png" width="700"><p>使用 Euler’s theorem</p><img src="/2018/08/12/cryptography-week-5-problem-set/8.png" width="700"><p>使用 Fermat’s theorem</p><img src="/2018/08/12/cryptography-week-5-problem-set/9.png" width="700"><p>使用 Fermat’s theorem</p><img src="/2018/08/12/cryptography-week-5-problem-set/10.png" width="700"><img src="/2018/08/12/cryptography-week-5-problem-set/11.png" width="700"><img src="/2018/08/12/cryptography-week-5-problem-set/12.png" width="700"><img src="/2018/08/12/cryptography-week-5-problem-set/13.png" width="700"><img src="/2018/08/12/cryptography-week-5-problem-set/14.png" width="700"><img src="/2018/08/12/cryptography-week-5-problem-set/15.png" width="700">]]></content>
     
@@ -33,6 +33,8 @@
     
     </summary>
     
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
+    
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
     
@@ -43,7 +45,7 @@
     <link href="https://cuixiaochen.com/2018/07/22/fermat-little-theorem/"/>
     <id>https://cuixiaochen.com/2018/07/22/fermat-little-theorem/</id>
     <published>2018-07-22T14:20:44.000Z</published>
-    <updated>2018-07-22T15:09:33.638Z</updated>
+    <updated>2018-08-12T06:49:01.611Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Fermat’s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expressed as</p>$$    \begin{align*}        a^p \equiv a\: (mod p)    \end{align*}$$<p>To be continued</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" target="_blank" rel="noopener">Fermat’s little theorem</a></li><li><a href="https://primes.utm.edu/notes/proofs/FermatsLittleTheorem.html" target="_blank" rel="noopener">Proof of Fermat’s Little Theorem</a></li></ul>]]></content>
     
@@ -59,6 +61,8 @@
       <category term="Fun with number theory" scheme="https://cuixiaochen.com/categories/Fun-with-number-theory/"/>
     
     
+      <category term="number theory" scheme="https://cuixiaochen.com/tags/number-theory/"/>
+    
   </entry>
   
   <entry>
@@ -66,7 +70,7 @@
     <link href="https://cuixiaochen.com/2018/07/22/number-theorem/"/>
     <id>https://cuixiaochen.com/2018/07/22/number-theorem/</id>
     <published>2018-07-22T13:36:00.000Z</published>
-    <updated>2018-07-22T16:11:04.403Z</updated>
+    <updated>2018-08-12T06:49:13.807Z</updated>
     
     <content type="html"><![CDATA[<p>一个新的专栏： <a href="categories/Fun-with-number-theory/">Fun with number theory</a>。这个专栏将从费马小定律开始，讲一些简单的数论知识，并介绍这些数论知识在公钥密码学、素数检查、复数计算等方面的应用</p><p>由于本人也是初学者，错误及遗漏之处还请大家多多指正</p>]]></content>
     
@@ -81,6 +85,8 @@
     
       <category term="Fun with number theory" scheme="https://cuixiaochen.com/categories/Fun-with-number-theory/"/>
     
+    
+      <category term="number theory" scheme="https://cuixiaochen.com/tags/number-theory/"/>
     
   </entry>
   
@@ -216,7 +222,7 @@
     <link href="https://cuixiaochen.com/2018/06/28/cryptography-week-4-program-assigment/"/>
     <id>https://cuixiaochen.com/2018/06/28/cryptography-week-4-program-assigment/</id>
     <published>2018-06-28T12:54:02.000Z</published>
-    <updated>2018-07-21T04:07:01.400Z</updated>
+    <updated>2018-08-12T06:50:35.592Z</updated>
     
     <content type="html"><![CDATA[<p>这次我们的目标是利用 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack" target="_blank" rel="noopener">Padding oracle attack</a> 破解加密过的消息，padding oracle attack 的原理相对来讲比较简单，但是在具体的编程破解过程中需要注意几个问题：</p><ul><li>发送 chosen ciphertext 的间隔时间不能太短，不然会收到 500 响应</li><li>在第一个字节被成功 decrypt 之后，可根据 padding 格式跳过一些字节，节省一些时间<a id="more"></a></li><li>当一个 block 被完全 decrypt 之后，需要将 ciphertext 的最后一个 block 丢弃，使当前 decrypt 的 message block 被服务器认为是最后一个 message block，这样才能利用 padding oracle</li><li>除以上几点外还有一些 trival 的小坑需要留心，在此不做赘述</li></ul><img src="/2018/06/28/cryptography-week-4-program-assigment/pp.png"><p>最终代码：<a href="https://github.com/XiaochenCui/cryptography-homework/blob/master/week_4/padding_oracle.py" target="_blank" rel="noopener">github</a></p>]]></content>
     
@@ -229,6 +235,8 @@
     
     </summary>
     
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
+    
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
     
@@ -239,7 +247,7 @@
     <link href="https://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/"/>
     <id>https://cuixiaochen.com/2018/06/28/cryptography-week-4-problem-set/</id>
     <published>2018-06-28T12:23:36.000Z</published>
-    <updated>2018-07-21T04:07:06.258Z</updated>
+    <updated>2018-08-12T06:50:31.612Z</updated>
     
     <content type="html"><![CDATA[<img src="/2018/06/28/cryptography-week-4-problem-set/1.png" width="700"><p>我们可以从 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack" target="_blank" rel="noopener">Padding oracle attack</a> 中找到伪造密文的思路：<br>设：$1 \oplus x = 5$, IV 中的对应字节为 $y$<br>则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$<br>所以：将 $y$ 更改为 $y’$ 可使 message 中的相应字节变更为 5<br><a id="more"></a></p><img src="/2018/06/28/cryptography-week-4-problem-set/2.png" width="700"><p>第二个选项中提供的加密系统由于不会输出 bottom，所以一定不提供 authenticated encryption<br>第三个选项中的加密系统只需保持 $c_1 \equiv c_2$，即可成功进行 chosen ciphertext attack</p><img src="/2018/06/28/cryptography-week-4-problem-set/3.png" width="700"><p>Dan Boneh 教授已经强调过无数次：”Never implements encrypt method by yourself”</p><p>4 ~ 10 题都比较简单，在此不做讲解<br><img src="/2018/06/28/cryptography-week-4-problem-set/4.png" width="700"></p><img src="/2018/06/28/cryptography-week-4-problem-set/5.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/6.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/7.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/8.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/9.png" width="700"><img src="/2018/06/28/cryptography-week-4-problem-set/10.png" width="700">]]></content>
     
@@ -249,6 +257,8 @@
 &lt;p&gt;我们可以从 &lt;a href=&quot;https://en.wikipedia.org/wiki/Padding_oracle_attack&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Padding oracle attack&lt;/a&gt; 中找到伪造密文的思路：&lt;br&gt;设：$1 \oplus x = 5$, IV 中的对应字节为 $y$&lt;br&gt;则：当 $y’ = y \oplus x$ 时，$y \oplus 1 \equiv y’ \oplus 5$&lt;br&gt;所以：将 $y$ 更改为 $y’$ 可使 message 中的相应字节变更为 5&lt;br&gt;
     
     </summary>
+    
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
@@ -324,7 +334,7 @@
     <link href="https://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/"/>
     <id>https://cuixiaochen.com/2018/06/12/cryptography-week-3-program-assignment/</id>
     <published>2018-06-11T23:44:36.000Z</published>
-    <updated>2018-07-21T04:07:10.790Z</updated>
+    <updated>2018-08-12T06:50:27.562Z</updated>
     
     <content type="html"><![CDATA[<p>本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）<br><a id="more"></a></p><img src="/2018/06/12/cryptography-week-3-program-assignment/pa.png"><p>代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> Crypto.Hash <span class="keyword">import</span> SHA256</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">file_block_generator</span><span class="params">(content)</span>:</span></span><br><span class="line">    block_count, reminder = divmod(len(content), <span class="number">1024</span>)</span><br><span class="line">    <span class="keyword">for</span> block_index <span class="keyword">in</span> range(block_count + <span class="number">1</span>)[::<span class="number">-1</span>]:</span><br><span class="line">        start = block_index * <span class="number">1024</span></span><br><span class="line">        end = <span class="number">1024</span> * (block_index + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> end &gt; len(content):</span><br><span class="line">            end = len(content)</span><br><span class="line">        block = content[start:end]</span><br><span class="line">        <span class="keyword">yield</span> block</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">blocked_hash</span><span class="params">(content)</span>:</span></span><br><span class="line">    h = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">for</span> block <span class="keyword">in</span> file_block_generator(content):</span><br><span class="line">        <span class="keyword">if</span> h:</span><br><span class="line">            block = block + h</span><br><span class="line">        h = SHA256.new()</span><br><span class="line">        h.update(block)</span><br><span class="line">        h = h.digest()</span><br><span class="line">    <span class="keyword">return</span> h</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">import</span> sys</span><br><span class="line">    f = open(sys.argv[<span class="number">1</span>], <span class="string">'rb'</span>)</span><br><span class="line">    h = blocked_hash(f.read())</span><br><span class="line">    print(binascii.hexlify(h))</span><br></pre></td></tr></table></figure><p>由于本题比较简单，在此不做过多讲解</p>]]></content>
     
@@ -333,6 +343,8 @@
       &lt;p&gt;本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）&lt;br&gt;
     
     </summary>
+    
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
@@ -344,7 +356,7 @@
     <link href="https://cuixiaochen.com/2018/06/11/cryptography-week-3-problem-set/"/>
     <id>https://cuixiaochen.com/2018/06/11/cryptography-week-3-problem-set/</id>
     <published>2018-06-11T12:55:20.000Z</published>
-    <updated>2018-07-21T04:07:15.364Z</updated>
+    <updated>2018-08-12T06:50:23.621Z</updated>
     
     <content type="html"><![CDATA[<p>这周的习题比较简单，不需要过多讲解</p><img src="/2018/06/11/cryptography-week-3-problem-set/1.png" width="700"><a id="more"></a><img src="/2018/06/11/cryptography-week-3-problem-set/2.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/3.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/4.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/5.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/6.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/7.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/8.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/9.png" width="700"><img src="/2018/06/11/cryptography-week-3-problem-set/10.png" width="700">]]></content>
     
@@ -354,6 +366,8 @@
 &lt;img src=&quot;/2018/06/11/cryptography-week-3-problem-set/1.png&quot; width=&quot;700&quot;&gt;
     
     </summary>
+    
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
@@ -387,7 +401,7 @@
     <link href="https://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/"/>
     <id>https://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/</id>
     <published>2018-06-05T01:33:29.000Z</published>
-    <updated>2018-07-21T04:07:20.226Z</updated>
+    <updated>2018-08-12T06:50:19.060Z</updated>
     
     <content type="html"><![CDATA[<p>这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。<br><a id="more"></a></p><img src="/2018/06/05/cryptography-week-2-programming-assignment/pa.png"><p>在这里我们仅贴出核心代码，完整代码在：<a href="https://github.com/XiaochenCui/cryptography-homework" target="_blank" rel="noopener">https://github.com/XiaochenCui/cryptography-homework</a></p><h1 id="CBC-Cipher-Block-Chaining"><a href="#CBC-Cipher-Block-Chaining" class="headerlink" title="CBC (Cipher Block Chaining)"></a>CBC (Cipher Block Chaining)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    cipher_block = iv</span><br><span class="line">    ciphertext = iv</span><br><span class="line">    <span class="keyword">for</span> msg_block <span class="keyword">in</span> msg_block_generator(msg, padding=<span class="keyword">True</span>):</span><br><span class="line">        cipher_block = cipher.encrypt(xor(cipher_block, msg_block))</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> cipher_block <span class="keyword">in</span> cipher_block_generator(cipher_text):</span><br><span class="line">        msg_block = xor(cipher.decrypt(cipher_block), iv)</span><br><span class="line">        iv = cipher_block</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">if</span> msg[<span class="number">-16</span>:] == <span class="string">b'\x16'</span> * <span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> msg[:<span class="number">-16</span>]</span><br><span class="line">    pad_bytes = msg[<span class="number">-1</span>]</span><br><span class="line">    reminder = len(msg) - pad_bytes</span><br><span class="line">    <span class="keyword">if</span> msg[reminder:] == bytes([pad_bytes]) * pad_bytes:</span><br><span class="line">        <span class="keyword">return</span> msg[:reminder]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'Cipher_text is invalid'</span>)</span><br></pre></td></tr></table></figure><h1 id="CTR-Counter-mode"><a href="#CTR-Counter-mode" class="headerlink" title="CTR (Counter mode)"></a>CTR (Counter mode)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    ciphertext = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, msg_block <span class="keyword">in</span> enumerate(msg_block_generator(msg, padding=<span class="keyword">False</span>)):</span><br><span class="line">        cipher_block = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        cipher_block = byte.xor(msg_block, cipher_block)</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, cipher_block <span class="keyword">in</span> enumerate(cipher_block_generator(cipher_text)):</span><br><span class="line">        iv_encrypted = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        msg_block = byte.xor(cipher_block, iv_encrypted)</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">return</span> msg</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -396,6 +410,8 @@
       &lt;p&gt;这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。&lt;br&gt;
     
     </summary>
+    
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
@@ -407,7 +423,7 @@
     <link href="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/"/>
     <id>https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/</id>
     <published>2018-05-20T13:44:00.000Z</published>
-    <updated>2018-07-21T04:07:25.677Z</updated>
+    <updated>2018-08-12T06:50:09.815Z</updated>
     
     <content type="html"><![CDATA[<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/1.png" width="700"><a id="more"></a>$2^{128}\approx3.4e+38$<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/2.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/3.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/4.png" width="700">$$\begin{align*}        m = 0^{64}:& \\        &L_1 = 0^{32} R_1 \\        &R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\        &L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\        &R_2 = 0^{32} \oplus F(k_2, 0^{32}\oplus F(k_1,0^{32})) \\        m = 1^{32}0^{32}:& \\        &L_1 = 0^{32} R_1 \\        &R_1 = 1^{32} \oplus F(k_1, 0^{32}) \\        &L_2 = 1^{32} \oplus F(k_1, 0^{32}) \\        &R_2 = 0^{32} \oplus F(k_2, 1^{32}\oplus F(k_1,0^{32})) \\\end{align*}$$<p>Therefore:<br>$$    \underset{m = 0^{64}}{L_2} \oplus \underset{m = 1^{32}0^{32}}{L_2} \equiv 1^{32}$$</p><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/5.png" width="700">$$\begin{align*}        c' &= F(k, IV \oplus m_1) \\        &= F(k, F(k, c_0) \oplus c_0 \oplus c_0) \\        &= F(k, F(k, c_0) \oplus c_0 \oplus F(k, c_0)) \\        &= F(k, c_0)\end{align*}$$<p>Therefore:<br>$$    c_1 = c'_0$$</p><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/6.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/7.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/8.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/9.png" width="700">]]></content>
     
@@ -416,6 +432,8 @@
       &lt;img src=&quot;/2018/05/20/Cryptography-Week-2-Problem-Set/1.png&quot; width=&quot;700&quot;&gt;
     
     </summary>
+    
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
