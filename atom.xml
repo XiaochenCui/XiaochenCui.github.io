@@ -311,26 +311,6 @@
   </entry>
   
   <entry>
-    <title>Architecture - 东风集团传统能源车平台</title>
-    <link href="https://cuixiaochen.com/2018/06/21/architect-fuel/"/>
-    <id>https://cuixiaochen.com/2018/06/21/architect-fuel/</id>
-    <published>2018-06-21T15:03:16.000Z</published>
-    <updated>2018-06-25T14:30:28.355Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>本文将主要从消息总线、存储方案、查询方案以及指令下发等方面介绍东风传统能源车平台的技术架构。<br><a id="more"></a><br>此平台主要提供对车辆的监控及控制。</p><h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p>通信协议基于 TCP 并兼容 GB32960。</p><p>注 1：由于硬件限制，我们并未使用 mqtt。</p><p>注 2：由于保密级别的限制，在此不对协议做过多介绍</p><h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>现有平台的容量预计为 10 万台车。车载终端在正常行驶情况下每 30 秒向平台发送一次数据包，数据包中包含车辆的实时信息，数据包大小按 1KB 记。当车辆出现异常时，车载终端以每秒一次的频率向平台发送报警数据包。</p><p>由此可粗略估算得出：QPS 大概为 5000，每天新增数据包总量大约为 500G。</p><h1 id="基础设施选择"><a href="#基础设施选择" class="headerlink" title="基础设施选择"></a>基础设施选择</h1><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>由于所有数据包都需要存储以在日后做车况分析、数据统计以及故障排查，所以我们只能选择列式存储，具体的方案是使用 HBASE。业务逻辑相关的数据使用 MySQL/PostgreSQL 进行存储。</p><h2 id="消息总线"><a href="#消息总线" class="headerlink" title="消息总线"></a>消息总线</h2><p>由于该平台对 availability 和 durability 的要求极高，所以必须要有一个稳健的消息总线，数据包在到达系统的第一时间进入消息总线，以保证系统的 reliability 以及 fault tolerance。</p><p>消息总线的选择主要有 <a href="https://kafka.apache.org/documentation/#introduction" target="_blank" rel="noopener">Kafka</a>, <a href="https://redis.io/topics/streams-intro" target="_blank" rel="noopener">Redis Streams</a> 以及 <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">Rabbitmq</a>。</p><p>Kafka 的主要优势在于数据可靠性以及较高的性能。</p><p>Redis Streams 的主要优势在于其性能最高，而且由于我们的系统本来也需要 Redis 的支持，选择 Redis Streams 可以利用已有的 infrastructure。但由于 Redis 在接受到数据后先将其贮存到内存，随后再通过持久化的方式写入磁盘，可靠性不如 Kafka。</p><p>Rabbitmq 的主要优势在于其完整支持 <a href="https://www.amqp.org/" target="_blank" rel="noopener">AMQP</a> 协议，但其开启持久化后性能不足。</p><p>综上，我们选择 Apache Kafka 作为系统的消息总线。</p><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>使用 Redis</p><h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><h2 id="架构简图"><a href="#架构简图" class="headerlink" title="架构简图"></a>架构简图</h2><p>系统架构简图如下，有部分省略</p><img src="/2018/06/21/architect-fuel/fuel.png"><p>未完待续</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h1&gt;&lt;p&gt;本文将主要从消息总线、存储方案、查询方案以及指令下发等方面介绍东风传统能源车平台的技术架构。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="architecture" scheme="https://cuixiaochen.com/tags/architecture/"/>
-    
-  </entry>
-  
-  <entry>
     <title>一些关于 Authenticated Encryption 的 paper</title>
     <link href="https://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/"/>
     <id>https://cuixiaochen.com/2018/06/18/some-paper-about-auth-enc/</id>
@@ -482,6 +462,30 @@
     
     
       <category term="redis" scheme="https://cuixiaochen.com/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统学习笔记：第一章习题及解答</title>
+    <link href="https://cuixiaochen.com/2018/04/17/operation-system-study-notes-2/"/>
+    <id>https://cuixiaochen.com/2018/04/17/operation-system-study-notes-2/</id>
+    <published>2018-04-17T14:00:19.000Z</published>
+    <updated>2018-04-30T15:42:06.866Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><ol><li><p>什么是 multiprogramming？</p><p>在第二代操作系统（如 7094 机）上，若当前作业因等待磁带或其他 I/O 操作而暂停时，CPU 就只能简单地原地踏步直至该 I/O 完成。在很多情况下，I/O 操作等待的时间通常占到 80% ~ 90%, 所以要通过 multiprogramming 的方式来减少 CPU 资源的浪费。</p><p>具体方案就是将内存分成多个部分，每个部分存放不同的作业（如下图所示），当一个作业等待 I/O 操作完成时，另一个作业可以使用 CPU。如果内存中可以同时存放足够多的作业，则 CPU 利用率可以接近 100%。（注意：在内存中同时驻留多个作业需要特殊的硬件来对其进行保护，以避免作业对信息被窃取或受到攻击。）</p><img src="/2018/04/17/operation-system-study-notes-2/multi-programmed-system.jpg"><a id="more"></a></li><li><p>什么是 SPOOLing ？你是否认为将来的个人计算机会把 SPOOLing 作为标准功能？</p><p>SPOOLing(Simultaneous Peripheral operation on line), 指任何时刻当一个作业运行结束时，操作系统就能将一个新作业从磁盘读出，装进空出来的内存区域运行。（该技术同时也用于输出）</p><p>具体答案还有待后续章节的学习，但我认为 SPOOLing 不会在将来被当作个人计算机的标准功能。因为其需要等一个作业运行结束，意味着用户在操作计算机时会经常遇到计算机卡住的情况，从而带给用户不好的体验（相比于后来出现的分时系统）。</p></li><li><p>在早期计算机中，每个字节的读写直接由 CPU 处理（即没有 <a href="https://www.techopedia.com/definition/2767/direct-memory-access-dma" target="_blank" rel="noopener">DMA</a> ）。对于多道程序而言这种组织方式有什么含义？</p><p>使用多道程序的主要目的是使计算机在等待 I/O 操作时可以完成别的工作。如果没有 DMA ，I/O 操作将会完全占用 CPU 。因此，这种方式不利于对于 CPU 的充分利用。</p></li><li><p>系列计算机的思想在 20 世纪 60 年代由 IBM 引入进 System/360 大型机。现在这种思想已经消亡了还是继续活跃着？</p><p>依然存在。例如 Intel 生产的 Pentium I，II，III 和 4 仅仅在价格、速度等属性上有所不同，但它们的体系结构都是兼容的。</p></li><li><p>缓慢采用 GUI 的一个原因是支持它的硬件的成本（高昂）。为了支持 25 行 80 列字符的单色文本屏幕应该需要多少视颊 RAM? 对于 1024x768 像素 24 位色彩位图需要多少视频 RAM? 在 1980 年 ($5/KB) 这些 RAM 的成本是多少？现在它的成本是多少？</p><p>25*80=2000bytes≈2kb, 1024*768*3=2359296bytes≈2359kb。在 1980 年，它们将会分布耗费 $10 和 $11520。现在的 RAM 的成本小于 $1/MB。</p></li><li><p>在建立一个操作系统时有几个设计目的，例如资源利用、及时性、健壮性等。请列举两个可能互相矛盾的设计目的。</p><p>资源利用与缓存。资源利用要求尽量满足当前所运行程序的资源要求，而缓存则要求缓存频繁访问的数据。所以当前进程可能会占用过多的资源导致缓存空间不足。</p></li><li><p>下面的哪一条指令只能在内核态中使用？<br>a) 禁止所有的中断。<br>b) 读日期 - 时间时钟。<br>c) 设置日期 - 时间时钟。<br>d) 改变存储器映像。</p><p>a,c,d</p></li><li><p>考虑一个有两个 CPU 的系统，并且每一个 CPU 有两个线程（超线程）。假设有三个程序 P0，P1，P2，分別以运行时间 5ms，10ms，20ms 开始。运行这些程序需要多少时间？假设这三个程序都是 100% 限于 CPU，在运行时无阻塞，并且一旦设定就不改变 CPU。</p><p>运行这些程序所需的时间取决于这些程序以怎样的组合被分配到 CPU 上，一共有以下 4 种情况：</p><ol><li>(P0,P1) and P2 =&gt; (5ms + 10ms) and 20ms =&gt; 20ms</li><li>(P0,P2) and P1 =&gt; (5ms + 20ms) and 10ms =&gt; 25ms</li><li>(P1,P2) and P0 =&gt; (10ms + 20ms) and 50ms =&gt; 30ms</li><li>(P0,P1,P2) =&gt; (5ms + 10ms + 20ms) =&gt; 35m</li></ol></li><li><p>一台计算机有一个四级流水线，每一级都花费相同的时间执行其工作，即 1ns。这台机器每秒可执行多少条指令？</p><p>1s / (1ns/ 条） = $10 ^ 9$ 条</p></li><li><p>假设一个计算机系统有高速缓存、内存 (RAM) 以及磁盘，操作系统用虚拟内存。读取缓存中的一个词需要 2ns，RAM 需要 10ns，磁盘需要 10ms。如果缓存的命中率是 95%，内存的是（缓存失效时）99%，读取一个词的平均时间是多少？</p><p>$2ns\times95\%+10ns\times(1-95\%)\times99\%+10ms\times(1-95\%)(1-99\%) = 5002.395ns$</p></li><li><p>一位校对人员注意到在一部将要出版的操作系统教科书手稿中有一个多次出现的拼写错误。这本书大致有 700 页。每页 50 行，一行 80 个字符。若把文稿用电子扫描，那么，主副本进入图 1-9 中的每个存储系统的层次要花费多少时间？对于内存储方式，考虑所给定的存取时间是每次一个字符，对于磁盘设备，假定存取时间是每次一个 1024 字符的盘块，而对于磁带，假设给定开始时间后的存取时间和磁盘存取时间相同。</p><img src="/2018/04/17/operation-system-study-notes-2/caching-stuff.jpg"><p>答：原稿包含 80*50*700 = 2800000 字符。如果这些字符放在寄存器中，cpu 访问它们需要 2.8ms（在这里我们假设这些字符可以一次性放入寄存器），在 Cache 中需要 5.6ms，在内存中需要 28ms。整本书大约有 2700 个 1024 字节的数据块，因此从磁盘读取它们大约需要 27 秒，从磁带读取大约需要 2 分钟 7 秒。（根据书中的数据计算）</p></li><li><p>在用户程序进行一个系统调用，以读写磁盘文件时，该程序提供指示说明了所需要的文件，一个指向数据缓冲区的指针以及计数。然后，控制权转给操作系统，它调用相关的驱动程序。假设驱动程序启动磁盘并且直到中断发生才终止。在从磁盘读的情况下，很明显，调用者会被阻塞（因为文件中没有数据）。在向磁盘写时会发生什么情况？需要把调用者阻塞一直等到磁盘传送完成为止吗？</p><p>这道题暂时无法解答</p></li><li><p>什么是陷阱指令？在操作系统中解释它的用途。</p><p>TRAP 指令将处理器的执行模式从用户态切换到内核态，它使用户可以调用操作系统内核中的函数。</p></li><li><p>陷阱和中断的主要差别是什么？</p><p>陷阱是由程序造成的，而且与程序同步；中断由外部事件和时钟造成。</p></li><li><p>在分时系统中为什么需要进程表？在只有一个进程存在的个人计算机系统中，该进程控制整个机器直到进程结束，这种机器也需要进程表吗？</p><p>进程表的作用是在进程暂时被挂起时保存进程打开的所有文件的当前读取位置。单进程操作系统中不需要进程表，因为进程不会被挂起。</p></li><li><p>说明有没有理由要在一个非空的目录中安装一个文件系统？如果要这样做，如何做？</p><p>这道题暂时无法解答</p></li><li><p>在一个操作系统中系统调用的目的是什么？</p><p>进入内核，调用操作系统服务</p></li><li><p>对于下列系统调用 ，给出引起失败的条件：fork、exec 以及 unlink。</p><p>fork: fork 失败的主要原因有两个：(a) 系统中已经有了太多的进程（进程表中没有空闲的槽）；(b) 该实际用户 ID 的进程总数超过了系统限制（在 POSIX.1 中，CHILD_MAX 代表了每个实际用户 ID 的最大进程数，可在运行时通过调用 <code>long sysconf(int _SC_CHLID_MAX)</code> 取得）<br>exec: 给定的 pathname/filename 不合法，这里的不合法有两种情况：(a) 不存在，(b) 存在但不是一个可用的 shell 脚本<br>unlink: 待我详细阅读相关资料后再给出解答</p></li><li><p>在 <code>count = write(fd, buffer, nbytes);</code> 调用中，能在 count 中而不是 nbytes 中返回值吗？如果能，为什么？</p><p>能，因为当 write 调用失败时返回 -1，否则返回实际写入当字节数</p></li><li><p>有一个文件，其文件描述符是 fd，内含下列字节序列：3，1，4，1，5，9，2，6，5，3，5。<br>有如下系统调用：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lseek(fd, <span class="number">3</span>, SEEK_SET);</span><br><span class="line">read(fd, &amp;buffer, <span class="number">4</span>);</span><br></pre></td></tr></table></figure><p>其中 lseek 调用寻找文件中的第 3 个字节。在读操作完成之后，buffer 中的内容是什么？</p><p>1, 5, 9, 2</p></li><li><p>假设一个 10MB 的文件在磁盘连续扇区的同一个轨道上（轨道号：50）。磁盘的磁头臂此时位于第 100 号轨道。要想从磁盘上找回这个文件，需要多长时间？ 假设磁头臂从一个柱面移动到下一个柱面需要 1ms，当文件的开始部分存储在的扇区旋转到磁头下需要 5ms，并且读的速率是 100MB/s。</p><p>155ms（在 SSD 普及的今天，这道题基本没有意义）</p></li><li><p>块特殊文件和字符特殊文件的基本差别是什么？</p><p>块特殊文件 (block special file) 提供对设备带缓冲的访问<br>字符特殊文件 (character special file) 提供对设备不带缓冲的访问</p></li><li><p>如下图所示，库调用被称为 read，而系统调用自身也被称为 read，这两者都有相问的名字是正常的吗？ 如果不是，哪一个更重要？</p><p>是正常的，因为系统调用实际上并没有名称。当库函数 read 陷入内核时，它将系统调用的编号放在操作系统所期望的地方（寄存器或堆栈）中，然后由内核根据编号执行相应的系统调用，整个过程中不会用到任何名称。而对于库调用来说名称是很重要的，因为我们写的程序中需要使用这个名称。</p><img src="/2018/04/17/operation-system-study-notes-2/system.jpg.png"></li><li><p>在分布式系统中，C-S 模式很普遍。这种模式能用在单个计算机的系统中吗？</p><p>可以</p><p>未完待续</p></li></ol><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://www.techopedia.com/definition/2767/direct-memory-access-dma" target="_blank" rel="noopener">What is Direct Memory Access (DMA)? - Definition from Techopedia</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;习题&quot;&gt;&lt;a href=&quot;#习题&quot; class=&quot;headerlink&quot; title=&quot;习题&quot;&gt;&lt;/a&gt;习题&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;什么是 multiprogramming？&lt;/p&gt;
+&lt;p&gt;在第二代操作系统（如 7094 机）上，若当前作业因等待磁带或其他 I/O 操作而暂停时，CPU 就只能简单地原地踏步直至该 I/O 完成。在很多情况下，I/O 操作等待的时间通常占到 80% ~ 90%, 所以要通过 multiprogramming 的方式来减少 CPU 资源的浪费。&lt;/p&gt;
+&lt;p&gt;具体方案就是将内存分成多个部分，每个部分存放不同的作业（如下图所示），当一个作业等待 I/O 操作完成时，另一个作业可以使用 CPU。如果内存中可以同时存放足够多的作业，则 CPU 利用率可以接近 100%。（注意：在内存中同时驻留多个作业需要特殊的硬件来对其进行保护，以避免作业对信息被窃取或受到攻击。）&lt;/p&gt;
+&lt;img src=&quot;/2018/04/17/operation-system-study-notes-2/multi-programmed-system.jpg&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="operating system" scheme="https://cuixiaochen.com/tags/operating-system/"/>
     
   </entry>
   
