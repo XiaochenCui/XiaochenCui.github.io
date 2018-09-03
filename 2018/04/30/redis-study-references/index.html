@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-15T15:01:27.028Z">
+<meta property="og:updated_time" content="2018-09-03T11:08:08.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 学习资料">
 <meta name="twitter:description" content="Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
@@ -338,7 +338,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-07-15T23:01:27+08:00">2018-07-15</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-03T19:08:08+08:00">2018-09-03</time>
             
           </span>
 
@@ -397,9 +397,17 @@
 <li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html" target="_blank" rel="noopener">基于 Redis 的分布式锁到底安全吗（上）？</a></li>
 <li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning-part2.html" target="_blank" rel="noopener">基于 Redis 的分布式锁到底安全吗（下）？</a></li>
 </ul>
-<h2 id="RESP-REdis-Serialization-Protocol"><a href="#RESP-REdis-Serialization-Protocol" class="headerlink" title="RESP(REdis Serialization Protocol)"></a>RESP(REdis Serialization Protocol)</h2><ul>
+<h2 id="RESP-Redis-Serialization-Protocol"><a href="#RESP-Redis-Serialization-Protocol" class="headerlink" title="RESP(Redis Serialization Protocol)"></a>RESP(Redis Serialization Protocol)</h2><ul>
 <li><a href="https://redis.io/topics/protocol" target="_blank" rel="noopener">Redis Protocol specification</a></li>
 <li><a href="https://www.compose.com/articles/how-to-talk-raw-redis/" target="_blank" rel="noopener">How to talk raw Redis</a></li>
+</ul>
+<h2 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h2><ul>
+<li><a href="http://antirez.com/news/75" target="_blank" rel="noopener">Redis new data structure: the HyperLogLog</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/43426875" target="_blank" rel="noopener">深度探索 Redis HyperLogLog 内部数据结构</a></li>
+<li><a href="https://research.neustar.biz/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/" target="_blank" rel="noopener">Sketch of the Day: HyperLogLog — Cornerstone of a Big Data Infrastructure
+</a></li>
+<li><a href="http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf" target="_blank" rel="noopener">HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm</a></li>
+<li><a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf" target="_blank" rel="noopener">HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm</a></li>
 </ul>
 <h2 id="Persistence"><a href="#Persistence" class="headerlink" title="Persistence"></a>Persistence</h2><ul>
 <li><a href="http://oldblog.antirez.com/post/redis-persistence-demystified.html" target="_blank" rel="noopener">Redis persistence demystified</a></li>
@@ -622,6 +630,10 @@
                     
                       
                     
+                      
+                    
+                      
+                    
                     <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
@@ -665,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-Code"><span class="nav-number">1.</span> <span class="nav-text">Source Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Books"><span class="nav-number">2.</span> <span class="nav-text">Books</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Archives"><span class="nav-number">3.</span> <span class="nav-text">Archives</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redlock"><span class="nav-number">3.1.</span> <span class="nav-text">Redlock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESP-REdis-Serialization-Protocol"><span class="nav-number">3.2.</span> <span class="nav-text">RESP(REdis Serialization Protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Persistence"><span class="nav-number">3.3.</span> <span class="nav-text">Persistence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB"><span class="nav-number">3.4.</span> <span class="nav-text">RDB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maillists"><span class="nav-number">4.</span> <span class="nav-text">Maillists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Twitter"><span class="nav-number">5.</span> <span class="nav-text">Twitter</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-Code"><span class="nav-number">1.</span> <span class="nav-text">Source Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Books"><span class="nav-number">2.</span> <span class="nav-text">Books</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Archives"><span class="nav-number">3.</span> <span class="nav-text">Archives</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redlock"><span class="nav-number">3.1.</span> <span class="nav-text">Redlock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESP-Redis-Serialization-Protocol"><span class="nav-number">3.2.</span> <span class="nav-text">RESP(Redis Serialization Protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HyperLogLog"><span class="nav-number">3.3.</span> <span class="nav-text">HyperLogLog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Persistence"><span class="nav-number">3.4.</span> <span class="nav-text">Persistence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB"><span class="nav-number">3.5.</span> <span class="nav-text">RDB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maillists"><span class="nav-number">4.</span> <span class="nav-text">Maillists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Twitter"><span class="nav-number">5.</span> <span class="nav-text">Twitter</span></a></li></ol></div>
             
 
           </div>
