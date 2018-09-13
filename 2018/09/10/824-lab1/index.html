@@ -97,19 +97,19 @@
   <meta name="keywords" content="distributed systems," />
 
 
-<meta name="description" content="前言MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 MIT6.824 Labs，与大家一起学习这门 cs 专业研究生的核心课程 完整代码（含答案）见 github">
+<meta name="description" content="前言MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 MIT6.824 Labs 中，与大家一起学习这门非常有趣的课程">
 <meta name="keywords" content="distributed systems">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MIT6.824 Lab 1 - MapReduce">
 <meta property="og:url" content="https://cuixiaochen.com/2018/09/10/824-lab1/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="前言MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 MIT6.824 Labs，与大家一起学习这门 cs 专业研究生的核心课程 完整代码（含答案）见 github">
+<meta property="og:description" content="前言MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 MIT6.824 Labs 中，与大家一起学习这门非常有趣的课程">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://cuixiaochen.com/2018/09/10/824-lab1/mr.jpg">
-<meta property="og:updated_time" content="2018-09-11T12:51:53.526Z">
+<meta property="og:updated_time" content="2018-09-12T14:28:33.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MIT6.824 Lab 1 - MapReduce">
-<meta name="twitter:description" content="前言MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 MIT6.824 Labs，与大家一起学习这门 cs 专业研究生的核心课程 完整代码（含答案）见 github">
+<meta name="twitter:description" content="前言MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 MIT6.824 Labs 中，与大家一起学习这门非常有趣的课程">
 <meta name="twitter:image" content="https://cuixiaochen.com/2018/09/10/824-lab1/mr.jpg">
 
 
@@ -340,7 +340,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-11T20:51:53+08:00">2018-09-11</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-12T22:28:33+08:00">2018-09-12</time>
             
           </span>
 
@@ -401,8 +401,8 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 <a href="/categories/MIT6-824-Labs/">MIT6.824 Labs</a>，与大家一起学习这门 cs 专业研究生的核心课程</p>
-<p>完整代码（含答案）见 <a href="https://github.com/XiaochenCui/mit6.824" target="_blank" rel="noopener">github</a><br><a id="more"></a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MIT6.824 是一门久负盛名的分布式系统课程，今天开始我将会将课程中的系统作业、学习感悟写在专栏 <a href="/categories/MIT6-824-Labs/">MIT6.824 Labs</a> 中，与大家一起学习这门非常有趣的课程<br><a id="more"></a></p>
+<p>完整代码（含答案）见 <a href="https://github.com/XiaochenCui/mit6.824" target="_blank" rel="noopener">github</a></p>
 <h1 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h1><p>MapReduce 的具体架构及思想 <a href="https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf" target="_blank" rel="noopener">paper</a> 中已经讲的很详细了，在此不再赘述，仅贴出架构图供大家复习：</p>
 <img src="/2018/09/10/824-lab1/mr.jpg">
 <h1 id="习题讲解"><a href="#习题讲解" class="headerlink" title="习题讲解"></a>习题讲解</h1><h2 id="Part-I-Map-Reduce-input-and-output"><a href="#Part-I-Map-Reduce-input-and-output" class="headerlink" title="Part I: Map/Reduce input and output"></a>Part I: Map/Reduce input and output</h2><p>要求完成 doMap 和 doReduce 函数</p>
