@@ -97,18 +97,18 @@
   <meta name="keywords" content="redis," />
 
 
-<meta name="description" content="Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
+<meta name="description" content="本文将会整理一些对 Redis 使用者、学习者有用的资料 Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis 学习资料">
+<meta property="og:title" content="Redis 学习资料（持续更新中）">
 <meta property="og:url" content="https://cuixiaochen.com/2018/04/30/redis-study-references/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
-<meta property="og:description" content="Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
+<meta property="og:description" content="本文将会整理一些对 Redis 使用者、学习者有用的资料 Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-03T11:08:08.671Z">
+<meta property="og:updated_time" content="2018-09-14T04:20:07.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis 学习资料">
-<meta name="twitter:description" content="Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
+<meta name="twitter:title" content="Redis 学习资料（持续更新中）">
+<meta name="twitter:description" content="本文将会整理一些对 Redis 使用者、学习者有用的资料 Source Code redis redis-3.0-annotated带有详细注释的 Redis 3.0 代码">
 
 
 
@@ -126,7 +126,7 @@
     sidebar: "",
   };
 </script>
-  <title>Redis 学习资料 | XiaochenCui's Blog</title>
+  <title>Redis 学习资料（持续更新中） | XiaochenCui's Blog</title>
   
 
 
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Redis 学习资料</h1>
+          <h1 class="post-title" itemprop="name headline">Redis 学习资料（持续更新中）</h1>
         
 
         <div class="post-meta">
@@ -338,7 +338,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-09-03T19:08:08+08:00">2018-09-03</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-09-14T12:20:07+08:00">2018-09-14</time>
             
           </span>
 
@@ -381,14 +381,15 @@
       
 
       
-        <h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><ul>
+        <p>本文将会整理一些对 Redis 使用者、学习者有用的资料</p>
+<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><ul>
 <li><a href="https://github.com/antirez/redis" target="_blank" rel="noopener">redis</a></li>
 <li><a href="https://github.com/huangz1990/redis-3.0-annotated" target="_blank" rel="noopener">redis-3.0-annotated</a><br>带有详细注释的 Redis 3.0 代码<a id="more"></a>
 </li>
 </ul>
 <h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><ul>
-<li><a href="https://book.douban.com/subject/25900156/" target="_blank" rel="noopener">Redis 设计与实现</a><br>通俗易懂，深入浅出</li>
-<li><a href="https://book.douban.com/subject/26612779/" target="_blank" rel="noopener">Redis 实战</a><br>入门书籍，价值不大</li>
+<li><a href="https://book.douban.com/subject/26612779/" target="_blank" rel="noopener">Redis 实战</a><br>可作为 Redis 初学者使用 Redis 的随身手册，对于常见的使用场景均有概括，可以帮助大家更好地利用 Redis 的各种特性构建出更快速、更稳定的应用程序</li>
+<li><a href="https://book.douban.com/subject/25900156/" target="_blank" rel="noopener">Redis 设计与实现</a><br>本书基于 Redis 3.0 源码，对于 Redis 主要模块及数据结构均有细致的讲解，且这些模块到目前为止均没有大的变动（ziplist 除外）。总体来讲深入浅出，非常值得一看</li>
 </ul>
 <h1 id="Archives"><a href="#Archives" class="headerlink" title="Archives"></a>Archives</h1><h2 id="Redlock"><a href="#Redlock" class="headerlink" title="Redlock"></a>Redlock</h2><ul>
 <li><a href="https://redis.io/topics/distlock" target="_blank" rel="noopener">Distributed locks with Redis</a></li>
@@ -415,6 +416,11 @@
 <h2 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h2><ul>
 <li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format" target="_blank" rel="noopener">Redis RDB Dump File Format</a></li>
 <li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile" target="_blank" rel="noopener">Redis RDB Version History</a></li>
+</ul>
+<h2 id="MessagePack"><a href="#MessagePack" class="headerlink" title="MessagePack"></a>MessagePack</h2><ul>
+<li><a href="https://msgpack.org/" target="_blank" rel="noopener">MessagePack: It’s like JSON. but fast and small.</a></li>
+<li><a href="http://antirez.com/news/119" target="_blank" rel="noopener">Redis Lua scripting: several security vulnerabilities fixed</a></li>
+<li><a href="https://github.com/antirez/lua-cmsgpack" target="_blank" rel="noopener">antirez/lua-cmsgpack: A self contained Lua MessagePack C implementation.</a></li>
 </ul>
 <h1 id="Maillists"><a href="#Maillists" class="headerlink" title="Maillists"></a>Maillists</h1><ul>
 <li><a href="https://groups.google.com/forum/#!forum/redis-db" target="_blank" rel="noopener">Redis DB</a></li>
@@ -679,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-Code"><span class="nav-number">1.</span> <span class="nav-text">Source Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Books"><span class="nav-number">2.</span> <span class="nav-text">Books</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Archives"><span class="nav-number">3.</span> <span class="nav-text">Archives</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redlock"><span class="nav-number">3.1.</span> <span class="nav-text">Redlock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESP-Redis-Serialization-Protocol"><span class="nav-number">3.2.</span> <span class="nav-text">RESP(Redis Serialization Protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HyperLogLog"><span class="nav-number">3.3.</span> <span class="nav-text">HyperLogLog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Persistence"><span class="nav-number">3.4.</span> <span class="nav-text">Persistence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB"><span class="nav-number">3.5.</span> <span class="nav-text">RDB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maillists"><span class="nav-number">4.</span> <span class="nav-text">Maillists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Twitter"><span class="nav-number">5.</span> <span class="nav-text">Twitter</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-Code"><span class="nav-number">1.</span> <span class="nav-text">Source Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Books"><span class="nav-number">2.</span> <span class="nav-text">Books</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Archives"><span class="nav-number">3.</span> <span class="nav-text">Archives</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redlock"><span class="nav-number">3.1.</span> <span class="nav-text">Redlock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESP-Redis-Serialization-Protocol"><span class="nav-number">3.2.</span> <span class="nav-text">RESP(Redis Serialization Protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HyperLogLog"><span class="nav-number">3.3.</span> <span class="nav-text">HyperLogLog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Persistence"><span class="nav-number">3.4.</span> <span class="nav-text">Persistence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDB"><span class="nav-number">3.5.</span> <span class="nav-text">RDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MessagePack"><span class="nav-number">3.6.</span> <span class="nav-text">MessagePack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maillists"><span class="nav-number">4.</span> <span class="nav-text">Maillists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Twitter"><span class="nav-number">5.</span> <span class="nav-text">Twitter</span></a></li></ol></div>
             
 
           </div>
@@ -842,7 +848,7 @@
       var disqus_config = function () {
         this.page.url = 'https://cuixiaochen.com/2018/04/30/redis-study-references/';
         this.page.identifier = '2018/04/30/redis-study-references/';
-        this.page.title = 'Redis 学习资料';
+        this.page.title = 'Redis 学习资料（持续更新中）';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
