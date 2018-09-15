@@ -97,25 +97,18 @@
   <meta name="keywords" content="cryptography," />
 
 
+<meta name="description" content="Who chosen ciphertext security matters, V.Shoup, 1998A nice paper by Victor Shoup that talks about why chosen cipher text security is so important in the public key settings. So if the Bleichenbacher">
 <meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cryptography Week 2 - Problem Set">
-<meta property="og:url" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/index.html">
+<meta property="og:title" content="一些关于 RSA 的 paper">
+<meta property="og:url" content="https://cuixiaochen.com/2018/09/15/some-pater-about-rsa/index.html">
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
+<meta property="og:description" content="Who chosen ciphertext security matters, V.Shoup, 1998A nice paper by Victor Shoup that talks about why chosen cipher text security is so important in the public key settings. So if the Bleichenbacher">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/1.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/2.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/3.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/4.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/5.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/6.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/7.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/8.png">
-<meta property="og:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/9.png">
-<meta property="og:updated_time" content="2018-08-12T06:50:09.815Z">
+<meta property="og:updated_time" content="2018-09-15T09:16:43.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cryptography Week 2 - Problem Set">
-<meta name="twitter:image" content="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/1.png">
+<meta name="twitter:title" content="一些关于 RSA 的 paper">
+<meta name="twitter:description" content="Who chosen ciphertext security matters, V.Shoup, 1998A nice paper by Victor Shoup that talks about why chosen cipher text security is so important in the public key settings. So if the Bleichenbacher">
 
 
 
@@ -124,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/"/>
+  <link rel="canonical" href="https://cuixiaochen.com/2018/09/15/some-pater-about-rsa/"/>
 
 
 
@@ -133,7 +126,7 @@
     sidebar: "",
   };
 </script>
-  <title>Cryptography Week 2 - Problem Set | XiaochenCui's Blog</title>
+  <title>一些关于 RSA 的 paper | XiaochenCui's Blog</title>
   
 
 
@@ -295,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/">
+    <link itemprop="mainEntityOfPage" href="https://cuixiaochen.com/2018/09/15/some-pater-about-rsa/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xiaochen Cui">
@@ -312,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Cryptography Week 2 - Problem Set</h1>
+          <h1 class="post-title" itemprop="name headline">一些关于 RSA 的 paper</h1>
         
 
         <div class="post-meta">
@@ -324,49 +317,17 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T21:44:00+08:00">2018-05-20</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T17:02:29+08:00">2018-09-15</time>
             
 
             
             
               
-                
-              
             
 
-            
-              
-              <span class="post-meta-divider">|</span>
-              
-
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-08-12T14:50:09+08:00">2018-08-12</time>
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Exercises-of-Cryptography/" itemprop="url" rel="index"><span itemprop="name">Exercises of Cryptography</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -376,9 +337,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/20/Cryptography-Week-2-Problem-Set/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/15/some-pater-about-rsa/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/20/Cryptography-Week-2-Problem-Set/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/15/some-pater-about-rsa/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -406,55 +367,12 @@
       
 
       
-        <img src="/2018/05/20/Cryptography-Week-2-Problem-Set/1.png" width="700">
-<a id="more"></a>
-
-$2^{128}\approx3.4e+38$
-
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/2.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/3.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/4.png" width="700">
-
-$$
-	\begin{align*}
-        m = 0^{64}:& \\
-        &L_1 = 0^{32} R_1 \\
-        &R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\
-        &L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\
-        &R_2 = 0^{32} \oplus F(k_2, 0^{32}\oplus F(k_1,0^{32})) \\
-        m = 1^{32}0^{32}:& \\
-        &L_1 = 0^{32} R_1 \\
-        &R_1 = 1^{32} \oplus F(k_1, 0^{32}) \\
-        &L_2 = 1^{32} \oplus F(k_1, 0^{32}) \\
-        &R_2 = 0^{32} \oplus F(k_2, 1^{32}\oplus F(k_1,0^{32})) \\
-	\end{align*}
-$$
-
-<p>Therefore:<br>
-$$
-    \underset{m = 0^{64}}{L_2} \oplus \underset{m = 1^{32}0^{32}}{L_2} \equiv 1^{32}
-$$
-</p>
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/5.png" width="700">
-
-$$
-	\begin{align*}
-        c' &= F(k, IV \oplus m_1) \\
-        &= F(k, F(k, c_0) \oplus c_0 \oplus c_0) \\
-        &= F(k, F(k, c_0) \oplus c_0 \oplus F(k, c_0)) \\
-        &= F(k, c_0)
-	\end{align*}
-$$
-
-<p>Therefore:<br>
-$$
-    c_1 = c'_0
-$$
-</p>
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/6.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/7.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/8.png" width="700">
-<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/9.png" width="700">
+        <ul>
+<li><a href="https://www.shoup.net/papers/expo.pdf" target="_blank" rel="noopener">Who chosen ciphertext security matters, V.Shoup, 1998</a><br>A nice paper by Victor Shoup that talks about why chosen cipher text security is so important in the public key settings. So if the Bleichenbacher attack wasn’t convincing enough, there are many other attacks like this that are possible if you don’t use a chosen cipher-text secure system.</li>
+<li><a href="https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf" target="_blank" rel="noopener">Twenty years of attacks on the RSA cryptosystem, D.Boneh, Notices of the AMS, 1999</a></li>
+<li><a href="https://www.shoup.net/papers/oaep.pdf" target="_blank" rel="noopener">OAEP reconsidered, V.Shoup, Crypto 2001</a></li>
+<li><a href="https://infoscience.epfl.ch/record/164539/files/NPDF-32.pdf" target="_blank" rel="noopener">Key length, A.Lenstra, 2004</a><br>A nice paper by Arjen Lenstra that discusses how you should choose key lengths for your public key systems, and even for your symmetric key systems.</li>
+</ul>
 
       
     </div>
@@ -488,8 +406,8 @@ $$
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/30/redis-study-references/" rel="next" title="Redis 学习资料（持续更新中）">
-                <i class="fa fa-chevron-left"></i> Redis 学习资料（持续更新中）
+              <a href="/2018/09/10/824-lab1/" rel="next" title="MIT6.824 Lab 1 - MapReduce">
+                <i class="fa fa-chevron-left"></i> MIT6.824 Lab 1 - MapReduce
               </a>
             
           </div>
@@ -497,10 +415,6 @@ $$
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/05/cryptography-week-2-programming-assignment/" rel="prev" title="Cryptography Week 2 - Programming Assignment">
-                Cryptography Week 2 - Programming Assignment <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -845,9 +759,9 @@ $$
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/';
-        this.page.identifier = '2018/05/20/Cryptography-Week-2-Problem-Set/';
-        this.page.title = 'Cryptography Week 2 - Problem Set';
+        this.page.url = 'https://cuixiaochen.com/2018/09/15/some-pater-about-rsa/';
+        this.page.identifier = '2018/09/15/some-pater-about-rsa/';
+        this.page.title = '一些关于 RSA 的 paper';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');

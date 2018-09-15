@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-09-12T14:28:33.732Z</updated>
+  <updated>2018-09-15T09:16:43.138Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些关于 RSA 的 paper</title>
+    <link href="https://cuixiaochen.com/2018/09/15/some-pater-about-rsa/"/>
+    <id>https://cuixiaochen.com/2018/09/15/some-pater-about-rsa/</id>
+    <published>2018-09-15T09:02:29.000Z</published>
+    <updated>2018-09-15T09:16:43.138Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="https://www.shoup.net/papers/expo.pdf" target="_blank" rel="noopener">Who chosen ciphertext security matters, V.Shoup, 1998</a><br>A nice paper by Victor Shoup that talks about why chosen cipher text security is so important in the public key settings. So if the Bleichenbacher attack wasn’t convincing enough, there are many other attacks like this that are possible if you don’t use a chosen cipher-text secure system.</li><li><a href="https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf" target="_blank" rel="noopener">Twenty years of attacks on the RSA cryptosystem, D.Boneh, Notices of the AMS, 1999</a></li><li><a href="https://www.shoup.net/papers/oaep.pdf" target="_blank" rel="noopener">OAEP reconsidered, V.Shoup, Crypto 2001</a></li><li><a href="https://infoscience.epfl.ch/record/164539/files/NPDF-32.pdf" target="_blank" rel="noopener">Key length, A.Lenstra, 2004</a><br>A nice paper by Arjen Lenstra that discusses how you should choose key lengths for your public key systems, and even for your symmetric key systems.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.shoup.net/papers/expo.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Who chosen ciphertext security matters, V.Shoup, 199
+      
+    
+    </summary>
+    
+    
+      <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
+    
+  </entry>
   
   <entry>
     <title>MIT6.824 Lab 1 - MapReduce</title>
@@ -462,29 +486,6 @@
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis 学习资料（持续更新中）</title>
-    <link href="https://cuixiaochen.com/2018/04/30/redis-study-references/"/>
-    <id>https://cuixiaochen.com/2018/04/30/redis-study-references/</id>
-    <published>2018-04-30T15:11:04.000Z</published>
-    <updated>2018-09-14T04:20:07.767Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文将会整理一些对 Redis 使用者、学习者有用的资料</p><h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><ul><li><a href="https://github.com/antirez/redis" target="_blank" rel="noopener">redis</a></li><li><a href="https://github.com/huangz1990/redis-3.0-annotated" target="_blank" rel="noopener">redis-3.0-annotated</a><br>带有详细注释的 Redis 3.0 代码<a id="more"></a></li></ul><h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><ul><li><a href="https://book.douban.com/subject/26612779/" target="_blank" rel="noopener">Redis 实战</a><br>可作为 Redis 初学者使用 Redis 的随身手册，对于常见的使用场景均有概括，可以帮助大家更好地利用 Redis 的各种特性构建出更快速、更稳定的应用程序</li><li><a href="https://book.douban.com/subject/25900156/" target="_blank" rel="noopener">Redis 设计与实现</a><br>本书基于 Redis 3.0 源码，对于 Redis 主要模块及数据结构均有细致的讲解，且这些模块到目前为止均没有大的变动（ziplist 除外）。总体来讲深入浅出，非常值得一看</li></ul><h1 id="Archives"><a href="#Archives" class="headerlink" title="Archives"></a>Archives</h1><h2 id="Redlock"><a href="#Redlock" class="headerlink" title="Redlock"></a>Redlock</h2><ul><li><a href="https://redis.io/topics/distlock" target="_blank" rel="noopener">Distributed locks with Redis</a></li><li><a href="https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html" target="_blank" rel="noopener">How to do distributed locking - Martin Kleppmann</a></li><li><a href="http://antirez.com/news/101" target="_blank" rel="noopener">Is Redlock safe? - antirez</a></li><li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html" target="_blank" rel="noopener">基于 Redis 的分布式锁到底安全吗（上）？</a></li><li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning-part2.html" target="_blank" rel="noopener">基于 Redis 的分布式锁到底安全吗（下）？</a></li></ul><h2 id="RESP-Redis-Serialization-Protocol"><a href="#RESP-Redis-Serialization-Protocol" class="headerlink" title="RESP(Redis Serialization Protocol)"></a>RESP(Redis Serialization Protocol)</h2><ul><li><a href="https://redis.io/topics/protocol" target="_blank" rel="noopener">Redis Protocol specification</a></li><li><a href="https://www.compose.com/articles/how-to-talk-raw-redis/" target="_blank" rel="noopener">How to talk raw Redis</a></li></ul><h2 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h2><ul><li><a href="http://antirez.com/news/75" target="_blank" rel="noopener">Redis new data structure: the HyperLogLog</a></li><li><a href="https://zhuanlan.zhihu.com/p/43426875" target="_blank" rel="noopener">深度探索 Redis HyperLogLog 内部数据结构</a></li><li><a href="https://research.neustar.biz/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/" target="_blank" rel="noopener">Sketch of the Day: HyperLogLog — Cornerstone of a Big Data Infrastructure</a></li><li><a href="http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf" target="_blank" rel="noopener">HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm</a></li><li><a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf" target="_blank" rel="noopener">HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm</a></li></ul><h2 id="Persistence"><a href="#Persistence" class="headerlink" title="Persistence"></a>Persistence</h2><ul><li><a href="http://oldblog.antirez.com/post/redis-persistence-demystified.html" target="_blank" rel="noopener">Redis persistence demystified</a></li></ul><h2 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h2><ul><li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format" target="_blank" rel="noopener">Redis RDB Dump File Format</a></li><li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile" target="_blank" rel="noopener">Redis RDB Version History</a></li></ul><h2 id="MessagePack"><a href="#MessagePack" class="headerlink" title="MessagePack"></a>MessagePack</h2><ul><li><a href="https://msgpack.org/" target="_blank" rel="noopener">MessagePack: It’s like JSON. but fast and small.</a></li><li><a href="http://antirez.com/news/119" target="_blank" rel="noopener">Redis Lua scripting: several security vulnerabilities fixed</a></li><li><a href="https://github.com/antirez/lua-cmsgpack" target="_blank" rel="noopener">antirez/lua-cmsgpack: A self contained Lua MessagePack C implementation.</a></li></ul><h1 id="Maillists"><a href="#Maillists" class="headerlink" title="Maillists"></a>Maillists</h1><ul><li><a href="https://groups.google.com/forum/#!forum/redis-db" target="_blank" rel="noopener">Redis DB</a></li><li><a href="https://groups.google.com/forum/#!forum/redis-dev" target="_blank" rel="noopener">redis-dev</a></li></ul><h1 id="Twitter"><a href="#Twitter" class="headerlink" title="Twitter"></a>Twitter</h1><ul><li><a href="https://twitter.com/redisfeed" target="_blank" rel="noopener">@redisfeed</a></li><li><a href="https://twitter.com/antirez" target="_blank" rel="noopener">@antirez</a></li></ul><p>待补充</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文将会整理一些对 Redis 使用者、学习者有用的资料&lt;/p&gt;
-&lt;h1 id=&quot;Source-Code&quot;&gt;&lt;a href=&quot;#Source-Code&quot; class=&quot;headerlink&quot; title=&quot;Source Code&quot;&gt;&lt;/a&gt;Source Code&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/antirez/redis&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;redis&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/huangz1990/redis-3.0-annotated&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;redis-3.0-annotated&lt;/a&gt;&lt;br&gt;带有详细注释的 Redis 3.0 代码
-    
-    </summary>
-    
-    
-      <category term="redis" scheme="https://cuixiaochen.com/tags/redis/"/>
     
   </entry>
   
