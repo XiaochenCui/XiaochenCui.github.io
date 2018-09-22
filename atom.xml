@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-09-15T09:16:43.138Z</updated>
+  <updated>2018-09-22T11:49:35.199Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些关于 Diffie-Hellman 的 paper</title>
+    <link href="https://cuixiaochen.com/2018/09/22/some-pater-about-dh/"/>
+    <id>https://cuixiaochen.com/2018/09/22/some-pater-about-dh/</id>
+    <published>2018-09-22T11:34:00.000Z</published>
+    <updated>2018-09-22T11:49:35.199Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="http://crypto.stanford.edu/~dabo/papers/DDH.pdf" target="_blank" rel="noopener">The Decision Diffie-Hellman problem. D. Boneh, ANTS 3, 1998</a><br>Talks about various assumptions related to Diffie Hellman.</li><li><a href="https://eprint.iacr.org/2001/085.pdf" target="_blank" rel="noopener">Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption. R. Cramer and V. Shoup, Eurocrypt 2002</a></li><li><a href="http://crypto.stanford.edu/~dabo/papers/ccaibejour.pdf" target="_blank" rel="noopener">Chosen-Ciphertext Security from Identity-Based Encryption. D. Boneh, R. Canetti, S. Halevi, and J. Katz, SICOMP 2007</a><br>Uses a general mechanism called Identity Based Encryption which very surprisingly it turns out to actually gives us chosen ciphertext security almost for free.</li><li><a href="https://eprint.iacr.org/2008/067.pdf" target="_blank" rel="noopener">The Twin Diffie-Hellman Problem and Applications David Cash1 Eike Kiltz2 Victor Shoup3</a></li><li><a href="https://www.iacr.org/archive/crypto2010/62230313/62230313.pdf" target="_blank" rel="noopener">Efficient Chosen-Ciphertext Security via Extractable Hash Proofs Hoeteck Wee?</a><br>Gives a very general framework for building chosen ciphertext ciphertext secure systems using extractable hash proofs.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://crypto.stanford.edu/~dabo/papers/DDH.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;The Decision Diffie-Hellman problem. D. Bo
+      
+    
+    </summary>
+    
+    
+      <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
+    
+  </entry>
   
   <entry>
     <title>一些关于 RSA 的 paper</title>
@@ -457,28 +481,6 @@
     <summary type="html">
     
       &lt;p&gt;这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
-    
-    
-      <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cryptography Week 2 - Problem Set</title>
-    <link href="https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/"/>
-    <id>https://cuixiaochen.com/2018/05/20/Cryptography-Week-2-Problem-Set/</id>
-    <published>2018-05-20T13:44:00.000Z</published>
-    <updated>2018-08-12T06:50:09.815Z</updated>
-    
-    <content type="html"><![CDATA[<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/1.png" width="700"><a id="more"></a>$2^{128}\approx3.4e+38$<img src="/2018/05/20/Cryptography-Week-2-Problem-Set/2.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/3.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/4.png" width="700">$$\begin{align*}        m = 0^{64}:& \\        &L_1 = 0^{32} R_1 \\        &R_1 = 0^{32} \oplus F(k_1, 0^{32}) \\        &L_2 = 0^{32} \oplus F(k_1, 0^{32}) \\        &R_2 = 0^{32} \oplus F(k_2, 0^{32}\oplus F(k_1,0^{32})) \\        m = 1^{32}0^{32}:& \\        &L_1 = 0^{32} R_1 \\        &R_1 = 1^{32} \oplus F(k_1, 0^{32}) \\        &L_2 = 1^{32} \oplus F(k_1, 0^{32}) \\        &R_2 = 0^{32} \oplus F(k_2, 1^{32}\oplus F(k_1,0^{32})) \\\end{align*}$$<p>Therefore:<br>$$    \underset{m = 0^{64}}{L_2} \oplus \underset{m = 1^{32}0^{32}}{L_2} \equiv 1^{32}$$</p><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/5.png" width="700">$$\begin{align*}        c' &= F(k, IV \oplus m_1) \\        &= F(k, F(k, c_0) \oplus c_0 \oplus c_0) \\        &= F(k, F(k, c_0) \oplus c_0 \oplus F(k, c_0)) \\        &= F(k, c_0)\end{align*}$$<p>Therefore:<br>$$    c_1 = c'_0$$</p><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/6.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/7.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/8.png" width="700"><img src="/2018/05/20/Cryptography-Week-2-Problem-Set/9.png" width="700">]]></content>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;/2018/05/20/Cryptography-Week-2-Problem-Set/1.png&quot; width=&quot;700&quot;&gt;
     
     </summary>
     
