@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="XiaochenCui&#39;s Blog">
 <meta property="og:description" content="本文翻译自 Medium 上的 9 Django Tips for Working with Databases, 原作者 Haki Benita。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-17T02:57:54.699Z">
+<meta property="og:updated_time" content="2018-10-17T03:03:00.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django 操作数据库时的 9 条小提示（译）">
 <meta name="twitter:description" content="本文翻译自 Medium 上的 9 Django Tips for Working with Databases, 原作者 Haki Benita。">
@@ -338,7 +338,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-10-17T10:57:54+08:00">2018-10-17</time>
+              <time title="Post modified" itemprop="dateModified" datetime="2018-10-17T11:03:00+08:00">2018-10-17</time>
             
           </span>
 
@@ -466,7 +466,7 @@
 <p>在这个例子中，我们可以作出一个合理的假设，即认为用户比组多。所以将用户列放在前面可以使第二级索引为组而构建，使索引更小。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Membership(Model):</span><br><span class="line">    group = ForeignKey(Group, db_index=False)</span><br><span class="line">    user = ForeignKey(User, db_index=False)</span><br><span class="line">    class Meta:</span><br><span class="line">        unique_together = (</span><br><span class="line">            &apos;user&apos;,</span><br><span class="line">            &apos;group&apos;,</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
 <p>这只是一个经验之谈，所以你应该对此持保留态度。最终的索引需要根据具体的使用情景来进行优化。这一小节的重点是告诉你要<strong>注意隐式索引，注意复合索引中列顺序的重大意义。</strong></p>
-<h1 id="BRIN-索引"><a href="#BRIN-索引" class="headerlink" title="BRIN 索引"></a>BRIN 索引</h1><p>B-Tree 的结构就像一棵树一样。当随机访问数据表时，查询单个值当代价是树的高度加 1。所以对于一致性约束和（某些）范围查询来说，B-Tree 索引是比较完美的。</p>
+<h1 id="BRIN-索引"><a href="#BRIN-索引" class="headerlink" title="BRIN 索引"></a>BRIN 索引</h1><p>B-Tree 的结构就像一棵树一样。当随机访问数据表时，查询一个值的代价是使树的高度加 1。所以对于一致性约束和（某些）范围查询来说，B-Tree 索引是比较完美的。</p>
 <p><strong>B-Tree 的缺点在于它的大小，它有时候会变得非常大。</strong></p>
 <p><a href="https://medium.com/@Alibaba_Cloud/principles-and-applications-of-the-index-types-supported-by-postgresql-481f59bab67d" target="_blank" rel="noopener">PostgreSQL 提供了其它多种索引，供我们用于不同的场景。</a></p>
 <p>Django 1.11 加入了一个新的 Meta 选项来控制索引，使得我们有机会去探索其它类型的索引。</p>
