@@ -110,7 +110,9 @@
 <meta property="og:image" content="https://cuixiaochen.com/2018/10/28/python-tutorial-1/ui.png">
 <meta property="og:image" content="https://cuixiaochen.com/2018/10/28/python-tutorial-1/zen.png">
 <meta property="og:image" content="https://cuixiaochen.com/2018/10/28/python-tutorial-1/hello.png">
-<meta property="og:updated_time" content="2018-10-28T07:45:24.461Z">
+<meta property="og:image" content="https://cuixiaochen.com/2018/10/28/python-tutorial-1/repl.png">
+<meta property="og:image" content="https://cuixiaochen.com/2018/10/28/python-tutorial-1/wrap.png">
+<meta property="og:updated_time" content="2018-10-28T08:08:08.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何优雅地学习 python">
 <meta name="twitter:description" content="艺术描绘了我们的梦想，计算机以程序的名义实现着它们– SICP  前言这篇文章将会教大家如何在 Mac 系统上安装 anaconda，同时帮大家简单地认识一下 python 这门编程语言 有些同学可能使用的是 windows 操作系统，我随后会写一篇文章教大家在 Windows 上安装 anaconda">
@@ -409,9 +411,18 @@
 <p>在命令行中输入 <code>print(&quot;hello, world!&quot;)</code> 然后敲回车，可以看到我们成功输出了 hello, world! 这句话</p>
 </li>
 </ol>
-<h2 id="一些碎碎念"><a href="#一些碎碎念" class="headerlink" title="一些碎碎念"></a>一些碎碎念</h2><p>有些同学可能有些疑惑，python 程序到底是怎么被计算机执行的？anaconda 到底是什么？spyder 又是什么？anaconda 进去时候的一系列菜单（如：JupyterLab, Notebook, Qt Console 等等）又有什么作用？在这里我尽量给大家解释一下</p>
+<h2 id="一些碎碎念（可跳过）"><a href="#一些碎碎念（可跳过）" class="headerlink" title="一些碎碎念（可跳过）"></a>一些碎碎念（可跳过）</h2><p>有些同学可能有些疑惑，python 程序到底是怎么被计算机执行的？anaconda 到底是什么？spyder 又是什么？anaconda 进去时候的一系列菜单（如：JupyterLab, Notebook, Qt Console 等等）又有什么作用？在这里我尽量给大家解释一下</p>
 <ol>
-<li>为什么进去 anaconda 后有这么多选项？<br>python 是一门通用型编程语言，为了让它更好用，有些人给它开发了各种各样的函数库，如用来下载网页的 requests，用来解析网页的 bs, 用来进行科学计算的 numpy, pandas 等等。 完整的第三方函数库列表见 <a href="https://pypi.org/" target="_blank" rel="noopener">pypi</a>。而 anaconda 为我们提供的 spyder 等环境就是一些预先安装了第三方函数库的环境。</li>
+<li><p>为什么进去 anaconda 后有这么多选项？<br>python 是一门通用型编程语言，为了让它更好用，有些人给它开发了各种各样的函数库，如用来下载网页的 requests，用来解析网页的 bs, 用来进行科学计算的 numpy, pandas 等等。 完整的第三方函数库列表见 <a href="https://pypi.org/" target="_blank" rel="noopener">pypi</a>。而 anaconda 为我们提供的 spyder 等环境就是一些预先安装了第三方函数库的环境。</p>
+</li>
+<li><p>python 程序是怎样被执行的？</p>
+<p>我们通常说 python 是一门“解释型语言”，相对的 c, c++, golang 等语言被称为“编译型语言”。为了方便学习，anaconda 自带一个 python 解释器，它负责解释并运行我们写的代码，这里的“解释”就是解释给计算机的意思，因为计算只认识 0 和 1，并不认识我们写的代码。所以我们写代码的流程就是：先编写一个代码文件（以 .py 后缀结尾），然后将它送入 python 解释器（通过点击编辑器上方的运行按钮），解释器将它转化成 python 字节码，送入 python 虚拟机，最后转变成 0 和 1 组成的字符串，由计算机执行。</p>
+</li>
+<li><p>那什么是 REPL 呢？为什么我们要通过 REPL 进行学习？</p>
+<p>我们说的 <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop" target="_blank" rel="noopener">REPL</a> 全称为 Read–eval–print loop，REPL 解释器会重复地做三件事：Read, Eval, Print，即读入，执行，打印结果。例如下图，我们输入 <code>1 + 10</code>，然后点击回车，得到了结果 <code>11</code>。但是如果在代码文件中写 <code>1 + 11</code>，不仅不会输出结果，反而会报错，因为这个表达式没有左值。需要写 <code>print(1 + 10)</code> 才行。我们可以简单地认为 REPL 就是在表达式外面套了一个 <code>print()</code></p>
+<img src="/2018/10/28/python-tutorial-1/repl.png">
+<img src="/2018/10/28/python-tutorial-1/wrap.png">
+</li>
 </ol>
 <p>未完待续…</p>
 
@@ -656,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初识-python"><span class="nav-number">2.</span> <span class="nav-text">初识 python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载与安装-anaconda"><span class="nav-number">2.1.</span> <span class="nav-text">下载与安装 anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始-anaconda"><span class="nav-number">2.2.</span> <span class="nav-text">初始 anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识-python-1"><span class="nav-number">2.3.</span> <span class="nav-text">初识 python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些碎碎念"><span class="nav-number">2.4.</span> <span class="nav-text">一些碎碎念</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初识-python"><span class="nav-number">2.</span> <span class="nav-text">初识 python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载与安装-anaconda"><span class="nav-number">2.1.</span> <span class="nav-text">下载与安装 anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始-anaconda"><span class="nav-number">2.2.</span> <span class="nav-text">初始 anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识-python-1"><span class="nav-number">2.3.</span> <span class="nav-text">初识 python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些碎碎念（可跳过）"><span class="nav-number">2.4.</span> <span class="nav-text">一些碎碎念（可跳过）</span></a></li></ol></li></ol></div>
             
 
           </div>
