@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-10-28T07:06:23.148Z</updated>
+  <updated>2018-10-28T07:17:43.776Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://cuixiaochen.com/2018/10/28/python-tutorial-1/"/>
     <id>https://cuixiaochen.com/2018/10/28/python-tutorial-1/</id>
     <published>2018-10-28T06:11:07.000Z</published>
-    <updated>2018-10-28T07:06:23.148Z</updated>
+    <updated>2018-10-28T07:17:43.776Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>艺术描绘了我们的梦想，计算机以程序的名义实现着它们<br>– SICP</p></blockquote><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章将会教大家如何在 Mac 系统上安装 anaconda，同时帮大家简单地认识一下 python 这门编程语言</p><p>有些同学可能使用的是 windows 操作系统，我随后会写一篇文章教大家在 Windows 上安装 anaconda<br><a id="more"></a></p><h1 id="安装-anaconda"><a href="#安装-anaconda" class="headerlink" title="安装 anaconda"></a>安装 anaconda</h1><h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><ol><li><p>在 <a href="https://www.anaconda.com/download/#macos" target="_blank" rel="noopener">下载页面</a> 下载安装包</p><img src="/2018/10/28/python-tutorial-1/download.png"></li><li><p>点击下载好的安装包，根据提示安装（一直点“下一步”就行）</p></li></ol><h2 id="初始-anaconda"><a href="#初始-anaconda" class="headerlink" title="初始 anaconda"></a>初始 anaconda</h2><ol><li><p>在 Application 里找到 anaconda，双击</p><img src="/2018/10/28/python-tutorial-1/findit.png"></li><li><p>认识一下 anaconda 的界面：</p><img src="/2018/10/28/python-tutorial-1/ui.png"><p>右下角的 REPL 区域对初学者非常友好，接下来我们会在这个地方写一些简单的代码，简单了解一下 python</p></li><li><p>Zen of python</p><img src="/2018/10/28/python-tutorial-1/zen.png"><p>在命令行中输入 <code>import this</code> 然后敲回车，这行代码就被我们执行了。</p><p>可以看到，命令行中输出了一大段话，这就是著名的 zen of python(python 之禅），是 python 这门语言的设计理念与精髓，也是我们写 python 代码的 guidelines</p></li><li><p>hello, world!</p><img src="/2018/10/28/python-tutorial-1/hello.png"><p>在命令行中输入 <code>print(&quot;hello, world!&quot;)</code> 然后敲回车，可以看到我们成功输出了 hello, world! 这句话</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>艺术描绘了我们的梦想，计算机以程序的名义实现着它们<br>– SICP</p></blockquote><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章将会教大家如何在 Mac 系统上安装 anaconda，同时帮大家简单地认识一下 python 这门编程语言</p><p>有些同学可能使用的是 windows 操作系统，我随后会写一篇文章教大家在 Windows 上安装 anaconda<br><a id="more"></a></p><h1 id="安装-anaconda"><a href="#安装-anaconda" class="headerlink" title="安装 anaconda"></a>安装 anaconda</h1><h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><ol><li><p>在 <a href="https://www.anaconda.com/download/#macos" target="_blank" rel="noopener">下载页面</a> 下载安装包</p><img src="/2018/10/28/python-tutorial-1/download.png"></li><li><p>点击下载好的安装包，根据提示安装（一直点“下一步”就行）</p></li></ol><h2 id="初始-anaconda"><a href="#初始-anaconda" class="headerlink" title="初始 anaconda"></a>初始 anaconda</h2><ol><li><p>在 Application 里找到 anaconda，双击</p><img src="/2018/10/28/python-tutorial-1/findit.png"></li><li><p>认识一下 anaconda 的界面：</p><img src="/2018/10/28/python-tutorial-1/ui.png"><p>右下角的 REPL 区域对初学者非常友好，接下来我们会在这个地方写一些简单的代码，简单了解一下 python</p></li><li><p>Zen of python</p><img src="/2018/10/28/python-tutorial-1/zen.png"><p>在命令行中输入 <code>import this</code> 然后敲回车，这行代码就被我们执行了。</p><p>可以看到，命令行中输出了一大段话，这就是著名的 zen of python(python 之禅），是 python 这门语言的设计理念与精髓，也是我们写 python 代码的 guidelines</p></li><li><p>hello, world!</p><img src="/2018/10/28/python-tutorial-1/hello.png"><p>在命令行中输入 <code>print(&quot;hello, world!&quot;)</code> 然后敲回车，可以看到我们成功输出了 hello, world! 这句话</p></li></ol><p>未完待续…</p>]]></content>
     
     <summary type="html">
     
