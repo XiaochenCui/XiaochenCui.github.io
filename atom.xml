@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuixiaochen.com/"/>
-  <updated>2018-10-28T08:16:32.852Z</updated>
+  <updated>2018-10-07T12:18:11.240Z</updated>
   <id>https://cuixiaochen.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>如何优雅地学习 python</title>
-    <link href="https://cuixiaochen.com/2018/10/28/python-tutorial-1/"/>
-    <id>https://cuixiaochen.com/2018/10/28/python-tutorial-1/</id>
-    <published>2018-10-28T06:11:07.000Z</published>
-    <updated>2018-10-28T08:16:32.852Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>艺术描绘了我们的梦想，计算机以程序的名义实现着它们<br>– SICP</p></blockquote><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章将会教大家如何在 Mac 系统上安装 anaconda，同时帮大家简单地认识一下 python 这门编程语言</p><p>有些同学可能使用的是 windows 操作系统，我随后会写一篇文章教大家在 Windows 上安装 anaconda<br><a id="more"></a></p><h1 id="初识-python"><a href="#初识-python" class="headerlink" title="初识 python"></a>初识 python</h1><h2 id="下载与安装-anaconda"><a href="#下载与安装-anaconda" class="headerlink" title="下载与安装 anaconda"></a>下载与安装 anaconda</h2><p>这里我们要清楚 anaconda 与 python 之间的关系：python 是一门编程语言，anaconda 是用来编写 python 的一种工具（有很多种其他工具也可以用来编写 python，比如 pycharm, vim 等等）</p><ol><li><p>在 <a href="https://www.anaconda.com/download/#macos" target="_blank" rel="noopener">下载页面</a> 下载安装包</p><img src="/2018/10/28/python-tutorial-1/download.png"></li><li><p>点击下载好的安装包，根据提示安装（一直点“下一步”就行）</p></li></ol><h2 id="初始-anaconda"><a href="#初始-anaconda" class="headerlink" title="初始 anaconda"></a>初始 anaconda</h2><ol><li><p>在 Application 里找到 anaconda，双击</p><img src="/2018/10/28/python-tutorial-1/findit.png"></li><li><p>进入 spyder</p><img src="/2018/10/28/python-tutorial-1/spyder.png"></li><li><p>认识一下 anaconda(spyder) 的界面：</p><img src="/2018/10/28/python-tutorial-1/ui.png"><p>右下角的 REPL 区域对初学者非常友好，接下来我们会在这个地方写一些简单的代码，简单了解一下 python</p></li></ol><h2 id="初识-python-1"><a href="#初识-python-1" class="headerlink" title="初识 python"></a>初识 python</h2><ol><li><p>Zen of python</p><img src="/2018/10/28/python-tutorial-1/zen.png"><p>在命令行中输入 <code>import this</code> 然后敲回车，这行代码就被我们执行了。</p><p>可以看到，命令行中输出了一大段话，这就是著名的 zen of python(python 之禅），是 python 这门语言的设计理念与精髓，也是我们写 python 代码的 guidelines</p></li><li><p>hello, world!</p><img src="/2018/10/28/python-tutorial-1/hello.png"><p>在命令行中输入 <code>print(&quot;hello, world!&quot;)</code> 然后敲回车，可以看到我们成功输出了 hello, world! 这句话</p></li></ol><h2 id="一些碎碎念（可跳过）"><a href="#一些碎碎念（可跳过）" class="headerlink" title="一些碎碎念（可跳过）"></a>一些碎碎念（可跳过）</h2><p>有些同学可能有些疑惑，python 程序到底是怎么被计算机执行的？anaconda 到底是什么？spyder 又是什么？anaconda 进去时候的一系列菜单（如：JupyterLab, Notebook, Qt Console 等等）又有什么作用？在这里我尽量给大家解释一下</p><ol><li><p>为什么进去 anaconda 后有这么多选项？<br>python 是一门通用型编程语言，为了让它更好用，有些人给它开发了各种各样的函数库，如用来下载网页的 requests，用来解析网页的 bs, 用来进行科学计算的 numpy, pandas 等等。 完整的第三方函数库列表见 <a href="https://pypi.org/" target="_blank" rel="noopener">pypi</a>。而 anaconda 为我们提供的 spyder 等环境就是一些预先安装了第三方函数库的环境。</p></li><li><p>python 程序是怎样被执行的？</p><p>我们通常说 python 是一门“解释型语言”，相对的 c, c++, golang 等语言被称为“编译型语言”。为了方便学习，anaconda 自带一个 python 解释器，它负责解释并运行我们写的代码，这里的“解释”就是解释给计算机的意思，因为计算只认识 0 和 1，并不认识我们写的代码。所以我们写代码的流程就是：先编写一个代码文件（以 .py 后缀结尾），然后将它送入 python 解释器（通过点击编辑器上方的运行按钮），解释器将它转化成 python 字节码，送入 python 虚拟机，最后转变成 0 和 1 组成的字符串，由计算机执行。</p></li><li><p>那什么是 REPL 呢？为什么我们要通过 REPL 进行学习？</p><p>我们说的 <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop" target="_blank" rel="noopener">REPL</a> 全称为 Read–eval–print loop，REPL 解释器会重复地做三件事：Read, Eval, Print，即读入，执行，打印结果。例如下图，我们输入 <code>1 + 10</code>，然后点击回车，得到了结果 <code>11</code>。但是如果在代码文件中写 <code>1 + 11</code>，不仅不会输出结果，反而会报错，因为这个表达式没有左值。需要写 <code>print(1 + 10)</code> 才行。我们可以简单地认为 REPL 就是在表达式外面套了一个 <code>print()</code></p><img src="/2018/10/28/python-tutorial-1/repl.png"><img src="/2018/10/28/python-tutorial-1/wrap.png"></li></ol><h1 id="python-基础知识"><a href="#python-基础知识" class="headerlink" title="python 基础知识"></a>python 基础知识</h1><p>这部分我就不赘述了，英文好的同学可以直接看官方的 <a href="https://docs.python.org/3/reference/index.html" target="_blank" rel="noopener">syntax reference</a>，英文吃力的同学可以看 <a href="https://coding-girls-club.gitbook.io/python-101/2.python/3-python-syntax" target="_blank" rel="noopener">这个文档</a></p><p>需要掌握：</p><ul><li>常用的几种变量类型：int, float, string, bytes</li><li>常用的四种容器结构：list, set, tuple, dict</li><li>常见的控制语句</li><li>面向对象 (OOP) 的基础知识，包括 function, method, class 等</li></ul><h1 id="练手"><a href="#练手" class="headerlink" title="练手"></a>练手</h1><h1 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h1><p>未完待续…</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;艺术描绘了我们的梦想，计算机以程序的名义实现着它们&lt;br&gt;– SICP&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;这篇文章将会教大家如何在 Mac 系统上安装 anaconda，同时帮大家简单地认识一下 python 这门编程语言&lt;/p&gt;
-&lt;p&gt;有些同学可能使用的是 windows 操作系统，我随后会写一篇文章教大家在 Windows 上安装 anaconda&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>一些关于 Diffie-Hellman 的 paper</title>
@@ -485,6 +463,28 @@
 &lt;li&gt;&lt;a href=&quot;https://pdfs.semanticscholar.org/0f8a/9d5bf4ef5a3863470f3faf38da2672f0fca1.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;K.Pietrzak: A Tight Bound for EMAC. ICALP (2) 2006: 168-179&lt;/a&gt;&lt;br&gt;证明了 CBC-MAC 的超集是 PRF
     
     </summary>
+    
+    
+      <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cryptography Week 2 - Programming Assignment</title>
+    <link href="https://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/"/>
+    <id>https://cuixiaochen.com/2018/06/05/cryptography-week-2-programming-assignment/</id>
+    <published>2018-06-05T01:33:29.000Z</published>
+    <updated>2018-08-12T06:50:19.060Z</updated>
+    
+    <content type="html"><![CDATA[<p>这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。<br><a id="more"></a></p><img src="/2018/06/05/cryptography-week-2-programming-assignment/pa.png"><p>在这里我们仅贴出核心代码，完整代码在：<a href="https://github.com/XiaochenCui/cryptography-homework" target="_blank" rel="noopener">https://github.com/XiaochenCui/cryptography-homework</a></p><h1 id="CBC-Cipher-Block-Chaining"><a href="#CBC-Cipher-Block-Chaining" class="headerlink" title="CBC (Cipher Block Chaining)"></a>CBC (Cipher Block Chaining)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    cipher_block = iv</span><br><span class="line">    ciphertext = iv</span><br><span class="line">    <span class="keyword">for</span> msg_block <span class="keyword">in</span> msg_block_generator(msg, padding=<span class="keyword">True</span>):</span><br><span class="line">        cipher_block = cipher.encrypt(xor(cipher_block, msg_block))</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> cipher_block <span class="keyword">in</span> cipher_block_generator(cipher_text):</span><br><span class="line">        msg_block = xor(cipher.decrypt(cipher_block), iv)</span><br><span class="line">        iv = cipher_block</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">if</span> msg[<span class="number">-16</span>:] == <span class="string">b'\x16'</span> * <span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> msg[:<span class="number">-16</span>]</span><br><span class="line">    pad_bytes = msg[<span class="number">-1</span>]</span><br><span class="line">    reminder = len(msg) - pad_bytes</span><br><span class="line">    <span class="keyword">if</span> msg[reminder:] == bytes([pad_bytes]) * pad_bytes:</span><br><span class="line">        <span class="keyword">return</span> msg[:reminder]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'Cipher_text is invalid'</span>)</span><br></pre></td></tr></table></figure><h1 id="CTR-Counter-mode"><a href="#CTR-Counter-mode" class="headerlink" title="CTR (Counter mode)"></a>CTR (Counter mode)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(msg, key, iv)</span>:</span></span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    ciphertext = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, msg_block <span class="keyword">in</span> enumerate(msg_block_generator(msg, padding=<span class="keyword">False</span>)):</span><br><span class="line">        cipher_block = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        cipher_block = byte.xor(msg_block, cipher_block)</span><br><span class="line">        ciphertext += cipher_block</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(cipher_text, key)</span>:</span></span><br><span class="line">    iv, cipher_text = cipher_text[:<span class="number">16</span>], cipher_text[<span class="number">16</span>:]</span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    msg = <span class="string">b''</span></span><br><span class="line">    <span class="keyword">for</span> i, cipher_block <span class="keyword">in</span> enumerate(cipher_block_generator(cipher_text)):</span><br><span class="line">        iv_encrypted = cipher.encrypt(byte.add(iv, i))</span><br><span class="line">        msg_block = byte.xor(cipher_block, iv_encrypted)</span><br><span class="line">        msg += msg_block</span><br><span class="line">    <span class="keyword">return</span> msg</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Exercises of Cryptography" scheme="https://cuixiaochen.com/categories/Exercises-of-Cryptography/"/>
     
     
       <category term="cryptography" scheme="https://cuixiaochen.com/tags/cryptography/"/>
