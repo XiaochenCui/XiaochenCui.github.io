@@ -1,4 +1,7 @@
 baseURL = "https://cuixiaochen.com/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "XiaochenCui's Blog"
 theme = "yinyang"
+
+[params]
+disqus = "cuixiaochen"
