@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/cryptography-week-4-program-assigment/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/cryptography-week-4-program-assigment/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Cryptography Week 4 - Programming Assignment",
+      "headline" : "Cryptography Week 4 - Programming Assignment",
+      "description" : "\x3cp\x3e这次我们的目标是利用 \x3ca href=\x22https:\/\/en.wikipedia.org\/wiki\/Padding_oracle_attack\x22\x3ePadding oracle attack\x3c\/a\x3e 破解加密过的消息，padding oracle attack 的原理相对来讲比较简单，但是在具体的编程破解过程中需要注意几个问题：\x3c\/p\x3e\n\n\x3cul\x3e\n\x3cli\x3e发送 chosen ciphertext 的间隔时间不能太短，不然会收到 500 响应\x3c\/li\x3e\n\x3cli\x3e在第一个字节被成功 decrypt 之后，可根据 padding 格式跳过一些字节，节省一些时间\x3c\/li\x3e\n\x3c\/ul\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-06-28 20:54:02 \x2b0000 UTC",
+      "dateModified" : "2018-06-28 20:54:02 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/cryptography-week-4-program-assigment\/",
+      "keywords" : [ "cryptography", ]
+  }
+</script>
+<title>Cryptography Week 4 - Programming Assignment - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Cryptography Week 4 - Programming Assignment - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="这次我们的目标是利用 Padding oracle attack 破解加密过的消息，padding oracle attack 的原理相对来讲比较简单，但是在具体的编程破解过程中需要注意几个问题：
+
+
+发送 chosen ciphertext 的间隔时间不能太短，不然会收到 500 响应
+在第一个字节被成功 decrypt 之后，可根据 padding 格式跳过一些字节，节省一些时间
+" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Cryptography Week 4 - Programming Assignment</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <p>这次我们的目标是利用 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack">Padding oracle attack</a> 破解加密过的消息，padding oracle attack 的原理相对来讲比较简单，但是在具体的编程破解过程中需要注意几个问题：</p>
+
+<ul>
+<li>发送 chosen ciphertext 的间隔时间不能太短，不然会收到 500 响应</li>
+<li>在第一个字节被成功 decrypt 之后，可根据 padding 格式跳过一些字节，节省一些时间</li>
+</ul>
+
+<ul>
+<li>当一个 block 被完全 decrypt 之后，需要将 ciphertext 的最后一个 block 丢弃，使当前 decrypt 的 message block 被服务器认为是最后一个 message block，这样才能利用 padding oracle</li>
+<li>除以上几点外还有一些 trival 的小坑需要留心，在此不做赘述</li>
+</ul>
+
+<p>{% asset_img pp.png %}</p>
+
+<p>最终代码：<a href="https://github.com/XiaochenCui/cryptography-homework/blob/master/week_4/padding_oracle.py">github</a></p>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

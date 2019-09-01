@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/cryptography-week-2-programming-assignment/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/cryptography-week-2-programming-assignment/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Cryptography Week 2 - Programming Assignment",
+      "headline" : "Cryptography Week 2 - Programming Assignment",
+      "description" : "\x3cp\x3e这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-06-05 09:33:29 \x2b0000 UTC",
+      "dateModified" : "2018-06-05 09:33:29 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/cryptography-week-2-programming-assignment\/",
+      "keywords" : [ "cryptography", ]
+  }
+</script>
+<title>Cryptography Week 2 - Programming Assignment - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Cryptography Week 2 - Programming Assignment - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Cryptography Week 2 - Programming Assignment</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <p>这次我们的任务是实现 CBC 和 CTR，要求用 AES 做为 PRF，所以我们只需要使用 AES 的加密算法。</p>
+
+<p>{% asset_img  pa.png%}</p>
+
+<p>在这里我们仅贴出核心代码，完整代码在：<a href="https://github.com/XiaochenCui/cryptography-homework">https://github.com/XiaochenCui/cryptography-homework</a></p>
+
+<h1 id="cbc-cipher-block-chaining">CBC (Cipher Block Chaining)</h1>
+
+<pre><code class="language-python">def encrypt(msg, key, iv):
+    cipher = AES.new(key, AES.MODE_ECB)
+    cipher_block = iv
+    ciphertext = iv
+    for msg_block in msg_block_generator(msg, padding=True):
+        cipher_block = cipher.encrypt(xor(cipher_block, msg_block))
+        ciphertext += cipher_block
+    return ciphertext
+
+
+def decrypt(cipher_text, key):
+    cipher = AES.new(key, AES.MODE_ECB)
+    iv, cipher_text = cipher_text[:16], cipher_text[16:]
+    msg = b''
+    for cipher_block in cipher_block_generator(cipher_text):
+        msg_block = xor(cipher.decrypt(cipher_block), iv)
+        iv = cipher_block
+        msg += msg_block
+    if msg[-16:] == b'\x16' * 16:
+        return msg[:-16]
+    pad_bytes = msg[-1]
+    reminder = len(msg) - pad_bytes
+    if msg[reminder:] == bytes([pad_bytes]) * pad_bytes:
+        return msg[:reminder]
+    else:
+        print('Cipher_text is invalid')
+</code></pre>
+
+<h1 id="ctr-counter-mode">CTR (Counter mode)</h1>
+
+<pre><code class="language-python">def encrypt(msg, key, iv):
+    cipher = AES.new(key, AES.MODE_ECB)
+    ciphertext = b''
+    for i, msg_block in enumerate(msg_block_generator(msg, padding=False)):
+        cipher_block = cipher.encrypt(byte.add(iv, i))
+        cipher_block = byte.xor(msg_block, cipher_block)
+        ciphertext += cipher_block
+    return ciphertext
+
+
+def decrypt(cipher_text, key):
+    iv, cipher_text = cipher_text[:16], cipher_text[16:]
+    cipher = AES.new(key, AES.MODE_ECB)
+    msg = b''
+    for i, cipher_block in enumerate(cipher_block_generator(cipher_text)):
+        iv_encrypted = cipher.encrypt(byte.add(iv, i))
+        msg_block = byte.xor(cipher_block, iv_encrypted)
+        msg += msg_block
+    return msg
+</code></pre>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

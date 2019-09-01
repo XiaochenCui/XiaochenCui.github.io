@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>number theory on XiaochenCui&#39;s Blog</title>
+    <link>https://cuixiaochen.com/tags/number-theory/</link>
+    <description>Recent content in number theory on XiaochenCui&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Jul 2018 22:20:44 +0000</lastBuildDate>
+    
+	<atom:link href="https://cuixiaochen.com/tags/number-theory/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Proof of Fermat&#39;s Little Theorem</title>
+      <link>https://cuixiaochen.com/posts/fermat-little-theorem/</link>
+      <pubDate>Sun, 22 Jul 2018 22:20:44 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/fermat-little-theorem/</guid>
+      <description> Overview Fermat&amp;rsquo;s little theorem states that if $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expressed as
+{% raw %} $$ \begin{align} a^p \equiv a: (mod p) \end{align} $$ {% endraw %}
+To be continued
+Reference  Fermat&amp;rsquo;s little theorem Proof of Fermat&amp;rsquo;s Little Theorem  </description>
+    </item>
+    
+    <item>
+      <title>新专栏：数论</title>
+      <link>https://cuixiaochen.com/posts/number-theorem/</link>
+      <pubDate>Sun, 22 Jul 2018 21:36:00 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/number-theorem/</guid>
+      <description>一个新的专栏： Fun with number theory。这个专栏将从费马小定律开始，讲一些简单的数论知识，并介绍这些数论知识在公钥密码学、素数检查、复数计算等方面的应用
+由于本人也是初学者，错误及遗漏之处还请大家多多指正</description>
+    </item>
+    
+    <item>
+      <title>Closed Form Expression For Fibonacci Numbers 的证明</title>
+      <link>https://cuixiaochen.com/posts/fib/</link>
+      <pubDate>Wed, 11 Jul 2018 07:11:39 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/fib/</guid>
+      <description>&lt;h1 id=&#34;概览&#34;&gt;概览&lt;/h1&gt;
+
+&lt;p&gt;此题出自 SICP 第一章练习题 1.13&lt;/p&gt;
+
+&lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
+
+&lt;p&gt;Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

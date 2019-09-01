@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/9-django-tips-for-working-with-databases-translate/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/9-django-tips-for-working-with-databases-translate/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Django 操作数据库时的 9 条小提示（译）",
+      "headline" : "Django 操作数据库时的 9 条小提示（译）",
+      "description" : "\x3cp\x3e本文翻译自 \x3ca href=\x22https:\/\/medium.com\/\x22\x3eMedium\x3c\/a\x3e 上的 \x3ca href=\x22https:\/\/medium.com\/@hakibenita\/9-django-tips-for-working-with-databases-beba787ed7d3\x22\x3e9 Django Tips for Working with Databases\x3c\/a\x3e, 原作者 \x3ca href=\x22https:\/\/medium.com\/@hakibenita\x22\x3eHaki Benita\x3c\/a\x3e。\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-02-01 16:06:39 \x2b0000 UTC",
+      "dateModified" : "2018-02-01 16:06:39 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/9-django-tips-for-working-with-databases-translate\/",
+      "keywords" : [ "python","django","orm", ]
+  }
+</script>
+<title>Django 操作数据库时的 9 条小提示（译） - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Django 操作数据库时的 9 条小提示（译） - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="本文翻译自 Medium 上的 9 Django Tips for Working with Databases, 原作者 Haki Benita。" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Django 操作数据库时的 9 条小提示（译）</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <p>本文翻译自 <a href="https://medium.com/">Medium</a> 上的 <a href="https://medium.com/@hakibenita/9-django-tips-for-working-with-databases-beba787ed7d3">9 Django Tips for Working with Databases</a>, 原作者 <a href="https://medium.com/@hakibenita">Haki Benita</a>。</p>
+
+<h1 id="用-filter-做聚合-aggregation-操作">用 filter 做聚合 (aggregation) 操作</h1>
+
+<p>在 Django 2.0 之前，如果我们想获取诸如用户总数或者已激活的用户总数等信息，通常需要诉诸于使用 <a href="https://docs.djangoproject.com/en/2.0/ref/models/conditional-expressions/">condition 表达式</a>:</p>
+
+<pre><code class="language-python">from django.contrib.auth.models import User
+from django.db.models import (
+    Count,
+    Sum,
+    Case,
+    When,
+    Value,
+    IntegerField,
+)
+User.objects.aggregate(
+    total_users=Count('id'),
+    total_active_users=Sum(Case(
+        When(is_active=True, then=Value(1)),
+        default=Value(0),
+        output_field=IntegerField(),
+    )),
+)
+</code></pre>
+
+<p>在 Django 2.0 中加入的在聚合函数中使用 filter 参数简化了这一操作：</p>
+
+<pre><code class="language-python">from django.contrib.auth.models import User
+from django.db.models import Count, F
+User.objects.aggregate(
+    total_users=Count('id'),
+    total_active_users=Count('id', filter=F('is_active')),
+)
+</code></pre>
+
+<p>假设我们正在使用 PostgerSQL, 上面两条查询对应的 SQL 语句是：</p>
+
+<pre><code class="language-sql">SELECT
+    COUNT(id) AS total_users,
+    SUM(CASE WHEN is_active THEN 1 ELSE 0 END) AS total_active_users
+FROM
+    auth_users;
+
+SELECT
+    COUNT(id) AS total_users,
+    COUNT(id) FILTER (WHERE is_active) AS total_active_users
+FROM
+    auth_users;
+</code></pre>
+
+<p>第二条查询使用了 FILTER(WHERE&hellip;) 语句。</p>
+
+<h1 id="queryset-的结果作为-namedtuples-返回">QuerySet 的结果作为 namedtuples 返回</h1>
+
+<p>在 Django 2.0 中 <a href="https://docs.djangoproject.com/en/2.0/ref/models/querysets/#django.db.models.query.QuerySet.values_list">values_list 可以接收一个叫做 named 的参数</a>。当 named 为 True 的时候，values_list 将会返回一个由 namedtuple 组成的列表：</p>
+
+<pre><code class="language-python">&gt; user.objects.values_list(
+    'first_name',
+    'last_name',
+)[0]
+(‘Haki’, ‘Benita’)
+&gt; user_names = User.objects.values_list(
+    'first_name',
+    'last_name',
+    named=True,
+)
+&gt; user_names[0]
+Row(first_name='Haki', last_name='Benita')
+&gt; user_names[0].first_name
+'Haki'
+&gt; user_names[0].last_name
+'Benita'
+</code></pre>
+
+<h1 id="自定义函数">自定义函数</h1>
+
+<p>Django ORM 非常实用而且功能丰富，但是它不可能满足所有的数据库。幸运的是 ORM 允许我们用自定义函数来对它进行扩展。</p>
+
+<p>假设我们有一个 Report model，其中包含一个 duration 字段。如果要获取平均延期时间的话：</p>
+
+<pre><code class="language-python">from django.db.models import Avg
+Report.objects.aggregate(avg_duration=Avg(‘duration’))
+&gt; {'avg_duration': datetime.timedelta(0, 0, 55432)}
+</code></pre>
+
+<p>但是当我们想要获取标准差的时候：</p>
+
+<pre><code class="language-python">from django.db.models import Avg, StdDev
+Report.objects.aggregate(
+    avg_duration=Avg('duration'),
+    std_duration=StdDev('duration'),
+)
+ProgrammingError: function stddev_pop(interval) does not exist
+LINE 1: SELECT STDDEV_POP(&quot;report&quot;.&quot;duration&quot;) AS &quot;std_dura...
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+</code></pre>
+
+<p>这就出现了问题，因为 PostgreSQL 不支持对于 interval type 的 stddev 操作。我们得先把 interval 转换成 number, 然后再对其进行 <code>STDDEV_POP</code> 操作。</p>
+
+<p>解决方法之一就是在 duration 上执行 epoch 操作：</p>
+
+<pre><code>SELECT
+    AVG(duration),
+    STDDEV_POP(EXTRACT(EPOCH FROM duration))
+FROM
+    report;
+      avg       |    stddev_pop
+----------------+------------------
+ 00:00:00.55432 | 1.06310113695549
+(1 row)
+</code></pre>
+
+<p>通过<a href="https://docs.djangoproject.com/en/2.0/ref/models/expressions/#func-expressions">自定义函数</a>，我们可以在 Django 中进行这个操作：</p>
+
+<pre><code class="language-python"># common/db.py
+from django.db.models import Func
+class Epoch(Func):
+   function = 'EXTRACT'
+   template = &quot;%(function)s('epoch' from %(expressions)s)&quot;
+</code></pre>
+
+<p>然后使用这个新的函数：</p>
+
+<pre><code>from django.db.models import Avg, StdDev, F
+from common.db import Epoch
+Report.objects.aggregate(
+    avg_duration=Avg('duration'),
+    std_duration=StdDev(Epoch(F('duration'))),
+)
+{'avg_duration': datetime.timedelta(0, 0, 55432),
+ 'std_duration': 1.06310113695549}
+</code></pre>
+
+<p>注意我们在 Epoch 中使用了 <a href="https://docs.djangoproject.com/en/2.0/ref/models/expressions/#f-expressions">F 表达式</a></p>
+
+<p>『译者注』可能某些读者没接触过 PostgreSQL, 我在这里贴出一些链接，帮助大家了解一下本段中涉及到的 PostgreSQL 关键字：
+- <a href="http://www.postgresqltutorial.com/postgresql-interval/">interval data type</a>
+- <a href="https://w3resource.com/PostgreSQL/extract-function.php">EXTRACT</a>
+- <a href="https://www.cloudera.com/documentation/enterprise/5-3-x/topics/impala_stddev.html">STDDEV_POP</a></p>
+
+<h1 id="语句超时">语句超时</h1>
+
+<p>这可能是本文给出的最重要、最简洁的建议。在编写应用时出错是难以避免的事情，我们无法预料并处理所有的边界情况 (edge case)，所以<strong>我们必须设置边界</strong>。</p>
+
+<p>不同于那些非阻塞的 app 服务器（如 Tornado, asyncio 或 Node），Django 使用阻塞式的工作进程。这意味着<strong>如果一个用户执行了一项长耗时操作，则在这项操作完成前，工作进程会一直阻塞且无法被其他用户使用</strong>。</p>
+
+<p>虽然没人会在生产环境中使用单个工作进程，我们仍然应该确保单个查询不会占用过多的时间。</p>
+
+<p>在大多数 Django 应用中数据库查询都会占用很多时间，所以<strong><a href="https://www.postgresql.org/docs/9.6/static/runtime-config-client.html#GUC-STATEMENT-TIMEOUT">为 SQL 查询设置超时</a> 是一个很好的习惯</strong>。</p>
+
+<p>我们通常会在 wsgi.py 中做全局超时设置：</p>
+
+<pre><code class="language-python"># wsgi.py
+from django.db.backends.signals import connection_created
+from django.dispatch import receiver
+@receiver(connection_created)
+def setup_postgres(connection, **kwargs):
+    if connection.vendor != 'postgresql':
+        return
+
+    # Timeout statements after 30 seconds.
+    with connection.cursor() as cursor:
+        cursor.execute(&quot;&quot;&quot;
+            SET statement_timeout TO 30000;
+        &quot;&quot;&quot;)
+</code></pre>
+
+<p>这样做使得超时设置只会影响工作进程，而不会影响统计查询与 cronjob。</p>
+
+<p>同时，我们应该使用<a href="https://docs.djangoproject.com/en/2.0/ref/databases/#persistent-connections">持久化数据库连接</a>，使得我们不需要为每一个请求付出建立数据库连接的代价。</p>
+
+<p>边注：另一项非常耗时的操作是网络通讯，所以我们也应该在调用远程服务时设置超时：</p>
+
+<pre><code>import requests
+response = requests.get(
+    'https://api.slow-as-hell.com',
+    timeout=3000,
+)
+</code></pre>
+
+<h1 id="限制">限制</h1>
+
+<p>这一条建议同样与设置边界有关。有时候我们会希望用户输入一些数据，然后我们呈现出一份图表给他们。这一类的视图通常会在生产环境中产生一些奇怪的行为。</p>
+
+<p>用户希望导出所有订单的情况并不罕见，当前标签页“卡住”时打开另一个标签页进行尝试也是很常见的情形。</p>
+
+<p>这就是我们为什么要对查询做限制。</p>
+
+<p>我们来试着做一个查询，返回不超过 100 行：</p>
+
+<pre><code class="language-python"># 一个错误的示范
+data = list(Sale.objects.all())[:100]
+</code></pre>
+
+<p>这是一个错误的示范，程序将会把海量订单载入内存，然后截取前 100 项。</p>
+
+<p>我们尝试改进一下：</p>
+
+<pre><code class="language-python">data = Sale.objects.all()[:100]
+</code></pre>
+
+<p>这个语句比之前的要好一些，Django 将会在查询中使用 limit 来获取前 100 行。</p>
+
+<p>在这里遇到了另一个问题：当用户查询所有订单时，程序仍然会只返回 100 行数据。</p>
+
+<p>我们继续改进之前的程序，当订单总数大于 100 时，抛出一个异常：</p>
+
+<pre><code class="language-python">LIMIT = 100
+if Sales.objects.count() &gt; LIMIT:
+    raise ExceededLimit(LIMIT)
+return Sale.objects.all()[:LIMIT]
+</code></pre>
+
+<p>这个片段能正常工作，但现在程序将会进行两次查询。</p>
+
+<p>我们继续改进：</p>
+
+<pre><code class="language-python">LIMIT = 100
+data = Sale.objects.all()[:(LIMIT + 1)]
+if len(data) &gt; LIMIT:
+    raise ExceededLimit(LIMIT)
+return data
+</code></pre>
+
+<p>我们现在获取前 101 行而不是 100 行，如果第 101 行数据存在，则我们知道数据总数大于 100。</p>
+
+<p>LIMIT + 1 这个技巧很多时候非常使用。</p>
+
+<h1 id="select-for-update-of">Select for update … of</h1>
+
+<p>我们将会用一个 bug 来开始这一小节。这个 bug 发生在半夜，根源是数据库锁，最后造成了查询超时。</p>
+
+<p>一个常用的<a href="https://medium.com/p/bullet-proofing-django-models-c080739be4e">进行交易的模式</a> 如下：</p>
+
+<pre><code class="language-python">from django.db import transaction as db_transaction
+...
+with db_transaction.atomic():
+  transaction = (
+        Transaction.objects
+        .select_related(
+            'user',
+            'product',
+            'product__category',
+        )
+        .select_for_update()
+        .get(uid=uid)
+  )
+    ...
+</code></pre>
+
+<p>涉及到交易的操作通常包含 user 和 product，所以我们通常使用 <a href="https://docs.djangoproject.com/en/2.0/ref/models/querysets/#select-related">select_related</a> 来进行强制关联，减少查询次数。</p>
+
+<p>到目前为止，问题还没有显现出来。</p>
+
+<p>我们有一些 <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">ETL</a> 程序在半夜进行，维护 user 表和 product 表。这些 ETL 程序会执行更新和插入操作，所以他们也会请求获取锁。</p>
+
+<p>所以问题的根源在于：当 <a href="https://docs.djangoproject.com/en/2.0/ref/models/querysets/#select-for-update">select_for_update</a> 和 select_related 一起使用的时候，Django 将会对本次查询涉及到对所有表加锁。</p>
+
+<p>我们的程序尝试同时在 transaction, user, product 和 category 表上加锁，当 ETL 程序在半夜将后三个表加锁后，交易便失败了。</p>
+
+<p>为了解决这个问题，<a href="https://docs.djangoproject.com/en/2.0/releases/2.0/#database-backend-api">Django 2.0 中为 select_for_update 引入了一个新的参数</a>：</p>
+
+<pre><code class="language-python">from django.db import transaction as db_transaction
+...
+with db_transaction.atomic():
+  transaction = (
+        Transaction.objects
+        .select_related(
+            'user',
+            'product',
+            'product__category',
+        )
+        .select_for_update(
+            of=('self',)
+        )
+        .get(uid=uid)
+  )
+  ...
+</code></pre>
+
+<p>select_for_update 现在加入了 <code>of</code> 参数，使用 <code>of</code> 可以让我们明确指定对哪个表加锁。<code>self</code> 是一个特殊的关键字，表示我们想对当前 model 对应的表加锁（在我们的例子中，是 transaction）。</p>
+
+<p>到目前为止，这个功能只可用于 PostgreSQL 和 Oracle。</p>
+
+<h1 id="外键索引">外键索引</h1>
+
+<p>当创建一个 model 时，Django 将会在外键上自动创建一个 B-Tree 索引，B-Tree 索引会增加程序的负担，而且有时候索引并不是必要的。</p>
+
+<p>一个经典的例子就是下面这用来存储成员关系的关系 model:</p>
+
+<pre><code>class Membership(Model):
+    group = ForeignKey(Group)
+    user = ForeignKey(User)
+</code></pre>
+
+<p>Django 将会隐式地为上面这个 model 创建两个索引，一个在 group 字段上，另一个在 user 字段上。</p>
+
+<p>在关系 model 中，一个常用的模式是为两个字段添加唯一性约束。在我们的例子中表现为一个用户只能在同一个组中出现一次：</p>
+
+<pre><code>class Membership(Model):
+    group = ForeignKey(Group)
+    user = ForeignKey(User)
+    class Meta:
+        unique_together = (
+           'group',
+           'user',
+        )
+</code></pre>
+
+<p>unique_together 也会创建一个索引，作用于这两个字段。所以我们这个 model 最终拥有 3 个 fiele 和 2 个索引。在很多情况下（取决于业务需求），我们可以解除掉外键索引，只保留唯一性约束创建的索引：</p>
+
+<pre><code>class Membership(Model):
+    group = ForeignKey(Group)
+    user = ForeignKey(User)
+    class Meta:
+        unique_together = (
+           'group',
+           'user',
+        )
+</code></pre>
+
+<p>移除多余的索引可以加快插入和更新操作的速度，同时减轻了数据库的负载。</p>
+
+<h1 id="复合索引中列的顺序">复合索引中列的顺序</h1>
+
+<p>在多个列上构建的索引被称为<strong>复合索引</strong>。在 B-Tree 复合索引中，第一列用树结构构建索引，第二列在第一层叶子节点的基础上构建树结构，然后依此类推。</p>
+
+<p><strong>所以索引中列的顺序意义重大。</strong></p>
+
+<p>在这个例子中，我们首先会构建一个树存储所有的组，然后对于每一个组构建一个树，存储它的所有组员。</p>
+
+<p>对于 B-Tree 树来说，我们的经验法则是让第二层索引尽可能的小。换句话来说，基数更高的列（即不同的值更多）应该被放在前面。</p>
+
+<p>在这个例子中，我们可以作出一个合理的假设，即认为用户比组多。所以将用户列放在前面可以使第二级索引为组而构建，使索引更小。</p>
+
+<pre><code>class Membership(Model):
+    group = ForeignKey(Group, db_index=False)
+    user = ForeignKey(User, db_index=False)
+    class Meta:
+        unique_together = (
+            'user',
+            'group',
+        )
+</code></pre>
+
+<p>这只是一个经验之谈，所以你应该对此持保留态度。最终的索引需要根据具体的使用情景来进行优化。这一小节的重点是告诉你要<strong>注意隐式索引，注意复合索引中列顺序的重大意义。</strong></p>
+
+<h1 id="brin-索引">BRIN 索引</h1>
+
+<p>B-Tree 的结构就像一棵树一样。当随机访问数据表时，查询一个值的代价是使树的高度加 1。所以对于一致性约束和（某些）范围查询来说，B-Tree 索引是比较完美的。</p>
+
+<p><strong>B-Tree 的缺点在于它的大小，它有时候会变得非常大。</strong></p>
+
+<p><a href="https://medium.com/@Alibaba_Cloud/principles-and-applications-of-the-index-types-supported-by-postgresql-481f59bab67d">PostgreSQL 提供了其它多种索引，供我们用于不同的场景。</a></p>
+
+<p>Django 1.11 加入了一个新的 Meta 选项来控制索引，使得我们有机会去探索其它类型的索引。</p>
+
+<p>PostgreSQL 提供了一种特别使用的索引：BRIN(Block Range Index)。在某些场景下 BRIN 索引会比 B-Tree 索引更加高效。</p>
+
+<p>来看一下<a href="https://www.postgresql.org/docs/9.5/static/brin-intro.html">官方文档</a> 中的说明：</p>
+
+<blockquote>
+<p>BRIN 主要针对于相对于其在表中的位置有自然关联性的列。</p>
+</blockquote>
+
+<p>接下来我们简单介绍一下 BRIN 的内部机制。BRIN 将会基于表中的相邻数据块创建一个小型索引。这个索引占用的空间很小，它只能告诉你给定值<strong>肯定不在某个区域</strong>或者<strong>可能在某个区域中</strong>（区域被索引的情况下）。</p>
+
+<p>我们用一个简单的实例来演示一下 BRIN。</p>
+
+<p>假设一列中有如下值：</p>
+
+<pre><code>1, 2, 3, 4, 5, 6, 7, 8, 9
+</code></pre>
+
+<p>然后把相邻的 3 个放在一个区域内：</p>
+
+<pre><code>[1–3], [4–6], [7–9]
+</code></pre>
+
+<p>我们利用这个索引来搜索 5:</p>
+
+<ul>
+<li><code>[1-3]</code> 肯定不在这个区域</li>
+<li><code>[4-6]</code> 可能在这个区域</li>
+<li><code>[7-9]</code> 肯定不在这个区域</li>
+</ul>
+
+<p>利用这个索引我们把搜索范围缩小到了区域 4-6。</p>
+
+<p>我们再看一下另一个例子，在这个例子中列中的值是乱序的：</p>
+
+<pre><code>[2,9,5], [1,4,7], [3,8,6]
+</code></pre>
+
+<p>然后用每个区域中的最大值和最小值生成索引：</p>
+
+<pre><code>[2–9], [1–7], [3–8]
+</code></pre>
+
+<p>接下来尝试去查找 5:</p>
+
+<ul>
+<li><code>[2-9]</code> 可能在这个区域中</li>
+<li><code>[1-7]</code> 可能在这个区域中</li>
+<li><code>[3-8]</code> 可能在这个区域中</li>
+</ul>
+
+<p>这个索引不仅没有缩小搜索的范围，同时还导致我们需要将索引和整个表的值一起读入。所以它起不到任何有效作用。</p>
+
+<p>让我们再回到文档：</p>
+
+<blockquote>
+<p>&hellip; 与其在表中的物理位置有自然关联的列</p>
+</blockquote>
+
+<p>这是使用 BRIN 索引的关键。想要发挥出 BRIN 索引的作用，列中的值从整体来看应该有序或有聚集性地排列在硬盘上。</p>
+
+<p>回到 Django 中，<a href="https://docs.djangoproject.com/en/2.0/ref/models/fields/#datefield">auto_now_add</a> 列就是一个非常契合这个条件的场景，我们经常需要对 auto_now_add 列建立索引，同时它也基本上是自然有序地被存放在硬盘上。</p>
+
+<p>如下面这个 model:</p>
+
+<pre><code>class SomeModel(Model):
+    created = DatetimeField(
+        auto_now_add=True,
+    )
+</code></pre>
+
+<p>当一行数据被创建时，Django 将会自动在 created 列插入当前时间。由于 created 列也经常被用在查询条件中，所以我们经常需要在上面建立索引：</p>
+
+<pre><code>from django.contrib.postgres.indexes import BrinIndex
+class SomeModel(Model):
+    created = DatetimeField(
+        auto_now_add=True,
+    )
+    class Meta:
+        indexes = (
+            BrinIndex(fields=['created']),
+        )
+</code></pre>
+
+<p>为了给大家一个直观的感受，我在表中创建列 200 万行数据，然后建立不同的索引：</p>
+
+<ul>
+<li>B-Tree 索引：37 MB</li>
+<li>BRIN 索引：49 KB</li>
+</ul>
+
+<p>两者所占空间相差了 700 多倍。</p>
+
+<p>虽然说在创建索引时，硬盘空间消耗并不是我们考虑的唯一因素。但是一般而言，我们可以在 Django 1.11 中使用新的索引支持，使查询更轻量，更快。</p>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

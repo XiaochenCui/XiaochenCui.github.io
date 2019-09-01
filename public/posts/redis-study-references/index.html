@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/redis-study-references/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/redis-study-references/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Redis 学习资料（持续更新中）",
+      "headline" : "Redis 学习资料（持续更新中）",
+      "description" : "\x3cp\x3e本文将会整理一些对 Redis 使用者、学习者有用的资料\x3c\/p\x3e\n\n\x3ch1 id=\x22source-code\x22\x3eSource Code\x3c\/h1\x3e\n\n\x3cul\x3e\n\x3cli\x3e\x3ca href=\x22https:\/\/github.com\/antirez\/redis\x22\x3eredis\x3c\/a\x3e\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22https:\/\/github.com\/huangz1990\/redis-3.0-annotated\x22\x3eredis-3.0-annotated\x3c\/a\x3e\n带有详细注释的 Redis 3.0 代码\x3c\/li\x3e\n\x3c\/ul\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-04-30 23:11:04 \x2b0000 UTC",
+      "dateModified" : "2018-04-30 23:11:04 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/redis-study-references\/",
+      "keywords" : [ "redis", ]
+  }
+</script>
+<title>Redis 学习资料（持续更新中） - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Redis 学习资料（持续更新中） - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="本文将会整理一些对 Redis 使用者、学习者有用的资料
+
+Source Code
+
+
+redis
+redis-3.0-annotated
+带有详细注释的 Redis 3.0 代码
+" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Redis 学习资料（持续更新中）</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <p>本文将会整理一些对 Redis 使用者、学习者有用的资料</p>
+
+<h1 id="source-code">Source Code</h1>
+
+<ul>
+<li><a href="https://github.com/antirez/redis">redis</a></li>
+<li><a href="https://github.com/huangz1990/redis-3.0-annotated">redis-3.0-annotated</a>
+带有详细注释的 Redis 3.0 代码</li>
+</ul>
+
+<h1 id="books">Books</h1>
+
+<ul>
+<li><a href="https://book.douban.com/subject/26612779/">Redis 实战</a>
+可作为 Redis 初学者使用 Redis 的随身手册，对于常见的使用场景均有概括，可以帮助大家更好地利用 Redis 的各种特性构建出更快速、更稳定的应用程序</li>
+<li><a href="https://book.douban.com/subject/25900156/">Redis 设计与实现</a>
+本书基于 Redis 3.0 源码，对于 Redis 主要模块及数据结构均有细致的讲解，且这些模块到目前为止均没有大的变动（ziplist 除外）。总体来讲深入浅出，非常值得一看</li>
+</ul>
+
+<h1 id="archives">Archives</h1>
+
+<h2 id="redlock">Redlock</h2>
+
+<ul>
+<li><a href="https://redis.io/topics/distlock">Distributed locks with Redis</a></li>
+<li><a href="https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html">How to do distributed locking - Martin Kleppmann</a></li>
+<li><a href="http://antirez.com/news/101">Is Redlock safe? - antirez</a></li>
+<li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html">基于 Redis 的分布式锁到底安全吗（上）？</a></li>
+<li><a href="http://zhangtielei.com/posts/blog-redlock-reasoning-part2.html">基于 Redis 的分布式锁到底安全吗（下）？</a></li>
+</ul>
+
+<h2 id="resp-redis-serialization-protocol">RESP(Redis Serialization Protocol)</h2>
+
+<ul>
+<li><a href="https://redis.io/topics/protocol">Redis Protocol specification</a></li>
+<li><a href="https://www.compose.com/articles/how-to-talk-raw-redis/">How to talk raw Redis</a></li>
+</ul>
+
+<h2 id="hyperloglog">HyperLogLog</h2>
+
+<ul>
+<li><a href="http://antirez.com/news/75">Redis new data structure: the HyperLogLog</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/43426875">深度探索 Redis HyperLogLog 内部数据结构</a></li>
+<li><a href="https://research.neustar.biz/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/">Sketch of the Day: HyperLogLog — Cornerstone of a Big Data Infrastructure
+</a></li>
+<li><a href="http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf">HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm</a></li>
+<li><a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf">HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm</a></li>
+</ul>
+
+<h2 id="persistence">Persistence</h2>
+
+<ul>
+<li><a href="http://oldblog.antirez.com/post/redis-persistence-demystified.html">Redis persistence demystified</a></li>
+</ul>
+
+<h2 id="rdb">RDB</h2>
+
+<ul>
+<li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format">Redis RDB Dump File Format</a></li>
+<li><a href="https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile">Redis RDB Version History</a></li>
+</ul>
+
+<h2 id="messagepack">MessagePack</h2>
+
+<ul>
+<li><a href="https://msgpack.org/">MessagePack: It&rsquo;s like JSON. but fast and small.</a></li>
+<li><a href="http://antirez.com/news/119">Redis Lua scripting: several security vulnerabilities fixed</a></li>
+<li><a href="https://github.com/antirez/lua-cmsgpack">antirez/lua-cmsgpack: A self contained Lua MessagePack C implementation.</a></li>
+</ul>
+
+<h1 id="maillists">Maillists</h1>
+
+<ul>
+<li><a href="https://groups.google.com/forum/#!forum/redis-db">Redis DB</a></li>
+<li><a href="https://groups.google.com/forum/#!forum/redis-dev">redis-dev</a></li>
+</ul>
+
+<h1 id="twitter">Twitter</h1>
+
+<ul>
+<li><a href="https://twitter.com/redisfeed">@redisfeed</a></li>
+<li><a href="https://twitter.com/antirez">@antirez</a></li>
+</ul>
+
+<p>待补充</p>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/cryptography-week-5-problem-set/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/cryptography-week-5-problem-set/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Cryptography Week 5 - Problem Set",
+      "headline" : "Cryptography Week 5 - Problem Set",
+      "description" : "\x3ch1 id=\x22overview\x22\x3eOverview\x3c\/h1\x3e\n\n\x3cp\x3e本章的主要内容是密钥交换 (key exchange) 和数论 (number theory)\x3c\/p\x3e\n\n\x3cp\x3e密钥交换部分先后讲了 TTP (Trusted third parties), Merkle Puzzle 和 Diffie-Hellman protocol\x3c\/p\x3e\n\n\x3cp\x3e数论部分的核心概念是 Modular arithmetic，并由此展开 Fermat\x26rsquo;s theorem, Euler\x26rsquo;s theorem 等定理，同时辅以 order, generator 等概念来做 Modular arithmetic\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-08-12 13:42:10 \x2b0000 UTC",
+      "dateModified" : "2018-08-12 13:42:10 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/cryptography-week-5-problem-set\/",
+      "keywords" : [ "cryptography", ]
+  }
+</script>
+<title>Cryptography Week 5 - Problem Set - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Cryptography Week 5 - Problem Set - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="Overview
+
+本章的主要内容是密钥交换 (key exchange) 和数论 (number theory)
+
+密钥交换部分先后讲了 TTP (Trusted third parties), Merkle Puzzle 和 Diffie-Hellman protocol
+
+数论部分的核心概念是 Modular arithmetic，并由此展开 Fermat&rsquo;s theorem, Euler&rsquo;s theorem 等定理，同时辅以 order, generator 等概念来做 Modular arithmetic" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Cryptography Week 5 - Problem Set</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <h1 id="overview">Overview</h1>
+
+<p>本章的主要内容是密钥交换 (key exchange) 和数论 (number theory)</p>
+
+<p>密钥交换部分先后讲了 TTP (Trusted third parties), Merkle Puzzle 和 Diffie-Hellman protocol</p>
+
+<p>数论部分的核心概念是 Modular arithmetic，并由此展开 Fermat&rsquo;s theorem, Euler&rsquo;s theorem 等定理，同时辅以 order, generator 等概念来做 Modular arithmetic</p>
+
+<h1 id="exercise-explanation">Exercise explanation</h1>
+
+<p>{% asset_img 1.png 700 %}
+此题比较简单，要注意两点：
+1. 密钥不能以明文形式发送，所以发送的应该是 ticket 而不是 key
+1. 三者所持有的密钥应该相同</p>
+
+<p>{% asset_img 2.png 700 %}
+1 和 4 两个选项需要求解离散对数，是正确选项</p>
+
+<p>{% asset_img 3.png 700 %}</p>
+
+<p>{% asset_img 4.png 700 %}
+由于 pk 是公开的，所以对 ciphertext 加 MAC 不能防止 MIMA</p>
+
+<p>{% asset_img 5.png 700 %}
+本题应使用 Extended Euclidean Algorithm</p>
+
+<p>{% asset_img 6.png 700 %}
+求解 Modular inversion 同样可以用 Extended Euclidean Algorithm</p>
+
+<p>{% asset_img 7.png 700 %}
+使用 Euler&rsquo;s theorem</p>
+
+<p>{% asset_img 8.png 700 %}
+使用 Fermat&rsquo;s theorem</p>
+
+<p>{% asset_img 9.png 700 %}
+使用 Fermat&rsquo;s theorem</p>
+
+<p>{% asset_img 10.png 700 %}</p>
+
+<p>{% asset_img 11.png 700 %}</p>
+
+<p>{% asset_img 12.png 700 %}</p>
+
+<p>{% asset_img 13.png 700 %}</p>
+
+<p>{% asset_img 14.png 700 %}</p>
+
+<p>{% asset_img 15.png 700 %}</p>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

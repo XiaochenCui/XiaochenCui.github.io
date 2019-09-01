@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on XiaochenCui&#39;s Blog</title>
+    <link>https://cuixiaochen.com/tags/web/</link>
+    <description>Recent content in web on XiaochenCui&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Dec 2017 23:51:53 +0000</lastBuildDate>
+    
+	<atom:link href="https://cuixiaochen.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSRF 以及 Django 对于 CSRF 的防范</title>
+      <link>https://cuixiaochen.com/posts/csrf-%E4%BB%A5%E5%8F%8A-django-%E5%AF%B9%E4%BA%8E-csrf-%E7%9A%84%E9%98%B2%E8%8C%83/</link>
+      <pubDate>Fri, 29 Dec 2017 23:51:53 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/csrf-%E4%BB%A5%E5%8F%8A-django-%E5%AF%B9%E4%BA%8E-csrf-%E7%9A%84%E9%98%B2%E8%8C%83/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Cross-site_request_forgery&#34;&gt;Cross-site Request Forgery&lt;/a&gt; 简称 CSRF 或 one-click attack, 是指未经授权 (authorization) 的指令从用户的浏览器发送到了服务器。不同于 &lt;a href=&#34;https://en.wikipedia.org/wiki/Cross-site_scripting&#34;&gt;XSS(Cross-Site Scripting)&lt;/a&gt; 的是，CSRF 不需要向被服务器信任的页面注入代码。它利用互联网的开放性，从未被信任的页面向服务器发送请求。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

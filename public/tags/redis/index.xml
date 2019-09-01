@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on XiaochenCui&#39;s Blog</title>
+    <link>https://cuixiaochen.com/tags/redis/</link>
+    <description>Recent content in redis on XiaochenCui&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Apr 2018 23:11:04 +0000</lastBuildDate>
+    
+	<atom:link href="https://cuixiaochen.com/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis 学习资料（持续更新中）</title>
+      <link>https://cuixiaochen.com/posts/redis-study-references/</link>
+      <pubDate>Mon, 30 Apr 2018 23:11:04 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/redis-study-references/</guid>
+      <description>&lt;p&gt;本文将会整理一些对 Redis 使用者、学习者有用的资料&lt;/p&gt;
+
+&lt;h1 id=&#34;source-code&#34;&gt;Source Code&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/antirez/redis&#34;&gt;redis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/huangz1990/redis-3.0-annotated&#34;&gt;redis-3.0-annotated&lt;/a&gt;
+带有详细注释的 Redis 3.0 代码&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

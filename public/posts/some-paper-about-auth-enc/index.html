@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/some-paper-about-auth-enc/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/some-paper-about-auth-enc/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "一些关于 Authenticated Encryption 的 paper",
+      "headline" : "一些关于 Authenticated Encryption 的 paper",
+      "description" : "\x3cul\x3e\n\x3cli\x3e\x3ca href=\x22https:\/\/iacr.org\/archive\/crypto2001\/21390309.pdf\x22\x3eThe Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.\x3c\/a\x3e\n比较了 encrypt-then-MAC 和 MAC-then-encrypt\x3c\/li\x3e\n\x3cli\x3e\x3ca href=\x22http:\/\/web.cs.ucdavis.edu\/~rogaway\/papers\/ad.pdf\x22\x3eAuthenticated-Encryption with Associated-Data, P.Rogaway, Proc. of CCS 2002.\x3c\/a\x3e\n讨论了 OCB\x3c\/li\x3e\n\x3c\/ul\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-06-18 21:12:28 \x2b0000 UTC",
+      "dateModified" : "2018-06-18 21:12:28 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/some-paper-about-auth-enc\/",
+      "keywords" : [ "cryptography", ]
+  }
+</script>
+<title>一些关于 Authenticated Encryption 的 paper - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="一些关于 Authenticated Encryption 的 paper - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="
+The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.
+比较了 encrypt-then-MAC 和 MAC-then-encrypt
+Authenticated-Encryption with Associated-Data, P.Rogaway, Proc. of CCS 2002.
+讨论了 OCB
+" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">一些关于 Authenticated Encryption 的 paper</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <ul>
+<li><a href="https://iacr.org/archive/crypto2001/21390309.pdf">The Order of Encryption and Authentication for Protecting Communications, H.Krawczyk, Crypto 2001.</a>
+比较了 encrypt-then-MAC 和 MAC-then-encrypt</li>
+<li><a href="http://web.cs.ucdavis.edu/~rogaway/papers/ad.pdf">Authenticated-Encryption with Associated-Data, P.Rogaway, Proc. of CCS 2002.</a>
+讨论了 OCB</li>
+</ul>
+
+<ul>
+<li><a href="https://www.iacr.org/cryptodb/archive/2003/CRYPTO/1069/1069.pdf">Password Interception in a SSL/TLS Channel, B.Canvel, A.Hiltgen, S.Vaudenay, M.Vuagnoux, Crypto 2003.</a>
+介绍了 padding oracle attack</li>
+<li><a href="http://www.isg.rhul.ac.uk/~kp/SandPfinal.pdf">Plaintext Recovery Attacks Against SSH, M.Albrecht, K.Paterson and G.Watson, IEEE S&amp;P 2009.</a>
+介绍了 length attack</li>
+<li><a href="https://www.cs.columbia.edu/~smb/papers/badesp.pdf">Problem areas for the IP security protocols, S.Bellovin, Usenix Security 1996.</a>
+介绍了一些对于没有提供 integrity 而只是提供 CPA security 的协议的攻击方法，并借此告诉我们在加密中只提供 CPA security 是不安全的</li>
+</ul>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

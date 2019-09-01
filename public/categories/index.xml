@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Site</title>
+    <title>Categories on XiaochenCui&#39;s Blog</title>
     <link>https://cuixiaochen.com/categories/</link>
-    <description>Recent content in Categories on My New Hugo Site</description>
+    <description>Recent content in Categories on XiaochenCui&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 10 Sep 2018 21:30:17 +0000</lastBuildDate>
     
 	<atom:link href="https://cuixiaochen.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MIT6.824 Labs</title>
+      <link>https://cuixiaochen.com/categories/mit6.824-labs/</link>
+      <pubDate>Mon, 10 Sep 2018 21:30:17 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/categories/mit6.824-labs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exercises of Cryptography</title>
+      <link>https://cuixiaochen.com/categories/exercises-of-cryptography/</link>
+      <pubDate>Sun, 12 Aug 2018 17:44:51 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/categories/exercises-of-cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fun with number theory</title>
+      <link>https://cuixiaochen.com/categories/fun-with-number-theory/</link>
+      <pubDate>Sun, 22 Jul 2018 22:20:44 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/categories/fun-with-number-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fun with lego</title>
+      <link>https://cuixiaochen.com/categories/fun-with-lego/</link>
+      <pubDate>Sun, 11 Mar 2018 23:19:43 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/categories/fun-with-lego/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

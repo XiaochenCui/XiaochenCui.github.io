@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lisp on XiaochenCui&#39;s Blog</title>
+    <link>https://cuixiaochen.com/tags/lisp/</link>
+    <description>Recent content in lisp on XiaochenCui&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Jul 2018 21:57:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://cuixiaochen.com/tags/lisp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vim Lisp Plugin 推荐</title>
+      <link>https://cuixiaochen.com/posts/lisp-vim/</link>
+      <pubDate>Thu, 19 Jul 2018 21:57:14 +0000</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/lisp-vim/</guid>
+      <description>&lt;p&gt;使用 lisp 编程的时候括号是一个很让人头疼的问题，vim 自带的 &lt;a href=&#34;https://github.com/vim/vim/blob/master/runtime/plugin/matchparen.vim&#34;&gt;matchparen&lt;/a&gt; 可以起到一定的帮助，但是还是有两个小问题：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;需要将光标移到括号上才能知道它对应的是哪个括号&lt;/li&gt;
+&lt;li&gt;频繁报错，很影响编码效率&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在这里向大家推荐两个插件帮大家更舒服地编写 lisp&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

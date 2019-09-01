@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/cryptography-week-4-problem-set/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/cryptography-week-4-problem-set/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Cryptography Week 4 - Problem Set",
+      "headline" : "Cryptography Week 4 - Problem Set",
+      "description" : "\x3cp\x3e{% asset_img 1.png 700 %}\n我们可以从 \x3ca href=\x22https:\/\/en.wikipedia.org\/wiki\/Padding_oracle_attack\x22\x3ePadding oracle attack\x3c\/a\x3e 中找到伪造密文的思路：\n设：$1 \\oplus x = 5$, IV 中的对应字节为 $y$\n则：当 $y\x26rsquo; = y \\oplus x$ 时，$y \\oplus 1 \\equiv y\x26rsquo; \\oplus 5$\n所以：将 $y$ 更改为 $y\x26rsquo;$ 可使 message 中的相应字节变更为 5\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-06-28 20:23:36 \x2b0000 UTC",
+      "dateModified" : "2018-06-28 20:23:36 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/cryptography-week-4-problem-set\/",
+      "keywords" : [ "cryptography", ]
+  }
+</script>
+<title>Cryptography Week 4 - Problem Set - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Cryptography Week 4 - Problem Set - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="{% asset_img 1.png 700 %}
+我们可以从 Padding oracle attack 中找到伪造密文的思路：
+设：$1 \oplus x = 5$, IV 中的对应字节为 $y$
+则：当 $y&rsquo; = y \oplus x$ 时，$y \oplus 1 \equiv y&rsquo; \oplus 5$
+所以：将 $y$ 更改为 $y&rsquo;$ 可使 message 中的相应字节变更为 5" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Cryptography Week 4 - Problem Set</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <p>{% asset_img 1.png 700 %}
+我们可以从 <a href="https://en.wikipedia.org/wiki/Padding_oracle_attack">Padding oracle attack</a> 中找到伪造密文的思路：
+设：$1 \oplus x = 5$, IV 中的对应字节为 $y$
+则：当 $y&rsquo; = y \oplus x$ 时，$y \oplus 1 \equiv y&rsquo; \oplus 5$
+所以：将 $y$ 更改为 $y&rsquo;$ 可使 message 中的相应字节变更为 5</p>
+
+<p>{% asset_img 2.png 700 %}
+第二个选项中提供的加密系统由于不会输出 bottom，所以一定不提供 authenticated encryption
+第三个选项中的加密系统只需保持 $c_1 \equiv c_2$，即可成功进行 chosen ciphertext attack</p>
+
+<p>{% asset_img 3.png 700 %}
+Dan Boneh 教授已经强调过无数次：&rdquo;Never implements encrypt method by yourself&rdquo;</p>
+
+<p>4 ~ 10 题都比较简单，在此不做讲解
+{% asset_img 4.png 700 %}</p>
+
+<p>{% asset_img 5.png 700 %}</p>
+
+<p>{% asset_img 6.png 700 %}</p>
+
+<p>{% asset_img 7.png 700 %}</p>
+
+<p>{% asset_img 8.png 700 %}</p>
+
+<p>{% asset_img 9.png 700 %}</p>
+
+<p>{% asset_img 10.png 700 %}</p>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

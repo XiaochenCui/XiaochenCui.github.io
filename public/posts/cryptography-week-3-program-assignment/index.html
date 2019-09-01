@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/cryptography-week-3-program-assignment/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/cryptography-week-3-program-assignment/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Cryptography Week 3 - Programming Assignment",
+      "headline" : "Cryptography Week 3 - Programming Assignment",
+      "description" : "\x3cp\x3e本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-06-12 07:44:36 \x2b0000 UTC",
+      "dateModified" : "2018-06-12 07:44:36 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/cryptography-week-3-program-assignment\/",
+      "keywords" : [ "cryptography", ]
+  }
+</script>
+<title>Cryptography Week 3 - Programming Assignment - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Cryptography Week 3 - Programming Assignment - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Cryptography Week 3 - Programming Assignment</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <p>本周的任务是实现对大文件的分块哈希，使得浏览器可以在仅收到一部分文件的时候进行 MAC 校验（假设初始 MAC 已通过可信赖的途径分发给浏览器）</p>
+
+<p>{% asset_img pa.png %}</p>
+
+<p>代码如下：</p>
+
+<pre><code class="language-python">import binascii
+from Crypto.Hash import SHA256
+
+
+def file_block_generator(content):
+    block_count, reminder = divmod(len(content), 1024)
+    for block_index in range(block_count + 1)[::-1]:
+        start = block_index * 1024
+        end = 1024 * (block_index + 1)
+        if end &gt; len(content):
+            end = len(content)
+        block = content[start:end]
+        yield block
+
+
+def blocked_hash(content):
+    h = None
+    for block in file_block_generator(content):
+        if h:
+            block = block + h
+        h = SHA256.new()
+        h.update(block)
+        h = h.digest()
+    return h
+
+
+if __name__ == '__main__':
+    import sys
+    f = open(sys.argv[1], 'rb')
+    h = blocked_hash(f.read())
+    print(binascii.hexlify(h))
+</code></pre>
+
+<p>由于本题比较简单，在此不做过多讲解</p>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

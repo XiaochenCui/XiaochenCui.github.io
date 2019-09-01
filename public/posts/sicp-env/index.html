@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/sicp-env/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/sicp-env/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "SICP 学习环境的搭建",
+      "headline" : "SICP 学习环境的搭建",
+      "description" : "\x3cblockquote\x3e\n\x3cp\x3eIf art interprets our dream, the computer executes them in the guise of programs!\n\x26ndash; Alan J. Perlis\x3c\/p\x3e\n\x3c\/blockquote\x3e\n\n\x3ch1 id=\x22前言\x22\x3e前言\x3c\/h1\x3e\n\n\x3cp\x3eSICP 从 lisp 语法开始，为我们构成了一个包含计算机理论学科的闭环系统。今天开始我们要借助这本书更深入地理解程序的本质，\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-07-07 19:11:23 \x2b0000 UTC",
+      "dateModified" : "2018-07-07 19:11:23 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/sicp-env\/",
+      "keywords" : [ "sicp","scheme","functional programming", ]
+  }
+</script>
+<title>SICP 学习环境的搭建 - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="SICP 学习环境的搭建 - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="
+If art interprets our dream, the computer executes them in the guise of programs!
+&ndash; Alan J. Perlis
+
+
+前言
+
+SICP 从 lisp 语法开始，为我们构成了一个包含计算机理论学科的闭环系统。今天开始我们要借助这本书更深入地理解程序的本质，" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">SICP 学习环境的搭建</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <blockquote>
+<p>If art interprets our dream, the computer executes them in the guise of programs!
+&ndash; Alan J. Perlis</p>
+</blockquote>
+
+<h1 id="前言">前言</h1>
+
+<p>SICP 从 lisp 语法开始，为我们构成了一个包含计算机理论学科的闭环系统。今天开始我们要借助这本书更深入地理解程序的本质，</p>
+
+<p>在运行环境方面，有两种选择：<a href="https://www.gnu.org/software/mit-scheme/">mit-scheme</a>, <a href="https://racket-lang.org/">racket</a>。其中 racket 提供图形化界面的 DrRacket 以及命令行界面 racket。笔者倾向于使用命令行界面的 racket 作为运行环境，并使用 vim 作为代码编辑器。接下来我将简单介绍一下这两种运行环境的安装及基本使用，并列出一些讲解进阶使用的文章供大家更舒服地编写 scheme。</p>
+
+<h1 id="mit-scheme">mit-scheme</h1>
+
+<h2 id="安装">安装</h2>
+
+<p><code>brew install mit-scheme</code></p>
+
+<h2 id="缺点">缺点</h2>
+
+<p>相比于 racket 的 REPL，mit-scheme 缺少了诸如自动补全、快速跳转之类的功能</p>
+
+<h1 id="racket">racket</h1>
+
+<h2 id="安装-1">安装</h2>
+
+<p>可以从 <a href="https://racket-lang.org/">racket</a> 下载安装包进行安装，也可以直接通过命令行 <code>brew cask install racket</code> 安装完整的 racket 客户端。如果通过 <code>brew install racket</code> 安装，则仅会安装一个最精简的、不包括 DrRacket 的 racket 客户端。</p>
+
+<h2 id="加载-scheme-源文件">加载 scheme 源文件</h2>
+
+<pre><code>racket -f &lt;file&gt;  # 详见 racket -h
+</code></pre>
+
+<p>或在 REPL 中执行</p>
+
+<pre><code>&gt; (load &quot;example.scm&quot;)
+</code></pre>
+
+<h1 id="拓展阅读">拓展阅读</h1>
+
+<p>由于笔者还未做深入研究，在这里先列出一些链接。</p>
+
+<ul>
+<li><a href="https://racket-zh.org/faq">Racket 常见问题</a></li>
+</ul>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

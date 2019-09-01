@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/fib/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/fib/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Closed Form Expression For Fibonacci Numbers 的证明",
+      "headline" : "Closed Form Expression For Fibonacci Numbers 的证明",
+      "description" : "\x3ch1 id=\x22概览\x22\x3e概览\x3c\/h1\x3e\n\n\x3cp\x3e此题出自 SICP 第一章练习题 1.13\x3c\/p\x3e\n\n\x3ch1 id=\x22题目\x22\x3e题目\x3c\/h1\x3e\n\n\x3cp\x3eProve that $Fib(n)$ is the closest integer to $\\phi^n\/\\sqrt5$, where $\\phi=(1\x2b\\sqrt5)\/2$. Hint: Let $\\psi=(1-\\sqrt5)\/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\\phi^n-\\psi^n)\/\\sqrt5$.\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-07-11 07:11:39 \x2b0000 UTC",
+      "dateModified" : "2018-07-11 07:11:39 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/fib\/",
+      "keywords" : [ "sicp","number theory", ]
+  }
+</script>
+<title>Closed Form Expression For Fibonacci Numbers 的证明 - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Closed Form Expression For Fibonacci Numbers 的证明 - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="概览
+
+此题出自 SICP 第一章练习题 1.13
+
+题目
+
+Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1&#43;\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$." />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Closed Form Expression For Fibonacci Numbers 的证明</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <h1 id="概览">概览</h1>
+
+<p>此题出自 SICP 第一章练习题 1.13</p>
+
+<h1 id="题目">题目</h1>
+
+<p>Prove that $Fib(n)$ is the closest integer to $\phi^n/\sqrt5$, where $\phi=(1+\sqrt5)/2$. Hint: Let $\psi=(1-\sqrt5)/2$. Use induction and definition of the Fibonacci numbers (see section 1.2.2) to prove that $Fib(n)=(\phi^n-\psi^n)/\sqrt5$.</p>
+
+<h1 id="证明">证明</h1>
+
+<h2 id="phi-和-psi-的性质">$\phi$ 和 $\psi$ 的性质</h2>
+
+<p>由题目所设 $\phi=(1+\sqrt5)/2$ 易得：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \phi^2 = \phi+1 <br />
+        1/\phi + 1 = \phi <br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>由 $\psi=(1-\sqrt5)/2$ 易得：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \psi^2 = \psi + 1 <br />
+        1/\psi + 1 = \psi<br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<h2 id="归纳证明法证明-fib-n-phi-n-psi-n-sqrt5">归纳证明法证明 $Fib(n)=(\phi^n-\psi^n)/\sqrt5$</h2>
+
+<p>$\text{for } n=0:$
+{% raw %}
+$$
+    \begin{align<em>}
+        (\phi^n-\psi^n)/\sqrt5 =&amp; (\phi^0-\psi^0)/\sqrt5 <br />
+                               =&amp; 0 <br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>$\text{for } n=1:$
+{% raw %}
+$$
+    \begin{align<em>}
+        (\phi^n-\psi^n)/\sqrt5 =&amp; (\phi^1-\psi^1)/\sqrt5 <br />
+                               =&amp; 1 <br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>$\text{for } n=2:$
+{% raw %}
+$$
+    \begin{align<em>}
+        (\phi^n-\psi^n)/\sqrt5 =&amp; (\phi^2-\psi^2)/\sqrt5 <br />
+                               =&amp; 1 <br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>现在开始采用归纳证明法</p>
+
+<p>假设下列两个等式成立：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        Fib(n)   =&amp; (\phi^n-\psi^n)/\sqrt5 <br />
+        Fib(n-1) =&amp; (\phi^{n-1}-\psi^{n-1})/\sqrt5 <br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>我们现在需要证明以下等式成立：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        Fib(n+1) =&amp; (\phi^{n+1}-\psi^{n+1})/\sqrt5 <br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>通过 Fibonacci 序列的性质与之前提到的 $\phi$ 和 $\psi$ 的性质，可给出如下的证明过程：</p>
+
+<p>{% raw %}
+$$
+    \begin{align*}
+        Fib(n+1) =&amp; Fib(n) + Fib(n-1) <br />
+                 =&amp; (\phi^n-\psi^n)/\sqrt5 + (\phi^{n-1}-\psi^{n-1})/\sqrt5 <br />
+                 =&amp; ((\phi^n-\psi^n) + (\phi^{n-1}-\psi^{n-1}))/\sqrt5 <br />
+                 =&amp; ((\phi^n+\phi^{n-1}) - (\psi^n+\psi^{n-1}))/\sqrt5 <br />
+                 =&amp; (\phi^{n+1} * (\phi^{-1}+\phi^{-2}) - \psi^{n+1} * (\psi^{-1}+\psi^{-2})) / \sqrt5 <br />
+                 =&amp; (\phi^{n+1} * \phi^{-1} * (1+\phi^{-1}) - \psi^{n+1} * \psi^{-1} * (1+\psi^{-1})) / \sqrt5 <br />
+                 =&amp; (\phi^{n+1} * 1/\phi * (1+1/\phi) - \psi^{n+1} * 1/\psi * (1+1/\psi)) / \sqrt5 <br />
+                 =&amp; (\phi^{n+1} * 1/\phi * \phi - \psi^{n+1} * 1/\psi * \psi) / \sqrt5 <br />
+                 =&amp; (\phi^{n+1} - \psi^{n+1}) / \sqrt5 <br />
+    \end{align*}
+$$
+{% endraw %}</p>
+
+<h2 id="最后一步">最后一步</h2>
+
+<p>我们首先简单转化一下之前证明过的等式：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        Fib(n) =&amp; (\phi^n-\psi^n)/\sqrt5 <br />
+        Fib(n) =&amp; \phi^n/\sqrt5 - \psi^n/\sqrt5 <br />
+        \phi^n/\sqrt5 - Fib(n) =&amp; \psi^n/\sqrt5 <br />
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>做以上变换是因为我们的目的是证明 $Fib(n)$ 和 $\phi^n/\sqrt5$ 之间的关系。现在我们需要做的就是证明这两者的差总是小于 $<sup>1</sup>&frasl;<sub>2</sub>$。即证明：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \psi^n/\sqrt5 \leq <sup>1</sup>&frasl;<sub>2</sub>
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>即证明：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \psi^n \leq \sqrt5/2
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>由于 $\psi=(1-\sqrt5)/2$，我们可以计算求得：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \psi \approx -0.618304
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>由于 $Fib(n)$ 总是整数且 $n \geq 0$，$|\psi| &lt; 1$，可以得出：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \psi^n \leq 1
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>同时：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \sqrt5/2 \approx 1.118
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>因为 $\psi^n \leq 1$，且 $\sqrt5/2 &gt; 1$，所以：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \psi^n &lt; \sqrt5/2
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>因此，$Fib(n)$ 是最接近 $\psi^n/\sqrt5$ 的整数。</p>
+
+<p>完。</p>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="http://www.billthelizard.com/2009/12/sicp-exercise-113-fibonacci-and-golden.html">Bill the Lizard</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_number#Closed-form_expression">Fibonacci number</a></li>
+<li><a href="https://artofproblemsolving.com/wiki/index.php?title=Binet%27s_Formula">Binet&rsquo;s Formula - Art of Problem Solving</a></li>
+</ul>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

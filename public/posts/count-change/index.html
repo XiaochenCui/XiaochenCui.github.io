@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/count-change/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/count-change/" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Counting Change 问题的详细分析及解答",
+      "headline" : "Counting Change 问题的详细分析及解答",
+      "description" : "\x3ch1 id=\x22概述\x22\x3e概述\x3c\/h1\x3e\n\n\x3cp\x3eCounting change 问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。\x3c\/p\x3e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2018",
+      "datePublished": "2018-07-08 14:26:39 \x2b0000 UTC",
+      "dateModified" : "2018-07-08 14:26:39 \x2b0000 UTC",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/count-change\/",
+      "keywords" : [ "sicp","algorithm","dynamic programming", ]
+  }
+</script>
+<title>Counting Change 问题的详细分析及解答 - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Counting Change 问题的详细分析及解答 - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="概述
+
+Counting change 问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/"></a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Counting Change 问题的详细分析及解答</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <h1 id="概述">概述</h1>
+
+<p>Counting change 问题来源于 SICP 第一章 1.2 节，书中给出了树形递归解法，并将迭代解法作为了课后练习。本文将会详细解答此题的迭代解法并给出运行时间的对比。</p>
+
+<h1 id="题目">题目</h1>
+
+<p>给了半美元、四分之一美元、10 美分、5 美分和 1 美分的硬币，将 1 美元换成零钱，一共有多少种不同方式？</p>
+
+<h1 id="消除递归">消除递归</h1>
+
+<p>消除递归最通用的方法是使用辅助栈 (auxiliary stack)。简单来说就是将参数推入栈中，然后开始迭代，直到得到我们想要的结果。</p>
+
+<p>具体到本题，我们将使用自底向上的动态规划 (dynamic programming) 来解决问题，同时因为我们身（天）经（天）百（刷）战（题），很容易在给出一般性的动态规划解法之后进行优化，将所需的栈空间压缩到 O(1)。</p>
+
+<h1 id="问题分析">问题分析</h1>
+
+<p>设 $f(x, n)$ 为使用最小面值的 n 种硬币换 x 美分的方法总数。</p>
+
+<p>我们从 $f(x, 1)$ 开始分析。此时 $n=1$，表示只使用 1 美分硬币换 x 美分。显然得出，$f(0, 1)=1$。同时（a 为最小面值硬币的面值）：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        \underset{x&gt;0}{f(x, 1)}=\left{
+                                    \begin{array}{ll}
+                                        1, &amp; \text{for } x \bmod a \equiv 0<br />
+                                        0, &amp; \text{for } x \bmod a \neq 0<br />
+                                    \end{array}
+                                \right.
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>因为此题中最小面值的硬币面值为 1 美分，所以 $\underset{x&gt;0}{f(x, 1)}=1$</p>
+
+<p>接下来，我们开始推导到 n=2 时到情况，即使用面值最小的 2 种硬币换 x 美分。设 a 为面值第二小的硬币的面值（在此题中为 5）。则有：</p>
+
+<p>{% raw %}
+$$
+    \begin{align<em>}
+        f(x, 2)=\left{
+                    \begin{array}{ll}
+                        f(x, 1)+f(x-a, 2), &amp; \text{for } x &gt; 0<br />
+                        1, &amp; \text{for } x \equiv 0<br />
+                        0, &amp; \text{for } x &lt; 0<br />
+                    \end{array}
+                \right.
+    \end{align</em>}
+$$
+{% endraw %}</p>
+
+<p>同理可给出一般性的方程：$f(x, n)=f(x, n-1)+f(x-a, n)$（其中 a 为 n 种硬币中最大面值硬币的面值）。</p>
+
+<h1 id="代码实现">代码实现</h1>
+
+<h2 id="实现">实现</h2>
+
+<p>在这里我们给出 scheme 的实现，空间占用为 $O(n^2)$，时间复杂度为 $O(n^2)$</p>
+
+<pre><code class="language-scheme">(define (count-change amount)
+  (cc amount 5))
+
+(define (cc amount n)
+  (cond ((&lt; amount 0) 0)
+        ((= n 1) 1)
+        (else (+ (cc amount
+                     (- n 1))
+                 (cc (- amount (get-value n))
+                     n)))))
+
+(define (get-value n)
+  (cond ((= n 1) 1)
+        ((= n 2) 5)
+        ((= n 3) 10)
+        ((= n 4) 25)
+        ((= n 5) 50)))
+</code></pre>
+
+<h2 id="改进">改进</h2>
+
+<p>简单改进一下，即可将空间占用降低至 $O(1)$，同时时间复杂度不变</p>
+
+<pre><code class="language-scheme">待填坑
+</code></pre>
+
+<h1 id="与原有树形递归解法的比较">与原有树形递归解法的比较</h1>
+
+<h2 id="运行时间">运行时间</h2>
+
+<p>我们在硬件相同、运行环境相同的情况下分别用这两种解法计算 (count-change 2000)</p>
+
+<p>树形递归解法：</p>
+
+<pre><code class="language-bash">$ time racket -t chapter-1/count-change-tree-recusive.scm
+11712101
+racket -t chapter-1/count-change-tree-recusive.scm  74.17s user 0.25s system 99% cpu 1:14.45 total
+</code></pre>
+
+<p>迭代解法 (DP)：</p>
+
+<pre><code class="language-bash">$ time racket -t chapter-1/count-change-iteration.scm
+11712101
+racket -t chapter-1/count-change-iteration.scm  0.40s user 0.08s system 95% cpu 0.501 total
+</code></pre>
+
+<p>可以看到，在 x 为 2000 时，树形递归解法消耗的时间是迭代解法的 148 倍。且由于前者的时间复杂度为指数级别，随着 x 的增加，其消耗时间的增长速度会越来越快。</p>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/1485022/sicp-making-change">SICP making change</a></li>
+</ul>
+        </div>
+
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>
