@@ -3,11 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://cuixiaochen.com/categories/</loc>
+    <loc>https://cuixiaochen.com/posts/my-first-post/</loc>
+    <lastmod>2019-09-01T19:49:49+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cuixiaochen.com/</loc>
+    <lastmod>2019-09-01T19:49:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cuixiaochen.com/posts/</loc>
+    <lastmod>2019-09-01T19:49:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cuixiaochen.com/categories/</loc>
   </url>
   
   <url>
