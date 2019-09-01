@@ -4,4 +4,8 @@ title = "XiaochenCui's Blog"
 theme = "yinyang"
 
 [params]
+headTitle = "Xiaochen Cui"
 disqus = "cuixiaochen"
+[[params.socials]]
+name = "Github"
+link = "https://github.com/XiaochenCui"
