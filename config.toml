@@ -9,3 +9,6 @@ disqus = "cuixiaochen"
 [[params.socials]]
 name = "Github"
 link = "https://github.com/XiaochenCui"
+[[params.socials]]
+name = "Email"
+link = "mailto://jcnlcxc.new@gmail.com"
