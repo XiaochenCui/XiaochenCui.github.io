@@ -6,9 +6,12 @@ theme = "yinyang"
 [params]
 headTitle = "Xiaochen Cui"
 disqus = "cuixiaochen"
+favicon = "/favicon.png"
+
 [[params.socials]]
 name = "Github"
 link = "https://github.com/XiaochenCui"
+
 [[params.socials]]
 name = "Email"
 link = "mailto://jcnlcxc.new@gmail.com"
