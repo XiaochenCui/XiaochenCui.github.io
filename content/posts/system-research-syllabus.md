@@ -195,6 +195,6 @@ Comments and suggestions are welcomed.
 - *Purchase Link:* [Types and Programming Languages (The MIT Press) 1st Edition](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 - [Software Foundations](https://github.com/mietek/sf)
 
-# Courese
+# Course
 
 - [CS 241: System Programming](http://cs241.cs.illinois.edu/)
