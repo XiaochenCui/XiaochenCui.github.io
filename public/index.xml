@@ -6,10 +6,21 @@
     <description>Recent content on XiaochenCui&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Sep 2019 19:49:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 13:56:32 +0800</lastBuildDate>
     
 	<atom:link href="https://cuixiaochen.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>System Research Syllabus</title>
+      <link>https://cuixiaochen.com/posts/system-research-syllabus/</link>
+      <pubDate>Tue, 08 Oct 2019 13:56:32 +0800</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/system-research-syllabus/</guid>
+      <description>The knowledge involved in distributed database systems (DBMS or HTAP).
+Comments and suggestions are welcomed.
+Why we need DBMS  A Relational Model of Data for Large Shared Data Banks  Database Architecture  Architecture of a Database System Column Stores vs Row Stores : How Different Are They Really Socrates: The New SQL Server in the Cloud Large-scale Incremental Processing Using Distributed Transactions and Notifications  BLOB Storage  f4: Facebook’s Warm BLOB Storage System   Data Structures  B Tree</description>
+    </item>
     
     <item>
       <title>My Blog Has Been Migrated Again</title>

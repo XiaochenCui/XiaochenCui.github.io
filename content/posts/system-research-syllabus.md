@@ -1,7 +1,6 @@
 ---
 title: "System Research Syllabus"
 date: 2019-10-08T13:56:32+08:00
-draft: true
 ---
 
 The knowledge involved in distributed database systems (DBMS or HTAP).

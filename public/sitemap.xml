@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://cuixiaochen.com/posts/blog-migration/</loc>
-    <lastmod>2019-09-01T19:49:49+08:00</lastmod>
+    <loc>https://cuixiaochen.com/posts/</loc>
+    <lastmod>2019-10-08T13:56:32+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cuixiaochen.com/posts/</loc>
-    <lastmod>2019-09-01T19:49:49+08:00</lastmod>
+    <loc>https://cuixiaochen.com/posts/system-research-syllabus/</loc>
+    <lastmod>2019-10-08T13:56:32+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cuixiaochen.com/</loc>
+    <lastmod>2019-10-08T13:56:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cuixiaochen.com/posts/blog-migration/</loc>
     <lastmod>2019-09-01T19:49:49+08:00</lastmod>
   </url>
   
