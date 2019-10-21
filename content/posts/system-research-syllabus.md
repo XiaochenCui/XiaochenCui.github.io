@@ -198,4 +198,11 @@ Comments and suggestions are welcomed.
 
 # Course
 
+## Distributed Systemes
+
+- [MIT 6.824](https://pdos.csail.mit.edu/6.824/)
+- [CS294-91 Distributed Computing](https://people.eecs.berkeley.edu/~alig/cs294-91/)
+
+## System Programming
+
 - [CS 241: System Programming](http://cs241.cs.illinois.edu/)
