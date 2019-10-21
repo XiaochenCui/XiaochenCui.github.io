@@ -3,9 +3,17 @@ title: "System Research Syllabus"
 date: 2019-10-08T13:56:32+08:00
 ---
 
-The knowledge involved in distributed database systems (DBMS or HTAP).
+The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
 
 Comments and suggestions are welcomed.
+
+(Content is being sorted out, a little bit confusing right now)
+
+# Distributed Systems
+
+- [Time, Clocks, and the Ordering of Events in a Distributed System](http://lamport.azurewebsites.net/pubs/time-clocks.pdf)
+
+# Database
 
 # Why we need DBMS
 
@@ -206,3 +214,7 @@ Comments and suggestions are welcomed.
 ## System Programming
 
 - [CS 241: System Programming](http://cs241.cs.illinois.edu/)
+
+# Waiting For Classification
+
+- [Wait-Free Synchronization](http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf)

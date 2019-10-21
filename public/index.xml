@@ -17,9 +17,10 @@
       <pubDate>Tue, 08 Oct 2019 13:56:32 +0800</pubDate>
       
       <guid>https://cuixiaochen.com/posts/system-research-syllabus/</guid>
-      <description>The knowledge involved in distributed database systems (DBMS or HTAP).
+      <description>The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
 Comments and suggestions are welcomed.
-Why we need DBMS  A Relational Model of Data for Large Shared Data Banks  Database Architecture  Architecture of a Database System Column Stores vs Row Stores : How Different Are They Really Socrates: The New SQL Server in the Cloud Large-scale Incremental Processing Using Distributed Transactions and Notifications  BLOB Storage  f4: Facebook’s Warm BLOB Storage System   Data Structures  B Tree</description>
+(Content is being sorted out, a little bit confusing right now)
+Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System  Database Why we need DBMS  A Relational Model of Data for Large Shared Data Banks  Database Architecture  Architecture of a Database System Column Stores vs Row Stores : How Different Are They Really Socrates: The New SQL Server in the Cloud Large-scale Incremental Processing Using Distributed Transactions and Notifications  BLOB Storage  f4: Facebook’s Warm BLOB Storage System   Data Structures  B Tree</description>
     </item>
     
     <item>
