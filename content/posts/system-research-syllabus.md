@@ -194,6 +194,7 @@ Comments and suggestions are welcomed.
 
 - *Purchase Link:* [Types and Programming Languages (The MIT Press) 1st Edition](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 - [Software Foundations](https://github.com/mietek/sf)
+- [6.852: Distributed Algorithms - Massachusetts Institute of Technology - Spring 2008](http://courses.csail.mit.edu/6.852/08/)
 
 # Course
 
