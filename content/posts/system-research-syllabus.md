@@ -213,8 +213,15 @@ Comments and suggestions are welcomed.
 
 ## System Programming
 
-- [CS 241: System Programming](http://cs241.cs.illinois.edu/)
+### UICD CS 241: System Programming
+
+- [homepage](http://cs241.cs.illinois.edu/)
+- [course book](https://github.com/illinois-cs241/coursebook/blob/pdf_deploy/main.pdf)
 
 # Waiting For Classification
 
 - [Wait-Free Synchronization](http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf)
+
+# System Programming
+
+- [cgroups](https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt)
