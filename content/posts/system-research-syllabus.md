@@ -216,7 +216,9 @@ Comments and suggestions are welcomed.
 ### UICD CS 241: System Programming
 
 - [homepage](http://cs241.cs.illinois.edu/)
-- [course book](https://github.com/illinois-cs241/coursebook/blob/pdf_deploy/main.pdf)
+- [course book](http://cs241.cs.illinois.edu/coursebook/)
+- [assignments](http://cs241.cs.illinois.edu/assignments.html)
+- [course video](https://classtranscribe.illinois.edu/home/offering/e740770d-e6fb-4ddb-86ca-a49a8dcc7d28)
 
 # Waiting For Classification
 
@@ -225,3 +227,11 @@ Comments and suggestions are welcomed.
 # System Programming
 
 - [cgroups](https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt)
+
+## Memory Allocation
+
+- [Dynamic Memory Allocation in C using malloc(), calloc(), free() and realloc() - GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/)
+
+# Compile
+
+## LLVM
