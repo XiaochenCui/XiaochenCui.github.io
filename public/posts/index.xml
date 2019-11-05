@@ -20,7 +20,7 @@
       <description>The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
 Comments and suggestions are welcomed.
 (Content is being sorted out, a little bit confusing right now)
-Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System  Database Why we need DBMS  A Relational Model of Data for Large Shared Data Banks  Database Architecture  Architecture of a Database System Column Stores vs Row Stores : How Different Are They Really Socrates: The New SQL Server in the Cloud Large-scale Incremental Processing Using Distributed Transactions and Notifications  Storage  TAO: Facebook’s Distributed Data Store for the Social Graph  BLOB Storage  Finding a needle in Haystack: Facebook’s photo storage f4: Facebook’s Warm BLOB Storage System   Data Structures  B Tree</description>
+Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System  Database Why we need DBMS  A Relational Model of Data for Large Shared Data Banks  Database Architecture  Architecture of a Database System Column Stores vs Row Stores : How Different Are They Really Socrates: The New SQL Server in the Cloud Large-scale Incremental Processing Using Distributed Transactions and Notifications  Storage  TAO: Facebook’s Distributed Data Store for the Social Graph  BLOB Storage  Finding a needle in Haystack: Facebook’s photo storage f4: Facebook’s Warm BLOB Storage System  Disk Error Correction Reed-Solomon  Reed–Solomon error correction - Wikipedia POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS   Data Structures  B Tree</description>
     </item>
     
     <item>
