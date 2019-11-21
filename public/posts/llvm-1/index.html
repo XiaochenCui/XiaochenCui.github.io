@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/llvm-1/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/llvm-1/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Walk Throught LLVM - Build on CentOS",
+      "headline" : "Walk Throught LLVM - Build on CentOS",
+      "description" : "Hardware Requirements  60GB disk space at least 10GB memory at least  Software Environment Install GCC 8 yum install centos-release-scl yum install devtoolset-8-gcc devtoolset-8-gcc-c\x2b\x2b scl enable devtoolset-8 -- bash gcc --version  Install Clang\/LLVM 5 yum install llvm-toolset-7 scl enable llvm-toolset-7 -- bash clang --version  Install Cmake wget https:\/\/github.com\/Kitware\/CMake\/releases\/download\/v3.16.0-rc2\/cmake-3.16.0-rc2-Linux-x86_64.tar.gz tar -xzvf cmake-3.16.0-rc2-Linux-x86_64.tar.gz ln -sf \/share\/cmake-3.16.0-rc2-Linux-x86_64\/bin\/cmake \/usr\/local\/bin\/ cmake --version  Build git clone --depth=1 https:\/\/github.com\/llvm\/llvm-project.git cd llvm-project mkdir build cd build cmake -DLLVM_ENABLE_PROJECTS=clang -G \x26quot;Unix Makefiles\x26quot; .",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2019",
+      "datePublished": "2019-10-25 11:29:21 \x2b0800 CST",
+      "dateModified" : "2019-10-25 11:29:21 \x2b0800 CST",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/llvm-1\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Walk Throught LLVM - Build on CentOS - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Walk Throught LLVM - Build on CentOS - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="Hardware Requirements  60GB disk space at least 10GB memory at least  Software Environment Install GCC 8 yum install centos-release-scl yum install devtoolset-8-gcc devtoolset-8-gcc-c&#43;&#43; scl enable devtoolset-8 -- bash gcc --version  Install Clang/LLVM 5 yum install llvm-toolset-7 scl enable llvm-toolset-7 -- bash clang --version  Install Cmake wget https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Linux-x86_64.tar.gz tar -xzvf cmake-3.16.0-rc2-Linux-x86_64.tar.gz ln -sf /share/cmake-3.16.0-rc2-Linux-x86_64/bin/cmake /usr/local/bin/ cmake --version  Build git clone --depth=1 https://github.com/llvm/llvm-project.git cd llvm-project mkdir build cd build cmake -DLLVM_ENABLE_PROJECTS=clang -G &quot;Unix Makefiles&quot; ." />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Xiaochen Cui</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Walk Throught LLVM - Build on CentOS</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-10-25 11:29:21 CST">
+                25 Oct 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+
+<h1 id="hardware-requirements">Hardware Requirements</h1>
+
+<ul>
+<li>60GB disk space at least</li>
+<li>10GB memory at least</li>
+</ul>
+
+<h1 id="software-environment">Software Environment</h1>
+
+<h2 id="install-gcc-8">Install GCC 8</h2>
+
+<pre><code class="language-bash">yum install centos-release-scl
+yum install devtoolset-8-gcc devtoolset-8-gcc-c++
+scl enable devtoolset-8 -- bash
+gcc --version
+</code></pre>
+
+<h2 id="install-clang-llvm-5">Install Clang/LLVM 5</h2>
+
+<pre><code class="language-bash">yum install llvm-toolset-7
+scl enable llvm-toolset-7 -- bash
+clang --version
+</code></pre>
+
+<h2 id="install-cmake">Install Cmake</h2>
+
+<pre><code class="language-bash">wget https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Linux-x86_64.tar.gz
+tar -xzvf cmake-3.16.0-rc2-Linux-x86_64.tar.gz
+ln -sf /share/cmake-3.16.0-rc2-Linux-x86_64/bin/cmake /usr/local/bin/
+cmake --version
+</code></pre>
+
+<h1 id="build">Build</h1>
+
+<pre><code class="language-bash">git clone --depth=1 https://github.com/llvm/llvm-project.git
+cd llvm-project
+mkdir build
+cd build
+cmake -DLLVM_ENABLE_PROJECTS=clang -G &quot;Unix Makefiles&quot; ../llvm
+make
+</code></pre>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="https://clang.llvm.org/get_started.html">Clang - Getting Started</a></li>
+</ul>
+
+        </div>
+        
+
+        
+
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        <div class="post-comments">
+          <div id="disqus_thread"></div>
+<script>
+  window.addEventListener("load", () => {
+    (function() {
+      
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://cuixiaochen.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  });
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+
+        </div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

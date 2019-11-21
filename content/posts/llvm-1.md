@@ -1,10 +1,14 @@
 ---
 title: "Walk Throught LLVM - Build on CentOS"
 date: 2019-10-25T11:29:21+08:00
-draft: true
 ---
 
-# Environment Setup
+# Hardware Requirements
+
+- 60GB disk space at least
+- 10GB memory at least
+
+# Software Environment
 
 ## Install GCC 8
 
@@ -32,15 +36,17 @@ ln -sf /share/cmake-3.16.0-rc2-Linux-x86_64/bin/cmake /usr/local/bin/
 cmake --version
 ```
 
-## Build LLVM
-
-Note: At least 20GB disk space is required
+# Build
 
 ```bash
 git clone --depth=1 https://github.com/llvm/llvm-project.git
 cd llvm-project
 mkdir build
 cd build
-cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" -DCMAKE_C_COMPILER=/opt/rh/devtoolset-8/root/usr/bin/gcc -DCMAKE_CXX_COMPILER=/opt/rh/devtoolset-8/root/usr/bin/g++ ../llvm
+cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" ../llvm
 make
 ```
+
+# Reference
+
+- [Clang - Getting Started](https://clang.llvm.org/get_started.html)
