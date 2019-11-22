@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Walk Throught LLVM - Build on CentOS",
       "headline" : "Walk Throught LLVM - Build on CentOS",
-      "description" : "Hardware Requirements  60GB disk space at least 10GB memory at least  Software Environment Install GCC 8 yum install centos-release-scl yum install devtoolset-8-gcc devtoolset-8-gcc-c\x2b\x2b scl enable devtoolset-8 -- bash gcc --version  Install Clang\/LLVM 5 yum install llvm-toolset-7 scl enable llvm-toolset-7 -- bash clang --version  Install Cmake wget https:\/\/github.com\/Kitware\/CMake\/releases\/download\/v3.16.0-rc2\/cmake-3.16.0-rc2-Linux-x86_64.tar.gz tar -xzvf cmake-3.16.0-rc2-Linux-x86_64.tar.gz ln -sf \/share\/cmake-3.16.0-rc2-Linux-x86_64\/bin\/cmake \/usr\/local\/bin\/ cmake --version  Build git clone --depth=1 https:\/\/github.com\/llvm\/llvm-project.git cd llvm-project mkdir build cd build cmake -DLLVM_ENABLE_PROJECTS=clang -G \x26quot;Unix Makefiles\x26quot; .",
+      "description" : "Hardware Requirements  80GB disk space at least 10GB memory at least  Software Environment Install GCC 8 yum install centos-release-scl yum install devtoolset-8-gcc devtoolset-8-gcc-c\x2b\x2b scl enable devtoolset-8 -- bash gcc --version  Install Clang\/LLVM 5 yum install llvm-toolset-7 scl enable llvm-toolset-7 -- bash clang --version  Install Cmake wget https:\/\/github.com\/Kitware\/CMake\/releases\/download\/v3.16.0-rc2\/cmake-3.16.0-rc2-Linux-x86_64.tar.gz tar -xzvf cmake-3.16.0-rc2-Linux-x86_64.tar.gz ln -sf \/share\/cmake-3.16.0-rc2-Linux-x86_64\/bin\/cmake \/usr\/local\/bin\/ cmake --version  Build git clone --depth=1 https:\/\/github.com\/llvm\/llvm-project.git cd llvm-project mkdir build cd build cmake -DLLVM_ENABLE_PROJECTS=clang -G \x26quot;Unix Makefiles\x26quot; .",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -36,7 +36,7 @@
 <title>Walk Throught LLVM - Build on CentOS - XiaochenCui&#39;s Blog</title>
   <meta property="og:title" content="Walk Throught LLVM - Build on CentOS - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content="Hardware Requirements  60GB disk space at least 10GB memory at least  Software Environment Install GCC 8 yum install centos-release-scl yum install devtoolset-8-gcc devtoolset-8-gcc-c&#43;&#43; scl enable devtoolset-8 -- bash gcc --version  Install Clang/LLVM 5 yum install llvm-toolset-7 scl enable llvm-toolset-7 -- bash clang --version  Install Cmake wget https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Linux-x86_64.tar.gz tar -xzvf cmake-3.16.0-rc2-Linux-x86_64.tar.gz ln -sf /share/cmake-3.16.0-rc2-Linux-x86_64/bin/cmake /usr/local/bin/ cmake --version  Build git clone --depth=1 https://github.com/llvm/llvm-project.git cd llvm-project mkdir build cd build cmake -DLLVM_ENABLE_PROJECTS=clang -G &quot;Unix Makefiles&quot; ." />
+  <meta name="description" content="Hardware Requirements  80GB disk space at least 10GB memory at least  Software Environment Install GCC 8 yum install centos-release-scl yum install devtoolset-8-gcc devtoolset-8-gcc-c&#43;&#43; scl enable devtoolset-8 -- bash gcc --version  Install Clang/LLVM 5 yum install llvm-toolset-7 scl enable llvm-toolset-7 -- bash clang --version  Install Cmake wget https://github.com/Kitware/CMake/releases/download/v3.16.0-rc2/cmake-3.16.0-rc2-Linux-x86_64.tar.gz tar -xzvf cmake-3.16.0-rc2-Linux-x86_64.tar.gz ln -sf /share/cmake-3.16.0-rc2-Linux-x86_64/bin/cmake /usr/local/bin/ cmake --version  Build git clone --depth=1 https://github.com/llvm/llvm-project.git cd llvm-project mkdir build cd build cmake -DLLVM_ENABLE_PROJECTS=clang -G &quot;Unix Makefiles&quot; ." />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -98,7 +98,7 @@
 <h1 id="hardware-requirements">Hardware Requirements</h1>
 
 <ul>
-<li>60GB disk space at least</li>
+<li>80GB disk space at least</li>
 <li>10GB memory at least</li>
 </ul>
 
@@ -135,6 +135,7 @@ mkdir build
 cd build
 cmake -DLLVM_ENABLE_PROJECTS=clang -G &quot;Unix Makefiles&quot; ../llvm
 make
+make install
 </code></pre>
 
 <h1 id="reference">Reference</h1>

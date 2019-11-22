@@ -5,7 +5,7 @@ date: 2019-10-25T11:29:21+08:00
 
 # Hardware Requirements
 
-- 60GB disk space at least
+- 80GB disk space at least
 - 10GB memory at least
 
 # Software Environment
@@ -45,6 +45,7 @@ mkdir build
 cd build
 cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" ../llvm
 make
+make install
 ```
 
 # Reference
