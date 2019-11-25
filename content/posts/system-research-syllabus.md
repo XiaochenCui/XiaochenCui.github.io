@@ -248,3 +248,6 @@ Comments and suggestions are welcomed.
 # Compile
 
 ## LLVM
+
+- [LLVM Language Reference Manual — LLVM 10 documentation](https://llvm.org/docs/LangRef.html)
+- [My First Language Frontend with LLVM Tutorial — LLVM 10 documentation](http://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html)
