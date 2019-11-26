@@ -250,4 +250,5 @@ Comments and suggestions are welcomed.
 ## LLVM
 
 - [LLVM Language Reference Manual — LLVM 10 documentation](https://llvm.org/docs/LangRef.html)
+- [LLVM’s Analysis and Transform Passes — LLVM 10 documentation](http://llvm.org/docs/Passes.html)
 - [My First Language Frontend with LLVM Tutorial — LLVM 10 documentation](http://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html)
