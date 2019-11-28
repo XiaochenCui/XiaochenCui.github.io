@@ -15,6 +15,17 @@ Comments and suggestions are welcomed.
 
 # Database
 
+## Motivation
+
+- [A Relational Model of Data for Large Shared Data Banks](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
+
+## Architecture
+
+- [Architecture of a Database System](http://db.cs.berkeley.edu/papers/fntdb07-architecture.pdf)
+- [Column Stores vs Row Stores : How Different Are They Really](https://pdfs.semanticscholar.org/1024/da80d950b8d3142ace378324644a67aa2d72.pdf)
+- [Socrates: The New SQL Server in the Cloud](https://www.microsoft.com/en-us/research/uploads/prod/2019/05/socrates.pdf)
+- [Large-scale Incremental Processing Using Distributed Transactions and Notifications](http://notes.stephenholiday.com/Percolator.pdf)
+
 ## SQL Parser
 
 - [Apache Calcite: A Foundational Framework for Optimized Query Processing Over Heterogeneous Data Sources](https://arxiv.org/pdf/1802.10233.pdf)
@@ -28,17 +39,6 @@ Comments and suggestions are welcomed.
 - [EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/xu-columbia-thesis1998.pdf)
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](https://cs.uwaterloo.ca/~david/cs848/volcano.pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
-
-# Why we need DBMS
-
-- [A Relational Model of Data for Large Shared Data Banks](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
-
-# Database Architecture
-
-- [Architecture of a Database System](http://db.cs.berkeley.edu/papers/fntdb07-architecture.pdf)
-- [Column Stores vs Row Stores : How Different Are They Really](https://pdfs.semanticscholar.org/1024/da80d950b8d3142ace378324644a67aa2d72.pdf)
-- [Socrates: The New SQL Server in the Cloud](https://www.microsoft.com/en-us/research/uploads/prod/2019/05/socrates.pdf)
-- [Large-scale Incremental Processing Using Distributed Transactions and Notifications](http://notes.stephenholiday.com/Percolator.pdf)
 
 # Storage
 
@@ -247,7 +247,7 @@ Comments and suggestions are welcomed.
 - [Dynamic Memory Allocation in C using malloc(), calloc(), free() and realloc() - GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/)
 - [Writing a Memory Allocator – Dmitry Soshnikov](http://dmitrysoshnikov.com/compilers/writing-a-memory-allocator/)
 
-# Compile
+# Compiler
 
 ## LLVM
 
