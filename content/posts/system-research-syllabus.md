@@ -49,33 +49,36 @@ Comments and suggestions are welcomed.
 - [Finding a needle in Haystack: Facebook’s photo storage](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf)
 - [f4: Facebook’s Warm BLOB Storage System](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf)
 
+## Distributed File System
+
+- [Ceph: A Scalable, High-Performance Distributed File System](https://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf)
+
 # Disk Error Correction
 
 ## Reed-Solomon
 
 - [Reed–Solomon error correction - Wikipedia](https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction)
 - [POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS](https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf)
-    
+
 # Data Structures
 
-- B Tree    
+- B Tree
     [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
     [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
     [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
-- B+ Tree   
+- B+ Tree
     [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
-- R Tree    
+- R Tree
     [Introduction to R-tree - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-r-tree/)
-- LSM Tree  
+- LSM Tree
     [The Log-Structured Merge-Tree (LSM-Tree)](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
-- SB Tree   
+- SB Tree
     [The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&rep=rep1&type=pdf)
-    
+
 ## Range Filter
 
-- SuRF  
-    [SuRF: Practical Range Query Filtering with Fast Succinct Tries](http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf)
-    
+- [SuRF: Practical Range Query Filtering with Fast Succinct Tries](http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf)
+
 # Consensus Algorithm
 
 ## Raft
