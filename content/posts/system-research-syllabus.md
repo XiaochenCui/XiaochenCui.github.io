@@ -13,6 +13,15 @@ Comments and suggestions are welcomed.
 
 - [Time, Clocks, and the Ordering of Events in a Distributed System](http://lamport.azurewebsites.net/pubs/time-clocks.pdf)
 
+## Distrubuted Storage System
+
+- Atlas  
+    [Atlas: Baidu’s Key-value Storage System for Cloud Data](http://ranger.uta.edu/~sjiang/pubs/papers/lai15-atlas.pdf)
+- Past  
+    [PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment](https://www.microsoft.com/en-us/research/wp-content/uploads/2001/05/pastDruschel.pdf)
+- OceanStore  
+    [OceanStore: An Architecture for Global-Scale Persistent Storage](http://www.srhea.net/papers/asplos00.pdf)
+
 # Database
 
 ## Motivation
@@ -40,87 +49,7 @@ Comments and suggestions are welcomed.
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](https://cs.uwaterloo.ca/~david/cs848/volcano.pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
 
-# Storage
-
-- [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf)
-- [Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)
-
-## BLOB Storage
-
-- [Finding a needle in Haystack: Facebook’s photo storage](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf)
-- [f4: Facebook’s Warm BLOB Storage System](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf)
-
-## Distributed File System
-
-- [Ceph: A Scalable, High-Performance Distributed File System](https://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf)
-
-# Disk Error Correction
-
-## Reed-Solomon
-
-- [Reed–Solomon error correction - Wikipedia](https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction)
-- [POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS](https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf)
-
-# Data Structures
-
-- B Tree
-  - [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
-  - [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
-  - [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
-
-- B+ Tree
-  - [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
-- R Tree
-  - [Introduction to R-tree - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-r-tree/)
-- LSM Tree
-  - [The Log-Structured Merge-Tree (LSM-Tree)](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
-- SB Tree
-  - [The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&rep=rep1&type=pdf)
-
-## Range Filter
-
-- [SuRF: Practical Range Query Filtering with Fast Succinct Tries](http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf)
-
-# Distributed Algorithm
-
-## Eventual Consistency
-
-- [Eventually Consistent](https://cs.brown.edu/courses/cs227/archives/2012/papers/weaker/p40-vogels.pdf)
-- [Principles of Eventual Consistency](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/final-printversion-10-5-14.pdf)
-
-## Consensus Algorithm
-
-### Raft
-
-- [In Search of an Understandable Consensus Algorithm (Extended Version)](https://raft.github.io/raft.pdf)
-- [CONSENSUS: BRIDGING THEORY AND PRACTICE](https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf)
-- [Just say NO to Paxos Overhead: Replacing Consensus with Network Ordering](https://www.usenix.org/system/files/conference/osdi16/osdi16-li.pdf)
-
-### Paxos
-
-### Zab
-
-- [Zab: High-performance broadcast for primary-backup systems](https://knowably-attachments.s3.amazonaws.com/u/55b69a1ce4b00ab397d67250/7c8734d3cf02154499a9b3161ef9f575/Zab_2011.pdf)
-- [ZooKeeper’s atomic broadcast protocol: Theory and practice](http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf)
-    
-# Distrubuted Hash Table (DHT)
-
-- Chord     
-    [Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications](https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf)  
-    [分布式哈希表Chord - 知乎](https://zhuanlan.zhihu.com/p/53711866)
-- Kademlia  
-    [Kademlia协议 - 知乎](https://zhuanlan.zhihu.com/p/38425656)
-    
-# Distrubuted Storage System
-
-- Atlas  
-    [Atlas: Baidu’s Key-value Storage System for Cloud Data](http://ranger.uta.edu/~sjiang/pubs/papers/lai15-atlas.pdf)
-- Past  
-    [PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment](https://www.microsoft.com/en-us/research/wp-content/uploads/2001/05/pastDruschel.pdf)
-- OceanStore  
-    [OceanStore: An Architecture for Global-Scale Persistent Storage](http://www.srhea.net/papers/asplos00.pdf)
-
-# Join Algorithm
+## Join Algorithm
 
 - Nested Loop Join
     - Simple Nested Loops Join
@@ -131,7 +60,7 @@ Comments and suggestions are welcomed.
 - Sort-Merge Join
 - Hash Join
 
-# Lock & Transaction
+## Lock & Transaction
 
 - [Concurrency Control and Recovery](http://db.lcs.mit.edu/6.830/lectures/franklin97concurrency.pdf)
 - [Unreliable Guide To Locking](http://kernelbook.sourceforge.net/kernel-locking.pdf)
@@ -198,6 +127,81 @@ Comments and suggestions are welcomed.
 
 - [Using Crash Hoare Logic for Certifying the FSCQ File System](https://pdos.csail.mit.edu/papers/fscq:sosp15.pdf)
 
+# Storage
+
+- [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf)
+- [Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)
+
+## BLOB Storage
+
+- [Finding a needle in Haystack: Facebook’s photo storage](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf)
+- [f4: Facebook’s Warm BLOB Storage System](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf)
+
+## Distributed File System
+
+- [Ceph: A Scalable, High-Performance Distributed File System](https://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf)
+
+# Disk Error Correction
+
+## Reed-Solomon
+
+- [Reed–Solomon error correction - Wikipedia](https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction)
+- [POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS](https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf)
+
+# Data Structures
+
+- B Tree
+  - [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
+  - [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
+  - [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
+
+- B+ Tree
+  - [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
+- R Tree
+  - [Introduction to R-tree - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-r-tree/)
+- LSM Tree
+  - [The Log-Structured Merge-Tree (LSM-Tree)](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
+- SB Tree
+  - [The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&rep=rep1&type=pdf)
+
+## Range Filter
+
+- [SuRF: Practical Range Query Filtering with Fast Succinct Tries](http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf)
+
+# Distributed Algorithm
+
+## Course
+
+- [MIT6.852J](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-852j-distributed-algorithms-fall-2009/)
+
+## Eventual Consistency
+
+- [Eventually Consistent](https://cs.brown.edu/courses/cs227/archives/2012/papers/weaker/p40-vogels.pdf)
+- [Principles of Eventual Consistency](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/final-printversion-10-5-14.pdf)
+
+## Consensus Algorithm
+
+### Raft
+
+- [In Search of an Understandable Consensus Algorithm (Extended Version)](https://raft.github.io/raft.pdf)
+- [CONSENSUS: BRIDGING THEORY AND PRACTICE](https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf)
+- [Just say NO to Paxos Overhead: Replacing Consensus with Network Ordering](https://www.usenix.org/system/files/conference/osdi16/osdi16-li.pdf)
+
+### Paxos
+
+### Zab
+
+- [Zab: High-performance broadcast for primary-backup systems](https://knowably-attachments.s3.amazonaws.com/u/55b69a1ce4b00ab397d67250/7c8734d3cf02154499a9b3161ef9f575/Zab_2011.pdf)
+- [ZooKeeper’s atomic broadcast protocol: Theory and practice](http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf)
+    
+## Distrubuted Hash Table (DHT)
+
+- Chord     
+    [Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications](https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf)  
+    [分布式哈希表Chord - 知乎](https://zhuanlan.zhihu.com/p/53711866)
+- Kademlia  
+    [Kademlia协议 - 知乎](https://zhuanlan.zhihu.com/p/38425656)
+    
 # File Format
 
 - [LanguageManual ORC - Apache Hive - Apache Software Foundation](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)

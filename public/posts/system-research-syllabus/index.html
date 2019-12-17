@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "System Research Syllabus",
       "headline" : "System Research Syllabus",
-      "description" : "The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.\nComments and suggestions are welcomed.\n(Content is being sorted out, a little bit confusing right now)\nDistributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System  Database Motivation  A Relational Model of Data for Large Shared Data Banks  Architecture  Architecture of a Database System Column Stores vs Row Stores : How Different Are They Really Socrates: The New SQL Server in the Cloud Large-scale Incremental Processing Using Distributed Transactions and Notifications  SQL Parser  Apache Calcite: A Foundational Framework for Optimized Query Processing Over Heterogeneous Data Sources  Query Optimization  Access Path Selection in a Relational Database Management System Statistical Profile Estimation in Database Systems Building a Modern Database Using LLVM Efficiently Compiling Efficient Query Plans for Modern Hardware EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER The Volcano Optimizer Generator: Extensibility and Efficient Search The Cascades Framework for Query Optimization  Storage  TAO: Facebook’s Distributed Data Store for the Social Graph Scaling Memcache at Facebook  BLOB Storage  Finding a needle in Haystack: Facebook’s photo storage f4: Facebook’s Warm BLOB Storage System  Distributed File System  Ceph: A Scalable, High-Performance Distributed File System  Disk Error Correction Reed-Solomon  Reed–Solomon error correction - Wikipedia POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS  Data Structures  B Tree",
+      "description" : "The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.\nComments and suggestions are welcomed.\n(Content is being sorted out, a little bit confusing right now)\nDistributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System  Distrubuted Storage System  Atlas\nAtlas: Baidu’s Key-value Storage System for Cloud Data Past\nPAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -39,7 +39,9 @@
   <meta name="description" content="The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
 Comments and suggestions are welcomed.
 (Content is being sorted out, a little bit confusing right now)
-Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System  Database Motivation  A Relational Model of Data for Large Shared Data Banks  Architecture  Architecture of a Database System Column Stores vs Row Stores : How Different Are They Really Socrates: The New SQL Server in the Cloud Large-scale Incremental Processing Using Distributed Transactions and Notifications  SQL Parser  Apache Calcite: A Foundational Framework for Optimized Query Processing Over Heterogeneous Data Sources  Query Optimization  Access Path Selection in a Relational Database Management System Statistical Profile Estimation in Database Systems Building a Modern Database Using LLVM Efficiently Compiling Efficient Query Plans for Modern Hardware EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER The Volcano Optimizer Generator: Extensibility and Efficient Search The Cascades Framework for Query Optimization  Storage  TAO: Facebook’s Distributed Data Store for the Social Graph Scaling Memcache at Facebook  BLOB Storage  Finding a needle in Haystack: Facebook’s photo storage f4: Facebook’s Warm BLOB Storage System  Distributed File System  Ceph: A Scalable, High-Performance Distributed File System  Disk Error Correction Reed-Solomon  Reed–Solomon error correction - Wikipedia POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS  Data Structures  B Tree" />
+Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System  Distrubuted Storage System  Atlas
+Atlas: Baidu’s Key-value Storage System for Cloud Data Past
+PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -110,6 +112,17 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <li><a href="http://lamport.azurewebsites.net/pubs/time-clocks.pdf">Time, Clocks, and the Ordering of Events in a Distributed System</a></li>
 </ul>
 
+<h2 id="distrubuted-storage-system">Distrubuted Storage System</h2>
+
+<ul>
+<li>Atlas<br />
+<a href="http://ranger.uta.edu/~sjiang/pubs/papers/lai15-atlas.pdf">Atlas: Baidu’s Key-value Storage System for Cloud Data</a></li>
+<li>Past<br />
+<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2001/05/pastDruschel.pdf">PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment</a></li>
+<li>OceanStore<br />
+<a href="http://www.srhea.net/papers/asplos00.pdf">OceanStore: An Architecture for Global-Scale Persistent Storage</a></li>
+</ul>
+
 <h1 id="database">Database</h1>
 
 <h2 id="motivation">Motivation</h2>
@@ -145,129 +158,7 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <li><a href="https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf">The Cascades Framework for Query Optimization</a></li>
 </ul>
 
-<h1 id="storage">Storage</h1>
-
-<ul>
-<li><a href="https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf">TAO: Facebook’s Distributed Data Store for the Social Graph</a></li>
-<li><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf">Scaling Memcache at Facebook</a></li>
-</ul>
-
-<h2 id="blob-storage">BLOB Storage</h2>
-
-<ul>
-<li><a href="https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf">Finding a needle in Haystack: Facebook’s photo storage</a></li>
-<li><a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf">f4: Facebook’s Warm BLOB Storage System</a></li>
-</ul>
-
-<h2 id="distributed-file-system">Distributed File System</h2>
-
-<ul>
-<li><a href="https://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf">Ceph: A Scalable, High-Performance Distributed File System</a></li>
-</ul>
-
-<h1 id="disk-error-correction">Disk Error Correction</h1>
-
-<h2 id="reed-solomon">Reed-Solomon</h2>
-
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction">Reed–Solomon error correction - Wikipedia</a></li>
-<li><a href="https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf">POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS</a></li>
-</ul>
-
-<h1 id="data-structures">Data Structures</h1>
-
-<ul>
-<li><p>B Tree</p>
-
-<ul>
-<li><a href="https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/">B-Tree | Set 1 (Introduction) - GeeksforGeeks</a><br /></li>
-<li><a href="https://www.geeksforgeeks.org/b-tree-set-1-insert-2/">B-Tree | Set 2 (Insert) - GeeksforGeeks</a><br /></li>
-<li><a href="https://www.geeksforgeeks.org/b-tree-set-3delete/">B-Tree | Set 3 (Delete) - GeeksforGeeks</a><br /></li>
-</ul></li>
-
-<li><p>B+ Tree</p>
-
-<ul>
-<li><a href="https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/">Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks</a></li>
-</ul></li>
-
-<li><p>R Tree</p>
-
-<ul>
-<li><a href="https://www.geeksforgeeks.org/introduction-to-r-tree/">Introduction to R-tree - GeeksforGeeks</a></li>
-</ul></li>
-
-<li><p>LSM Tree</p>
-
-<ul>
-<li><a href="https://www.cs.umb.edu/~poneil/lsmtree.pdf">The Log-Structured Merge-Tree (LSM-Tree)</a></li>
-</ul></li>
-
-<li><p>SB Tree</p>
-
-<ul>
-<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&amp;rep=rep1&amp;type=pdf">The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access</a></li>
-</ul></li>
-</ul>
-
-<h2 id="range-filter">Range Filter</h2>
-
-<ul>
-<li><a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf">SuRF: Practical Range Query Filtering with Fast Succinct Tries</a></li>
-</ul>
-
-<h1 id="distributed-algorithm">Distributed Algorithm</h1>
-
-<h2 id="eventual-consistency">Eventual Consistency</h2>
-
-<ul>
-<li><a href="https://cs.brown.edu/courses/cs227/archives/2012/papers/weaker/p40-vogels.pdf">Eventually Consistent</a></li>
-<li><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/final-printversion-10-5-14.pdf">Principles of Eventual Consistency</a></li>
-</ul>
-
-<h2 id="consensus-algorithm">Consensus Algorithm</h2>
-
-<h3 id="raft">Raft</h3>
-
-<ul>
-<li><a href="https://raft.github.io/raft.pdf">In Search of an Understandable Consensus Algorithm (Extended Version)</a></li>
-<li><a href="https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf">CONSENSUS: BRIDGING THEORY AND PRACTICE</a></li>
-<li><a href="https://www.usenix.org/system/files/conference/osdi16/osdi16-li.pdf">Just say NO to Paxos Overhead: Replacing Consensus with Network Ordering</a></li>
-</ul>
-
-<h3 id="paxos">Paxos</h3>
-
-<h3 id="zab">Zab</h3>
-
-<ul>
-<li><a href="https://knowably-attachments.s3.amazonaws.com/u/55b69a1ce4b00ab397d67250/7c8734d3cf02154499a9b3161ef9f575/Zab_2011.pdf">Zab: High-performance broadcast for primary-backup systems</a></li>
-<li><a href="http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf">ZooKeeper’s atomic broadcast protocol: Theory and practice</a>
-<br /></li>
-</ul>
-
-<h1 id="distrubuted-hash-table-dht">Distrubuted Hash Table (DHT)</h1>
-
-<ul>
-<li>Chord<br />
-<a href="https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf">Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications</a><br />
-<a href="https://zhuanlan.zhihu.com/p/53711866">分布式哈希表Chord - 知乎</a></li>
-<li>Kademlia<br />
-<a href="https://zhuanlan.zhihu.com/p/38425656">Kademlia协议 - 知乎</a>
-<br /></li>
-</ul>
-
-<h1 id="distrubuted-storage-system">Distrubuted Storage System</h1>
-
-<ul>
-<li>Atlas<br />
-<a href="http://ranger.uta.edu/~sjiang/pubs/papers/lai15-atlas.pdf">Atlas: Baidu’s Key-value Storage System for Cloud Data</a></li>
-<li>Past<br />
-<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2001/05/pastDruschel.pdf">PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment</a></li>
-<li>OceanStore<br />
-<a href="http://www.srhea.net/papers/asplos00.pdf">OceanStore: An Architecture for Global-Scale Persistent Storage</a></li>
-</ul>
-
-<h1 id="join-algorithm">Join Algorithm</h1>
+<h2 id="join-algorithm">Join Algorithm</h2>
 
 <ul>
 <li>Nested Loop Join
@@ -286,7 +177,7 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <li>Hash Join</li>
 </ul>
 
-<h1 id="lock-transaction">Lock &amp; Transaction</h1>
+<h2 id="lock-transaction">Lock &amp; Transaction</h2>
 
 <ul>
 <li><a href="http://db.lcs.mit.edu/6.830/lectures/franklin97concurrency.pdf">Concurrency Control and Recovery</a></li>
@@ -380,6 +271,123 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <li><a href="https://pdos.csail.mit.edu/papers/fscq:sosp15.pdf">Using Crash Hoare Logic for Certifying the FSCQ File System</a></li>
 </ul>
 
+<h1 id="storage">Storage</h1>
+
+<ul>
+<li><a href="https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf">TAO: Facebook’s Distributed Data Store for the Social Graph</a></li>
+<li><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf">Scaling Memcache at Facebook</a></li>
+</ul>
+
+<h2 id="blob-storage">BLOB Storage</h2>
+
+<ul>
+<li><a href="https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf">Finding a needle in Haystack: Facebook’s photo storage</a></li>
+<li><a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf">f4: Facebook’s Warm BLOB Storage System</a></li>
+</ul>
+
+<h2 id="distributed-file-system">Distributed File System</h2>
+
+<ul>
+<li><a href="https://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf">Ceph: A Scalable, High-Performance Distributed File System</a></li>
+</ul>
+
+<h1 id="disk-error-correction">Disk Error Correction</h1>
+
+<h2 id="reed-solomon">Reed-Solomon</h2>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction">Reed–Solomon error correction - Wikipedia</a></li>
+<li><a href="https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf">POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS</a></li>
+</ul>
+
+<h1 id="data-structures">Data Structures</h1>
+
+<ul>
+<li><p>B Tree</p>
+
+<ul>
+<li><a href="https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/">B-Tree | Set 1 (Introduction) - GeeksforGeeks</a><br /></li>
+<li><a href="https://www.geeksforgeeks.org/b-tree-set-1-insert-2/">B-Tree | Set 2 (Insert) - GeeksforGeeks</a><br /></li>
+<li><a href="https://www.geeksforgeeks.org/b-tree-set-3delete/">B-Tree | Set 3 (Delete) - GeeksforGeeks</a><br /></li>
+</ul></li>
+
+<li><p>B+ Tree</p>
+
+<ul>
+<li><a href="https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/">Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks</a></li>
+</ul></li>
+
+<li><p>R Tree</p>
+
+<ul>
+<li><a href="https://www.geeksforgeeks.org/introduction-to-r-tree/">Introduction to R-tree - GeeksforGeeks</a></li>
+</ul></li>
+
+<li><p>LSM Tree</p>
+
+<ul>
+<li><a href="https://www.cs.umb.edu/~poneil/lsmtree.pdf">The Log-Structured Merge-Tree (LSM-Tree)</a></li>
+</ul></li>
+
+<li><p>SB Tree</p>
+
+<ul>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&amp;rep=rep1&amp;type=pdf">The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access</a></li>
+</ul></li>
+</ul>
+
+<h2 id="range-filter">Range Filter</h2>
+
+<ul>
+<li><a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf">SuRF: Practical Range Query Filtering with Fast Succinct Tries</a></li>
+</ul>
+
+<h1 id="distributed-algorithm">Distributed Algorithm</h1>
+
+<h2 id="course">Course</h2>
+
+<ul>
+<li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-852j-distributed-algorithms-fall-2009/">MIT6.852J</a></li>
+</ul>
+
+<h2 id="eventual-consistency">Eventual Consistency</h2>
+
+<ul>
+<li><a href="https://cs.brown.edu/courses/cs227/archives/2012/papers/weaker/p40-vogels.pdf">Eventually Consistent</a></li>
+<li><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/final-printversion-10-5-14.pdf">Principles of Eventual Consistency</a></li>
+</ul>
+
+<h2 id="consensus-algorithm">Consensus Algorithm</h2>
+
+<h3 id="raft">Raft</h3>
+
+<ul>
+<li><a href="https://raft.github.io/raft.pdf">In Search of an Understandable Consensus Algorithm (Extended Version)</a></li>
+<li><a href="https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf">CONSENSUS: BRIDGING THEORY AND PRACTICE</a></li>
+<li><a href="https://www.usenix.org/system/files/conference/osdi16/osdi16-li.pdf">Just say NO to Paxos Overhead: Replacing Consensus with Network Ordering</a></li>
+</ul>
+
+<h3 id="paxos">Paxos</h3>
+
+<h3 id="zab">Zab</h3>
+
+<ul>
+<li><a href="https://knowably-attachments.s3.amazonaws.com/u/55b69a1ce4b00ab397d67250/7c8734d3cf02154499a9b3161ef9f575/Zab_2011.pdf">Zab: High-performance broadcast for primary-backup systems</a></li>
+<li><a href="http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf">ZooKeeper’s atomic broadcast protocol: Theory and practice</a>
+<br /></li>
+</ul>
+
+<h2 id="distrubuted-hash-table-dht">Distrubuted Hash Table (DHT)</h2>
+
+<ul>
+<li>Chord<br />
+<a href="https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf">Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications</a><br />
+<a href="https://zhuanlan.zhihu.com/p/53711866">分布式哈希表Chord - 知乎</a></li>
+<li>Kademlia<br />
+<a href="https://zhuanlan.zhihu.com/p/38425656">Kademlia协议 - 知乎</a>
+<br /></li>
+</ul>
+
 <h1 id="file-format">File Format</h1>
 
 <ul>
@@ -427,7 +435,7 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <li><a href="https://github.com/mietek/sf">Software Foundations</a></li>
 </ul>
 
-<h1 id="course">Course</h1>
+<h1 id="course-1">Course</h1>
 
 <h2 id="distributed-systemes">Distributed Systemes</h2>
 
