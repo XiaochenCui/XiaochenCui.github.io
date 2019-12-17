@@ -81,15 +81,22 @@ Comments and suggestions are welcomed.
 
 - [SuRF: Practical Range Query Filtering with Fast Succinct Tries](http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf)
 
-# Consensus Algorithm
+# Distributed Algorithm
 
-## Raft
+## Eventual Consistency
+
+- [Eventually Consistent](https://cs.brown.edu/courses/cs227/archives/2012/papers/weaker/p40-vogels.pdf)
+- [Principles of Eventual Consistency](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/final-printversion-10-5-14.pdf)
+
+## Consensus Algorithm
+
+### Raft
 
 - [Just say NO to Paxos Overhead: Replacing Consensus with Network Ordering](https://www.usenix.org/system/files/conference/osdi16/osdi16-li.pdf)
 
-## Paxos
+### Paxos
 
-## Zab
+### Zab
 
 - [Zab: High-performance broadcast for primary-backup systems](https://knowably-attachments.s3.amazonaws.com/u/55b69a1ce4b00ab397d67250/7c8734d3cf02154499a9b3161ef9f575/Zab_2011.pdf)
 - [ZooKeeper’s atomic broadcast protocol: Theory and practice](http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf)
