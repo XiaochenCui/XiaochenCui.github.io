@@ -13,6 +13,21 @@ Comments and suggestions are welcomed.
 
 - [Time, Clocks, and the Ordering of Events in a Distributed System](http://lamport.azurewebsites.net/pubs/time-clocks.pdf)
 
+## Data Processing
+
+- [Spark: Cluster Computing with Working Sets](https://www.usenix.org/legacy/events/hotcloud10/tech/full_papers/Zaharia.pdf)
+
+## Stream Processing
+
+- [Storm @Twitter](https://cs.brown.edu/courses/csci2270/archives/2015/papers/ss-storm.pdf)
+- [Samza: Stateful Scalable Stream Processing at LinkedIn](http://www.vldb.org/pvldb/vol10/p1634-noghabi.pdf)
+- [Drill](https://cwiki.apache.org/confluence/display/incubator/DrillProposal)
+
+## SQL Workloads
+
+- [Presto: SQL on Everything](https://prestosql.io/Presto_SQL_on_Everything.pdf)
+- [Dremel: Interactive Analysis of Web-Scale Datasets](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36632.pdf)
+
 ## Distrubuted Storage System
 
 - [Atlas: Baidu’s Key-value Storage System for Cloud Data](http://ranger.uta.edu/~sjiang/pubs/papers/lai15-atlas.pdf)
