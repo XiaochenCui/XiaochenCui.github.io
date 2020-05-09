@@ -265,6 +265,11 @@ Comments and suggestions are welcomed.
 - [assignments](http://cs241.cs.illinois.edu/assignments.html)
 - [course video](https://classtranscribe.illinois.edu/home/offering/e740770d-e6fb-4ddb-86ca-a49a8dcc7d28)
 
+## Database
+
+- [CMU 15-445/645 :: Intro to Database Systems (Fall 2019)](https://15445.courses.cs.cmu.edu/fall2019/)
+- [6.830/6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
+
 # Waiting For Classification
 
 - [Wait-Free Synchronization](http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf)
