@@ -47,6 +47,7 @@ Comments and suggestions are welcomed.
 - [Column Stores vs Row Stores : How Different Are They Really](https://pdfs.semanticscholar.org/1024/da80d950b8d3142ace378324644a67aa2d72.pdf)
 - [Socrates: The New SQL Server in the Cloud](https://www.microsoft.com/en-us/research/uploads/prod/2019/05/socrates.pdf)
 - [Large-scale Incremental Processing Using Distributed Transactions and Notifications](http://notes.stephenholiday.com/Percolator.pdf)
+- [Readings in Database Systems, 5th Edition](http://www.redbook.io/pdf/redbook-5th-edition.pdf)
 
 ## SQL Parser
 
