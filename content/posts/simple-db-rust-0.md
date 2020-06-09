@@ -1,7 +1,6 @@
 ---
 title: "Simple DB In Rust - Motivation"
 date: 2020-06-09T14:52:55+08:00
-draft: true
 ---
 I recently decided to rewrite [simple-db](https://github.com/XiaochenCui/simple-db-hw) with rust: [simple-db-rust](https://github.com/XiaochenCui/simple-db-rust)
 

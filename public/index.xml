@@ -6,10 +6,21 @@
     <description>Recent content on XiaochenCui&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Oct 2019 13:56:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 14:52:55 +0800</lastBuildDate>
     
 	<atom:link href="https://cuixiaochen.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Simple DB In Rust - Motivation</title>
+      <link>https://cuixiaochen.com/posts/simple-db-rust-0/</link>
+      <pubDate>Tue, 09 Jun 2020 14:52:55 +0800</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/simple-db-rust-0/</guid>
+      <description>I recently decided to rewrite simple-db with rust: simple-db-rust
+Here is the motivation:
+ The original java code is too verbose and cumbersome. And the code structure is unreasonable Rust&amp;rsquo;s type system and borrow checker could greatly help me develop this system I can use this opportunity to learn rust better Building an RDBMS from scratch will help me learn the database better  </description>
+    </item>
     
     <item>
       <title>System Research Syllabus</title>
