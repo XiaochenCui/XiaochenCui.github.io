@@ -17,9 +17,9 @@
            "@id": "https:\/\/cuixiaochen.com\/"
       },
       "articleSection" : "posts",
-      "name" : "Simple DB In Rust - Motivation",
-      "headline" : "Simple DB In Rust - Motivation",
-      "description" : "I recently decided to rewrite simple-db with rust: simple-db-rust\nHere is the motivation:\n The original java code is too verbose and cumbersome. And the code structure is unreasonable Rust\x26rsquo;s type system and borrow checker could greatly help me develop this system I can use this opportunity to learn rust better Building an RDBMS from scratch will help me learn the database better  ",
+      "name" : "Simple DB In Rust - Started",
+      "headline" : "Simple DB In Rust - Started",
+      "description" : "After spending a lot of time, I finally completed all the tasks of mit 6.830 (source code). Now we almost have a simple database that can perform a series of operations such as querying, storing, and deleting data. The transaction and index has been achieved. We also implemented write-ahead log to prevent data lose from system crash. 99% of the tests (including unit tests and integration tests) can be successfully passed.",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -33,12 +33,10 @@
       "keywords" : [  ]
   }
 </script>
-<title>Simple DB In Rust - Motivation - XiaochenCui&#39;s Blog</title>
-  <meta property="og:title" content="Simple DB In Rust - Motivation - XiaochenCui&#39;s Blog" />
+<title>Simple DB In Rust - Started - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Simple DB In Rust - Started - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content="I recently decided to rewrite simple-db with rust: simple-db-rust
-Here is the motivation:
- The original java code is too verbose and cumbersome. And the code structure is unreasonable Rust&rsquo;s type system and borrow checker could greatly help me develop this system I can use this opportunity to learn rust better Building an RDBMS from scratch will help me learn the database better  " />
+  <meta name="description" content="After spending a lot of time, I finally completed all the tasks of mit 6.830 (source code). Now we almost have a simple database that can perform a series of operations such as querying, storing, and deleting data. The transaction and index has been achieved. We also implemented write-ahead log to prevent data lose from system crash. 99% of the tests (including unit tests and integration tests) can be successfully passed." />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -77,7 +75,7 @@ Here is the motivation:
 
         </div>
         <header class="post-header">
-          <h1 class="post-title">Simple DB In Rust - Motivation</h1>
+          <h1 class="post-title">Simple DB In Rust - Started</h1>
           
           <div class="row post-desc">
             <div class="col-xs-6">
@@ -95,14 +93,12 @@ Here is the motivation:
         </header>
 
         <div class="post-content markdown-body">
-          <p>I recently decided to rewrite <a href="https://github.com/XiaochenCui/simple-db-hw">simple-db</a> with rust: <a href="https://github.com/XiaochenCui/simple-db-rust">simple-db-rust</a></p>
-<p>Here is the motivation:</p>
-<ul>
-<li>The original java code is too verbose and cumbersome. And the code structure is unreasonable</li>
-<li>Rust&rsquo;s type system and borrow checker could greatly help me develop this system</li>
-<li>I can use this opportunity to learn rust better</li>
-<li>Building an RDBMS from scratch will help me learn the database better</li>
-</ul>
+          <p>After spending a lot of time, I finally completed all the tasks of mit 6.830 (<a href="https://github.com/XiaochenCui/simple-db-hw">source code</a>). Now we almost have a simple database that can perform a series of operations such as querying, storing, and deleting data. The transaction and index has been achieved. We also implemented write-ahead log to prevent data lose from system crash. 99% of the tests (including unit tests and integration tests) can be successfully passed.</p>
+<p>After some pondering, I finally decided to start rewriting this database with rust (<a href="https://github.com/XiaochenCui/simple-db-rust">source code</a>).</p>
+<p>The biggest reason why I made this decision is because the original java code is too bloated and the structure is too complicated, so I need to pay great patience and time in the development and debugging process. Due to the language characteristics of java and the overall structure of the project, I often have to jump a dozen times to find a simple function call. Whenever integration tests fail, I start to sweat, because the code structure is really terrible. It also prevent me from having a clear understanding to the project structure and database architecture. This simple database is not simple at all, but rather complicated.</p>
+<p>After considering several common programming languages, I finally chose rust. I have used python and go for most of my career, but they are not suitable for this project. The problem with Python is its dynamic typing and poor performance. The problem with golang is that it is too crude, without generics and template metaprogramming. At the same time, golang&rsquo;s null pointers, goroutine leaks, and memory leaks often occurred. Python and golang also lack strong control of the bottom layer, which is also very important.</p>
+<p>The rewriting project has started for a week. Since I am a rust newbie, I have encountered a lot of difficult problems and spent a lot of time on traits, boxes, and smart pointers. The compiling of the program has only a 5% chance of proceeding smoothly. But after I spent some time studying seriously, these problems were solved one by one. rust&rsquo;s ownership system also began to force me to seriously think about the structure of this project.</p>
+<p>For now, the code size of the new project is also much lower than before. I hope that the final code size can be controlled within 5,000 lines of code (for comparison, the original project has nearly 20,000 lines of code). At the same time, I also hope that this new project will have a clearer architecture, a smaller memory footprint and a faster running speed. If possible, I also hope to use it for a complete tpc-c test.</p>
 
         </div>
         

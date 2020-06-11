@@ -12,14 +12,12 @@
     
     
     <item>
-      <title>Simple DB In Rust - Motivation</title>
+      <title>Simple DB In Rust - Started</title>
       <link>https://cuixiaochen.com/posts/simple-db-rust-0/</link>
       <pubDate>Tue, 09 Jun 2020 14:52:55 +0800</pubDate>
       
       <guid>https://cuixiaochen.com/posts/simple-db-rust-0/</guid>
-      <description>I recently decided to rewrite simple-db with rust: simple-db-rust
-Here is the motivation:
- The original java code is too verbose and cumbersome. And the code structure is unreasonable Rust&amp;rsquo;s type system and borrow checker could greatly help me develop this system I can use this opportunity to learn rust better Building an RDBMS from scratch will help me learn the database better  </description>
+      <description>After spending a lot of time, I finally completed all the tasks of mit 6.830 (source code). Now we almost have a simple database that can perform a series of operations such as querying, storing, and deleting data. The transaction and index has been achieved. We also implemented write-ahead log to prevent data lose from system crash. 99% of the tests (including unit tests and integration tests) can be successfully passed.</description>
     </item>
     
     <item>
