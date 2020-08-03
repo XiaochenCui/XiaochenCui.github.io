@@ -48,6 +48,7 @@ Comments and suggestions are welcomed.
 - [Socrates: The New SQL Server in the Cloud](https://www.microsoft.com/en-us/research/uploads/prod/2019/05/socrates.pdf)
 - [Large-scale Incremental Processing Using Distributed Transactions and Notifications](http://notes.stephenholiday.com/Percolator.pdf)
 - [Readings in Database Systems, 5th Edition](http://www.redbook.io/pdf/redbook-5th-edition.pdf)
+- [Aria: A Fast and Practical Deterministic OLTP Database](http://www.vldb.org/pvldb/vol13/p2047-lu.pdf)
 
 ## SQL Parser
 
