@@ -12,6 +12,7 @@ Comments and suggestions are welcomed.
 # Distributed Systems
 
 - [Time, Clocks, and the Ordering of Events in a Distributed System](http://lamport.azurewebsites.net/pubs/time-clocks.pdf)
+- [The End of an Architectural Era (It’s Time for a Complete Rewrite)](http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf)
 
 ## Data Processing
 
