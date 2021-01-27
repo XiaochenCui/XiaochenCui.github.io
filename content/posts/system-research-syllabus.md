@@ -49,6 +49,7 @@ Comments and suggestions are welcomed.
 - [Socrates: The New SQL Server in the Cloud](https://www.microsoft.com/en-us/research/uploads/prod/2019/05/socrates.pdf)
 - [Large-scale Incremental Processing Using Distributed Transactions and Notifications](http://notes.stephenholiday.com/Percolator.pdf)
 - [Readings in Database Systems, 5th Edition](http://www.redbook.io/pdf/redbook-5th-edition.pdf)
+- [Aria: A Fast and Practical Deterministic OLTP Database](http://www.vldb.org/pvldb/vol13/p2047-lu.pdf)
 
 ## SQL Parser
 
@@ -271,6 +272,7 @@ Comments and suggestions are welcomed.
 
 - [CMU 15-445/645 :: Intro to Database Systems (Fall 2019)](https://15445.courses.cs.cmu.edu/fall2019/)
 - [6.830/6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
+- [CMU 15-721 :: Advanced Database Systems (Spring 2020)](https://15721.courses.cs.cmu.edu/spring2020/)
 
 # Waiting For Classification
 
