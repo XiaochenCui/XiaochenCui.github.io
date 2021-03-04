@@ -295,3 +295,7 @@ Comments and suggestions are welcomed.
 - [LLVM Language Reference Manual — LLVM 10 documentation](https://llvm.org/docs/LangRef.html)
 - [LLVM’s Analysis and Transform Passes — LLVM 10 documentation](http://llvm.org/docs/Passes.html)
 - [My First Language Frontend with LLVM Tutorial — LLVM 10 documentation](http://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html)
+
+# Others
+
+- [Noria: dynamic, partially-stateful data-flow for high-performance web applications](https://pdos.csail.mit.edu/papers/noria:osdi18.pdf)
