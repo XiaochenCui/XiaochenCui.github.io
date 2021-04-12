@@ -134,7 +134,7 @@ Comments and suggestions are welcomed.
 
 ## Write Ahead Logging (WAL)
 
-- [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://cs.stanford.edu/people/chrismre/cs345/rl/aries.pdf)
+- ☑ [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://cs.stanford.edu/people/chrismre/cs345/rl/aries.pdf)
 
 ## Write Behind Logging
 
@@ -168,12 +168,12 @@ Comments and suggestions are welcomed.
 # Data Structures
 
 - B Tree
-  - [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
-  - [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
-  - [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
+  - ☑ [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
+  - ☑ [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
+  - ☑ [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
 
 - B+ Tree
-  - [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
+  - ☑ [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
 - R Tree
   - [Introduction to R-tree - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-r-tree/)
 - LSM Tree
@@ -200,7 +200,7 @@ Comments and suggestions are welcomed.
 
 ### Raft
 
-- [In Search of an Understandable Consensus Algorithm (Extended Version)](https://raft.github.io/raft.pdf)
+- ☑ [In Search of an Understandable Consensus Algorithm (Extended Version)](https://raft.github.io/raft.pdf)
 - [CONSENSUS: BRIDGING THEORY AND PRACTICE](https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf)
 - [Just say NO to Paxos Overhead: Replacing Consensus with Network Ordering](https://www.usenix.org/system/files/conference/osdi16/osdi16-li.pdf)
 
@@ -242,7 +242,7 @@ Comments and suggestions are welcomed.
 
 # Concurrency Programming
 
-- [Concurrency Freaks: Lock-Free and Wait-Free, definition and examples](http://concurrencyfreaks.blogspot.com/2013/05/lock-free-and-wait-free-definition-and.html)
+- ☑ [Concurrency Freaks: Lock-Free and Wait-Free, definition and examples](http://concurrencyfreaks.blogspot.com/2013/05/lock-free-and-wait-free-definition-and.html)
 - [OneFile: A Wait-free Persistent Transactional Memory](https://github.com/XiaochenCui/OneFile/blob/master/OneFile-2019.pdf)
 - [Let's talk locks! - Speaker Deck](https://speakerdeck.com/kavya719/lets-talk-locks)
 - [Basics of Futexes - Eli Bendersky's website](https://eli.thegreenplace.net/2018/basics-of-futexes/)
@@ -256,7 +256,7 @@ Comments and suggestions are welcomed.
 
 ## Distributed Systemes
 
-- [MIT 6.824](https://pdos.csail.mit.edu/6.824/)
+- ☑ [MIT 6.824](https://pdos.csail.mit.edu/6.824/)
 - [CS294-91 Distributed Computing](https://people.eecs.berkeley.edu/~alig/cs294-91/)
 - [6.852: Distributed Algorithms - Massachusetts Institute of Technology - Spring 2008](http://courses.csail.mit.edu/6.852/08/)
 
@@ -272,7 +272,7 @@ Comments and suggestions are welcomed.
 ## Database
 
 - [CMU 15-445/645 :: Intro to Database Systems (Fall 2019)](https://15445.courses.cs.cmu.edu/fall2019/)
-- [6.830/6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
+- ☑ [6.830/6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
 - [CMU 15-721 :: Advanced Database Systems (Spring 2020)](https://15721.courses.cs.cmu.edu/spring2020/)
 
 # Waiting For Classification
@@ -285,7 +285,7 @@ Comments and suggestions are welcomed.
 
 ## Memory Allocation
 
-- [Dynamic Memory Allocation in C using malloc(), calloc(), free() and realloc() - GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/)
+- ☑ [Dynamic Memory Allocation in C using malloc(), calloc(), free() and realloc() - GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/)
 - [Writing a Memory Allocator – Dmitry Soshnikov](http://dmitrysoshnikov.com/compilers/writing-a-memory-allocator/)
 
 # Compiler
@@ -295,7 +295,7 @@ Comments and suggestions are welcomed.
 - [The Architecture of Open Source Applications: LLVM](http://www.aosabook.org/en/llvm.html)
 - [LLVM Language Reference Manual — LLVM 10 documentation](https://llvm.org/docs/LangRef.html)
 - [LLVM’s Analysis and Transform Passes — LLVM 10 documentation](http://llvm.org/docs/Passes.html)
-- [My First Language Frontend with LLVM Tutorial — LLVM 10 documentation](http://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html)
+- ☑ [My First Language Frontend with LLVM Tutorial — LLVM 10 documentation](http://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html)
 
 # Others
 
