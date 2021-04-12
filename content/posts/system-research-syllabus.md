@@ -299,3 +299,9 @@ Comments and suggestions are welcomed.
 # Others
 
 - [Noria: dynamic, partially-stateful data-flow for high-performance web applications](https://pdos.csail.mit.edu/papers/noria:osdi18.pdf)
+
+## Filter
+
+- [Probabilistic Filters By Example: Cuckoo Filter and Bloom Filters](https://bdupras.github.io/filter-tutorial/)
+- [Cuckoo Filter: Practically Better Than Bloom](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
+- [Bloom Filters by Example](https://llimllib.github.io/bloomfilter-tutorial/)
