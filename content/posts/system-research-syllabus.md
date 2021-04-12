@@ -50,6 +50,7 @@ Comments and suggestions are welcomed.
 - [Large-scale Incremental Processing Using Distributed Transactions and Notifications](http://notes.stephenholiday.com/Percolator.pdf)
 - [Readings in Database Systems, 5th Edition](http://www.redbook.io/pdf/redbook-5th-edition.pdf)
 - [Aria: A Fast and Practical Deterministic OLTP Database](http://www.vldb.org/pvldb/vol13/p2047-lu.pdf)
+- ☑ [Bigtable: A Distributed Storage System for Structured Data](https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
 
 ## SQL Parser
 
@@ -151,7 +152,7 @@ Comments and suggestions are welcomed.
 ## BLOB Storage
 
 - [Finding a needle in Haystack: Facebook’s photo storage](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf)
-- [f4: Facebook’s Warm BLOB Storage System](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf)
+- ☑ [f4: Facebook’s Warm BLOB Storage System](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf)
 
 ## Distributed File System
 
