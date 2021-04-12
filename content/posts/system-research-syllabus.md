@@ -271,8 +271,8 @@ Comments and suggestions are welcomed.
 
 ## Database
 
-- [CMU 15-445/645 :: Intro to Database Systems (Fall 2019)](https://15445.courses.cs.cmu.edu/fall2019/)
-- ☑ [6.830/6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
+- [CMU 15-445 / 645 :: Intro to Database Systems (Fall 2019)](https://15445.courses.cs.cmu.edu/fall2019/)
+- ☑ [6.830 / 6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
 - [CMU 15-721 :: Advanced Database Systems (Spring 2020)](https://15721.courses.cs.cmu.edu/spring2020/)
 
 # Waiting For Classification
@@ -306,3 +306,10 @@ Comments and suggestions are welcomed.
 - [Probabilistic Filters By Example: Cuckoo Filter and Bloom Filters](https://bdupras.github.io/filter-tutorial/)
 - [Cuckoo Filter: Practically Better Than Bloom](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
 - [Bloom Filters by Example](https://llimllib.github.io/bloomfilter-tutorial/)
+
+# Golang
+
+## GC
+
+- [Golang’s Real-time GC in Theory and Practice - Making Pusher](https://making.pusher.com/golangs-real-time-gc-in-theory-and-practice/)
+- [Go 1.5 concurrent garbage collector pacing - Google Docs](https://docs.google.com/document/d/1wmjrocXIWTr1JxU-3EQBI6BK6KgtiFArkG47XK73xIQ/edit#)
