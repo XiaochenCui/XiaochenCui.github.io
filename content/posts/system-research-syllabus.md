@@ -162,6 +162,10 @@ Comments and suggestions are welcomed.
 
 - [Ceph: A Scalable, High-Performance Distributed File System](https://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf)
 
+## Time Series Storage
+
+- ☑︎ [技术分享：Prometheus是怎么存储数据的](https://youtu.be/qB40kqhTyYM)
+
 # Disk Error Correction
 
 ## Reed-Solomon
