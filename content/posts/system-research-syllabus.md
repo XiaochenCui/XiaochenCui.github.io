@@ -149,6 +149,10 @@ Comments and suggestions are welcomed.
 - [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf)
 - [Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)
 
+## Local Storage
+- [WiscKey: Separating Keys from Values in SSD-conscious Storage](https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf)
+- [Titan 的设计与实现 | PingCAP](https://pingcap.com/blog-cn/titan-design-and-implementation/)
+
 ## BLOB Storage
 
 - ☑ [Finding a needle in Haystack: Facebook’s photo storage](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf)
