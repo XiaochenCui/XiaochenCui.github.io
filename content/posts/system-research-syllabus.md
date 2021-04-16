@@ -232,6 +232,10 @@ Comments and suggestions are welcomed.
 
 - [Arachne: Core-Aware Thread Management](https://web.stanford.edu/~ouster/cgi-bin/papers/arachne_osdi2018_submit.pdf)
 
+## Scheduling Algorithm
+
+- [Multilevel feedback queue - Wikipedia](https://en.wikipedia.org/wiki/Multilevel_feedback_queue)
+
 # Allocator
 
 - [Mimalloc: Free List Sharding in Action](https://www.microsoft.com/en-us/research/uploads/prod/2019/06/mimalloc-tr-v1.pdf)
