@@ -165,6 +165,7 @@ Comments and suggestions are welcomed.
 ## Time Series Storage
 
 - ☑︎ [技术分享：Prometheus是怎么存储数据的](https://youtu.be/qB40kqhTyYM)
+- [Gorilla: A Fast, Scalable, In-Memory Time Series Database](https://www.vldb.org/pvldb/vol8/p1816-teller.pdf)
 
 # Disk Error Correction
 
