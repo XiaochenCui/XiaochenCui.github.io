@@ -53,6 +53,9 @@ Comments and suggestions are welcomed.
 - ☑ [Bigtable: A Distributed Storage System for Structured Data](https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
 - [Alibaba Hologres: A Cloud-Native Service for Hybrid Serving/Analytical Processing](https://kai-zeng.github.io/papers/hologres.pdf)
 
+## Column Storage
+- [The Vertica Analytic Database: C-Store 7 Years Later](https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf)
+
 ## SQL Parser
 
 - [Apache Calcite: A Foundational Framework for Optimized Query Processing Over Heterogeneous Data Sources](https://arxiv.org/pdf/1802.10233.pdf)
