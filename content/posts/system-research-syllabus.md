@@ -65,7 +65,6 @@ Comments and suggestions are welcomed.
 - [Access Path Selection in a Relational Database Management System](https://www2.cs.duke.edu/courses/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf)
 - [Statistical Profile Estimation in Database Systems](http://people.csail.mit.edu/tdanford/6830papers/mannino-stat-profile-estimation.pdf)
 - [Building a Modern Database Using LLVM](https://llvm.org/devmtg/2013-11/slides/Wanderman-Milne-Cloudera.pdf)
-- [Efficiently Compiling Efficient Query Plans for Modern Hardware](https://www.vldb.org/pvldb/vol4/p539-neumann.pdf)
 - [EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/xu-columbia-thesis1998.pdf)
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](https://cs.uwaterloo.ca/~david/cs848/volcano.pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
@@ -74,6 +73,10 @@ Comments and suggestions are welcomed.
 
 - [查询编译综述 - 知乎](https://zhuanlan.zhihu.com/p/60965109)
 - [Runtime Code Generation in Cloudera Impala](http://sites.computer.org/debull/A14mar/p31.pdf)
+- [Generating code for holistic query evaluation](https://15721.courses.cs.cmu.edu/spring2017/papers/20-compilation/krikellas-icde2010.pdf)
+- [Efficiently Compiling Efficient Query Plans for Modern Hardware](https://www.vldb.org/pvldb/vol4/p539-neumann.pdf)
+- [Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Last](https://par.nsf.gov/servlets/purl/10066914)
+- [How to Architect a Query Compiler, Revisited](https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf)
 
 ## Join Algorithm
 
