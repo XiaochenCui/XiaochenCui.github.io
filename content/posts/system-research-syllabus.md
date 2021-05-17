@@ -70,6 +70,11 @@ Comments and suggestions are welcomed.
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](https://cs.uwaterloo.ca/~david/cs848/volcano.pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
 
+### Query Compilation
+
+- [查询编译综述 - 知乎](https://zhuanlan.zhihu.com/p/60965109)
+- [Runtime Code Generation in Cloudera Impala](http://sites.computer.org/debull/A14mar/p31.pdf)
+
 ## Join Algorithm
 
 - Nested Loop Join
