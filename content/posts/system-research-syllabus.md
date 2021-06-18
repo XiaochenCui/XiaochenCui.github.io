@@ -77,6 +77,7 @@ Comments and suggestions are welcomed.
 - [Efficiently Compiling Efficient Query Plans for Modern Hardware](https://www.vldb.org/pvldb/vol4/p539-neumann.pdf)
 - [Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Last](https://par.nsf.gov/servlets/purl/10066914)
 - [How to Architect a Query Compiler, Revisited](https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf)
+- [Code generation for efficient query processing in managed runtimes](https://pdfs.semanticscholar.org/1eae/e91396ae428589a880abb780af1e88cea180.pdf?_ga=2.162570108.1979694222.1621214327-1782859694.1621214327)
 
 ## Join Algorithm
 
@@ -271,6 +272,7 @@ Comments and suggestions are welcomed.
 - [OneFile: A Wait-free Persistent Transactional Memory](https://github.com/XiaochenCui/OneFile/blob/master/OneFile-2019.pdf)
 - [Let's talk locks! - Speaker Deck](https://speakerdeck.com/kavya719/lets-talk-locks)
 - [Basics of Futexes - Eli Bendersky's website](https://eli.thegreenplace.net/2018/basics-of-futexes/)
+- [A Practical Wait-Free Simulation for Lock-Free Data Structures](http://cs.technion.ac.il/~erez/Papers/wf-simulation-full.pdf)
 
 # PLT
 
