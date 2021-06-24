@@ -54,6 +54,7 @@ Comments and suggestions are welcomed.
 - [Alibaba Hologres: A Cloud-Native Service for Hybrid Serving/Analytical Processing](https://kai-zeng.github.io/papers/hologres.pdf)
 - [LLAMA: A Cache/Storage Subsystem for Modern Hardware](http://www.vldb.org/pvldb/vol6/p877-levandoski.pdf)
 - [POLARDB: InnoDB based shared-everything storage solution](https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf)
+- [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
 
 ## Column Storage
 - [The Vertica Analytic Database: C-Store 7 Years Later](https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf)
@@ -348,3 +349,7 @@ Comments and suggestions are welcomed.
 
 - [Golang’s Real-time GC in Theory and Practice - Making Pusher](https://making.pusher.com/golangs-real-time-gc-in-theory-and-practice/)
 - [Go 1.5 concurrent garbage collector pacing - Google Docs](https://docs.google.com/document/d/1wmjrocXIWTr1JxU-3EQBI6BK6KgtiFArkG47XK73xIQ/edit#)
+
+# IEEE754
+
+- [IEEE 754 - Wikipedia](https://en.wikipedia.org/wiki/IEEE_754)
