@@ -61,6 +61,7 @@ Comments and suggestions are welcomed.
 
 - [THE DESIGN OF POSTGRES](https://dsf.berkeley.edu/papers/ERL-M85-95.pdf)
 - [THE IMPLEMENTATION OF POSTGRES](https://dsf.berkeley.edu/papers/ERL-M90-34.pdf)
+- [[ROWE87] The POSTGRES Data Model](https://dsf.berkeley.edu/papers/ERL-M87-13.pdf)
 
 ## Column Storage
 - [The Vertica Analytic Database: C-Store 7 Years Later](https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf)
