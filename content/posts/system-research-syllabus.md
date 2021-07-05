@@ -70,6 +70,10 @@ Comments and suggestions are welcomed.
 
 - [Apache Calcite: A Foundational Framework for Optimized Query Processing Over Heterogeneous Data Sources](https://arxiv.org/pdf/1802.10233.pdf)
 
+## SQL Test
+
+- ☑︎[TiDB SQL 兼容性测试工具简介（Compatibility testing tool profile）](https://www.youtube.com/watch?v=Hmu3F1Vafqc)
+
 ## Query Optimization
 
 - [Access Path Selection in a Relational Database Management System](https://www2.cs.duke.edu/courses/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf)
@@ -349,6 +353,8 @@ Comments and suggestions are welcomed.
 - [Probabilistic Filters By Example: Cuckoo Filter and Bloom Filters](https://bdupras.github.io/filter-tutorial/)
 - [Cuckoo Filter: Practically Better Than Bloom](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
 - [Bloom Filters by Example](https://llimllib.github.io/bloomfilter-tutorial/)
+
+# Rust
 
 # Golang
 
