@@ -85,7 +85,7 @@ Comments and suggestions are welcomed.
 
 ### Query Compilation
 
-- [查询编译综述 - 知乎](https://zhuanlan.zhihu.com/p/60965109)
+- ☑︎[查询编译综述 - 知乎](https://zhuanlan.zhihu.com/p/60965109)
 - [Runtime Code Generation in Cloudera Impala](http://sites.computer.org/debull/A14mar/p31.pdf)
 - [Generating code for holistic query evaluation](https://15721.courses.cs.cmu.edu/spring2017/papers/20-compilation/krikellas-icde2010.pdf)
 - [Efficiently Compiling Efficient Query Plans for Modern Hardware](https://www.vldb.org/pvldb/vol4/p539-neumann.pdf)
