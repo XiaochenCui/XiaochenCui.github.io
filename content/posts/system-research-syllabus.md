@@ -82,6 +82,7 @@ Comments and suggestions are welcomed.
 - [EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/xu-columbia-thesis1998.pdf)
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](https://cs.uwaterloo.ca/~david/cs848/volcano.pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
+- [逻辑优化 | PingCAP Docs](https://docs.pingcap.com/zh/tidb/stable/sql-logical-optimization)
 
 ### Query Compilation
 
