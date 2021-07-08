@@ -89,8 +89,8 @@ Comments and suggestions are welcomed.
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.21.2197&rep=rep1&type=pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
 - [逻辑优化 | PingCAP Docs](https://docs.pingcap.com/zh/tidb/stable/sql-logical-optimization)
-- [Cascades Optimizer - 知乎](https://zhuanlan.zhihu.com/p/73545345)
-- [Cost-Based Optimizer | CockroachDB Docs](https://www.cockroachlabs.com/docs/stable/cost-based-optimizer.html)
+- ☑︎[Cascades Optimizer - 知乎](https://zhuanlan.zhihu.com/p/73545345)
+- ☑︎[Cost-Based Optimizer | CockroachDB Docs](https://www.cockroachlabs.com/docs/stable/cost-based-optimizer.html)
 
 ## Query Compilation
 
@@ -382,3 +382,7 @@ Comments and suggestions are welcomed.
 
 - [Build a Modern Computer from First Principles: From Nand to Tetris (Project-Centered Course) | Coursera](https://www.coursera.org/learn/build-a-computer)
 - [NandGame - Build a computer from scratch.](https://nandgame.com/)
+
+# TLA+
+
+- [Introduction :: Learn TLA+](https://learntla.com/introduction/)
