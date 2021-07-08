@@ -62,6 +62,12 @@ Comments and suggestions are welcomed.
 - [THE DESIGN OF POSTGRES](https://dsf.berkeley.edu/papers/ERL-M85-95.pdf)
 - [THE IMPLEMENTATION OF POSTGRES](https://dsf.berkeley.edu/papers/ERL-M90-34.pdf)
 - [[ROWE87] The POSTGRES Data Model](https://dsf.berkeley.edu/papers/ERL-M87-13.pdf)
+- [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
+
+## MVCC
+
+- [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
+- [浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
 
 ## Column Storage
 - [The Vertica Analytic Database: C-Store 7 Years Later](https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf)
@@ -105,6 +111,8 @@ Comments and suggestions are welcomed.
     - Index Nested Loops Join
 - Sort-Merge Join
 - Hash Join
+
+- [Hash join in MySQL 8 | MySQL Server Blog](https://mysqlserverteam.com/hash-join-in-mysql-8/)
 
 ## Lock & Transaction
 
