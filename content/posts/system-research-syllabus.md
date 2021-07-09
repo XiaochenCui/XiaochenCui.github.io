@@ -55,7 +55,7 @@ Comments and suggestions are welcomed.
 - [LLAMA: A Cache/Storage Subsystem for Modern Hardware](http://www.vldb.org/pvldb/vol6/p877-levandoski.pdf)
 - [POLARDB: InnoDB based shared-everything storage solution](https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf)
 - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
-- [Greenplum: A Hybrid Database for Transactional and Analytical Workloads](https://arxiv.org/pdf/2103.11080.pdf)
+- ☑︎[Greenplum: A Hybrid Database for Transactional and Analytical Workloads](https://arxiv.org/pdf/2103.11080.pdf)
 
 ## PostgreSQL
 
@@ -63,6 +63,9 @@ Comments and suggestions are welcomed.
 - [THE IMPLEMENTATION OF POSTGRES](https://dsf.berkeley.edu/papers/ERL-M90-34.pdf)
 - [[ROWE87] The POSTGRES Data Model](https://dsf.berkeley.edu/papers/ERL-M87-13.pdf)
 - [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
+
+## CockroachDB
+- ☑︎[Life of a SQL Query](https://github.com/cockroachdb/cockroach/blob/94e48ae8f2/docs/tech-notes/life_of_a_query.md)
 
 ## MVCC
 
