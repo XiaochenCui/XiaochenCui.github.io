@@ -394,3 +394,7 @@ Comments and suggestions are welcomed.
 # TLA+
 
 - [Introduction :: Learn TLA+](https://learntla.com/introduction/)
+
+# Communication
+
+- [END-TO-END ARGUMENTS IN SYSTEM DESIGN](http://web.mit.edu/saltzer/www/publications/endtoend/endtoend.pdf)
