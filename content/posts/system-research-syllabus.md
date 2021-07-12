@@ -55,6 +55,9 @@ Comments and suggestions are welcomed.
 - [LLAMA: A Cache/Storage Subsystem for Modern Hardware](http://www.vldb.org/pvldb/vol6/p877-levandoski.pdf)
 - [POLARDB: InnoDB based shared-everything storage solution](https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf)
 - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
+
+## Greenplum
+
 - ☑︎[Greenplum: A Hybrid Database for Transactional and Analytical Workloads](https://arxiv.org/pdf/2103.11080.pdf)
 
 ## PostgreSQL
@@ -69,8 +72,8 @@ Comments and suggestions are welcomed.
 
 ## MVCC
 
-- [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
-- [浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
+- ☑︎[PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
+- ☑︎[浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
 
 ## Column Storage
 - [The Vertica Analytic Database: C-Store 7 Years Later](https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf)
@@ -198,6 +201,7 @@ Comments and suggestions are welcomed.
 
 - ☑ [Finding a needle in Haystack: Facebook’s photo storage](https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf)
 - ☑ [f4: Facebook’s Warm BLOB Storage System](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf)
+- ☑︎ [[Paper Notes] Facebook Haystack and F4 - 纯纯的 Blog](https://blog.zhuangty.com/haystack-f4/)
 
 ## Distributed File System
 
