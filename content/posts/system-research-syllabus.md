@@ -55,6 +55,7 @@ Comments and suggestions are welcomed.
 - [LLAMA: A Cache/Storage Subsystem for Modern Hardware](http://www.vldb.org/pvldb/vol6/p877-levandoski.pdf)
 - [POLARDB: InnoDB based shared-everything storage solution](https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf)
 - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
+- [POLARIS: The Distributed SQL Engine in Azure Synapse](http://www.vldb.org/pvldb/vol13/p3204-saborit.pdf)
 
 ## Greenplum
 
