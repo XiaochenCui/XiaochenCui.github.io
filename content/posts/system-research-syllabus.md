@@ -59,7 +59,8 @@ Comments and suggestions are welcomed.
 
 ## Greenplum
 
-- ☑︎[Greenplum: A Hybrid Database for Transactional and Analytical Workloads](https://arxiv.org/pdf/2103.11080.pdf)
+- ☑︎ [Greenplum: A Hybrid Database for Transactional and Analytical Workloads](https://arxiv.org/pdf/2103.11080.pdf)
+- ☑︎ [Greenplum: A Hybrid Database for Transactional and Analytical Workloads (中文翻译)](https://zhuanlan.zhihu.com/p/388545190)
 
 ## PostgreSQL
 
