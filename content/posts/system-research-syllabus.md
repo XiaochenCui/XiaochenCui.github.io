@@ -69,7 +69,8 @@ Comments and suggestions are welcomed.
 - [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
 
 ## CockroachDB
-- ☑︎[Life of a SQL Query](https://github.com/cockroachdb/cockroach/blob/94e48ae8f2/docs/tech-notes/life_of_a_query.md)
+- ☑︎ [Life of a SQL Query](https://github.com/cockroachdb/cockroach/blob/94e48ae8f2/docs/tech-notes/life_of_a_query.md)
+- ☑︎ [SQL query planning and optimizations](https://github.com/cockroachdb/cockroach/blob/c097a16427f65e9070991f062716d222ea5903fe/pkg/sql/opt/doc.go)
 
 ## MVCC
 
