@@ -75,8 +75,8 @@ Comments and suggestions are welcomed.
 
 ## MVCC
 
-- ☑︎[PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
-- ☑︎[浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
+- ☑︎ [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
+- ☑︎ [浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
 
 ## Column Storage
 - [The Vertica Analytic Database: C-Store 7 Years Later](https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf)
