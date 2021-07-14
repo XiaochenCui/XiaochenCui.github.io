@@ -29,12 +29,16 @@ Comments and suggestions are welcomed.
 - [Presto: SQL on Everything](https://prestosql.io/Presto_SQL_on_Everything.pdf)
 - [Dremel: Interactive Analysis of Web-Scale Datasets](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36632.pdf)
 
-## Distrubuted Storage System
+## Distributed Storage System
 
 - [Atlas: Baidu’s Key-value Storage System for Cloud Data](http://ranger.uta.edu/~sjiang/pubs/papers/lai15-atlas.pdf)
 - [PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment](https://www.microsoft.com/en-us/research/wp-content/uploads/2001/05/pastDruschel.pdf)
 - [OceanStore: An Architecture for Global-Scale Persistent Storage](http://www.srhea.net/papers/asplos00.pdf)
 - [Alluxio: A Virtual Distributed File System](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2018/EECS-2018-29.pdf)
+
+## Distributed Computation
+
+- [Ray: A Distributed Framework for Emerging AI Applications](https://arxiv.org/pdf/1712.05889.pdf)
 
 # Database
 
@@ -87,7 +91,7 @@ Comments and suggestions are welcomed.
 
 ## SQL Test
 
-- ☑︎[TiDB SQL 兼容性测试工具简介（Compatibility testing tool profile）](https://www.youtube.com/watch?v=Hmu3F1Vafqc)
+- ☑︎ [TiDB SQL 兼容性测试工具简介（Compatibility testing tool profile）](https://www.youtube.com/watch?v=Hmu3F1Vafqc)
 
 ## Query Optimization
 
@@ -98,12 +102,12 @@ Comments and suggestions are welcomed.
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.21.2197&rep=rep1&type=pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
 - [逻辑优化 | PingCAP Docs](https://docs.pingcap.com/zh/tidb/stable/sql-logical-optimization)
-- ☑︎[Cascades Optimizer - 知乎](https://zhuanlan.zhihu.com/p/73545345)
-- ☑︎[Cost-Based Optimizer | CockroachDB Docs](https://www.cockroachlabs.com/docs/stable/cost-based-optimizer.html)
+- ☑︎ [Cascades Optimizer - 知乎](https://zhuanlan.zhihu.com/p/73545345)
+- ☑︎ [Cost-Based Optimizer | CockroachDB Docs](https://www.cockroachlabs.com/docs/stable/cost-based-optimizer.html)
 
 ## Query Compilation
 
-- ☑︎[查询编译综述 - 知乎](https://zhuanlan.zhihu.com/p/60965109)
+- ☑︎ [查询编译综述 - 知乎](https://zhuanlan.zhihu.com/p/60965109)
 - [Runtime Code Generation in Cloudera Impala](http://sites.computer.org/debull/A14mar/p31.pdf)
 - [Generating code for holistic query evaluation](https://15721.courses.cs.cmu.edu/spring2017/papers/20-compilation/krikellas-icde2010.pdf)
 - [Efficiently Compiling Efficient Query Plans for Modern Hardware](https://www.vldb.org/pvldb/vol4/p539-neumann.pdf)
