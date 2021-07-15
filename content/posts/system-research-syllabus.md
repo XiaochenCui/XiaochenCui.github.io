@@ -378,6 +378,7 @@ Comments and suggestions are welcomed.
 - [Probabilistic Filters By Example: Cuckoo Filter and Bloom Filters](https://bdupras.github.io/filter-tutorial/)
 - [Cuckoo Filter: Practically Better Than Bloom](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf)
 - [Bloom Filters by Example](https://llimllib.github.io/bloomfilter-tutorial/)
+- [Ribbon filter: practically smaller than Bloom and Xor](https://arxiv.org/pdf/2103.02515.pdf)
 
 # Rust
 
