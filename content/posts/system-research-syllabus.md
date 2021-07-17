@@ -46,6 +46,10 @@ Comments and suggestions are welcomed.
 
 - [A Relational Model of Data for Large Shared Data Banks](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
 
+## History
+
+- ☑︎ [What Goes Around Comes Around](https://15721.courses.cs.cmu.edu/spring2020/papers/01-intro/whatgoesaround-stonebraker.pdf)
+
 ## Architecture
 
 - [Architecture of a Database System](http://db.cs.berkeley.edu/papers/fntdb07-architecture.pdf)
