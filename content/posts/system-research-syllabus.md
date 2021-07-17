@@ -49,6 +49,7 @@ Comments and suggestions are welcomed.
 ## History
 
 - ☑︎ [What Goes Around Comes Around](https://15721.courses.cs.cmu.edu/spring2020/papers/01-intro/whatgoesaround-stonebraker.pdf)
+- ☑︎ [What’s Really New with NewSQL?](https://15721.courses.cs.cmu.edu/spring2020/papers/01-intro/pavlo-newsql-sigmodrec2016.pdf)
 
 ## Architecture
 
