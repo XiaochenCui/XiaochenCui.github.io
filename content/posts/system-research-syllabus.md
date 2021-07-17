@@ -405,3 +405,7 @@ Comments and suggestions are welcomed.
 # Communication
 
 - [END-TO-END ARGUMENTS IN SYSTEM DESIGN](http://web.mit.edu/saltzer/www/publications/endtoend/endtoend.pdf)
+
+# Lexical Analyser
+
+- [book: flex & bison](https://web.iitd.ac.in/~sumeet/flex__bison.pdf)
