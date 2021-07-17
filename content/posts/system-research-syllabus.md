@@ -122,16 +122,9 @@ Comments and suggestions are welcomed.
 
 ## Join Algorithm
 
-- Nested Loop Join
-    - Simple Nested Loops Join
-        - tuple-at-a-time
-        - page-at-a-time
-    - Block Nested Loops Join
-    - Index Nested Loops Join
-- Sort-Merge Join
-- Hash Join
-
 - [Hash join in MySQL 8 | MySQL Server Blog](https://mysqlserverteam.com/hash-join-in-mysql-8/)
+- [An Experimental Comparison of Thirteen Relational Equi-Joins in Main Memory](https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/schuh-sigmod2016.pdf)
+- [Multi-Core, Main-Memory Joins: Sort vs. Hash Revisited](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p85-balkesen.pdf)
 
 ## Lock & Transaction
 
