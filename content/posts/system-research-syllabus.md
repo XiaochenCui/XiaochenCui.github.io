@@ -184,6 +184,7 @@ Comments and suggestions are welcomed.
 ### Optimistic Concurrency Control
 
 - [On Optimistic Methods for Concurrency Control](https://www.eecs.harvard.edu/~htk/publication/1981-tods-kung-robinson.pdf)
+- [Staring into the Abyss: An Evaluation of Concurrency Control with One Thousand Cores](https://www.vldb.org/pvldb/vol8/p209-yu.pdf)
 
 ## Recovery
 
