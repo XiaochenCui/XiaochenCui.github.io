@@ -181,23 +181,24 @@ Comments and suggestions are welcomed.
 - Optimistic concurrency control
 - Multiversion concurrency control (MVCC)
 
-# Optimistic Concurrency Control
+### Optimistic Concurrency Control
 
 - [On Optimistic Methods for Concurrency Control](https://www.eecs.harvard.edu/~htk/publication/1981-tods-kung-robinson.pdf)
 
-# Recovery
+## Recovery
 
-## Write Ahead Logging (WAL)
+### Write Ahead Logging (WAL)
 
 - ☑ [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://cs.stanford.edu/people/chrismre/cs345/rl/aries.pdf)
 
-## Write Behind Logging
+### Write Behind Logging
 
 - [Write Behind Logging](http://www.vldb.org/pvldb/vol10/p337-arulraj.pdf)
 
 ## Others
 
 - [Using Crash Hoare Logic for Certifying the FSCQ File System](https://pdos.csail.mit.edu/papers/fscq:sosp15.pdf)
+- [OLTP Through the Looking Glass, and What We Found There](http://nms.csail.mit.edu/~stavros/pubs/OLTP_sigmod08.pdf)
 
 # Storage
 
