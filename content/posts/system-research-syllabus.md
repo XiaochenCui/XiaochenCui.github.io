@@ -27,6 +27,7 @@ Comments and suggestions are welcomed.
 ## SQL Workloads
 
 - [Presto: SQL on Everything](https://prestosql.io/Presto_SQL_on_Everything.pdf)
+- [深入浅出Presto：PB级OLAP引擎](https://www.zhihu.com/column/c_1294277883771940864)
 - [Dremel: Interactive Analysis of Web-Scale Datasets](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36632.pdf)
 
 ## Distributed Storage System
@@ -85,6 +86,7 @@ Comments and suggestions are welcomed.
 
 ## MVCC
 
+- [An Empirical Evaluation of In-Memory Multi-Version Concurrency Control](https://15721.courses.cs.cmu.edu/spring2020/papers/03-mvcc1/wu-vldb2017.pdf)
 - ☑︎ [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
 - ☑︎ [浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
 
