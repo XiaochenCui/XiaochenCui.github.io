@@ -40,6 +40,7 @@ Comments and suggestions are welcomed.
 ## Distributed Computation
 
 - [Ray: A Distributed Framework for Emerging AI Applications](https://arxiv.org/pdf/1712.05889.pdf)
+- [Starling: A Scalable Query Engine on Cloud Functions](https://dl.acm.org/doi/pdf/10.1145/3318464.3380609)
 
 # Database
 
