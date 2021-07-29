@@ -113,6 +113,8 @@ Comments and suggestions are welcomed.
 - [逻辑优化 | PingCAP Docs](https://docs.pingcap.com/zh/tidb/stable/sql-logical-optimization)
 - ☑︎ [Cascades Optimizer - 知乎](https://zhuanlan.zhihu.com/p/73545345)
 - ☑︎ [Cost-Based Optimizer | CockroachDB Docs](https://www.cockroachlabs.com/docs/stable/cost-based-optimizer.html)
+- [Optimizing Data Shuffling in Data-Parallel Computation by Understanding User-Defined Functions](https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final98.pdf)
+- [Spotting Code Optimizations in Data-Parallel Pipelines through PeriSCOPE](https://www.usenix.org/system/files/conference/osdi12/osdi12-final-23.pdf)
 
 ## Query Compilation
 
