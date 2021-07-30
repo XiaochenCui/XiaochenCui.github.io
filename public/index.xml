@@ -6,22 +6,10 @@
     <description>Recent content on XiaochenCui&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Jul 2021 14:51:16 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2020 17:20:59 +0800</lastBuildDate>
     
 	<atom:link href="https://cuixiaochen.com/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Networking Notes</title>
-      <link>https://cuixiaochen.com/posts/networking-notes/</link>
-      <pubDate>Fri, 30 Jul 2021 14:51:16 +0800</pubDate>
-      
-      <guid>https://cuixiaochen.com/posts/networking-notes/</guid>
-      <description>NAT Summary of the types of NAT NAT vs PAT – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated
-Static vs Dynamic – these terms define whether the post-translation attributes are explicitly defined by the administrator, or ephemerally determined by the router.
-When combined, this provides four possible variations of Network Address Translation:
- Static NAT – Translation of just the IP address where the administrator explicitly defines the IP address after translation Static PAT – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation Dynamic PAT – Translation of the IP address and Port, where the router determines the new IP address and Port after translation Dynamic NAT – Translation of just the IP address, where the router determines the new IP address after translation  Policy NAT and Twice NAT  Policy NAT - Translation that occurs based upon matching both the Source and Destination of traffic.</description>
-    </item>
     
     <item>
       <title>Simple DB In Rust - Looking Back A Month Later</title>

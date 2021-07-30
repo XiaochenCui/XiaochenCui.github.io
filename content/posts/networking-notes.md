@@ -1,6 +1,7 @@
 ---
 title: "Networking Notes"
 date: 2021-07-30T14:51:16+08:00
+draft: true
 ---
 
 # NAT
