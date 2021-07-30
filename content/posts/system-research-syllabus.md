@@ -126,6 +126,7 @@ Comments and suggestions are welcomed.
 - [How to Architect a Query Compiler, Revisited](https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf)
 - [Code generation for efficient query processing in managed runtimes](https://pdfs.semanticscholar.org/1eae/e91396ae428589a880abb780af1e88cea180.pdf?_ga=2.162570108.1979694222.1621214327-1782859694.1621214327)
 - [Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask](http://www.vldb.org/pvldb/vol11/p2209-kersten.pdf)
+- [Vectorization vs. Compilation in Query Execution](https://zhuanlan.zhihu.com/p/393961205)
 
 ## Join Algorithm
 

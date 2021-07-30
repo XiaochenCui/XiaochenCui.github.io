@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.57.2" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/networking-notes/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/networking-notes/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Networking Notes",
+      "headline" : "Networking Notes",
+      "description" : " NAT Summary of the types of NAT NAT vs PAT – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated\nStatic vs Dynamic – these terms define whether the post-translation attributes are explicitly defined by the administrator, or ephemerally determined by the router.\nWhen combined, this provides four possible variations of Network Address Translation:\n Static NAT – Translation of just the IP address where the administrator explicitly defines the IP address after translation Static PAT – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation Dynamic PAT – Translation of the IP address and Port, where the router determines the new IP address and Port after translation Dynamic NAT – Translation of just the IP address, where the router determines the new IP address after translation  ",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2021",
+      "datePublished": "2021-07-30 14:51:16 \x2b0800 CST",
+      "dateModified" : "2021-07-30 14:51:16 \x2b0800 CST",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/networking-notes\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Networking Notes - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Networking Notes - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content=" NAT Summary of the types of NAT NAT vs PAT – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated
+Static vs Dynamic – these terms define whether the post-translation attributes are explicitly defined by the administrator, or ephemerally determined by the router.
+When combined, this provides four possible variations of Network Address Translation:
+ Static NAT – Translation of just the IP address where the administrator explicitly defines the IP address after translation Static PAT – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation Dynamic PAT – Translation of the IP address and Port, where the router determines the new IP address and Port after translation Dynamic NAT – Translation of just the IP address, where the router determines the new IP address after translation  " />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Xiaochen Cui</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Networking Notes</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2021-07-30 14:51:16 CST">
+                30 Jul 2021
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+
+<h1 id="nat">NAT</h1>
+
+<h2 id="summary-of-the-types-of-nat">Summary of the types of NAT</h2>
+
+<p><strong>NAT vs PAT</strong> – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated</p>
+
+<p><strong>Static vs Dynamic</strong> – these terms define whether the post-translation attributes are explicitly defined by the administrator, or ephemerally determined by the router.</p>
+
+<p>When combined, this provides four possible variations of Network Address Translation:</p>
+
+<ul>
+<li><strong>Static NAT</strong> – Translation of just the IP address where the administrator explicitly defines the IP address after translation</li>
+<li><strong>Static PAT</strong> – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation</li>
+<li><strong>Dynamic PAT</strong> – Translation of the IP address and Port, where the router determines the new IP address and Port after translation</li>
+<li><strong>Dynamic NAT</strong> – Translation of just the IP address, where the router determines the new IP address after translation</li>
+</ul>
+
+        </div>
+        
+
+        
+
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        <div class="post-comments">
+          <div id="disqus_thread"></div>
+<script>
+  window.addEventListener("load", () => {
+    (function() {
+      
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://cuixiaochen.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  });
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+
+        </div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>
