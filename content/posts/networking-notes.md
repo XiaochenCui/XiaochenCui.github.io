@@ -17,3 +17,8 @@ When combined, this provides four possible variations of Network Address Transla
 - **Static PAT** – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation
 - **Dynamic PAT** – Translation of the IP address and Port, where the router determines the new IP address and Port after translation
 - **Dynamic NAT** – Translation of just the IP address, where the router determines the new IP address after translation
+
+## Policy NAT and Twice NAT
+
+- **Policy NAT** - Translation that occurs based upon matching both the Source and Destination of traffic.
+- **A Twice NAT** - Translation that involves translating both the Source and Destination of traffic.

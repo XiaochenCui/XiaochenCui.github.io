@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Networking Notes",
       "headline" : "Networking Notes",
-      "description" : " NAT Summary of the types of NAT NAT vs PAT – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated\nStatic vs Dynamic – these terms define whether the post-translation attributes are explicitly defined by the administrator, or ephemerally determined by the router.\nWhen combined, this provides four possible variations of Network Address Translation:\n Static NAT – Translation of just the IP address where the administrator explicitly defines the IP address after translation Static PAT – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation Dynamic PAT – Translation of the IP address and Port, where the router determines the new IP address and Port after translation Dynamic NAT – Translation of just the IP address, where the router determines the new IP address after translation  ",
+      "description" : "NAT Summary of the types of NAT NAT vs PAT – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated\nStatic vs Dynamic – these terms define whether the post-translation attributes are explicitly defined by the administrator, or ephemerally determined by the router.\nWhen combined, this provides four possible variations of Network Address Translation:\n Static NAT – Translation of just the IP address where the administrator explicitly defines the IP address after translation Static PAT – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation Dynamic PAT – Translation of the IP address and Port, where the router determines the new IP address and Port after translation Dynamic NAT – Translation of just the IP address, where the router determines the new IP address after translation  Policy NAT and Twice NAT  Policy NAT - Translation that occurs based upon matching both the Source and Destination of traffic.",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -36,10 +36,10 @@
 <title>Networking Notes - XiaochenCui&#39;s Blog</title>
   <meta property="og:title" content="Networking Notes - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content=" NAT Summary of the types of NAT NAT vs PAT – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated
+  <meta name="description" content="NAT Summary of the types of NAT NAT vs PAT – these terms define whether just the IP address portion of the packet, or the IP address and Port number are being translated
 Static vs Dynamic – these terms define whether the post-translation attributes are explicitly defined by the administrator, or ephemerally determined by the router.
 When combined, this provides four possible variations of Network Address Translation:
- Static NAT – Translation of just the IP address where the administrator explicitly defines the IP address after translation Static PAT – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation Dynamic PAT – Translation of the IP address and Port, where the router determines the new IP address and Port after translation Dynamic NAT – Translation of just the IP address, where the router determines the new IP address after translation  " />
+ Static NAT – Translation of just the IP address where the administrator explicitly defines the IP address after translation Static PAT – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation Dynamic PAT – Translation of the IP address and Port, where the router determines the new IP address and Port after translation Dynamic NAT – Translation of just the IP address, where the router determines the new IP address after translation  Policy NAT and Twice NAT  Policy NAT - Translation that occurs based upon matching both the Source and Destination of traffic." />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -113,6 +113,13 @@ When combined, this provides four possible variations of Network Address Transla
 <li><strong>Static PAT</strong> – Translation of the IP address and Port, where the administrator explicitly defines the IP address and Port after translation</li>
 <li><strong>Dynamic PAT</strong> – Translation of the IP address and Port, where the router determines the new IP address and Port after translation</li>
 <li><strong>Dynamic NAT</strong> – Translation of just the IP address, where the router determines the new IP address after translation</li>
+</ul>
+
+<h2 id="policy-nat-and-twice-nat">Policy NAT and Twice NAT</h2>
+
+<ul>
+<li><strong>Policy NAT</strong> - Translation that occurs based upon matching both the Source and Destination of traffic.</li>
+<li><strong>A Twice NAT</strong> - Translation that involves translating both the Source and Destination of traffic.</li>
 </ul>
 
         </div>
