@@ -22,3 +22,6 @@ When combined, this provides four possible variations of Network Address Transla
 
 - **Policy NAT** - Translation that occurs based upon matching both the Source and Destination of traffic.
 - **A Twice NAT** - Translation that involves translating both the Source and Destination of traffic.
+
+# References
+- [Network Address Translation (NAT) – Article Series – Practical Networking .net](https://www.practicalnetworking.net/series/nat/nat/)
