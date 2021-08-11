@@ -242,7 +242,11 @@ Comments and suggestions are welcomed.
 
 # Data Structures
 
-- B Tree
+## LST-Tree
+
+- ☑ [https://yetanotherdevblog.com/lsm/](How do LSM Trees work?)
+
+## B-Tree
   - ☑ [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
   - ☑ [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
   - ☑ [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
