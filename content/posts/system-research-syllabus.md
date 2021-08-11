@@ -244,7 +244,7 @@ Comments and suggestions are welcomed.
 
 ## LST-Tree
 
-- ☑ [https://yetanotherdevblog.com/lsm/](How do LSM Trees work?)
+- ☑ [How do LSM Trees work?](https://yetanotherdevblog.com/lsm/)
 
 ## B-Tree
   - ☑ [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
