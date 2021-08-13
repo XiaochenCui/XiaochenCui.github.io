@@ -40,7 +40,7 @@ When doing perf on AMD platform, we found that some events are not counted/suppo
 We start with
 
 ```bash
-perf list --help
+$ perf list --help
 ```
 
 At section `RAW HARDWARE EVENT DESCRIPTOR`
