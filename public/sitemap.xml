@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://cuixiaochen.com/posts/</loc>
-    <lastmod>2020-07-09T17:20:59+08:00</lastmod>
+    <loc>https://cuixiaochen.com/posts/perf-1/</loc>
+    <lastmod>2021-08-13T10:45:16+08:00</lastmod>
   </url><url>
-    <loc>https://cuixiaochen.com/posts/simple-db-rust-1/</loc>
-    <lastmod>2020-07-09T17:20:59+08:00</lastmod>
+    <loc>https://cuixiaochen.com/posts/</loc>
+    <lastmod>2021-08-13T10:45:16+08:00</lastmod>
   </url><url>
     <loc>https://cuixiaochen.com/</loc>
+    <lastmod>2021-08-13T10:45:16+08:00</lastmod>
+  </url><url>
+    <loc>https://cuixiaochen.com/posts/simple-db-rust-1/</loc>
     <lastmod>2020-07-09T17:20:59+08:00</lastmod>
   </url><url>
     <loc>https://cuixiaochen.com/posts/simple-db-rust-0/</loc>

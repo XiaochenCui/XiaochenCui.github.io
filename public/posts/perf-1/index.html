@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.87.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/perf-1/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/perf-1/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Advanced Perf",
+      "headline" : "Advanced Perf",
+      "description" : "Perf Events Manual    Event Internal Name Official Explanation My Personal Understanding     task-clock PERF_COUNT_SW_TASK_CLOCK This reports a clock count specific to the task that is running. Task-clock is based only on the time spent on the profiled task.   In the current implementation, cpu-clock is equivalent to task-clock, just ignore it       Reference  perf_event_open(2) - Linux manual page  Using Perf on AMD When doing perf on AMD platform, we found that some events are not counted\/supported, such as:",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2021",
+      "datePublished": "2021-08-13 10:45:16 \u002b0800 CST",
+      "dateModified" : "2021-08-13 10:45:16 \u002b0800 CST",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/perf-1\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Advanced Perf - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Advanced Perf - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="Perf Events Manual    Event Internal Name Official Explanation My Personal Understanding     task-clock PERF_COUNT_SW_TASK_CLOCK This reports a clock count specific to the task that is running. Task-clock is based only on the time spent on the profiled task.   In the current implementation, cpu-clock is equivalent to task-clock, just ignore it       Reference  perf_event_open(2) - Linux manual page  Using Perf on AMD When doing perf on AMD platform, we found that some events are not counted/supported, such as:" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Xiaochen Cui</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Advanced Perf</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2021-08-13 10:45:16 CST">
+                13 Aug 2021
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <h1 id="perf-events-manual">Perf Events Manual</h1>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Internal Name</th>
+<th>Official Explanation</th>
+<th>My Personal Understanding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>task-clock</td>
+<td>PERF_COUNT_SW_TASK_CLOCK</td>
+<td>This reports a clock count specific to the task that is running.</td>
+<td>Task-clock is based only on the time spent on the profiled task.</td>
+</tr>
+<tr>
+<td>In the current implementation, cpu-clock is equivalent to task-clock, just ignore it</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://man7.org/linux/man-pages/man2/perf_event_open.2.html">perf_event_open(2) - Linux manual page</a></li>
+</ul>
+<h1 id="using-perf-on-amd">Using Perf on AMD</h1>
+<p>When doing perf on AMD platform, we found that some events are not counted/supported, such as:</p>
+<ul>
+<li>instructions</li>
+<li>branches (branch-instructions)</li>
+<li>branch-misses</li>
+<li>cache-misses</li>
+<li>cache-references</li>
+</ul>
+
+        </div>
+        
+
+        
+
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        <div class="post-comments">
+          <div id="disqus_thread"></div>
+<script>
+  window.addEventListener("load", () => {
+    (function() {
+      
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://cuixiaochen.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  });
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+
+        </div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>
