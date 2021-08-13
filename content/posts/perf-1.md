@@ -19,7 +19,7 @@ date: 2021-08-13T10:45:16+08:00
 | branches (branch-instructions) |
 | branch-misses                  |
 | cache-misses                   | PERF_COUNT_HW_CACHE_MISSES | Cache misses.  Usually this indicates Last Level Cache misses; this is intended to be used in conjunction with the PERF_COUNT_HW_CACHE_REFERENCES event to calculate cache miss rates. | |
-| cache-references               |
+| cache-references               | PERF_COUNT_HW_CACHE_REFERENCES | Cache accesses.  Usually this indicates Last Level Cache accesses but this may vary depending on your CPU.  This may include prefetches and coherency messages; again this depends on the design of your CPU. | |
 
 ## Reference
 
