@@ -40,7 +40,7 @@ When doing perf on AMD platform, we found that some events are not counted/suppo
 We start with
 
 ```bash
-$ perf list --help
+perf list --help
 ```
 
 At section `RAW HARDWARE EVENT DESCRIPTOR`
@@ -50,4 +50,25 @@ RAW HARDWARE EVENT DESCRIPTOR
        Even when an event is not available in a symbolic form within perf right now, it can be encoded in a per processor specific way.
 
        ...
+```
+
+...shows the following NOTE
+
+```text
+       For instance For x86 CPUs NNN represents the raw register encoding with the layout of IA32_PERFEVTSELx MSRs (see [Intel® 64 and IA-32
+       Architectures Software Developer’s Manual Volume 3B: System Programming Guide] Figure 30-1 Layout of IA32_PERFEVTSELx MSRs) or AMD’s
+       PerfEvtSeln (see [AMD64 Architecture Programmer’s Manual Volume 2: System Programming], Page 344, Figure 13-7 Performance Event-Select
+       Register (PerfEvtSeln)).
+```
+
+...armed with that URL you end up in
+
+```text
+https://usermanual.wiki/Pdf/24593AMD6420Architecture20Programmers20ManualVolume202System20Programming.776747700/html#pf187
+```
+
+or
+
+```text
+http://developer.amd.com/wordpress/media/2012/10/24593_APM_v2.pdf
 ```

@@ -200,12 +200,21 @@
 <li>cache-references</li>
 </ul>
 <p>We start with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ perf list --help
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">perf list --help
 </code></pre></div><p>At section <code>RAW HARDWARE EVENT DESCRIPTOR</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">RAW HARDWARE EVENT DESCRIPTOR
        Even when an event is not available in a symbolic form within perf right now, it can be encoded in a per processor specific way.
 
        ...
+</code></pre></div><p>&hellip;shows the following NOTE</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">       For instance For x86 CPUs NNN represents the raw register encoding with the layout of IA32_PERFEVTSELx MSRs (see [Intel® 64 and IA-32
+       Architectures Software Developer’s Manual Volume 3B: System Programming Guide] Figure 30-1 Layout of IA32_PERFEVTSELx MSRs) or AMD’s
+       PerfEvtSeln (see [AMD64 Architecture Programmer’s Manual Volume 2: System Programming], Page 344, Figure 13-7 Performance Event-Select
+       Register (PerfEvtSeln)).
+</code></pre></div><p>&hellip;armed with that URL you end up in</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">https://usermanual.wiki/Pdf/24593AMD6420Architecture20Programmers20ManualVolume202System20Programming.776747700/html#pf187
+</code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">http://developer.amd.com/wordpress/media/2012/10/24593_APM_v2.pdf
 </code></pre></div>
         </div>
         
