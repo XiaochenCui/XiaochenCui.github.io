@@ -67,6 +67,7 @@ Comments and suggestions are welcomed.
 - [POLARDB: InnoDB based shared-everything storage solution](https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf)
 - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
 - [POLARIS: The Distributed SQL Engine in Azure Synapse](http://www.vldb.org/pvldb/vol13/p3204-saborit.pdf)
+- [Napa: Powering Scalable Data Warehousing with Robust Query Performance at Google](http://www.vldb.org/pvldb/vol14/p2986-sankaranarayanan.pdf)
 
 ## Greenplum
 
