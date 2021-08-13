@@ -13,7 +13,7 @@
       <pubDate>Fri, 13 Aug 2021 10:45:16 +0800</pubDate>
       
       <guid>https://cuixiaochen.com/posts/perf-1/</guid>
-      <description>Perf Events Manual    Event Internal Name Official Explanation My Personal Understanding     task-clock PERF_COUNT_SW_TASK_CLOCK This reports a clock count specific to the task that is running. Task-clock is based only on the time spent on the profiled task.   cpu-clock PERF_COUNT_SW_CPU_CLOCK This reports the CPU clock, a high-resolution per-CPU timer. In the current implementation, cpu-clock is equivalent to task-clock, just ignore it    Reference  perf_event_open(2) - Linux manual page  Using Perf on AMD When doing perf on AMD platform, we found that some events are not counted/supported, such as:</description>
+      <description>Perf Events Manual    Event Internal Name Official Explanation My Personal Understanding     task-clock PERF_COUNT_SW_TASK_CLOCK This reports a clock count specific to the task that is running. Task-clock is based only on the time spent on the profiled task.   cpu-clock PERF_COUNT_SW_CPU_CLOCK This reports the CPU clock, a high-resolution per-CPU timer. In the current implementation, cpu-clock is equivalent to task-clock, just ignore it   context-switches      cpu-migrations      page-faults      cycles      stalled-cycles-frontend      stalled-cycles-backend      instructions      branches (branch-instructions)      branch-misses      cache-misses      cache-references       Reference  perf_event_open(2) - Linux manual page  Using Perf on AMD When doing perf on AMD platform, we found that some events are not counted/supported, such as:</description>
     </item>
     
     <item>

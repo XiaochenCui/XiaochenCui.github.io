@@ -4,10 +4,22 @@ date: 2021-08-13T10:45:16+08:00
 ---
 
 # Perf Events Manual
-| Event | Internal Name | Official Explanation | My Personal Understanding |
-| --- | --- | --- | --- |
-| task-clock | PERF_COUNT_SW_TASK_CLOCK | This reports a clock count specific to the task that is running. | Task-clock is based only on the time spent on the profiled task. |
-| cpu-clock | PERF_COUNT_SW_CPU_CLOCK | This reports the CPU clock, a high-resolution per-CPU timer. | In the current implementation, cpu-clock is equivalent to task-clock, just ignore it |
+
+| Event                          | Internal Name            | Official Explanation                                             | My Personal Understanding                                                            |
+| ------------------------------ | ------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| task-clock                     | PERF_COUNT_SW_TASK_CLOCK | This reports a clock count specific to the task that is running. | Task-clock is based only on the time spent on the profiled task.                     |
+| cpu-clock                      | PERF_COUNT_SW_CPU_CLOCK  | This reports the CPU clock, a high-resolution per-CPU timer.     | In the current implementation, cpu-clock is equivalent to task-clock, just ignore it |
+| context-switches               |
+| cpu-migrations                 |
+| page-faults                    |
+| cycles                         |
+| stalled-cycles-frontend        |
+| stalled-cycles-backend         |
+| instructions                   |
+| branches (branch-instructions) |
+| branch-misses                  |
+| cache-misses                   |
+| cache-references               |
 
 ## Reference
 
@@ -22,4 +34,3 @@ When doing perf on AMD platform, we found that some events are not counted/suppo
 - branch-misses
 - cache-misses
 - cache-references
-
