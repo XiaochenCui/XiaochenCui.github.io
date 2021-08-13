@@ -1,6 +1,7 @@
 ---
 title: "Advanced Perf"
 date: 2021-08-13T10:45:16+08:00
+draft: true
 ---
 
 # Perf Events Manual
