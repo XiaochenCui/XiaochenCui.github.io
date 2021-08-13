@@ -63,12 +63,16 @@ RAW HARDWARE EVENT DESCRIPTOR
 
 ...armed with that URL you end up in
 
-```text
-https://usermanual.wiki/Pdf/24593AMD6420Architecture20Programmers20ManualVolume202System20Programming.776747700/html#pf187
-```
+[AMD Manual(the newer version)](https://usermanual.wiki/Pdf/24593AMD6420Architecture20Programmers20ManualVolume202System20Programming.776747700/html#pf187)
 
 or
 
-```text
-http://developer.amd.com/wordpress/media/2012/10/24593_APM_v2.pdf
-```
+[AMD Manual(the older version)](http://developer.amd.com/wordpress/media/2012/10/24593_APM_v2.pdf)
+
+We will look up at the newer version next.
+
+And we found Table 13-6 in `Section 13.4.2 Events and Event Records`:
+
+![table13-6](/images/perf-1/table13-6-1.png)
+![table13-6](/images/perf-1/table13-6-2.png)
+
