@@ -43,6 +43,8 @@ We start with
 perf list --help
 ```
 
+At section `RAW HARDWARE EVENT DESCRIPTOR`
+
 ```text
 RAW HARDWARE EVENT DESCRIPTOR
        Even when an event is not available in a symbolic form within perf right now, it can be encoded in a per processor specific way.
