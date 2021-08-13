@@ -36,3 +36,16 @@ When doing perf on AMD platform, we found that some events are not counted/suppo
 - branch-misses
 - cache-misses
 - cache-references
+
+We start with
+
+```bash
+perf list --help
+```
+
+```text
+RAW HARDWARE EVENT DESCRIPTOR
+       Even when an event is not available in a symbolic form within perf right now, it can be encoded in a per processor specific way.
+
+       ...
+```
