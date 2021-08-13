@@ -7,7 +7,7 @@ date: 2021-08-13T10:45:16+08:00
 | Event | Internal Name | Official Explanation | My Personal Understanding |
 | --- | --- | --- | --- |
 | task-clock | PERF_COUNT_SW_TASK_CLOCK | This reports a clock count specific to the task that is running. | Task-clock is based only on the time spent on the profiled task. |
-| In the current implementation, cpu-clock is equivalent to task-clock, just ignore it |
+| cpu-clock | PERF_COUNT_SW_CPU_CLOCK | This reports the CPU clock, a high-resolution per-CPU timer. | In the current implementation, cpu-clock is equivalent to task-clock, just ignore it |
 
 ## Reference
 
