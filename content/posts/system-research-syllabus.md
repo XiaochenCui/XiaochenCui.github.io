@@ -67,7 +67,6 @@ Comments and suggestions are welcomed.
 - [POLARDB: InnoDB based shared-everything storage solution](https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf)
 - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
 - [POLARIS: The Distributed SQL Engine in Azure Synapse](http://www.vldb.org/pvldb/vol13/p3204-saborit.pdf)
-- [Napa: Powering Scalable Data Warehousing with Robust Query Performance at Google](http://www.vldb.org/pvldb/vol14/p2986-sankaranarayanan.pdf)
 
 ## Greenplum
 
@@ -212,8 +211,9 @@ Comments and suggestions are welcomed.
 
 # Storage
 
-- [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf)
-- [Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)
+## Colossus
+- [Colossus under the hood: a peek into Google’s scalable storage system](https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system)
+- [Building Large-Scale Internet Services](https://static.googleusercontent.com/media/research.google.com/en//people/jeff/SOCC2010-keynote-slides.pdf)
 
 ## Local Storage
 - [WiscKey: Separating Keys from Values in SSD-conscious Storage](https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf)
@@ -233,6 +233,10 @@ Comments and suggestions are welcomed.
 
 - ☑︎ [技术分享：Prometheus是怎么存储数据的](https://youtu.be/qB40kqhTyYM)
 - [Gorilla: A Fast, Scalable, In-Memory Time Series Database](https://www.vldb.org/pvldb/vol8/p1816-teller.pdf)
+## Others
+- [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf)
+- [Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)
+
 
 # Disk Error Correction
 
@@ -265,6 +269,12 @@ Comments and suggestions are welcomed.
 ## Range Filter
 
 - [SuRF: Practical Range Query Filtering with Fast Succinct Tries](http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf)
+
+# Materialized View
+
+- [Mesa: Geo-Replicated, Near Real-Time, Scalable Data Warehousing](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/42851.pdf)
+- [Napa: Powering Scalable Data Warehousing with Robust Query Performance at Google](http://www.vldb.org/pvldb/vol14/p2986-sankaranarayanan.pdf)
+- [[Paper Notes] Napa: Powering Scalable Data Warehousing with Robust Query Performance at Google - 纯纯的 Blog](https://blog.zhuangty.com/napa/)
 
 # Distributed Algorithm
 
