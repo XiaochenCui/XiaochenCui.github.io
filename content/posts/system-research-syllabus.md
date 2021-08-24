@@ -129,6 +129,11 @@ Comments and suggestions are welcomed.
 - [Vectorization vs. Compilation in Query Execution](https://zhuanlan.zhihu.com/p/393961205)
 - [Adaptive Execution of Compiled Queries](https://15721.courses.cs.cmu.edu/spring2018/papers/03-compilation/kohn-icde2018.pdf)
 
+## Vectorization
+
+- [Columnar Databases and Vectorization](https://www.infoq.com/articles/columnar-databases-and-vectorization/)
+- [Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask](https://www.vldb.org/pvldb/vol11/p2209-kersten.pdf)
+
 ## Join Algorithm
 
 - [Hash join in MySQL 8 | MySQL Server Blog](https://mysqlserverteam.com/hash-join-in-mysql-8/)
