@@ -132,7 +132,11 @@ Comments and suggestions are welcomed.
 ## Vectorization
 
 - [Columnar Databases and Vectorization](https://www.infoq.com/articles/columnar-databases-and-vectorization/)
-- [Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask](https://www.vldb.org/pvldb/vol11/p2209-kersten.pdf)
+- ☑ [Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask](https://www.vldb.org/pvldb/vol11/p2209-kersten.pdf)
+
+## Peloton
+
+- [Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Last](https://15721.courses.cs.cmu.edu/spring2018/papers/22-vectorization2/menon-vldb2017.pdf)
 
 ## Join Algorithm
 
