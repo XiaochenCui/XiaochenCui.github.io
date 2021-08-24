@@ -127,6 +127,7 @@ Comments and suggestions are welcomed.
 - [Code generation for efficient query processing in managed runtimes](https://pdfs.semanticscholar.org/1eae/e91396ae428589a880abb780af1e88cea180.pdf?_ga=2.162570108.1979694222.1621214327-1782859694.1621214327)
 - [Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask](http://www.vldb.org/pvldb/vol11/p2209-kersten.pdf)
 - [Vectorization vs. Compilation in Query Execution](https://zhuanlan.zhihu.com/p/393961205)
+- [Adaptive Execution of Compiled Queries](https://15721.courses.cs.cmu.edu/spring2018/papers/03-compilation/kohn-icde2018.pdf)
 
 ## Join Algorithm
 
