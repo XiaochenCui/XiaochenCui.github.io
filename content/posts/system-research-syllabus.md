@@ -109,6 +109,7 @@ Comments and suggestions are welcomed.
 - [Building a Modern Database Using LLVM](https://llvm.org/devmtg/2013-11/slides/Wanderman-Milne-Cloudera.pdf)
 - [EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/xu-columbia-thesis1998.pdf)
 - [The Volcano Optimizer Generator: Extensibility and Efficient Search](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.21.2197&rep=rep1&type=pdf)
+- [Volcano-An Extensible and Parallel Query Evaluation System](https://paperhub.s3.amazonaws.com/dace52a42c07f7f8348b08dc2b186061.pdf)
 - [The Cascades Framework for Query Optimization](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf)
 - [逻辑优化 | PingCAP Docs](https://docs.pingcap.com/zh/tidb/stable/sql-logical-optimization)
 - ☑︎ [Cascades Optimizer - 知乎](https://zhuanlan.zhihu.com/p/73545345)
@@ -133,6 +134,8 @@ Comments and suggestions are welcomed.
 - ☑︎ [Columnar Databases and Vectorization](https://www.infoq.com/articles/columnar-databases-and-vectorization/)
 - ☑ [Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask](https://www.vldb.org/pvldb/vol11/p2209-kersten.pdf)
 - ☑︎ [How We Built a Vectorized Execution Engine](https://www.cockroachlabs.com/blog/how-we-built-a-vectorized-execution-engine/)
+- [Vectorizing the Merge Joiner in CockroachDB](https://www.cockroachlabs.com/blog/vectorizing-the-merge-joiner-in-cockroachdb/)
+- [40x faster hash joiner with vectorized execution](https://www.cockroachlabs.com/blog/vectorized-hash-joiner/)
 
 ## Pipeline
 
@@ -141,6 +144,7 @@ Comments and suggestions are welcomed.
 ## Peloton
 
 - ☑︎ [Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Last](https://15721.courses.cs.cmu.edu/spring2018/papers/22-vectorization2/menon-vldb2017.pdf)
+- [MonetDB/X100: Hyper-Pipelining Query Execution](http://cidrdb.org/cidr2005/papers/P19.pdf)
 
 ## Join Algorithm
 
@@ -428,6 +432,8 @@ Comments and suggestions are welcomed.
 
 # Golang
 
+- [High Performance Go Workshop](https://dave.cheney.net/high-performance-go-workshop/dotgo-paris.html)
+
 ## GC
 
 - [Golang’s Real-time GC in Theory and Practice - Making Pusher](https://making.pusher.com/golangs-real-time-gc-in-theory-and-practice/)
@@ -441,6 +447,8 @@ Comments and suggestions are welcomed.
 
 - [Build a Modern Computer from First Principles: From Nand to Tetris (Project-Centered Course) | Coursera](https://www.coursera.org/learn/build-a-computer)
 - [NandGame - Build a computer from scratch.](https://nandgame.com/)
+- [Branch prediction](https://danluu.com/branch-prediction/)
+- [Data alignment and caches](https://danluu.com/3c-conflict/)
 
 # TLA+
 
