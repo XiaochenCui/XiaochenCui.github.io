@@ -361,6 +361,12 @@ Comments and suggestions are welcomed.
 - [Basics of Futexes - Eli Bendersky's website](https://eli.thegreenplace.net/2018/basics-of-futexes/)
 - [A Practical Wait-Free Simulation for Lock-Free Data Structures](http://cs.technion.ac.il/~erez/Papers/wf-simulation-full.pdf)
 
+## Hazard Pointers
+
+- [Lock-Free Data Structures with Hazard Pointers](https://erdani.org/publications/cuj-2004-12.pdf)
+- [folly/Hazptr.h at master · facebook/folly](https://github.com/facebook/folly/blob/master/folly/synchronization/Hazptr.h)
+- [P1121R3: Hazard Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1121r3.pdf)
+
 # PLT
 
 - *Purchase Link:* [Types and Programming Languages (The MIT Press) 1st Edition](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
