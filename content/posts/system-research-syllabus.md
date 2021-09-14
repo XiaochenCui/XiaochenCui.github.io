@@ -436,6 +436,11 @@ Comments and suggestions are welcomed.
 
 # Rust
 
+## HKT && GAT
+
+- [Generalizing over Generics in Rust (Part 1) - AKA Higher Kinded Types in Rust](https://rustyyato.github.io/type/system,type/families/2021/02/15/Type-Families-1.html)
+- [Solving the Generalized Streaming Iterator Problem without GATs](http://lukaskalbertodt.github.io/2018/08/03/solving-the-generalized-streaming-iterator-problem-without-gats.html)
+
 # Golang
 
 - [High Performance Go Workshop](https://dave.cheney.net/high-performance-go-workshop/dotgo-paris.html)
