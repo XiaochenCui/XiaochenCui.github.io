@@ -436,10 +436,16 @@ Comments and suggestions are welcomed.
 
 # Rust
 
-## HKT && GAT
+## HKT && GAT && ACT
 
 - [Generalizing over Generics in Rust (Part 1) - AKA Higher Kinded Types in Rust](https://rustyyato.github.io/type/system,type/families/2021/02/15/Type-Families-1.html)
+- [Generalizing over Generics in Rust (Part 1.5): Mechanisms](https://rustyyato.github.io/type/system,type/families/2021/02/22/Type-Families-1_5.html)
 - [Solving the Generalized Streaming Iterator Problem without GATs](http://lukaskalbertodt.github.io/2018/08/03/solving-the-generalized-streaming-iterator-problem-without-gats.html)
+- [🔬 Tracking issue for generic associated types (GAT) · Issue #44265 · rust-lang/rust](https://github.com/rust-lang/rust/issues/44265)
+
+## Closures
+
+- [Closures: Magic Functions](https://rustyyato.github.io/rust/syntactic/sugar/2019/01/17/Closures-Magic-Functions.html)
 
 # Golang
 
@@ -472,3 +478,7 @@ Comments and suggestions are welcomed.
 # Lexical Analyser
 
 - [book: flex & bison](https://web.iitd.ac.in/~sumeet/flex__bison.pdf)
+
+# Type Theory
+
+- [Lightweight higher-kinded polymorphism](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf)
