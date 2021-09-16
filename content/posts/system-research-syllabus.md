@@ -362,6 +362,11 @@ Comments and suggestions are welcomed.
 - [Basics of Futexes - Eli Bendersky's website](https://eli.thegreenplace.net/2018/basics-of-futexes/)
 - [A Practical Wait-Free Simulation for Lock-Free Data Structures](http://cs.technion.ac.il/~erez/Papers/wf-simulation-full.pdf)
 
+## Structured Concurrency
+
+- [Notes on structured concurrency, or: Go statement considered harmful — njs blog](https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/#nurseries-a-structured-replacement-for-go-statements)
+- [代码杂谈：结构化并发](https://blog.crazyark.xyz/p/structured-concurrency/)
+
 ## Hazard Pointers
 
 - [Lock-Free Data Structures with Hazard Pointers](https://erdani.org/publications/cuj-2004-12.pdf)
