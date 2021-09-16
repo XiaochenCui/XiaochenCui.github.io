@@ -157,6 +157,7 @@ Comments and suggestions are welcomed.
 - [Sort vs. Hash Revisited: Fast Join Implementation on Modern Multi-Core CPUs](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/kim-vldb2009.pdf)
 - [Sort vs. Hash Revisited](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/graefe-tkde1994.pdf)
 - [Massively Parallel Sort-Merge Joins in Main Memory Multi-Core Database Systems](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p1064-albutiu.pdf)
+- [A Practical Approach to Groupjoin and Nested Aggregates](https://vldb.org/pvldb/vol14/p2383-fent.pdf)
 
 ## Lock & Transaction
 
@@ -442,6 +443,7 @@ Comments and suggestions are welcomed.
 - [Generalizing over Generics in Rust (Part 1.5): Mechanisms](https://rustyyato.github.io/type/system,type/families/2021/02/22/Type-Families-1_5.html)
 - [Solving the Generalized Streaming Iterator Problem without GATs](http://lukaskalbertodt.github.io/2018/08/03/solving-the-generalized-streaming-iterator-problem-without-gats.html)
 - [🔬 Tracking issue for generic associated types (GAT) · Issue #44265 · rust-lang/rust](https://github.com/rust-lang/rust/issues/44265)
+- [Higher-Rank Trait Bounds - The Rustonomicon](https://doc.rust-lang.org/nomicon/hrtb.html)
 
 ## Closures
 
