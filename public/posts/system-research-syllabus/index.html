@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "System Research Syllabus",
       "headline" : "System Research Syllabus",
-      "description" : "The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.\nComments and suggestions are welcomed.\n(Content is being sorted out, a little bit confusing right now)\nDistributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System The End of an Architectural Era (It’s Time for a Complete Rewrite) Practical Uses of Synchronized Clocks in Distributed Systems  Data Processing  Spark: Cluster Computing with Working Sets  Stream Processing  Storm @Twitter Samza: Stateful Scalable Stream Processing at LinkedIn Drill  SQL Workloads  Presto: SQL on Everything 深入浅出Presto：PB级OLAP引擎 Dremel: Interactive Analysis of Web-Scale Datasets  Distributed Storage System  Atlas: Baidu’s Key-value Storage System for Cloud Data PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore: An Architecture for Global-Scale Persistent Storage Alluxio: A Virtual Distributed File System  Distributed Computation  Ray: A Distributed Framework for Emerging AI Applications Starling: A Scalable Query Engine on Cloud Functions  Database Motivation  A Relational Model of Data for Large Shared Data Banks  History  ☑︎ What Goes Around Comes Around ☑︎ What’s Really New with NewSQL?",
+      "description" : "The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.\nComments and suggestions are welcomed.\n(Content is being sorted out, a little bit confusing right now)\nDistributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System The End of an Architectural Era (It’s Time for a Complete Rewrite) Practical Uses of Synchronized Clocks in Distributed Systems Information Storage in a Decentralized Computer System  Data Processing  Spark: Cluster Computing with Working Sets  Stream Processing  Storm @Twitter Samza: Stateful Scalable Stream Processing at LinkedIn Drill  SQL Workloads  Presto: SQL on Everything 深入浅出Presto：PB级OLAP引擎 Dremel: Interactive Analysis of Web-Scale Datasets  Distributed Storage System  Atlas: Baidu’s Key-value Storage System for Cloud Data PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore: An Architecture for Global-Scale Persistent Storage Alluxio: A Virtual Distributed File System  Distributed Computation  Ray: A Distributed Framework for Emerging AI Applications Starling: A Scalable Query Engine on Cloud Functions  Database Motivation  A Relational Model of Data for Large Shared Data Banks  History  ☑︎ What Goes Around Comes Around ☑︎ What’s Really New with NewSQL?",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -39,7 +39,7 @@
   <meta name="description" content="The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
 Comments and suggestions are welcomed.
 (Content is being sorted out, a little bit confusing right now)
-Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System The End of an Architectural Era (It’s Time for a Complete Rewrite) Practical Uses of Synchronized Clocks in Distributed Systems  Data Processing  Spark: Cluster Computing with Working Sets  Stream Processing  Storm @Twitter Samza: Stateful Scalable Stream Processing at LinkedIn Drill  SQL Workloads  Presto: SQL on Everything 深入浅出Presto：PB级OLAP引擎 Dremel: Interactive Analysis of Web-Scale Datasets  Distributed Storage System  Atlas: Baidu’s Key-value Storage System for Cloud Data PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore: An Architecture for Global-Scale Persistent Storage Alluxio: A Virtual Distributed File System  Distributed Computation  Ray: A Distributed Framework for Emerging AI Applications Starling: A Scalable Query Engine on Cloud Functions  Database Motivation  A Relational Model of Data for Large Shared Data Banks  History  ☑︎ What Goes Around Comes Around ☑︎ What’s Really New with NewSQL?" />
+Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System The End of an Architectural Era (It’s Time for a Complete Rewrite) Practical Uses of Synchronized Clocks in Distributed Systems Information Storage in a Decentralized Computer System  Data Processing  Spark: Cluster Computing with Working Sets  Stream Processing  Storm @Twitter Samza: Stateful Scalable Stream Processing at LinkedIn Drill  SQL Workloads  Presto: SQL on Everything 深入浅出Presto：PB级OLAP引擎 Dremel: Interactive Analysis of Web-Scale Datasets  Distributed Storage System  Atlas: Baidu’s Key-value Storage System for Cloud Data PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore: An Architecture for Global-Scale Persistent Storage Alluxio: A Virtual Distributed File System  Distributed Computation  Ray: A Distributed Framework for Emerging AI Applications Starling: A Scalable Query Engine on Cloud Functions  Database Motivation  A Relational Model of Data for Large Shared Data Banks  History  ☑︎ What Goes Around Comes Around ☑︎ What’s Really New with NewSQL?" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -104,6 +104,7 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <li><a href="http://lamport.azurewebsites.net/pubs/time-clocks.pdf">Time, Clocks, and the Ordering of Events in a Distributed System</a></li>
 <li><a href="http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf">The End of an Architectural Era (It’s Time for a Complete Rewrite)</a></li>
 <li><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1089.5025&amp;rep=rep1&amp;type=pdf">Practical Uses of Synchronized Clocks in Distributed Systems</a></li>
+<li><a href="">Information Storage in a Decentralized Computer System</a></li>
 </ul>
 <h2 id="data-processing">Data Processing</h2>
 <ul>
@@ -172,6 +173,8 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 </ul>
 <h2 id="cockroachdb">CockroachDB</h2>
 <ul>
+<li><a href="https://www.cockroachlabs.com/blog/living-without-atomic-clocks/">Living Without Atomic Clocks</a></li>
+<li><a href="https://www.cockroachlabs.com/blog/consistency-model/">CockroachDB&rsquo;s Consistency Model</a></li>
 <li>☑︎ <a href="https://github.com/cockroachdb/cockroach/blob/94e48ae8f2/docs/tech-notes/life_of_a_query.md">Life of a SQL Query</a></li>
 <li>☑︎ <a href="https://github.com/cockroachdb/cockroach/blob/c097a16427f65e9070991f062716d222ea5903fe/pkg/sql/opt/doc.go">SQL query planning and optimizations</a></li>
 <li><a href="https://www.cockroachlabs.com/blog/index-selection-cockroachdb-2/">Index selection in CockroachDB</a></li>
@@ -316,6 +319,10 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <h3 id="write-behind-logging">Write Behind Logging</h3>
 <ul>
 <li><a href="http://www.vldb.org/pvldb/vol10/p337-arulraj.pdf">Write Behind Logging</a></li>
+</ul>
+<h2 id="key-value-storage">Key-Value Storage</h2>
+<ul>
+<li><a href="https://www.usenix.org/system/files/fast21-chen-hao.pdf">SpanDB: A Fast, Cost-Effective LSM-tree Based KV Store on Hybrid Storage</a></li>
 </ul>
 <h2 id="others">Others</h2>
 <ul>
@@ -597,6 +604,10 @@ Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed S
 <h1 id="type-theory">Type Theory</h1>
 <ul>
 <li><a href="https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf">Lightweight higher-kinded polymorphism</a></li>
+</ul>
+<h1 id="network">Network</h1>
+<ul>
+<li><a href="https://www.usenix.org/system/files/conference/nsdi18/nsdi18-geng.pdf">Exploiting a Natural Network Effect for Scalable, Fine-grained Clock Synchronization</a></li>
 </ul>
 
         </div>

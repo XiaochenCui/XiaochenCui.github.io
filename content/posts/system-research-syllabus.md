@@ -14,6 +14,7 @@ Comments and suggestions are welcomed.
 - [Time, Clocks, and the Ordering of Events in a Distributed System](http://lamport.azurewebsites.net/pubs/time-clocks.pdf)
 - [The End of an Architectural Era (It’s Time for a Complete Rewrite)](http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf)
 - [Practical Uses of Synchronized Clocks in Distributed Systems](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1089.5025&rep=rep1&type=pdf)
+- [Information Storage in a Decentralized Computer System]()
 
 ## Data Processing
 
@@ -82,6 +83,9 @@ Comments and suggestions are welcomed.
 - [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
 
 ## CockroachDB
+
+- [Living Without Atomic Clocks](https://www.cockroachlabs.com/blog/living-without-atomic-clocks/)
+- [CockroachDB's Consistency Model](https://www.cockroachlabs.com/blog/consistency-model/)
 - ☑︎ [Life of a SQL Query](https://github.com/cockroachdb/cockroach/blob/94e48ae8f2/docs/tech-notes/life_of_a_query.md)
 - ☑︎ [SQL query planning and optimizations](https://github.com/cockroachdb/cockroach/blob/c097a16427f65e9070991f062716d222ea5903fe/pkg/sql/opt/doc.go)
 - [Index selection in CockroachDB](https://www.cockroachlabs.com/blog/index-selection-cockroachdb-2/)
@@ -223,6 +227,10 @@ Comments and suggestions are welcomed.
 ### Write Behind Logging
 
 - [Write Behind Logging](http://www.vldb.org/pvldb/vol10/p337-arulraj.pdf)
+
+## Key-Value Storage
+
+- [SpanDB: A Fast, Cost-Effective LSM-tree Based KV Store on Hybrid Storage](https://www.usenix.org/system/files/fast21-chen-hao.pdf)
 
 ## Others
 
@@ -490,3 +498,7 @@ Comments and suggestions are welcomed.
 # Type Theory
 
 - [Lightweight higher-kinded polymorphism](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf)
+
+# Network
+
+- [Exploiting a Natural Network Effect for Scalable, Fine-grained Clock Synchronization](https://www.usenix.org/system/files/conference/nsdi18/nsdi18-geng.pdf)
