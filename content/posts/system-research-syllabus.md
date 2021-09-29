@@ -107,6 +107,12 @@ Comments and suggestions are welcomed.
 
 - ☑︎ [TiDB SQL 兼容性测试工具简介（Compatibility testing tool profile）](https://www.youtube.com/watch?v=Hmu3F1Vafqc)
 
+## Query Engine
+
+### Architecture
+
+- [Query Engines: Push vs. Pull](http://justinjaffray.com/query-engines-push-vs.-pull/)
+
 ## Query Optimization
 
 - [Access Path Selection in a Relational Database Management System](https://www2.cs.duke.edu/courses/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf)
