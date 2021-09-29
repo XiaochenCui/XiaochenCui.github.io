@@ -111,7 +111,8 @@ Comments and suggestions are welcomed.
 
 ### Architecture
 
-- [Query Engines: Push vs. Pull](http://justinjaffray.com/query-engines-push-vs.-pull/)
+- ☑︎ [Query Engines: Push vs. Pull](http://justinjaffray.com/query-engines-push-vs.-pull/)
+- [The Snowflake Elastic Data Warehouse](http://info.snowflake.net/rs/252-RFO-227/images/Snowflake_SIGMOD.pdf)
 
 ## Query Optimization
 
