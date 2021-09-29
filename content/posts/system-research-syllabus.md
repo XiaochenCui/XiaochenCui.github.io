@@ -115,7 +115,7 @@ Comments and suggestions are welcomed.
 
 ## Query Optimization
 
-- [Access Path Selection in a Relational Database Management System](https://www2.cs.duke.edu/courses/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf)
+- ☑︎ [Access Path Selection in a Relational Database Management System](https://www2.cs.duke.edu/courses/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf)
 - [Statistical Profile Estimation in Database Systems](http://people.csail.mit.edu/tdanford/6830papers/mannino-stat-profile-estimation.pdf)
 - [Building a Modern Database Using LLVM](https://llvm.org/devmtg/2013-11/slides/Wanderman-Milne-Cloudera.pdf)
 - [EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER](https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/xu-columbia-thesis1998.pdf)
