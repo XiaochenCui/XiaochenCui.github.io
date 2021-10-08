@@ -110,11 +110,10 @@ Comments and suggestions are welcomed.
 
 ## Query Engine
 
-### Architecture
+### Push vs Pull
 
-#### Push vs Pull
 - ☑︎ [Query Engines: Push vs. Pull](http://justinjaffray.com/query-engines-push-vs.-pull/)
-- [Push vs. Pull-Based Loop Fusion in Query Engines](https://arxiv.org/pdf/1610.09166.pdf)
+- ☑︎ [Push vs. Pull-Based Loop Fusion in Query Engines](https://arxiv.org/pdf/1610.09166.pdf)
 
 ## Query Optimization
 
