@@ -69,6 +69,7 @@ Comments and suggestions are welcomed.
 - [POLARDB: InnoDB based shared-everything storage solution](https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf)
 - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
 - [POLARIS: The Distributed SQL Engine in Azure Synapse](http://www.vldb.org/pvldb/vol13/p3204-saborit.pdf)
+- [The Snowflake Elastic Data Warehouse](http://info.snowflake.net/rs/252-RFO-227/images/Snowflake_SIGMOD.pdf)
 
 ## Greenplum
 
@@ -111,8 +112,9 @@ Comments and suggestions are welcomed.
 
 ### Architecture
 
+#### Push vs Pull
 - ☑︎ [Query Engines: Push vs. Pull](http://justinjaffray.com/query-engines-push-vs.-pull/)
-- [The Snowflake Elastic Data Warehouse](http://info.snowflake.net/rs/252-RFO-227/images/Snowflake_SIGMOD.pdf)
+- [Push vs. Pull-Based Loop Fusion in Query Engines](https://arxiv.org/pdf/1610.09166.pdf)
 
 ## Query Optimization
 
