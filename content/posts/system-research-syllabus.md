@@ -9,6 +9,10 @@ Comments and suggestions are welcomed.
 
 (Content is being sorted out, a little bit confusing right now)
 
+☑︎ means read
+
+⭐️ means recommend
+
 # Distributed Systems
 
 - [Time, Clocks, and the Ordering of Events in a Distributed System](http://lamport.azurewebsites.net/pubs/time-clocks.pdf)
