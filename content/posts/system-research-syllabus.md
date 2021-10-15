@@ -150,6 +150,13 @@ Comments and suggestions are welcomed.
 - [Vectorizing the Merge Joiner in CockroachDB](https://www.cockroachlabs.com/blog/vectorizing-the-merge-joiner-in-cockroachdb/)
 - [40x faster hash joiner with vectorized execution](https://www.cockroachlabs.com/blog/vectorized-hash-joiner/)
 
+### SIMD
+
+- ⭐️ [Intel® Intrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html)
+- [x86 Assembly/SSE - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/X86_Assembly/SSE#SSE_Instruction_Set)
+- [SSE Instructions - x86 Assembly Language Reference Manual](https://docs.oracle.com/cd/E26502_01/html/E28388/eojde.html)
+- [c - SSE (SIMD): multiply vector by scalar - Stack Overflow](https://stackoverflow.com/questions/9079580/sse-simd-multiply-vector-by-scalar)
+
 ## Pipeline
 
 - [Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Las](https://par.nsf.gov/servlets/purl/10066914)
