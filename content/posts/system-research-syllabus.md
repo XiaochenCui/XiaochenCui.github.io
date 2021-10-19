@@ -157,6 +157,7 @@ Comments and suggestions are welcomed.
 ### SIMD
 
 - ⭐️ [Intel® Intrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html)
+- [Fast array reversal with SIMD! - DEV Community](https://dev.to/wunk/fast-array-reversal-with-simd-j3p)
 - [x86 Assembly/SSE - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/X86_Assembly/SSE#SSE_Instruction_Set)
 - [SSE Instructions - x86 Assembly Language Reference Manual](https://docs.oracle.com/cd/E26502_01/html/E28388/eojde.html)
 - [c - SSE (SIMD): multiply vector by scalar - Stack Overflow](https://stackoverflow.com/questions/9079580/sse-simd-multiply-vector-by-scalar)
