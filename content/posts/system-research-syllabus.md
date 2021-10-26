@@ -432,7 +432,8 @@ Comments and suggestions are welcomed.
 
 ## Operating Systems
 
-- [mit6.828](https://pdos.csail.mit.edu/6.828/2018/schedule.html)
+- [6.S081 / Fall 2021](https://pdos.csail.mit.edu/6.828/2021/)
+- [6.828 / Fall 2018](https://pdos.csail.mit.edu/6.828/2018/)
 
 # Waiting For Classification
 
