@@ -430,6 +430,10 @@ Comments and suggestions are welcomed.
 - ☑ [6.830 / 6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
 - [CMU 15-721 :: Advanced Database Systems (Spring 2020)](https://15721.courses.cs.cmu.edu/spring2020/)
 
+## Operating Systems
+
+- [mit6.828](https://pdos.csail.mit.edu/6.828/2018/schedule.html)
+
 # Waiting For Classification
 
 - [Wait-Free Synchronization](http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf)
