@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 09 Jul 2020 17:20:59 +0800</lastBuildDate><atom:link href="https://cuixiaochen.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple DB In Rust - Looking Back A Month Later</title>
-      <link>https://cuixiaochen.com/posts/simple-db-rust-1/</link>
+      <link>https://cuixiaochen.com/drafts/simple-db-rust-1/</link>
       <pubDate>Thu, 09 Jul 2020 17:20:59 +0800</pubDate>
       
-      <guid>https://cuixiaochen.com/posts/simple-db-rust-1/</guid>
+      <guid>https://cuixiaochen.com/drafts/simple-db-rust-1/</guid>
       <description>Time flies, and one month has passed since the project started.
 After this month of fighting with rust, I achieved the basic sequential scanning function. Now, it&amp;rsquo;s time to summarize the work and think about how to advance the project completion faster and how to write better quality rust code.
 First, I made the mistake of premature abstraction. Since the simple-db-hw project I refer to is written in java, it uses a lot of design patterns and OOP ideas.</description>
@@ -20,10 +20,10 @@ First, I made the mistake of premature abstraction. Since the simple-db-hw proje
     
     <item>
       <title>Simple DB In Rust - Started</title>
-      <link>https://cuixiaochen.com/posts/simple-db-rust-0/</link>
+      <link>https://cuixiaochen.com/drafts/simple-db-rust-0/</link>
       <pubDate>Tue, 09 Jun 2020 14:52:55 +0800</pubDate>
       
-      <guid>https://cuixiaochen.com/posts/simple-db-rust-0/</guid>
+      <guid>https://cuixiaochen.com/drafts/simple-db-rust-0/</guid>
       <description>After spending a lot of time, I finally completed all the tasks of mit 6.830 (source code). Now we almost have a simple database that can perform a series of operations such as querying, storing, and deleting data. The transaction and index has been achieved. We also implemented write-ahead log to prevent data lose from system crash. 99% of the tests (including unit tests and integration tests) can be successfully passed.</description>
     </item>
     
