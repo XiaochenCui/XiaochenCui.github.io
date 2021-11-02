@@ -435,6 +435,10 @@ Comments and suggestions are welcomed.
 - [6.S081 / Fall 2021](https://pdos.csail.mit.edu/6.828/2021/)
 - [6.828 / Fall 2018](https://pdos.csail.mit.edu/6.828/2018/)
 
+## Data Structures
+
+- [Main | CS 61B Spring 2019](https://sp19.datastructur.es/)
+
 # Waiting For Classification
 
 - [Wait-Free Synchronization](http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf)
