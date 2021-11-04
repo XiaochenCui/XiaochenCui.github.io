@@ -183,6 +183,7 @@ Comments and suggestions are welcomed.
 - [Sort vs. Hash Revisited](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/graefe-tkde1994.pdf)
 - [Massively Parallel Sort-Merge Joins in Main Memory Multi-Core Database Systems](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p1064-albutiu.pdf)
 - [A Practical Approach to Groupjoin and Nested Aggregates](https://vldb.org/pvldb/vol14/p2383-fent.pdf)
+- [Fast and Effective Distribution-Key Recommendation for Amazon Redshift](http://www.vldb.org/pvldb/vol13/p2411-parchas.pdf)
 
 ## Lock & Transaction
 
