@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.87.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/function-calling/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/function-calling/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Function Calling",
+      "headline" : "Function Calling",
+      "description" : "Function Calling Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.\nA Warm Up Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2021",
+      "datePublished": "2021-11-11 16:12:30 \u002b0800 CST",
+      "dateModified" : "2021-11-11 16:12:30 \u002b0800 CST",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/function-calling\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Function Calling - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Function Calling - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="Function Calling Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
+A Warm Up Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location)." />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Xiaochen Cui</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Function Calling</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2021-11-11 16:12:30 CST">
+                11 Nov 2021
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <h1 id="function-calling">Function Calling</h1>
+<p>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.</p>
+<h1 id="a-warm-up-example">A Warm Up Example</h1>
+<p>The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</p>
+<p>Here is an example of function calling:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">inner_function</span>(<span style="color:#66d9ef">int</span> a) {
+  a <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+  printf(<span style="color:#e6db74">&#34;value of a (inside the inner function): %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+  printf(<span style="color:#e6db74">&#34;value of a (original): %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+  inner_function(a);
+  printf(<span style="color:#e6db74">&#34;value of a (after inner function was called): %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
+}
+</code></pre></div><p>And the result shows that the value of a of the caller has not been affected by the callee:</p>
+<pre><code>value of a (original): 1
+value of a (inside the inner function): 100
+value of a (after inner function was called): 1
+</code></pre><p>So the <code>main()</code> and <code>inner_function()</code> here are two <strong>context</strong>, we can switch at will between them without affecting the variables of themselves.</p>
+<h1 id="function-calling-in-x86-assembly">Function Calling in x86 Assembly</h1>
+<p>The <code>CS</code> and <code>IP</code> register are the foundation to achieve functions callings in x86, where CS (code segment register) stores the memory location of the code segment current executed, and IP (instruction pointer) stores the offset address within the code segment of the memory. Hence CS:IP is used to point to the location of the currently executed code in the memory (it&rsquo;s a physical address when using the intel 8086 cpu).</p>
+<p>So the function calling and returning is basically playing around <code>CS</code> and <code>IP</code> registers, those procedures are thoughtfully packaged into several instructions in the 8086 cp: <code>call</code> and <code>ret/retf</code>.</p>
+<p>The <code>call</code> command is used to jump to a function&rsquo;s entrypoint in the calling manner, it&rsquo;s equivalent to:</p>
+<pre><code>push CS
+push IP
+jmp &lt;location&gt;  # &lt;location&gt; is a register or an raw address
+								# e.g:
+								# jmp 2AE3:3
+								# which makes CS=2AE3H, IP=0003H, cpu will read the next
+								# instrction from 2AE33H
+								# jmp ax
+								# which means &quot;replace the value of IP register with the
+								# value from ax register&quot;
+</code></pre><p>The <code>ret</code> command provides the ability to return within the same code segment, it&rsquo;s equivalent to:</p>
+<pre><code>pop IP
+</code></pre><p>the <code>retf</code> command provides the ability to return to a different code segment by modifies both <code>CS</code> and <code>IP</code> register:</p>
+<pre><code>pop IP
+pop CS
+</code></pre><p>After we have call and ret instructions, there is a very important issue must be dealt with: the registers used by subroutine (callee) are very likely also used by the caller, which caused conflicts in the use of registers.</p>
+<p>For all registers used by the subroutine, its value must be saved to the stack when the subroutine starts to execute, and then restored before the subroutine returns, in a reverse order.</p>
+<p>e.g: (assuming the <code>CX</code> and <code>SI</code> registers are used by the function <code>foo</code>)</p>
+<pre><code>foo:
+			push cx
+			push si
+			(execution...)
+			pop si
+			pop cx
+</code></pre><h1 id="calling-conventions-of-c-language">Calling conventions of C language</h1>
+<p>There are three major calling conventions that are used with the C language on 32-bit x86 processors: STDCALL, CDECL, and FASTCALL</p>
+<p>editing&hellip;</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Context_switch">https://en.wikipedia.org/wiki/Context_switch</a></li>
+<li>《汇编语言第三版》- 王爽</li>
+<li><a href="https://www.geeksforgeeks.org/memory-segmentation-8086-microprocessor/">https://www.geeksforgeeks.org/memory-segmentation-8086-microprocessor/</a></li>
+<li><a href="https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly">https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly</a></li>
+<li><a href="https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions">https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions</a></li>
+<li><a href="https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit">https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit</a></li>
+</ul>
+
+        </div>
+        
+
+        
+
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        <div class="post-comments">
+          <div id="disqus_thread"></div>
+<script>
+  window.addEventListener("load", () => {
+    (function() {
+      
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://cuixiaochen.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  });
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+
+        </div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>
