@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Context Switch - Function Calling",
       "headline" : "Context Switch - Function Calling",
-      "description" : "Function Calling Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.\nA Warm Up Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).",
+      "description" : "Function Calling Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.\nA Simple Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -37,7 +37,7 @@
   <meta property="og:title" content="Context Switch - Function Calling - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
   <meta name="description" content="Function Calling Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
-A Warm Up Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location)." />
+A Simple Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location)." />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -96,7 +96,7 @@ A Warm Up Example The function calling is the most commonly used context switch 
         <div class="post-content markdown-body">
           <h1 id="function-calling">Function Calling</h1>
 <p>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.</p>
-<h1 id="a-warm-up-example">A Warm Up Example</h1>
+<h1 id="a-simple-example">A Simple Example</h1>
 <p>The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</p>
 <p>Here is an example of function calling:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
@@ -137,7 +137,7 @@ jmp &lt;location&gt;  # &lt;location&gt; is a register or an raw address
 <pre><code>pop IP
 pop CS
 </code></pre><p>After we have call and ret instructions, there is a very important issue must be dealt with: the registers used by subroutine (callee) are very likely also used by the caller, which caused conflicts in the use of registers.</p>
-<p>For all registers used by the subroutine, its value must be saved to the stack when the subroutine starts to execute, and then restored before the subroutine returns, in a reverse order.</p>
+<p>For all registers used by the subroutine, its value must be saved to the stack when the subroutine starts to execute, and then restored before the subroutine returns, in the inverse order.</p>
 <p>e.g: (assuming the <code>CX</code> and <code>SI</code> registers are used by the function <code>foo</code>)</p>
 <pre><code>foo:
 			push cx
@@ -146,7 +146,41 @@ pop CS
 			pop si
 			pop cx
 </code></pre><h1 id="calling-conventions-of-c-language">Calling conventions of C language</h1>
-<p>There are three major calling conventions that are used with the C language on 32-bit x86 processors: STDCALL, CDECL, and FASTCALL</p>
+<h2 id="the-32-bit-x86-c-calling-convention">The 32 bit x86 C Calling Convention</h2>
+<p>There are three major calling conventions that are used with the C language on 32-bit x86 processors: <code>STDCALL</code>, <code>CDECL</code>, and <code>FASTCALL</code>.</p>
+<p>Since the <code>CDECL</code> calling convention is used by default, I&rsquo;ll introduce it here briefly, the others calling conventions can be found here if interested: <a href="https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions">x86 Disassembly/Calling Conventions</a></p>
+<h3 id="the-cdecl-calling-conventions">The CDECL Calling Conventions</h3>
+<ul>
+<li>Arguments are passed on the stack in Right-to-Left order, and return values are passed in eax.</li>
+<li>The <em>calling</em> function cleans the stack. This allows CDECL functions to have <em>variable-length argument lists</em> (aka variadic functions). For this reason the number of arguments is not appended to the name of the function by the compiler, and the assembler and the linker are therefore unable to determine if an incorrect number of arguments is used.</li>
+</ul>
+<p>Consider the following C instructions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">_cdecl <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">MyFunction1</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b)
+{
+  <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b;
+}
+</code></pre></div><p>and the following function call:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">x <span style="color:#f92672">=</span> MyFunction1(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>);
+</code></pre></div><p>These would produce the following assembly listings, respectively:</p>
+<pre><code>_MyFunction1:
+push ebp
+mov ebp, esp
+mov eax, [ebp + 8]
+mov edx, [ebp + 12]
+add eax, edx
+pop ebp
+ret
+</code></pre><p>and</p>
+<pre><code>push 3
+push 2
+call _MyFunction1
+add esp, 8
+</code></pre><p>When translated to assembly code, CDECL functions are almost always prepended with an underscore (that&rsquo;s why all previous examples have used &ldquo;_&rdquo; in the assembly code).</p>
+<h2 id="the-64-bit-x86-c-calling-convention">The 64 bit x86 C Calling Convention</h2>
+<p>The calling convention of C language on x86-64 is basically the same with which on x86, except some trivial difference. You can get the details of it if interested:  <a href="https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf">x86-64bit-ccc-chapter</a></p>
+<h1 id="calling-conventions-of-c">Calling conventions of C++</h1>
+<h1 id="calling-conventions-of-golang">Calling conventions of Golang</h1>
+<h1 id="calling-conventions-of-python">Calling conventions of Python</h1>
 <p>editing&hellip;</p>
 <h1 id="reference">Reference</h1>
 <ul>
@@ -156,6 +190,7 @@ pop CS
 <li><a href="https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly">https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly</a></li>
 <li><a href="https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions">https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions</a></li>
 <li><a href="https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit">https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit</a></li>
+<li><a href="https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf">https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf</a></li>
 </ul>
 
         </div>

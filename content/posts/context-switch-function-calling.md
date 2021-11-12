@@ -7,7 +7,7 @@ date: 2021-11-11T16:12:30+08:00
 
 Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
 
-# A Warm Up Example
+# A Simple Example
 
 The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).
 
@@ -75,7 +75,7 @@ pop CS
 
 After we have call and ret instructions, there is a very important issue must be dealt with: the registers used by subroutine (callee) are very likely also used by the caller, which caused conflicts in the use of registers.
 
-For all registers used by the subroutine, its value must be saved to the stack when the subroutine starts to execute, and then restored before the subroutine returns, in a reverse order.
+For all registers used by the subroutine, its value must be saved to the stack when the subroutine starts to execute, and then restored before the subroutine returns, in the inverse order.
 
 e.g: (assuming the `CX` and `SI` registers are used by the function `foo`)
 
@@ -90,7 +90,65 @@ foo:
 
 # Calling conventions of C language
 
-There are three major calling conventions that are used with the C language on 32-bit x86 processors: STDCALL, CDECL, and FASTCALL
+## The 32 bit x86 C Calling Convention
+
+There are three major calling conventions that are used with the C language on 32-bit x86 processors: `STDCALL`, `CDECL`, and `FASTCALL`.
+
+Since the `CDECL` calling convention is used by default, I'll introduce it here briefly, the others calling conventions can be found here if interested: [x86 Disassembly/Calling Conventions](https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions)
+
+### The CDECL Calling Conventions
+
+- Arguments are passed on the stack in Right-to-Left order, and return values are passed in eax.
+- The *calling* function cleans the stack. This allows CDECL functions to have *variable-length argument lists* (aka variadic functions). For this reason the number of arguments is not appended to the name of the function by the compiler, and the assembler and the linker are therefore unable to determine if an incorrect number of arguments is used.
+
+Consider the following C instructions:
+
+```c
+_cdecl int MyFunction1(int a, int b)
+{
+  return a + b;
+}
+```
+
+and the following function call:
+
+```c
+x = MyFunction1(2, 3);
+```
+
+These would produce the following assembly listings, respectively:
+
+```
+_MyFunction1:
+push ebp
+mov ebp, esp
+mov eax, [ebp + 8]
+mov edx, [ebp + 12]
+add eax, edx
+pop ebp
+ret
+```
+
+and
+
+```
+push 3
+push 2
+call _MyFunction1
+add esp, 8
+```
+
+When translated to assembly code, CDECL functions are almost always prepended with an underscore (that's why all previous examples have used "_" in the assembly code).
+
+## The 64 bit x86 C Calling Convention
+
+The calling convention of C language on x86-64 is basically the same with which on x86, except some trivial difference. You can get the details of it if interested:  [x86-64bit-ccc-chapter](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
+
+# Calling conventions of C++
+
+# Calling conventions of Golang
+
+# Calling conventions of Python
 
 editing...
 
@@ -102,3 +160,4 @@ editing...
 - [https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly](https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly)
 - [https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions](https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions)
 - [https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit](https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit)
+- [https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
