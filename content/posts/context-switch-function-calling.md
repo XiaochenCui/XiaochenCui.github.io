@@ -81,83 +81,40 @@ e.g: (assuming the `CX` and `SI` registers are used by the function `foo`)
 
 ```
 foo:
-			push cx
-			push si
-			(execution...)
-			pop si
-			pop cx
+	push cx
+	push si
+	(execution...)
+	pop si
+	pop cx
 ```
 
 # Calling conventions of C language
 
-## The 32 bit x86 C Calling Convention
+The calling convention of C language is consists of there parts:
 
-There are three major calling conventions that are used with the C language on 32-bit x86 processors: `STDCALL`, `CDECL`, and `FASTCALL`.
+- How does arguments were passed to the callee?
+- How does return values passed back to the caller?
+- Whose responsibility is to clean up the stack when the callee is going to return?
 
-Since the `CDECL` calling convention is used by default, I'll introduce it here briefly, the others calling conventions can be found here if interested: [x86 Disassembly/Calling Conventions](https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions)
+I summarize some of calling conventions according to the points above, the details of them could be found in the references.
 
-### The CDECL Calling Conventions
-
-- Arguments are passed on the stack in Right-to-Left order, and return values are passed in eax.
-- The *calling* function cleans the stack. This allows CDECL functions to have *variable-length argument lists* (aka variadic functions). For this reason the number of arguments is not appended to the name of the function by the compiler, and the assembler and the linker are therefore unable to determine if an incorrect number of arguments is used.
-
-Consider the following C instructions:
-
-```c
-_cdecl int MyFunction1(int a, int b)
-{
-  return a + b;
-}
-```
-
-and the following function call:
-
-```c
-x = MyFunction1(2, 3);
-```
-
-These would produce the following assembly listings, respectively:
-
-```
-_MyFunction1:
-push ebp
-mov ebp, esp
-mov eax, [ebp + 8]
-mov edx, [ebp + 12]
-add eax, edx
-pop ebp
-ret
-```
-
-and
-
-```
-push 3
-push 2
-call _MyFunction1
-add esp, 8
-```
-
-When translated to assembly code, CDECL functions are almost always prepended with an underscore (that's why all previous examples have used "_" in the assembly code).
-
-## The 64 bit x86 C Calling Convention
-
-The calling convention of C language on x86-64 is basically the same with which on x86, except some trivial difference. You can get the details of it if interested:  [x86-64bit-ccc-chapter](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
-
-# Calling conventions of C++
-
-# Calling conventions of Golang
-
-# Calling conventions of Python
+| language & platform | calling convention | argument-passing | return values passing | stack cleanup |
+| --- | --- | --- | --- | --- |
+| C (x86) | CDECL | passed on the stack in Right-to-Left order | eax register | caller |
+| C (x86) | STDCALL | passed on the stack in Right-to-Left order | eax register | callee |
+| C (x86) | FASTCALL | passing parameters through registers as much as possible, remaining passed through stack | I don't know | callee |
+| C++ (x86) | THISCALL | passed on the stack in Right-to-Left order | eax register | caller |
+| C/C++ (AMD64) | System V AMD64 ABI | passing parameters through registers as much as possible, remaining passed through stack | rax register | callee |
 
 editing...
 
 # Reference
 
-- [https://en.wikipedia.org/wiki/Context_switch](https://en.wikipedia.org/wiki/Context_switch)
+- [Assembly 2: Calling convention](https://cs61.seas.harvard.edu/site/2018/Asm2/)
 - 《汇编语言第三版》- 王爽
-- [https://www.geeksforgeeks.org/memory-segmentation-8086-microprocessor/](https://www.geeksforgeeks.org/memory-segmentation-8086-microprocessor/)
-- [https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly](https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly)
-- [https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions](https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions)
-- [https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit](https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit)
-- [https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
+- [Memory Segmentation in 8086 Microprocessor - GeeksforGeeks](https://www.geeksforgeeks.org/memory-segmentation-8086-microprocessor/)
+- [What is the purpose of CS and IP registers in Intel 8086 assembly?](https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly)
+- [x86 Disassembly/Calling Conventions - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions)
+- [C to assembly call convention 32bit vs 64bit](https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit)
+- [The 64 bit x86 C Calling Convention](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
+- [__cdecl](https://docs.microsoft.com/en-us/cpp/cpp/cdecl?view=msvc-170)
