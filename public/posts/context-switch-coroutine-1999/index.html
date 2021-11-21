@@ -143,14 +143,14 @@ The only difference between resume and call is that the Call will Establish a re
 <p><code>pred, suc</code> : predecessor and successor in a doubly linked list of unused tasks
 <code>prev, next</code>: pointers to the two adjacent tasks</p>
 <p>Procedure of coroutine switch:</p>
-<p>editing&hellip;</p>
+<p><img src="/images/context-switch/context_switch-share-switch.drawio.png" alt="switch"></p>
 <h3 id="pondering-1">Pondering</h3>
 <p>Q1. What if the stack requested at the coroutine initialization was insufficient?</p>
 <p>Stack of the program will be disrupted, anything horrible could happen.</p>
 <p>Q2. Can we prevent the coroutine from stack overflow?</p>
 <p>As far as I know, we can&rsquo;t.</p>
 <p>Q3. How does we put the struct <code>task</code> to the start of the corresponding coroutine&rsquo;s stack?</p>
-<p>We doesn&rsquo;t put the <code>task</code> struct to the start of a coroutine&rsquo;s stack. All we do it make sure there are at least 1 unclaimed <code>task</code> struct on the stack all the time. When a new coroutine was called, the <code>task</code> would assigned to it and the coroutine would running on the stack space just underneath it.</p>
+<p>We doesn&rsquo;t put the <code>task</code> struct to the start of a coroutine&rsquo;s stack. All we do it make sure there are at least 1 unclaimed <code>task</code> struct on the stack all the time. When a new coroutine was called, the <code>task</code> would assigned to it and the coroutine would running on the stack space just behind it.</p>
 <p>Q4. Why <code>pred/suc</code> and <code>prev/next</code> pointers are provided at the same time, whether one of the two groups could be removed?</p>
 <p>The <code>prev/next</code> pointers are necessary which maintain the memory layout of our program, including:</p>
 <ol>
@@ -161,15 +161,15 @@ The only difference between resume and call is that the Call will Establish a re
 <p>Where as <code>pred/suc</code> pointers are optional, they just speed up the procedure in searching for unused task.</p>
 <p>Q5. What&rsquo;s the usage of <code>Coroutine *ToBeResumed</code> ?</p>
 <p>The intention of <code>*ToBeResumed</code> is to indicating a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.</p>
-<h1 id="how-setjmp-and-longjmp-implemented">How <code>setjmp</code> and <code>longjmp</code> implemented?</h1>
-<p>editing&hellip;</p>
 <h1 id="reference">Reference</h1>
-<p><a href="http://akira.ruc.dk/~keld/research/COROUTINE/">COROUTINE (Keld Helsgaun)</a></p>
-<p><a href="https://code.woboq.org/userspace/glibc/setjmp/setjmp.h.html#__jmp_buf_tag">setjmp.h source code [glibc/setjmp/setjmp.h] - Woboq Code Browser</a></p>
-<p><a href="https://code.woboq.org/userspace/glibc/sysdeps/x86/bits/setjmp.h.html">setjmp.h source code [glibc/sysdeps/x86/bits/setjmp.h] - Woboq Code Browser</a></p>
-<p><a href="https://code.woboq.org/userspace/glibc/sysdeps/x86_64/setjmp.S.html">setjmp.S source code [glibc/sysdeps/x86_64/setjmp.S] - Woboq Code Browser</a></p>
-<p><a href="https://code.woboq.org/userspace/glibc/setjmp/longjmp.c.html">longjmp.c source code [glibc/setjmp/longjmp.c] - Woboq Code Browser</a></p>
-<p><a href="https://code.woboq.org/userspace/glibc/sysdeps/x86_64/__longjmp.S.html">__longjmp.S source code [glibc/sysdeps/x86_64/__longjmp.S] - Woboq Code Browser</a></p>
+<ul>
+<li><a href="http://akira.ruc.dk/~keld/research/COROUTINE/">COROUTINE (Keld Helsgaun)</a></li>
+<li><a href="https://code.woboq.org/userspace/glibc/setjmp/setjmp.h.html#__jmp_buf_tag">setjmp.h source code [glibc/setjmp/setjmp.h] - Woboq Code Browser</a></li>
+<li><a href="https://code.woboq.org/userspace/glibc/sysdeps/x86/bits/setjmp.h.html">setjmp.h source code [glibc/sysdeps/x86/bits/setjmp.h] - Woboq Code Browser</a></li>
+<li><a href="https://code.woboq.org/userspace/glibc/sysdeps/x86_64/setjmp.S.html">setjmp.S source code [glibc/sysdeps/x86_64/setjmp.S] - Woboq Code Browser</a></li>
+<li><a href="https://code.woboq.org/userspace/glibc/setjmp/longjmp.c.html">longjmp.c source code [glibc/setjmp/longjmp.c] - Woboq Code Browser</a></li>
+<li><a href="https://code.woboq.org/userspace/glibc/sysdeps/x86_64/__longjmp.S.html">__longjmp.S source code [glibc/sysdeps/x86_64/__longjmp.S] - Woboq Code Browser</a></li>
+</ul>
 
         </div>
         

@@ -77,7 +77,7 @@ Annotation:
 
 Procedure of coroutine switch:
 
-editing...
+![switch](/images/context-switch/context_switch-share-switch.drawio.png)
 
 ### Pondering
 
@@ -91,7 +91,7 @@ As far as I know, we can't.
 
 Q3. How does we put the struct `task` to the start of the corresponding coroutine's stack?
 
-We doesn't put the `task` struct to the start of a coroutine's stack. All we do it make sure there are at least 1 unclaimed `task` struct on the stack all the time. When a new coroutine was called, the `task` would assigned to it and the coroutine would running on the stack space just underneath it.
+We doesn't put the `task` struct to the start of a coroutine's stack. All we do it make sure there are at least 1 unclaimed `task` struct on the stack all the time. When a new coroutine was called, the `task` would assigned to it and the coroutine would running on the stack space just behind it.
 
 Q4. Why `pred/suc` and `prev/next` pointers are provided at the same time, whether one of the two groups could be removed?
 
@@ -107,20 +107,11 @@ Q5. What's the usage of `Coroutine *ToBeResumed` ?
 
 The intention of `*ToBeResumed` is to indicating a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.
 
-# How `setjmp` and `longjmp` implemented?
-
-editing...
-
 # Reference
 
-[COROUTINE (Keld Helsgaun)](http://akira.ruc.dk/~keld/research/COROUTINE/)
-
-[setjmp.h source code [glibc/setjmp/setjmp.h] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/setjmp/setjmp.h.html#__jmp_buf_tag)
-
-[setjmp.h source code [glibc/sysdeps/x86/bits/setjmp.h] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/sysdeps/x86/bits/setjmp.h.html)
-
-[setjmp.S source code [glibc/sysdeps/x86_64/setjmp.S] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/sysdeps/x86_64/setjmp.S.html)
-
-[longjmp.c source code [glibc/setjmp/longjmp.c] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/setjmp/longjmp.c.html)
-
-[__longjmp.S source code [glibc/sysdeps/x86_64/__longjmp.S] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/sysdeps/x86_64/__longjmp.S.html)
+- [COROUTINE (Keld Helsgaun)](http://akira.ruc.dk/~keld/research/COROUTINE/)
+- [setjmp.h source code [glibc/setjmp/setjmp.h] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/setjmp/setjmp.h.html#__jmp_buf_tag)
+- [setjmp.h source code [glibc/sysdeps/x86/bits/setjmp.h] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/sysdeps/x86/bits/setjmp.h.html)
+- [setjmp.S source code [glibc/sysdeps/x86_64/setjmp.S] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/sysdeps/x86_64/setjmp.S.html)
+- [longjmp.c source code [glibc/setjmp/longjmp.c] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/setjmp/longjmp.c.html)
+- [__longjmp.S source code [glibc/sysdeps/x86_64/__longjmp.S] - Woboq Code Browser](https://code.woboq.org/userspace/glibc/sysdeps/x86_64/__longjmp.S.html)
