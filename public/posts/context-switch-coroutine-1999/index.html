@@ -125,14 +125,22 @@ The only difference between resume and call is that the Call will Establish a re
 <p>Procedure of coroutine switch (step 1,2 is suspending current coroutine, step 3,4 is resuming target coroutine):</p>
 <p><img src="/images/context-switch/context_switch-switch.drawio.png" alt="context switch-switch.drawio.png"></p>
 <h3 id="pondering">Pondering</h3>
-<p>Q1. What would happen if size of <code>StackBuffer</code> of the target coroutine is large than stack current used?</p>
+<ul>
+<li>
+<p><strong>What would happen if size of <code>StackBuffer</code> of the target coroutine is large than stack current used?</strong></p>
 <p>If the <code>memcpy</code> was carried out without check size of stack current used, an undefined behavior would occur. The program may jump to another statement far away, it may also crashed with segmentation fault, anything could happen.</p>
 <p>To avoid it, we allocating memory on stack continually until the stack is large enough to hold <code>StackBuffer</code> of the target coroutine.</p>
-<p>Q2. Does <code>BufferSize</code> always equals to <code>High - Low</code> for a coroutine?</p>
+</li>
+<li>
+<p><strong>Does <code>BufferSize</code> always equals to <code>High - Low</code> for a coroutine?</strong></p>
 <p>No, <code>BufferSize &gt;= High - Low</code>.</p>
 <p><code>BufferSize</code> is the length of <code>StackBuffer</code> , since <code>StackBuffer</code> never shrink, the <code>BufferSize</code> stands for the maximum size of stack content the buffer ever hold. This is also the reason of using <code>High - Low</code> instead of <code>BufferSize</code> when the stack restore was carrying out.</p>
-<p>Q3. Why <code>StackBuffer</code> never shrink?</p>
+</li>
+<li>
+<p><strong>Why <code>StackBuffer</code> never shrink?</strong></p>
 <p>In order to reduce the frequency of memory allocation &amp; free.</p>
+</li>
+</ul>
 <h2 id="share-stack">Share-Stack</h2>
 <h3 id="tldr-1">TLDR</h3>
 <p>Let all coroutine stacks share C++&rsquo;s runtime stack, and jump between to achieve context switch.</p>
@@ -140,18 +148,28 @@ The only difference between resume and call is that the Call will Establish a re
 <p>Data structures (assuming stack grows down):</p>
 <p><img src="/images/context-switch/context_switch-share-stack.drawio.png" alt="context switch-share-stack.drawio.png"></p>
 <p>Annotation:</p>
-<p><code>pred, suc</code> : predecessor and successor in a doubly linked list of unused tasks
-<code>prev, next</code>: pointers to the two adjacent tasks</p>
+<ul>
+<li><code>pred, suc</code> : predecessor and successor in a doubly linked list of unused tasks</li>
+<li><code>prev, next</code>: pointers to the two adjacent tasks</li>
+</ul>
 <p>Procedure of coroutine switch:</p>
 <p><img src="/images/context-switch/context_switch-share-switch.drawio.png" alt="switch"></p>
 <h3 id="pondering-1">Pondering</h3>
-<p>Q1. What if the stack requested at the coroutine initialization was insufficient?</p>
+<ul>
+<li>
+<p><strong>What if the stack requested at the coroutine initialization was insufficient?</strong></p>
 <p>Stack of the program will be disrupted, anything horrible could happen.</p>
-<p>Q2. Can we prevent the coroutine from stack overflow?</p>
+</li>
+<li>
+<p><strong>Can we prevent the coroutine from stack overflow?</strong></p>
 <p>As far as I know, we can&rsquo;t.</p>
-<p>Q3. How does we put the struct <code>task</code> to the start of the corresponding coroutine&rsquo;s stack?</p>
+</li>
+<li>
+<p><strong>How does we put the struct <code>task</code> to the start of the corresponding coroutine&rsquo;s stack?</strong></p>
 <p>We doesn&rsquo;t put the <code>task</code> struct to the start of a coroutine&rsquo;s stack. All we do it make sure there are at least 1 unclaimed <code>task</code> struct on the stack all the time. When a new coroutine was called, the <code>task</code> would assigned to it and the coroutine would running on the stack space just behind it.</p>
-<p>Q4. Why <code>pred/suc</code> and <code>prev/next</code> pointers are provided at the same time, whether one of the two groups could be removed?</p>
+</li>
+<li>
+<p><strong>Why <code>pred/suc</code> and <code>prev/next</code> pointers are provided at the same time, whether one of the two groups could be removed?</strong></p>
 <p>The <code>prev/next</code> pointers are necessary which maintain the memory layout of our program, including:</p>
 <ol>
 <li>allocation new task</li>
@@ -159,8 +177,12 @@ The only difference between resume and call is that the Call will Establish a re
 <li>split memory block on necessary.</li>
 </ol>
 <p>Where as <code>pred/suc</code> pointers are optional, they just speed up the procedure in searching for unused task.</p>
-<p>Q5. What&rsquo;s the usage of <code>Coroutine *ToBeResumed</code> ?</p>
+</li>
+<li>
+<p><strong>What&rsquo;s the usage of <code>Coroutine *ToBeResumed</code> ?</strong></p>
 <p>The intention of <code>*ToBeResumed</code> is to indicating a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.</p>
+</li>
+</ul>
 <h1 id="reference">Reference</h1>
 <ul>
 <li><a href="http://akira.ruc.dk/~keld/research/COROUTINE/">COROUTINE (Keld Helsgaun)</a></li>

@@ -42,21 +42,21 @@ Procedure of coroutine switch (step 1,2 is suspending current coroutine, step 3,
 
 ### Pondering
 
-Q1. What would happen if size of `StackBuffer` of the target coroutine is large than stack current used?
-
-If the `memcpy` was carried out without check size of stack current used, an undefined behavior would occur. The program may jump to another statement far away, it may also crashed with segmentation fault, anything could happen.
-
-To avoid it, we allocating memory on stack continually until the stack is large enough to hold `StackBuffer` of the target coroutine.
-
-Q2. Does `BufferSize` always equals to `High - Low` for a coroutine?
-
-No, `BufferSize >= High - Low`.
-
-`BufferSize` is the length of `StackBuffer` , since `StackBuffer` never shrink, the `BufferSize` stands for the maximum size of stack content the buffer ever hold. This is also the reason of using `High - Low` instead of `BufferSize` when the stack restore was carrying out.
-
-Q3. Why `StackBuffer` never shrink?
-
-In order to reduce the frequency of memory allocation & free.
+- **What would happen if size of `StackBuffer` of the target coroutine is large than stack current used?**
+    
+    If the `memcpy` was carried out without check size of stack current used, an undefined behavior would occur. The program may jump to another statement far away, it may also crashed with segmentation fault, anything could happen.
+    
+    To avoid it, we allocating memory on stack continually until the stack is large enough to hold `StackBuffer` of the target coroutine.
+    
+- **Does `BufferSize` always equals to `High - Low` for a coroutine?**
+    
+    No, `BufferSize >= High - Low`.
+    
+    `BufferSize` is the length of `StackBuffer` , since `StackBuffer` never shrink, the `BufferSize` stands for the maximum size of stack content the buffer ever hold. This is also the reason of using `High - Low` instead of `BufferSize` when the stack restore was carrying out.
+    
+- **Why `StackBuffer` never shrink?**
+    
+    In order to reduce the frequency of memory allocation & free.
 
 ## Share-Stack
 
@@ -72,8 +72,8 @@ Data structures (assuming stack grows down):
 
 Annotation:
 
-`pred, suc` : predecessor and successor in a doubly linked list of unused tasks
-`prev, next`: pointers to the two adjacent tasks
+- `pred, suc` : predecessor and successor in a doubly linked list of unused tasks
+- `prev, next`: pointers to the two adjacent tasks
 
 Procedure of coroutine switch:
 
@@ -81,31 +81,32 @@ Procedure of coroutine switch:
 
 ### Pondering
 
-Q1. What if the stack requested at the coroutine initialization was insufficient? 
-
-Stack of the program will be disrupted, anything horrible could happen.
-
-Q2. Can we prevent the coroutine from stack overflow?
-
-As far as I know, we can't.
-
-Q3. How does we put the struct `task` to the start of the corresponding coroutine's stack?
-
-We doesn't put the `task` struct to the start of a coroutine's stack. All we do it make sure there are at least 1 unclaimed `task` struct on the stack all the time. When a new coroutine was called, the `task` would assigned to it and the coroutine would running on the stack space just behind it.
-
-Q4. Why `pred/suc` and `prev/next` pointers are provided at the same time, whether one of the two groups could be removed?
-
-The `prev/next` pointers are necessary which maintain the memory layout of our program, including:
-
-1. allocation new task
-2. merge free memory blocks on the stack
-3. split memory block on necessary. 
-
- Where as `pred/suc` pointers are optional, they just speed up the procedure in searching for unused task.
-
-Q5. What's the usage of `Coroutine *ToBeResumed` ?
-
-The intention of `*ToBeResumed` is to indicating a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.
+- **What if the stack requested at the coroutine initialization was insufficient?**
+    
+    Stack of the program will be disrupted, anything horrible could happen.
+    
+- **Can we prevent the coroutine from stack overflow?**
+    
+    As far as I know, we can't.
+    
+- **How does we put the struct `task` to the start of the corresponding coroutine's stack?**
+    
+    We doesn't put the `task` struct to the start of a coroutine's stack. All we do it make sure there are at least 1 unclaimed `task` struct on the stack all the time. When a new coroutine was called, the `task` would assigned to it and the coroutine would running on the stack space just behind it.
+    
+- **Why `pred/suc` and `prev/next` pointers are provided at the same time, whether one of the two groups could be removed?**
+    
+    The `prev/next` pointers are necessary which maintain the memory layout of our program, including:
+    
+    1. allocation new task
+    2. merge free memory blocks on the stack
+    3. split memory block on necessary. 
+    
+     Where as `pred/suc` pointers are optional, they just speed up the procedure in searching for unused task.
+    
+- **What's the usage of `Coroutine *ToBeResumed` ?**
+    
+    The intention of `*ToBeResumed` is to indicating a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.
+    
 
 # Reference
 
