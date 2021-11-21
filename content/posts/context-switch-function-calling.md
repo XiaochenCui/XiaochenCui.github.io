@@ -3,13 +3,11 @@ title: "Context Switch - Function Calling"
 date: 2021-11-11T16:12:30+08:00
 ---
 
-# Function Calling
-
 Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
 
 # A Simple Example
 
-The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).
+The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).
 
 Here is an example of function calling:
 
@@ -94,9 +92,9 @@ The calling convention of C language is consists of there parts:
 
 - How does arguments were passed to the callee?
 - How does return values passed back to the caller?
-- Whose responsibility is to clean up the stack when the callee is going to return?
+- Who responsible for cleaning up the stack when the callee is going to return?
 
-I summarize some of calling conventions according to the points above, the details of them could be found in the references.
+I summarize some of calling conventions according to the points above, the details of these calling conventions could be found in the references.
 
 | language & platform | calling convention | argument-passing | return values passing | stack cleanup |
 | --- | --- | --- | --- | --- |
@@ -104,9 +102,7 @@ I summarize some of calling conventions according to the points above, the detai
 | C (x86) | STDCALL | passed on the stack in Right-to-Left order | eax register | callee |
 | C (x86) | FASTCALL | passing parameters through registers as much as possible, remaining passed through stack | I don't know | callee |
 | C++ (x86) | THISCALL | passed on the stack in Right-to-Left order | eax register | caller |
-| C/C++ (AMD64) | System V AMD64 ABI | passing parameters through registers as much as possible, remaining passed through stack | rax register | callee |
-
-editing...
+| C/C++ (x86-64) | System V AMD64 ABI | passing parameters through registers as much as possible, remaining passed through stack | rax register | callee |
 
 # Reference
 

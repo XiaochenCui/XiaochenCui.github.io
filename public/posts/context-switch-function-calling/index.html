@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Context Switch - Function Calling",
       "headline" : "Context Switch - Function Calling",
-      "description" : "Function Calling Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.\nA Simple Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).",
+      "description" : "Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.\nA Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).\nHere is an example of function calling:",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -36,8 +36,9 @@
 <title>Context Switch - Function Calling - XiaochenCui&#39;s Blog</title>
   <meta property="og:title" content="Context Switch - Function Calling - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content="Function Calling Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
-A Simple Example The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location)." />
+  <meta name="description" content="Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
+A Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).
+Here is an example of function calling:" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -94,10 +95,9 @@ A Simple Example The function calling is the most commonly used context switch f
         </header>
 
         <div class="post-content markdown-body">
-          <h1 id="function-calling">Function Calling</h1>
-<p>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.</p>
+          <p>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.</p>
 <h1 id="a-simple-example">A Simple Example</h1>
-<p>The function calling is the most commonly used context switch for programmers. It gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</p>
+<p>The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</p>
 <p>Here is an example of function calling:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
@@ -150,9 +150,9 @@ pop CS
 <ul>
 <li>How does arguments were passed to the callee?</li>
 <li>How does return values passed back to the caller?</li>
-<li>Whose responsibility is to clean up the stack when the callee is going to return?</li>
+<li>Who responsible for cleaning up the stack when the callee is going to return?</li>
 </ul>
-<p>I summarize some of calling conventions according to the points above, the details of them could be found in the references.</p>
+<p>I summarize some of calling conventions according to the points above, the details of these calling conventions could be found in the references.</p>
 <table>
 <thead>
 <tr>
@@ -193,7 +193,7 @@ pop CS
 <td>caller</td>
 </tr>
 <tr>
-<td>C/C++ (AMD64)</td>
+<td>C/C++ (x86-64)</td>
 <td>System V AMD64 ABI</td>
 <td>passing parameters through registers as much as possible, remaining passed through stack</td>
 <td>rax register</td>
@@ -201,7 +201,6 @@ pop CS
 </tr>
 </tbody>
 </table>
-<p>editing&hellip;</p>
 <h1 id="reference">Reference</h1>
 <ul>
 <li><a href="https://cs61.seas.harvard.edu/site/2018/Asm2/">Assembly 2: Calling convention</a></li>
