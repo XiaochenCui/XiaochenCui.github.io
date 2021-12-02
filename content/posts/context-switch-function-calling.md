@@ -5,6 +5,10 @@ date: 2021-11-11T16:12:30+08:00
 
 Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
 
+![C20-Coroutine.png](/images/context-switch-function-calling/C20-Coroutine.png)
+
+(image source: [cpp20-coroutine-under-the-hood](http://www.vishalchovatiya.com/cpp20-coroutine-under-the-hood/))
+
 # A Simple Example
 
 The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).
@@ -106,11 +110,12 @@ I summarize some of calling conventions according to the points above, the detai
 
 # Reference
 
+- [C++20 Coroutine: Under The Hood - Vishal Chovatiya](http://www.vishalchovatiya.com/cpp20-coroutine-under-the-hood/)
 - [Assembly 2: Calling convention](https://cs61.seas.harvard.edu/site/2018/Asm2/)
 - 《汇编语言第三版》- 王爽
 - [Memory Segmentation in 8086 Microprocessor - GeeksforGeeks](https://www.geeksforgeeks.org/memory-segmentation-8086-microprocessor/)
 - [What is the purpose of CS and IP registers in Intel 8086 assembly?](https://stackoverflow.com/questions/17777146/what-is-the-purpose-of-cs-and-ip-registers-in-intel-8086-assembly)
 - [x86 Disassembly/Calling Conventions - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions)
 - [C to assembly call convention 32bit vs 64bit](https://stackoverflow.com/questions/4265970/c-to-assembly-call-convention-32bit-vs-64bit)
-- [The 64 bit x86 C Calling Convention](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
 - [__cdecl](https://docs.microsoft.com/en-us/cpp/cpp/cdecl?view=msvc-170)
+- [The 64 bit x86 C Calling Convention](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)

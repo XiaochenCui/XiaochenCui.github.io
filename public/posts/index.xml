@@ -6,18 +6,30 @@
     <description>Recent content in Posts on XiaochenCui&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Nov 2021 16:08:10 +0800</lastBuildDate><atom:link href="https://cuixiaochen.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 16:57:10 +0800</lastBuildDate><atom:link href="https://cuixiaochen.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Context Switch - libtask by Russ Cox</title>
+      <link>https://cuixiaochen.com/posts/context-switch-libtask/</link>
+      <pubDate>Thu, 02 Dec 2021 16:57:10 +0800</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/context-switch-libtask/</guid>
+      <description>Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
+We will use &amp;ldquo;task&amp;rdquo; to refer to &amp;ldquo;coroutine&amp;rdquo; in the following for coherency.
+Internal overview of running procedure There are 4 exclusive states for any task given:
+ running suspended, put in the task queue suspended, put in a channel&amp;rsquo;s sender queue or receiver queue terminated  The program exit in 2 situations:</description>
+    </item>
+    
     <item>
       <title>Context Switch - A Coroutine Library Back to 1999</title>
       <link>https://cuixiaochen.com/posts/context-switch-coroutine-1999/</link>
       <pubDate>Thu, 18 Nov 2021 16:08:10 +0800</pubDate>
       
       <guid>https://cuixiaochen.com/posts/context-switch-coroutine-1999/</guid>
-      <description>Introduction COROUTINE is a C++ library for coroutine sequencing which was published by Keld Helsgaun at May 1999.
-Coroutine Primitives &amp;amp; State The facilities of the library are based on the coroutine primitives provided by the programming language SIMULA.
+      <description>Introduction COROUTINE is a C++ library for coroutine sequencing, which Keld Helsgaun published in May 1999.
+Coroutine primitives &amp;amp; state The facilities of the library are based on the coroutine primitives provided by the programming language SIMULA.
   Resume(Coroutine *Next) : resume the execution of a coroutine
   Call(Coroutine *Next) : start the execution of a coroutine
-The only difference between resume and call is that the Call will Establish a relationship between caller and callee, whereas the Resume doesn&amp;rsquo;t.</description>
+The execution procedure of Resume and Call are the same: 1. suspending the current thread, 2.</description>
     </item>
     
     <item>
@@ -27,8 +39,8 @@ The only difference between resume and call is that the Call will Establish a re
       
       <guid>https://cuixiaochen.com/posts/context-switch-function-calling/</guid>
       <description>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
-A Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).
-Here is an example of function calling:</description>
+(image source: cpp20-coroutine-under-the-hood)
+A Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</description>
     </item>
     
     <item>

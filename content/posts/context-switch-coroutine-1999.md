@@ -5,22 +5,26 @@ date: 2021-11-18T16:08:10+08:00
 
 # Introduction
 
-[COROUTINE](http://akira.ruc.dk/~keld/research/COROUTINE/) is a C++ library for coroutine sequencing which was published by Keld Helsgaun at May 1999. 
+[COROUTINE](http://akira.ruc.dk/~keld/research/COROUTINE/) is a C++ library for coroutine sequencing, which Keld Helsgaun published in May 1999.
 
-# Coroutine Primitives & State
+# Coroutine primitives & state
 
 The facilities of the library are based on the coroutine primitives provided by the programming language SIMULA.
 
 - `Resume(Coroutine *Next)` : resume the execution of a coroutine
 - `Call(Coroutine *Next)` : start the execution of a coroutine
     
-    The only difference between resume and call is that the Call will Establish a relationship between caller and callee, whereas the `Resume` doesn't. and both of them is just a wrapper around interior method `Enter()`.
+    The execution procedure of `Resume` and `Call` are the same: 1. suspending the current thread, 2. executing(start/resume) the target thread. The only difference between them is that the Call will Establish a relationship between caller and callee, whereas the Resume doesn't.
     
 - `Detach()`: suspending/terminating the current coroutine and resume the caller of current coroutine
 
+State transitions of a coroutine:
+
+![context switch-state transition.drawio.png](/images/context-switch-coroutine-1999/context_switch-state_transition.drawio.png)
+
 # Implementation
 
-Two different implementations of the library are provided. The first implementation is based on copying of stacks in and out of C++'s runtime stack. In the second implementation all stacks reside in the runtime stack (i.e., no stacks are copied).
+Two different implementations of the library are provided. The first implementation is based on the copying of stacks in and out of C++'s runtime stack. In the second implementation, all stacks of coroutines reside in the runtime stack (i.e., no stacks are copied).
 
 All the following sections are based on the assumptions of the stack growing downwards.
 
@@ -28,23 +32,23 @@ All the following sections are based on the assumptions of the stack growing dow
 
 ### TLDR
 
-Use a `StackBuffer` on the heap to store/resume stack content and registers of a coroutine, so a coroutine could be suspended/resumed easily.
+Use a `StackBuffer` on the heap to store/resume stack content and registers of a coroutine so that a coroutine could be suspended/continued by `memcpy` straightforward.
 
 ### Explain in Detail  (Assuming stack grows down)
 
 The struct of a coroutine struct (assuming stack grows down):
 
-![context switch-coroutine struct.drawio.png](/images/context-switch/context_switch-coroutine_struct.drawio.png)
+![context switch-coroutine struct.drawio.png](/images/context-switch-coroutine-1999/context_switch-coroutine_struct.drawio.png)
 
 Procedure of coroutine switch (step 1,2 is suspending current coroutine, step 3,4 is resuming target coroutine):
 
-![context switch-switch.drawio.png](/images/context-switch/context_switch-switch.drawio.png)
+![context switch-switch.drawio.png](/images/context-switch-coroutine-1999/context_switch-switch.drawio.png)
 
 ### Pondering
 
 - **What would happen if size of `StackBuffer` of the target coroutine is large than stack current used?**
     
-    If the `memcpy` was carried out without check size of stack current used, an undefined behavior would occur. The program may jump to another statement far away, it may also crashed with segmentation fault, anything could happen.
+    An undefined behavior would occur if the `memcpy` were carried out without checking the size of stack current used. The program may jump to another statement far away; it may also crash with a segmentation fault; anything could happen.
     
     To avoid it, we allocating memory on stack continually until the stack is large enough to hold `StackBuffer` of the target coroutine.
     
@@ -57,6 +61,7 @@ Procedure of coroutine switch (step 1,2 is suspending current coroutine, step 3,
 - **Why `StackBuffer` never shrink?**
     
     In order to reduce the frequency of memory allocation & free.
+    
 
 ## Share-Stack
 
@@ -68,16 +73,19 @@ Let all coroutine stacks share C++'s runtime stack, and jump between to achieve 
 
 Data structures (assuming stack grows down):
 
-![context switch-share-stack.drawio.png](/images/context-switch/context_switch-share-stack.drawio.png)
+![context switch-share-stack.drawio.png](/images/context-switch-coroutine-1999/context_switch-share-stack.drawio.png)
 
 Annotation:
 
-- `pred, suc` : predecessor and successor in a doubly linked list of unused tasks
-- `prev, next`: pointers to the two adjacent tasks
+`pred, suc` : predecessor and successor in a doubly linked list of unused tasks
+
+`prev, next`: pointers to the two adjacent tasks
+
+`StackSize`: size of available stack memory, pre-allocated
 
 Procedure of coroutine switch:
 
-![switch](/images/context-switch/context_switch-share-switch.drawio.png)
+![context switch-share-switch.drawio.png](/images/context-switch-coroutine-1999/context_switch-share-switch.drawio.png)
 
 ### Pondering
 
@@ -105,8 +113,29 @@ Procedure of coroutine switch:
     
 - **What's the usage of `Coroutine *ToBeResumed` ?**
     
-    The intention of `*ToBeResumed` is to indicating a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.
+    `*ToBeResumed` intends to indicate a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.
     
+- **Why the state of coroutine (value of registers, stored in `jmp_buf`) not recovered to initial state when a coroutine terminated?**
+    
+    There is no need to recover `jmp_buf` after the coroutine is terminated since the `Task` would be marked as free. When the next new coroutine is fitted in this free `Task`, the new state will be stored to `jmp_buf`, execution of the program would not bother with the obsoleted state.
+    
+    ![context switch-task-reuse.drawio.png](/images/context-switch-coroutine-1999/context_switch-task-reuse.drawio.png)
+    
+
+## Comparison of the two implementations
+
+(Arranged from the original report)
+
+|  | copy-stack implementation | share-stack implementation |
+| --- | --- | --- |
+| memory overhead on AMD64 (per coroutine) | 256 bytes (size of Coroutine) + the largest size of stack the coroutine stored ever | 256 bytes (size of Task) + 48 bytes (size of Coroutine) + stack memory allocated but not used |
+| context switch overhead | memory copying for the stack content + registers storing + registers restoring | registers storing + registers restoring |
+| ease of use | user does not need to bother about stack sizes for coroutines | requires the maximum stack size of each coroutine to be specified |
+| restrictions in use | - | - |
+| robustness | ok | on stack overflow, the program will crush or produce meaningless results without any notification |
+| memory use | each suspended coroutine must keep a copy of its stack content on the heap | if maximum stack size specified is way too large, a lot of unnecessary memory is wasted |
+| maintenance | simple | way too complex (a bunch of setjmp and longjmp ) |
+| portability | ok | ok |
 
 # Reference
 
