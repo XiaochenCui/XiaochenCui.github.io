@@ -1,6 +1,7 @@
 ---
 title: "System Research Syllabus"
 date: 2019-10-08T13:56:32+08:00
+draft: true
 ---
 
 The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
