@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Context Switch - Preface \u0026 Outline",
       "headline" : "Context Switch - Preface \u0026 Outline",
-      "description" : "editing\u0026hellip;",
+      "description" : "Preface I will write a series of posts about the context switch. Aiming to answer these questions:\n What is a context switch? When we need to switch context? What\u0026rsquo;s a process \/ thread \/ coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -36,7 +36,8 @@
 <title>Context Switch - Preface &amp; Outline - XiaochenCui&#39;s Blog</title>
   <meta property="og:title" content="Context Switch - Preface &amp; Outline - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content="editing&hellip;" />
+  <meta name="description" content="Preface I will write a series of posts about the context switch. Aiming to answer these questions:
+ What is a context switch? When we need to switch context? What&rsquo;s a process / thread / coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -93,7 +94,39 @@
         </header>
 
         <div class="post-content markdown-body">
-          <p>editing&hellip;</p>
+          <h2 id="preface">Preface</h2>
+<p>I will write a series of posts about the context switch. Aiming to answer these questions:</p>
+<ul>
+<li>What is a context switch?</li>
+<li>When we need to switch context?</li>
+<li>What&rsquo;s a process / thread / coroutine(user-space thread)?</li>
+<li>Applicable scenarios for each option.</li>
+<li>Digging into some coroutine libraries, the pros and cons of each.
+<ul>
+<li>boost coroutine</li>
+<li>marl</li>
+<li>co</li>
+<li>libtask</li>
+<li>bthread</li>
+<li>goroutine</li>
+<li>libuv</li>
+<li>libco</li>
+<li>libaco</li>
+<li>boos::fiber</li>
+</ul>
+</li>
+<li>Why X uses coroutine? (e.g: gateway, crawler)</li>
+<li>Why X not use coroutine? (e.g: mysql)</li>
+<li>Why linux (and other os) doesn&rsquo;t have coroutine built-in?</li>
+<li>why system call is slow/expensive?</li>
+</ul>
+<h2 id="outline">Outline</h2>
+<p>There are 3 articles published currently:</p>
+<ul>
+<li><a href="/posts/context-switch-function-calling/">Context Switch - Function Calling</a></li>
+<li><a href="/posts/context-switch-coroutine-1999/">Context Switch - A Coroutine Library Back to 1999</a></li>
+<li><a href="/posts/context-switch-libtask/">Context Switch - libtask by Russ Cox</a></li>
+</ul>
 
         </div>
         
@@ -131,6 +164,14 @@
         
 
         <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://cuixiaochen.com/resume/resume_english.pdf" target="_blank">Resume(English)</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://cuixiaochen.com/resume/resume_chinese.pdf" target="_blank">Resume(Chinese)</a>
+  </div>
   
   <div class="site-footer-item">
     <a href="https://github.com/XiaochenCui" target="_blank">Github</a>

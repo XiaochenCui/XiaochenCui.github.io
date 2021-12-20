@@ -44,6 +44,16 @@ A Simple Example The function calling gives a promise which the changes to varia
     </item>
     
     <item>
+      <title>Context Switch - Preface &amp; Outline</title>
+      <link>https://cuixiaochen.com/posts/context-switch-preface/</link>
+      <pubDate>Fri, 05 Nov 2021 11:43:00 +0800</pubDate>
+      
+      <guid>https://cuixiaochen.com/posts/context-switch-preface/</guid>
+      <description>Preface I will write a series of posts about the context switch. Aiming to answer these questions:
+ What is a context switch? When we need to switch context? What&amp;rsquo;s a process / thread / coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?</description>
+    </item>
+    
+    <item>
       <title>System Research Syllabus</title>
       <link>https://cuixiaochen.com/posts/system-research-syllabus/</link>
       <pubDate>Tue, 08 Oct 2019 13:56:32 +0800</pubDate>
