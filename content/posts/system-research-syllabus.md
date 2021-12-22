@@ -328,6 +328,10 @@ Comments and suggestions are welcomed.
 
 # Distributed Algorithm
 
+## Consistency
+
+- [Consistency Models](https://jepsen.io/consistency)
+
 ## Course
 
 - [MIT6.852J](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-852j-distributed-algorithms-fall-2009/)
