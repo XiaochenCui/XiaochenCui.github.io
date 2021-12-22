@@ -74,6 +74,7 @@ Comments and suggestions are welcomed.
 - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.foundationdb.org/files/fdb-paper.pdf)
 - [POLARIS: The Distributed SQL Engine in Azure Synapse](http://www.vldb.org/pvldb/vol13/p3204-saborit.pdf)
 - [The Snowflake Elastic Data Warehouse](http://info.snowflake.net/rs/252-RFO-227/images/Snowflake_SIGMOD.pdf)
+- [Spanner: Google’s Globally-Distributed Database](http://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf)
 
 ## Greenplum
 
