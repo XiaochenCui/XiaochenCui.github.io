@@ -331,6 +331,7 @@ Comments and suggestions are welcomed.
 ## Consistency
 
 - [Consistency Models](https://jepsen.io/consistency)
+- [Seeing is Believing: A Client-Centric Specification of Database Isolation](https://www.cs.cornell.edu/lorenzo/papers/Crooks17Seeing.pdf)
 
 ## Course
 
