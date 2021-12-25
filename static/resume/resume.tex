@@ -17,7 +17,6 @@
 \usepackage[pdftex]{hyperref}
 \usepackage{fancyhdr}
 
-
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
@@ -47,6 +46,12 @@
 \newcommand{\resumeItem}[2]{
   \item\small{
     \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumePlainItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
   }
 }
 
@@ -94,8 +99,9 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Xiaochen Cui}\\
-  \href{https://cuixiaochen.com}{blog: \underline{XiaochenCui's Blog}} & email: \href{mailto:jcnlcxc.new@gmail.com}{\underline{jcnlcxc.new@gmail.com}}\\
-  \href{https://github.com/XiaochenCui}{github: \underline{XiaochenCui}} & mobile: (+86) 188-0224-3655
+  blog:\space\space\space\href{https://cuixiaochen.com}{\underline{XiaochenCui's Blog}}\\
+  github:\space\href{https://github.com/XiaochenCui}{\underline{XiaochenCui}}\\
+  email:\space\space\href{mailto:jcnlcxc.new@gmail.com}{\underline{jcnlcxc.new@gmail.com}}
 \end{tabular*}
 
 
@@ -109,10 +115,11 @@
       {Senior Software Engineer}{Apr 2021 - Present}
       \resumeItemListStart
         \resumeItem{Vectorized Query Engine}
-          {Designed and developed the vectorized query engine for LightningDB, which makes almost all kinds of queries become 20-100 times faster. (LightningDB is a column-oriented DBMS for online analytical processing.)}
-        \resumeItem{Designed the Structure of Underlying Storage Files}
-          {Designed the structure of data files and index files for underlying storage, resulted in a 70\% reduction in disk footprint and a nearly 4x increase in system IO speed.}
-        \resumeItem{Continuous Integration System}
+          {Designed and developed the vectorized query engine for LightningDB, which makes almost all kinds of queries become 20-100 times faster. (LightningDB is a column-oriented DBMS for online analytical processing.)\\
+        Technologies used: SIMD, fine-tuned cache pool, Plan9 assembly, Golang}
+        \resumePlainItem
+          {Designed the structure of data files and index files for underlying storage, resulting in a 70\% reduction in disk footprint and a nearly 3x increase in system IO speed.}
+        \resumePlainItem
           {Built a CI system that reduced the number of bugs in the system by half and increased the speed of bug resolution by two.}
       \resumeItemListEnd
 
@@ -123,31 +130,23 @@
       {Junior Software Engineer}{2018}
       \resumeItemListStart
         \resumeItem{High Performance Gateway}
-          {A high performance TCP Gateway used for receive ioT packages, with built-in features such as connection management and instructions sending.}
-        \resumeItem{Command Management Component}
-          {Manage the complete life cycle of downstream instructions, including instructions sending, retry, status recording, result reporting, etc.}
-        \resumeItem{Package Forwarder}
-          {Forward ioT packages to other components (or other platforms), with real-time filtering feature.}
-        \resumeItem{Cloud Native}
-          {Bringing in the cloud native ecology to the company, including kubernetes, prometheus, grafana, consul, k8s operator, opentracing, etc.}
-        \resumeItem{System Tuning}
-          {The design and optimization of the cache layer. Program profiling for golang/python components.}
-        \resumeItem{Alluxio}
-          {The technical research, setup and maintenance of Alluxio.}
+          {Designed and developed the gateway for IoT packages, loads up to 20k PPS (package-per-second) for each container and up to 1 million PPS for the whole gateway cluster.\\
+        Technologies used: epoll, Golang, pprof}
+        \resumeItem{Cloud-Native}
+          {Built a complete cloud-native environment, reducing the time to deploy a cluster from three weeks to two days and the time required to release a new version from one week to one day.\\
+        Technologies used: docker, kubernetes, prometheus, grafana, helm, consul}
+        \resumePlainItem
+          {Built and maintained a Alluxio cluster for data-analyze team, making them operated data more easily, and also doubles the speed of data processing.}
+         \resumePlainItem
+            {Done a lot of work for the automation of operations and maintenance.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Zhicheng Technology}{Chengdu, China}
-      {Senior Software Engineer}{Aug 2017 - Jan 2018}
+      {Junior Software Engineer}{2017}
       \resumeItemListStart
-        \resumeItem{Backend Development}
-          {Write back-end logic using python (Django, Twisted, etc).}
-        \resumeItem{Operation}
-          {The deployment, operation and maintenance of various services.}
-        \resumeItem{Recruitment}
-          {Recruitment of backend developers.}
-        \resumeItem{Management}
-          {Formulate development specifications for the development team such as the git work flow, format for requests and response, coding style, etc.}
+      \resumePlainItem
+        {Backend Development, Daily Operation, Recruitment, Management}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -166,42 +165,13 @@
       \href{https://github.com/XiaochenCui/mit6.824}{https://github.com/XiaochenCui/mit6.824}}
   \resumeSubHeadingListEnd
   
-%-----------Courses-----------------
-\section{Courses and Papers studied}
-  \resumeSubHeadingListStart
-    \resumeSubItem{MIT6.828: Operation Systems}
-      {\href{https://pdos.csail.mit.edu/6.828/2018/}{https://pdos.csail.mit.edu/6.828/2018/}}
-    \resumeSubItem{MIT6.830: Database Systems}
-      {\href{http://dsg.csail.mit.edu/6.830/}{http://dsg.csail.mit.edu/6.830/}}
-    \resumeSubItem{MIT6.824: Distributed Systems}
-      {\href{https://pdos.csail.mit.edu/6.824/}{https://pdos.csail.mit.edu/6.824/}}
-    \resumeSubItem{Cryptography I}
-      {\href{https://www.coursera.org/learn/crypto}{https://www.coursera.org/learn/crypto}}
-    \resumeSubItem{UICD CS 241: System Programming}
-      {\href{http://cs241.cs.illinois.edu/}{http://cs241.cs.illinois.edu/}}
-    \resumeSubItem{And Some Papers}
-      {\href{https://cuixiaochen.com/posts/system-research-syllabus/}{https://cuixiaochen.com/posts/system-research-syllabus/}}
-  \resumeSubHeadingListEnd
-
-%
-%--------PROGRAMMING SKILLS------------
-\section{Programming Skills}
- \resumeSubHeadingListStart
-   \item{
-     \textbf{Languages}{: Python, Go, Rust, C++, Java}
-   }
-   \item{
-     \textbf{Technologies}{: Cloud Native Operation, Linux Operation, Database Development }
-   }
- \resumeSubHeadingListEnd
- 
 
 %-----------EDUCATION-----------------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
       {Tiangong University}{Tianjin, China}
-      {Bachelor of Software Engineering}{Sep. 2013 -- Jun. 2017}
+      {Bachelor of Software Engineering}{2013 -- 2017}
   \resumeSubHeadingListEnd
 
 

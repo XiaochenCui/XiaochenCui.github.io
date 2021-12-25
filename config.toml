@@ -9,12 +9,8 @@ disqus = "cuixiaochen"
 favicon = "/favicon.png"
 
 [[params.socials]]
-name = "Resume(English)"
+name = "Resume"
 link = "https://cuixiaochen.com/resume/resume.pdf"
-
-[[params.socials]]
-name = "Resume(Chinese)"
-link = "https://cuixiaochen.com/resume/resume_chinese.pdf"
 
 [[params.socials]]
 name = "Github"
