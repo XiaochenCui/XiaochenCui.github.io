@@ -459,6 +459,11 @@ Comments and suggestions are welcomed.
 
 - [cgroups](https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt)
 
+## MMAP
+
+- [Are You Sure You Want to Use MMAP in Your Database Management System?](https://db.cs.cmu.edu/papers/2022/cidr2022-p13-crotty.pdf)
+- [re: Are You Sure You Want to Use MMAP in Your Database Management System? - Ayende @ Rahien](https://ayende.com/blog/196161-C/re-are-you-sure-you-want-to-use-mmap-in-your-database-management-system)
+
 ## Memory Allocation
 
 - ☑ [Dynamic Memory Allocation in C using malloc(), calloc(), free() and realloc() - GeeksforGeeks](https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/)
