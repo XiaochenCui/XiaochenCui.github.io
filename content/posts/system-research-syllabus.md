@@ -152,9 +152,9 @@ Comments and suggestions are welcomed.
 - ☑︎ [Columnar Databases and Vectorization](https://www.infoq.com/articles/columnar-databases-and-vectorization/)
 - ☑ [Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask](https://www.vldb.org/pvldb/vol11/p2209-kersten.pdf)
 - ☑︎ [How We Built a Vectorized Execution Engine](https://www.cockroachlabs.com/blog/how-we-built-a-vectorized-execution-engine/)
-- [Vectorizing the Merge Joiner in CockroachDB](https://www.cockroachlabs.com/blog/vectorizing-the-merge-joiner-in-cockroachdb/)
-- [40x faster hash joiner with vectorized execution](https://www.cockroachlabs.com/blog/vectorized-hash-joiner/)
-- [Balancing vectorized query execution with bandwidth-optimized storage](https://pure.uva.nl/ws/files/4321266/68047_07.pdf)
+- ☑︎ [Vectorizing the Merge Joiner in CockroachDB](https://www.cockroachlabs.com/blog/vectorizing-the-merge-joiner-in-cockroachdb/)
+- ☑︎ [40x faster hash joiner with vectorized execution](https://www.cockroachlabs.com/blog/vectorized-hash-joiner/)
+- ☑︎ [Balancing vectorized query execution with bandwidth-optimized storage](https://pure.uva.nl/ws/files/4321266/68047_07.pdf)
 
 ### SIMD
 
