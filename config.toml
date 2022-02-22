@@ -10,7 +10,7 @@ favicon = "/favicon.png"
 
 [[params.socials]]
 name = "Resume"
-link = "https://cuixiaochen.com/resume/resume.pdf"
+link = "/resume/resume.pdf"
 
 [[params.socials]]
 name = "Github"
