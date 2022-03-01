@@ -77,8 +77,8 @@ a:hover {
 }
 
 .site-footer {
-  margin-top: 50px;
-  margin-bottom: 80px;
+  margin-top: 1px;
+  margin-bottom: 1px;
   display: flex;
   justify-content: flex-end;
   padding: 12px 0;
