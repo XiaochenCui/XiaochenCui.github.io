@@ -76,9 +76,10 @@ a:hover {
   margin: 12px 0;
 }
 
+/* cxc */
 .site-footer {
-  margin-top: 1px;
-  margin-bottom: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: flex-end;
   padding: 12px 0;
