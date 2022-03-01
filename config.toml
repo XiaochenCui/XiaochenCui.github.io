@@ -9,6 +9,10 @@ disqus = "cuixiaochen"
 favicon = "/favicon.png"
 
 [[params.socials]]
+name = "LinkedIn"
+link = "https://www.linkedin.com/in/xiaochen-cui-database/"
+
+[[params.socials]]
 name = "Resume"
 link = "/resume/resume.pdf"
 
