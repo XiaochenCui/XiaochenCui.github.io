@@ -76,6 +76,13 @@ Comments and suggestions are welcomed.
 - [The Snowflake Elastic Data Warehouse](http://info.snowflake.net/rs/252-RFO-227/images/Snowflake_SIGMOD.pdf)
 - [Spanner: Google’s Globally-Distributed Database](http://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf)
 
+## Key-Value Store
+
+### RocksDB
+
+- [Getting started | RocksDB](http://rocksdb.org/docs/getting-started.html)
+- [RocksDB Overview · facebook/rocksdb Wiki](https://github.com/facebook/rocksdb/wiki/RocksDB-Overview)
+
 ## Greenplum
 
 - ☑︎ [Greenplum: A Hybrid Database for Transactional and Analytical Workloads](https://arxiv.org/pdf/2103.11080.pdf)
