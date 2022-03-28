@@ -141,6 +141,7 @@ Comments and suggestions are welcomed.
 - ☑︎ [Cost-Based Optimizer | CockroachDB Docs](https://www.cockroachlabs.com/docs/stable/cost-based-optimizer.html)
 - [Optimizing Data Shuffling in Data-Parallel Computation by Understanding User-Defined Functions](https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final98.pdf)
 - [Spotting Code Optimizations in Data-Parallel Pipelines through PeriSCOPE](https://www.usenix.org/system/files/conference/osdi12/osdi12-final-23.pdf)
+- [Understanding the internals of GPORCA Optimizer - YouTube](https://www.youtube.com/watch?v=sJU3BXFr4Dc)
 
 ## Query Compilation
 
