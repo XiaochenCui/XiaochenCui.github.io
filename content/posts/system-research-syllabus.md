@@ -566,3 +566,4 @@ Comments and suggestions are welcomed.
 # Parallel Computing
 
 - ☑︎ [Gather-scatter (vector addressing) - Wikipedia](https://en.wikipedia.org/wiki/Gather-scatter_(vector_addressing))
+- [Bitonic sorter - Wikipedia](https://en.wikipedia.org/wiki/Bitonic_sorter)
