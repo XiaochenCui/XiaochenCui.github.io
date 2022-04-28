@@ -562,3 +562,7 @@ Comments and suggestions are welcomed.
 # Network
 
 - [Exploiting a Natural Network Effect for Scalable, Fine-grained Clock Synchronization](https://www.usenix.org/system/files/conference/nsdi18/nsdi18-geng.pdf)
+
+# Parallel Computing
+
+- ☑︎ [Gather-scatter (vector addressing) - Wikipedia](https://en.wikipedia.org/wiki/Gather-scatter_(vector_addressing))
