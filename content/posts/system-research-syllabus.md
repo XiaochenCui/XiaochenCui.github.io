@@ -103,6 +103,10 @@ Comments and suggestions are welcomed.
 - ☑︎ [SQL query planning and optimizations](https://github.com/cockroachdb/cockroach/blob/c097a16427f65e9070991f062716d222ea5903fe/pkg/sql/opt/doc.go)
 - [Index selection in CockroachDB](https://www.cockroachlabs.com/blog/index-selection-cockroachdb-2/)
 
+## RisingWave
+
+- [RisingWave 中的状态管理 - 纯纯的 Blog](https://blog.zhuangty.com/state-management-in-risingwave)
+
 ## MVCC
 
 - [An Empirical Evaluation of In-Memory Multi-Version Concurrency Control](https://15721.courses.cs.cmu.edu/spring2020/papers/03-mvcc1/wu-vldb2017.pdf)
