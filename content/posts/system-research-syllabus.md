@@ -452,9 +452,9 @@ Comments and suggestions are welcomed.
 
 ## Database
 
-- [CMU 15-445 / 645 :: Intro to Database Systems (Fall 2019)](https://15445.courses.cs.cmu.edu/fall2019/)
-- ☑ [6.830 / 6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
+- [CMU 15-445/645 :: Intro to Database Systems (Fall 2021)](https://15445.courses.cs.cmu.edu/fall2021/)
 - [CMU 15-721 :: Advanced Database Systems (Spring 2020)](https://15721.courses.cs.cmu.edu/spring2020/)
+- ☑ [6.830 / 6.814: Database Systems - Data Systems Group @ MIT](http://db.lcs.mit.edu/6.830/)
 
 ## Operating Systems
 
