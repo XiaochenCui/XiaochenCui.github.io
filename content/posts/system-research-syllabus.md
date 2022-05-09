@@ -317,9 +317,10 @@ Comments and suggestions are welcomed.
 - ☑ [LSM 存储引擎中 KV 分离的实现](https://www.skyzh.dev/posts/articles/2021-08-07-lsm-kv-separation-overview/)
 
 ## B-Tree
-  - ☑ [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
-  - ☑ [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
-  - ☑ [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
+
+- ☑ [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
+- ☑ [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
+- ☑ [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
 
 - B+ Tree
   - ☑ [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
@@ -374,11 +375,14 @@ Comments and suggestions are welcomed.
     
 ## Distrubuted Hash Table (DHT)
 
-- Chord     
-    [Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications](https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf)  
-    [分布式哈希表Chord - 知乎](https://zhuanlan.zhihu.com/p/53711866)
-- Kademlia  
-    [Kademlia协议 - 知乎](https://zhuanlan.zhihu.com/p/38425656)
+### Chord
+
+- [Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications](https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf)  
+- [分布式哈希表Chord - 知乎](https://zhuanlan.zhihu.com/p/53711866)
+
+### Kademlia  
+
+- [Kademlia协议 - 知乎](https://zhuanlan.zhihu.com/p/38425656)
     
 # File Format
 
