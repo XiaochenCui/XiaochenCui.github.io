@@ -313,7 +313,7 @@ Comments and suggestions are welcomed.
 - [Reed–Solomon error correction - Wikipedia](https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction)
 - [POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS](https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf)
 
-# Data Structures
+# Data Structures & Algorithms
 
 ## LST-Tree
 
@@ -336,6 +336,12 @@ Comments and suggestions are welcomed.
 ## Range Filter
 
 - [SuRF: Practical Range Query Filtering with Fast Succinct Tries](http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf)
+
+## Skip List
+
+- ☑︎ [Skip List | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/skip-list/)
+- ☑︎ [Skip List | Set 2 (Insertion) - GeeksforGeeks](https://www.geeksforgeeks.org/skip-list-set-2-insertion/)
+- ☑︎ [Skip List | Set 3 (Searching and Deletion) - GeeksforGeeks](https://www.geeksforgeeks.org/skip-list-set-3-searching-deletion/)
 
 # Materialized View
 
