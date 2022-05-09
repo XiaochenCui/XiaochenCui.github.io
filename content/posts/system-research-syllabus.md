@@ -18,7 +18,7 @@ Comments and suggestions are welcomed.
 - [Time, Clocks, and the Ordering of Events in a Distributed System](http://lamport.azurewebsites.net/pubs/time-clocks.pdf)
 - [The End of an Architectural Era (It’s Time for a Complete Rewrite)](http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf)
 - [Practical Uses of Synchronized Clocks in Distributed Systems](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1089.5025&rep=rep1&type=pdf)
-- [Information Storage in a Decentralized Computer System]()
+- [Information Storage in a Decentralized Computer System](http://www.bitsavers.org/pdf/xerox/parc/techReports/CSL-81-8_Information_Storage_in_a_Decentralized_Computer_System.pdf)
 
 ## Data Processing
 
