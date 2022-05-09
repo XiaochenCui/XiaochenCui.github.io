@@ -342,8 +342,8 @@ Comments and suggestions are welcomed.
 - ☑︎ [Skip List | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/skip-list/)
 - ☑︎ [Skip List | Set 2 (Insertion) - GeeksforGeeks](https://www.geeksforgeeks.org/skip-list-set-2-insertion/)
 - ☑︎ [Skip List | Set 3 (Searching and Deletion) - GeeksforGeeks](https://www.geeksforgeeks.org/skip-list-set-3-searching-deletion/)
+- [Skip Lists: A Probabilistic Alternative to Balanced Trees](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf)
 - ☑︎ [disque/skiplist.c at master · antirez/disque](https://github.com/antirez/disque/blob/master/src/skiplist.c)
-- [redis source code analysis -- 6. Implementation of skip list](https://programmer.group/redis-source-code-analysis-6-implementation-of-skip-list.html)
 
 # Materialized View
 
