@@ -114,6 +114,7 @@ Comments and suggestions are welcomed.
 - ☑︎ [浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
 
 ## Column Storage
+
 - [The Vertica Analytic Database: C-Store 7 Years Later](https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf)
 
 ## SQL Parser
@@ -221,9 +222,9 @@ Comments and suggestions are welcomed.
 
 - Deadlock avoidance
 - Deadlock detection
-    - Timeout
-    - Wait-for graph
-    
+  - Timeout
+  - Wait-for graph
+
 ## Two-Phase Locking(2PL)
 
 - [University of Waterloo CS 448 Database Systems - Two Phase Locking](https://www.cs.purdue.edu/homes/sunil/courses/cs448/Lecture_Files/TwoPhaseLocking.pdf)
@@ -235,7 +236,7 @@ Comments and suggestions are welcomed.
 - Strict 2PL
 - Conservative 2PL
 - Rigorous 2PL
-    
+
 ## Isolation Level
 
 - Read uncommited
@@ -276,10 +277,12 @@ Comments and suggestions are welcomed.
 # Storage
 
 ## Colossus
+
 - [Colossus under the hood: a peek into Google’s scalable storage system](https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system)
 - [Building Large-Scale Internet Services](https://static.googleusercontent.com/media/research.google.com/en//people/jeff/SOCC2010-keynote-slides.pdf)
 
 ## Local Storage
+
 - [WiscKey: Separating Keys from Values in SSD-conscious Storage](https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf)
 - [Titan 的设计与实现 | PingCAP](https://pingcap.com/blog-cn/titan-design-and-implementation/)
 
@@ -297,10 +300,11 @@ Comments and suggestions are welcomed.
 
 - ☑︎ [技术分享：Prometheus是怎么存储数据的](https://youtu.be/qB40kqhTyYM)
 - [Gorilla: A Fast, Scalable, In-Memory Time Series Database](https://www.vldb.org/pvldb/vol8/p1816-teller.pdf)
+
 ## Others
+
 - [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf)
 - [Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)
-
 
 # Disk Error Correction
 
@@ -315,6 +319,7 @@ Comments and suggestions are welcomed.
 
 - ☑ [How do LSM Trees work?](https://yetanotherdevblog.com/lsm/)
 - ☑ [LSM 存储引擎中 KV 分离的实现](https://www.skyzh.dev/posts/articles/2021-08-07-lsm-kv-separation-overview/)
+- [The Log-Structured Merge-Tree (LSM-Tree)](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
 
 ## B-Tree
 
@@ -322,14 +327,11 @@ Comments and suggestions are welcomed.
 - ☑ [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
 - ☑ [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
 
-- B+ Tree
-  - ☑ [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
-- R Tree
-  - [Introduction to R-tree - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-r-tree/)
-- LSM Tree
-  - [The Log-Structured Merge-Tree (LSM-Tree)](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
-- SB Tree
-  - [The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&rep=rep1&type=pdf)
+## Tree (Others)
+
+- ☑ [Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/)
+- [Introduction to R-tree - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-r-tree/)
+- [The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&rep=rep1&type=pdf)
 
 ## Range Filter
 
@@ -372,7 +374,7 @@ Comments and suggestions are welcomed.
 
 - [Zab: High-performance broadcast for primary-backup systems](https://knowably-attachments.s3.amazonaws.com/u/55b69a1ce4b00ab397d67250/7c8734d3cf02154499a9b3161ef9f575/Zab_2011.pdf)
 - [ZooKeeper’s atomic broadcast protocol: Theory and practice](http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf)
-    
+
 ## Distrubuted Hash Table (DHT)
 
 ### Chord
@@ -383,7 +385,7 @@ Comments and suggestions are welcomed.
 ### Kademlia  
 
 - [Kademlia协议 - 知乎](https://zhuanlan.zhihu.com/p/38425656)
-    
+
 # File Format
 
 - [LanguageManual ORC - Apache Hive - Apache Software Foundation](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)
