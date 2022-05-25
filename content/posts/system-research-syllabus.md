@@ -331,7 +331,6 @@ Comments and suggestions are welcomed.
 - [How to Build a Non-Volatile Memory Database Management System](https://faculty.cc.gatech.edu/~jarulraj/papers/2017.nvm.sigmod.pdf)
 - [Modern B-Tree Techniques (2011) | Hacker News](https://news.ycombinator.com/item?id=15409757)
 
-
 ## Bw-Tree
 
 - [The Bw-Tree: A B-tree for New Hardware Platforms](https://15721.courses.cs.cmu.edu/spring2017/papers/08-oltpindexes2/bwtree-icde2013.pdf)
