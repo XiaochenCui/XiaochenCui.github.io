@@ -321,11 +321,16 @@ Comments and suggestions are welcomed.
 - ☑ [LSM 存储引擎中 KV 分离的实现](https://www.skyzh.dev/posts/articles/2021-08-07-lsm-kv-separation-overview/)
 - [The Log-Structured Merge-Tree (LSM-Tree)](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
 
-## B-Tree
+## B/B+ Tree
 
 - ☑ [B-Tree | Set 1 (Introduction) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/)  
 - ☑ [B-Tree | Set 2 (Insert) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-1-insert-2/)  
 - ☑ [B-Tree | Set 3 (Delete) - GeeksforGeeks](https://www.geeksforgeeks.org/b-tree-set-3delete/)  
+- [A Survey of B-Tree Locking Techniques](https://15721.courses.cs.cmu.edu/spring2016/papers/a16-graefe.pdf)
+- [Persistent B+-Trees in Non-Volatile Main Memory](http://www.vldb.org/pvldb/vol8/p786-chen.pdf)
+- [How to Build a Non-Volatile Memory Database Management System](https://faculty.cc.gatech.edu/~jarulraj/papers/2017.nvm.sigmod.pdf)
+- [Modern B-Tree Techniques (2011) | Hacker News](https://news.ycombinator.com/item?id=15409757)
+
 
 ## Bw-Tree
 
