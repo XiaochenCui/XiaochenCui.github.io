@@ -188,16 +188,27 @@ Comments and suggestions are welcomed.
 
 ## Join Algorithm
 
-- [Hash join in MySQL 8 | MySQL Server Blog](https://mysqlserverteam.com/hash-join-in-mysql-8/)
+### Comparison
+
 - [An Experimental Comparison of Thirteen Relational Equi-Joins in Main Memory](https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/schuh-sigmod2016.pdf)
 - ☑︎[Multi-Core, Main-Memory Joins: Sort vs. Hash Revisited](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p85-balkesen.pdf)
-- [giorgospan/Radix-Hash-Join: Radix Hash Join - SIGMOD Contest 2018.](https://github.com/giorgospan/Radix-Hash-Join)
 - [A Seven-Dimensional Analysis of Hashing Methods and its Implications on Query Processing](https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/richter-vldb2015.pdf)
-- [Design and Evaluation of Main Memory Hash Join Algorithms for Multi-core CPUs](https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/p37-blanas.pdf)
-- [Main-Memory Hash Joins on Multi-Core CPUs: Tuning to the Underlying Hardware](https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/balkesen-icde2013.pdf)
 - [Sort vs. Hash Revisited: Fast Join Implementation on Modern Multi-Core CPUs](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/kim-vldb2009.pdf)
 - [Sort vs. Hash Revisited](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/graefe-tkde1994.pdf)
+
+### Hash Join
+
+- [Hash join in MySQL 8 | MySQL Server Blog](https://mysqlserverteam.com/hash-join-in-mysql-8/)
+- [giorgospan/Radix-Hash-Join: Radix Hash Join - SIGMOD Contest 2018.](https://github.com/giorgospan/Radix-Hash-Join)
+- [Design and Evaluation of Main Memory Hash Join Algorithms for Multi-core CPUs](https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/p37-blanas.pdf)
+- [Main-Memory Hash Joins on Multi-Core CPUs: Tuning to the Underlying Hardware](https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/balkesen-icde2013.pdf)
+
+### Sort Merge Join
+
 - [Massively Parallel Sort-Merge Joins in Main Memory Multi-Core Database Systems](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p1064-albutiu.pdf)
+
+### Other Perspectives
+
 - [A Practical Approach to Groupjoin and Nested Aggregates](https://vldb.org/pvldb/vol14/p2383-fent.pdf)
 - [Fast and Effective Distribution-Key Recommendation for Amazon Redshift](http://www.vldb.org/pvldb/vol13/p2411-parchas.pdf)
 
