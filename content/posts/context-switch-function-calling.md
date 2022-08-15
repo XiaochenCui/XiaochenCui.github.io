@@ -53,13 +53,13 @@ The `call` command is used to jump to a function's entrypoint in the calling man
 push CS
 push IP
 jmp <location>  # <location> is a register or an raw address
-								# e.g:
-								# jmp 2AE3:3
-								# which makes CS=2AE3H, IP=0003H, cpu will read the next
-								# instrction from 2AE33H
-								# jmp ax
-								# which means "replace the value of IP register with the
-								# value from ax register"
+        # e.g:
+        # jmp 2AE3:3
+        # which makes CS=2AE3H, IP=0003H, cpu will read the next
+        # instrction from 2AE33H
+        # jmp ax
+        # which means "replace the value of IP register with the
+        # value from ax register"
 ```
 
 The `ret` command provides the ability to return within the same code segment, it's equivalent to:
@@ -83,11 +83,11 @@ e.g: (assuming the `CX` and `SI` registers are used by the function `foo`)
 
 ```
 foo:
-	push cx
-	push si
-	(execution...)
-	pop si
-	pop cx
+ push cx
+ push si
+ (execution...)
+ pop si
+ pop cx
 ```
 
 # Calling conventions of C language

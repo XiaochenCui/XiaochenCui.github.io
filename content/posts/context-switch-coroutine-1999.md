@@ -13,9 +13,9 @@ The facilities of the library are based on the coroutine primitives provided by 
 
 - `Resume(Coroutine *Next)` : resume the execution of a coroutine
 - `Call(Coroutine *Next)` : start the execution of a coroutine
-    
+
     The execution procedure of `Resume` and `Call` are the same: 1. suspending the current thread, 2. executing(start/resume) the target thread. The only difference between them is that the Call will Establish a relationship between caller and callee, whereas the Resume doesn't.
-    
+
 - `Detach()`: suspending/terminating the current coroutine and resume the caller of current coroutine
 
 State transitions of a coroutine:
@@ -47,21 +47,20 @@ Procedure of coroutine switch (step 1,2 is suspending current coroutine, step 3,
 ### Pondering
 
 - **What would happen if size of `StackBuffer` of the target coroutine is large than stack current used?**
-    
+
     An undefined behavior would occur if the `memcpy` were carried out without checking the size of stack current used. The program may jump to another statement far away; it may also crash with a segmentation fault; anything could happen.
-    
+
     To avoid it, we allocating memory on stack continually until the stack is large enough to hold `StackBuffer` of the target coroutine.
-    
+
 - **Does `BufferSize` always equals to `High - Low` for a coroutine?**
-    
+
     No, `BufferSize >= High - Low`.
-    
+
     `BufferSize` is the length of `StackBuffer` , since `StackBuffer` never shrink, the `BufferSize` stands for the maximum size of stack content the buffer ever hold. This is also the reason of using `High - Low` instead of `BufferSize` when the stack restore was carrying out.
-    
+
 - **Why `StackBuffer` never shrink?**
-    
+
     In order to reduce the frequency of memory allocation & free.
-    
 
 ## Share-Stack
 
@@ -90,37 +89,36 @@ Procedure of coroutine switch:
 ### Pondering
 
 - **What if the stack requested at the coroutine initialization was insufficient?**
-    
+
     Stack of the program will be disrupted, anything horrible could happen.
-    
+
 - **Can we prevent the coroutine from stack overflow?**
-    
+
     As far as I know, we can't.
-    
+
 - **How does we put the struct `task` to the start of the corresponding coroutine's stack?**
-    
+
     We doesn't put the `task` struct to the start of a coroutine's stack. All we do it make sure there are at least 1 unclaimed `task` struct on the stack all the time. When a new coroutine was called, the `task` would assigned to it and the coroutine would running on the stack space just behind it.
-    
+
 - **Why `pred/suc` and `prev/next` pointers are provided at the same time, whether one of the two groups could be removed?**
-    
+
     The `prev/next` pointers are necessary which maintain the memory layout of our program, including:
-    
+
     1. allocation new task
     2. merge free memory blocks on the stack
-    3. split memory block on necessary. 
-    
+    3. split memory block on necessary.
+
      Where as `pred/suc` pointers are optional, they just speed up the procedure in searching for unused task.
-    
+
 - **What's the usage of `Coroutine *ToBeResumed` ?**
-    
+
     `*ToBeResumed` intends to indicate a coroutine calling a specific coroutine on ending instead of returning directly, but not used for the library currently.
-    
+
 - **Why the state of coroutine (value of registers, stored in `jmp_buf`) not recovered to initial state when a coroutine terminated?**
-    
+
     There is no need to recover `jmp_buf` after the coroutine is terminated since the `Task` would be marked as free. When the next new coroutine is fitted in this free `Task`, the new state will be stored to `jmp_buf`, execution of the program would not bother with the obsoleted state.
-    
+
     ![context switch-task-reuse.drawio.png](/images/context-switch-coroutine-1999/context_switch-task-reuse.drawio.png)
-    
 
 ## Comparison of the two implementations
 

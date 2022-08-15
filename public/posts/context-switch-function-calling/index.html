@@ -145,13 +145,13 @@ value of a (after inner function was called): 1
 <pre><code>push CS
 push IP
 jmp &lt;location&gt;  # &lt;location&gt; is a register or an raw address
-								# e.g:
-								# jmp 2AE3:3
-								# which makes CS=2AE3H, IP=0003H, cpu will read the next
-								# instrction from 2AE33H
-								# jmp ax
-								# which means &quot;replace the value of IP register with the
-								# value from ax register&quot;
+        # e.g:
+        # jmp 2AE3:3
+        # which makes CS=2AE3H, IP=0003H, cpu will read the next
+        # instrction from 2AE33H
+        # jmp ax
+        # which means &quot;replace the value of IP register with the
+        # value from ax register&quot;
 </code></pre><p>The <code>ret</code> command provides the ability to return within the same code segment, it&rsquo;s equivalent to:</p>
 <pre><code>pop IP
 </code></pre><p>the <code>retf</code> command provides the ability to return to a different code segment by modifies both <code>CS</code> and <code>IP</code> register:</p>
@@ -161,11 +161,11 @@ pop CS
 <p>For all registers used by the subroutine, its value must be saved to the stack when the subroutine starts to execute, and then restored before the subroutine returns, in the inverse order.</p>
 <p>e.g: (assuming the <code>CX</code> and <code>SI</code> registers are used by the function <code>foo</code>)</p>
 <pre><code>foo:
-	push cx
-	push si
-	(execution...)
-	pop si
-	pop cx
+ push cx
+ push si
+ (execution...)
+ pop si
+ pop cx
 </code></pre><h1 id="calling-conventions-of-c-language">Calling conventions of C language</h1>
 <p>The calling convention of C language is consists of there parts:</p>
 <ul>
