@@ -287,6 +287,11 @@ Comments and suggestions are welcomed.
 
 # Storage
 
+## In-Memory Cache & Storage
+
+- [MICA: A Holistic Approach to Fast In-Memory Key-Value Storage](https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-lim.pdf)
+- [NSDI '14 - MICA: A Holistic Approach to Fast In-Memory Key-Value Storage](https://www.youtube.com/watch?v=X2m5GPckkYY)
+
 ## Colossus
 
 - [Colossus under the hood: a peek into Google’s scalable storage system](https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system)
