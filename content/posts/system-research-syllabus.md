@@ -368,6 +368,7 @@ Comments and suggestions are welcomed.
 - ☑︎ [Skip List | Set 3 (Searching and Deletion) - GeeksforGeeks](https://www.geeksforgeeks.org/skip-list-set-3-searching-deletion/)
 - ☑︎ [Skip Lists: A Probabilistic Alternative to Balanced Trees](https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf)
 - ☑︎ [disque/skiplist.c at master · antirez/disque](https://github.com/antirez/disque/blob/master/src/skiplist.c)
+- [Skip Lists: Done Right](https://15721.courses.cs.cmu.edu/spring2017/papers/07-oltpindexes1/skiplists-done-right2016.pdf)
 
 # Materialized View
 
