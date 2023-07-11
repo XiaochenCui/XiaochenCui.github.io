@@ -1,4 +1,2 @@
-*.swp
-*.swo
-
-themes/
+# MacOS
+.DS_Store

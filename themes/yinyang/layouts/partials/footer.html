@@ -1,0 +1,7 @@
+<div class="site-footer">
+  {{ range .Site.Params.socials }}
+  <div class="site-footer-item">
+    <a href="{{ .link }}" target="_blank">{{ .name }}</a>
+  </div>
+  {{ end }}
+</div>
