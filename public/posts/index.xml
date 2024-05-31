@@ -4,68 +4,44 @@
     <title>Posts on XiaochenCui&#39;s Blog</title>
     <link>https://cuixiaochen.com/posts/</link>
     <description>Recent content in Posts on XiaochenCui&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Dec 2021 16:57:10 +0800</lastBuildDate><atom:link href="https://cuixiaochen.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 16:57:10 +0800</lastBuildDate>
+    <atom:link href="https://cuixiaochen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Context Switch - libtask by Russ Cox</title>
       <link>https://cuixiaochen.com/posts/context-switch-libtask/</link>
       <pubDate>Thu, 02 Dec 2021 16:57:10 +0800</pubDate>
-      
       <guid>https://cuixiaochen.com/posts/context-switch-libtask/</guid>
-      <description>Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
-We will use &amp;ldquo;task&amp;rdquo; to refer to &amp;ldquo;coroutine&amp;rdquo; in the following for coherency.
-Internal overview of running procedure There are 4 exclusive states for any task given:
- running suspended, put in the task queue suspended, put in a channel&amp;rsquo;s sender queue or receiver queue terminated  The program exit in 2 situations:</description>
+      <description>Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.&#xA;We will use &amp;ldquo;task&amp;rdquo; to refer to &amp;ldquo;coroutine&amp;rdquo; in the following for coherency.&#xA;Internal overview of running procedure There are 4 exclusive states for any task given:&#xA;running suspended, put in the task queue suspended, put in a channel&amp;rsquo;s sender queue or receiver queue terminated The program exit in 2 situations:</description>
     </item>
-    
     <item>
       <title>Context Switch - A Coroutine Library Back to 1999</title>
       <link>https://cuixiaochen.com/posts/context-switch-coroutine-1999/</link>
       <pubDate>Thu, 18 Nov 2021 16:08:10 +0800</pubDate>
-      
       <guid>https://cuixiaochen.com/posts/context-switch-coroutine-1999/</guid>
-      <description>Introduction COROUTINE is a C++ library for coroutine sequencing, which Keld Helsgaun published in May 1999.
-Coroutine primitives &amp;amp; state The facilities of the library are based on the coroutine primitives provided by the programming language SIMULA.
-  Resume(Coroutine *Next) : resume the execution of a coroutine
-  Call(Coroutine *Next) : start the execution of a coroutine
-The execution procedure of Resume and Call are the same: 1. suspending the current thread, 2.</description>
+      <description>Introduction COROUTINE is a C++ library for coroutine sequencing, which Keld Helsgaun published in May 1999.&#xA;Coroutine primitives &amp;amp; state The facilities of the library are based on the coroutine primitives provided by the programming language SIMULA.&#xA;Resume(Coroutine *Next) : resume the execution of a coroutine&#xA;Call(Coroutine *Next) : start the execution of a coroutine&#xA;The execution procedure of Resume and Call are the same: 1. suspending the current thread, 2.</description>
     </item>
-    
     <item>
       <title>Context Switch - Function Calling</title>
       <link>https://cuixiaochen.com/posts/context-switch-function-calling/</link>
       <pubDate>Thu, 11 Nov 2021 16:12:30 +0800</pubDate>
-      
       <guid>https://cuixiaochen.com/posts/context-switch-function-calling/</guid>
-      <description>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
-(image source: cpp20-coroutine-under-the-hood)
-A Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</description>
+      <description>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.&#xA;(image source: cpp20-coroutine-under-the-hood)&#xA;A Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</description>
     </item>
-    
     <item>
       <title>Context Switch - Preface &amp; Outline</title>
       <link>https://cuixiaochen.com/posts/context-switch-preface/</link>
       <pubDate>Fri, 05 Nov 2021 11:43:00 +0800</pubDate>
-      
       <guid>https://cuixiaochen.com/posts/context-switch-preface/</guid>
-      <description>Preface I will write a series of posts about the context switch. Aiming to answer these questions:
- What is a context switch? When we need to switch context? What&amp;rsquo;s a process / thread / coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?</description>
+      <description>Preface I will write a series of posts about the context switch. Aiming to answer these questions:&#xA;What is a context switch? When we need to switch context? What&amp;rsquo;s a process / thread / coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each. boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber Why X uses coroutine? (e.g: gateway, crawler) Why X not use coroutine?</description>
     </item>
-    
     <item>
       <title>System Research Syllabus</title>
       <link>https://cuixiaochen.com/posts/system-research-syllabus/</link>
       <pubDate>Tue, 08 Oct 2019 13:56:32 +0800</pubDate>
-      
       <guid>https://cuixiaochen.com/posts/system-research-syllabus/</guid>
-      <description>The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
-Comments and suggestions are welcomed.
-(Content is being sorted out, a little bit confusing right now)
-☑︎ means read
-⭐️ means recommend
-Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System The End of an Architectural Era (It’s Time for a Complete Rewrite) Practical Uses of Synchronized Clocks in Distributed Systems Information Storage in a Decentralized Computer System  Data Processing  Spark: Cluster Computing with Working Sets  Stream Processing  Storm @Twitter Samza: Stateful Scalable Stream Processing at LinkedIn Drill  SQL Workloads  Presto: SQL on Everything 深入浅出Presto：PB级OLAP引擎 Dremel: Interactive Analysis of Web-Scale Datasets  Distributed Storage System  Atlas: Baidu’s Key-value Storage System for Cloud Data PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore: An Architecture for Global-Scale Persistent Storage Alluxio: A Virtual Distributed File System  Distributed Computation  Ray: A Distributed Framework for Emerging AI Applications Starling: A Scalable Query Engine on Cloud Functions  Database Motivation  A Relational Model of Data for Large Shared Data Banks  History  ☑︎ What Goes Around Comes Around ☑︎ What’s Really New with NewSQL?</description>
+      <description>The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.&#xA;Comments and suggestions are welcomed.&#xA;(Content is being sorted out, a little bit confusing right now)&#xA;☑︎ means read&#xA;⭐️ means recommend&#xA;Distributed Systems Time, Clocks, and the Ordering of Events in a Distributed System The End of an Architectural Era (It’s Time for a Complete Rewrite) Practical Uses of Synchronized Clocks in Distributed Systems Information Storage in a Decentralized Computer System Data Processing Spark: Cluster Computing with Working Sets Stream Processing Storm @Twitter Samza: Stateful Scalable Stream Processing at LinkedIn Drill SQL Workloads Presto: SQL on Everything 深入浅出Presto：PB级OLAP引擎 Dremel: Interactive Analysis of Web-Scale Datasets Distributed Storage System Atlas: Baidu’s Key-value Storage System for Cloud Data PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore: An Architecture for Global-Scale Persistent Storage Alluxio: A Virtual Distributed File System Distributed Computation Ray: A Distributed Framework for Emerging AI Applications Starling: A Scalable Query Engine on Cloud Functions Database Motivation A Relational Model of Data for Large Shared Data Banks History ☑︎ What Goes Around Comes Around ☑︎ What’s Really New with NewSQL?</description>
     </item>
-    
   </channel>
 </rss>

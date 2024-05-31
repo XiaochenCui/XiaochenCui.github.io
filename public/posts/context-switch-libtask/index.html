@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.126.2">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Context Switch - libtask by Russ Cox",
       "headline" : "Context Switch - libtask by Russ Cox",
-      "description" : "Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.\nWe will use \u0026ldquo;task\u0026rdquo; to refer to \u0026ldquo;coroutine\u0026rdquo; in the following for coherency.\nInternal overview of running procedure There are 4 exclusive states for any task given:\n running suspended, put in the task queue suspended, put in a channel\u0026rsquo;s sender queue or receiver queue terminated  The program exit in 2 situations:",
+      "description" : "Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.\nWe will use \u0026ldquo;task\u0026rdquo; to refer to \u0026ldquo;coroutine\u0026rdquo; in the following for coherency.\nInternal overview of running procedure There are 4 exclusive states for any task given:\nrunning suspended, put in the task queue suspended, put in a channel\u0026rsquo;s sender queue or receiver queue terminated The program exit in 2 situations:",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -27,8 +27,8 @@
       "accountablePerson" : "",
       "copyrightHolder" : "",
       "copyrightYear" : "2021",
-      "datePublished": "2021-12-02 16:57:10 \u002b0800 CST",
-      "dateModified" : "2021-12-02 16:57:10 \u002b0800 CST",
+      "datePublished": "2021-12-02 16:57:10 \u002b0800 \u002b0800",
+      "dateModified" : "2021-12-02 16:57:10 \u002b0800 \u002b0800",
       "url" : "https:\/\/cuixiaochen.com\/posts\/context-switch-libtask\/",
       "keywords" : [  ]
   }
@@ -39,7 +39,7 @@
   <meta name="description" content="Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
 We will use &ldquo;task&rdquo; to refer to &ldquo;coroutine&rdquo; in the following for coherency.
 Internal overview of running procedure There are 4 exclusive states for any task given:
- running suspended, put in the task queue suspended, put in a channel&rsquo;s sender queue or receiver queue terminated  The program exit in 2 situations:" />
+running suspended, put in the task queue suspended, put in a channel&rsquo;s sender queue or receiver queue terminated The program exit in 2 situations:" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -102,7 +102,7 @@ Internal overview of running procedure There are 4 exclusive states for any task
           <div class="row post-desc">
             <div class="col-xs-6">
               
-              <time class="post-date" datetime="2021-12-02 16:57:10 CST">
+              <time class="post-date" datetime="2021-12-02 16:57:10 &#43;0800">
                 02 Dec 2021
               </time>
               
@@ -144,31 +144,31 @@ Internal overview of running procedure There are 4 exclusive states for any task
 </ul>
 <h2 id="a-simple-send">a simple send</h2>
 <p>code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-Channel <span style="color:#f92672">*</span>c;
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">task_2</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>arg)
-{
-    printf(<span style="color:#e6db74">&#34;task_2 start</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> chanrecvul(c);
-    printf(<span style="color:#e6db74">&#34;received: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
-{
-    c <span style="color:#f92672">=</span> chancreate(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
-    taskcreate(task_2, c, <span style="color:#ae81ff">32768</span>);
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">12345</span>;
-    printf(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-    chansendul(c, v);
-    printf(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-}
-</code></pre></div><p>output:</p>
-<pre><code>🍚  build git:(master) ✗ ./bin/chan_1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Channel <span style="color:#f92672">*</span>c;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">task_2</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>arg)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;task_2 start</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#a6e22e">chanrecvul</span>(c);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;received: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    c <span style="color:#f92672">=</span> <span style="color:#a6e22e">chancreate</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">taskcreate</span>(task_2, c, <span style="color:#ae81ff">32768</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">12345</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">chansendul</span>(c, v);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>output:</p>
+<pre tabindex="0"><code>🍚  build git:(master) ✗ ./bin/chan_1
 run 1 ()
 going to send number: 12345
 send success: 12345
@@ -181,26 +181,26 @@ back in scheduler
 <p><img src="/images/context-switch-libtask/libtask-chan-1.drawio.png" alt="libtask-chan-1.drawio.png"></p>
 <h2 id="sending-multiple-values-without-any-receiver">sending multiple values without any receiver</h2>
 <p>code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-Channel <span style="color:#f92672">*</span>c;
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
-{
-    c <span style="color:#f92672">=</span> chancreate(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
-    {
-        printf(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-        chansendul(c, i);
-        printf(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-    }
-    printf(<span style="color:#e6db74">&#34;taskmain end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-</code></pre></div><p>output:</p>
-<pre><code>🍚  build git:(master) ✗ ./bin/chan_1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Channel <span style="color:#f92672">*</span>c;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    c <span style="color:#f92672">=</span> <span style="color:#a6e22e">chancreate</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">chansendul</span>(c, i);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;taskmain end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>output:</p>
+<pre tabindex="0"><code>🍚  build git:(master) ✗ ./bin/chan_1
 run 1 ()
 going to send number: 0
 send success: 0
@@ -215,38 +215,38 @@ no runnable tasks! 1 tasks stalled
 <p><img src="/images/context-switch-libtask/libtask-chan-2.drawio.png" alt="libtask-chan-2.drawio.png"></p>
 <h2 id="sending-multiple-values-to-a-receiver">sending multiple values to a receiver</h2>
 <p>code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-Channel <span style="color:#f92672">*</span>c;
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">task_2</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>arg)
-{
-    printf(<span style="color:#e6db74">&#34;task_2 start</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
-    {
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> chanrecvul(c);
-        printf(<span style="color:#e6db74">&#34;received: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-    }
-    printf(<span style="color:#e6db74">&#34;task_2 end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
-{
-    c <span style="color:#f92672">=</span> chancreate(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
-    taskcreate(task_2, c, <span style="color:#ae81ff">32768</span>);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
-    {
-        printf(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-        chansendul(c, i);
-        printf(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-    }
-    printf(<span style="color:#e6db74">&#34;taskmain end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-</code></pre></div><p>output:</p>
-<pre><code>🍚  build git:(master) ✗ ./bin/chan_3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Channel <span style="color:#f92672">*</span>c;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">task_2</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>arg)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;task_2 start</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#a6e22e">chanrecvul</span>(c);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;received: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;task_2 end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    c <span style="color:#f92672">=</span> <span style="color:#a6e22e">chancreate</span>(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">taskcreate</span>(task_2, c, <span style="color:#ae81ff">32768</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">chansendul</span>(c, i);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;taskmain end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>output:</p>
+<pre tabindex="0"><code>🍚  build git:(master) ✗ ./bin/chan_3
 run 1 ()
 going to send number: 0
 send success: 0

@@ -112,6 +112,7 @@ Comments and suggestions are welcomed.
 - [An Empirical Evaluation of In-Memory Multi-Version Concurrency Control](https://15721.courses.cs.cmu.edu/spring2020/papers/03-mvcc1/wu-vldb2017.pdf)
 - ☑︎ [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
 - ☑︎ [浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
+- [Implementing Your Own Transactions with MVCC](https://levelup.gitconnected.com/implementing-your-own-transactions-with-mvcc-bba11cab8e70)
 
 ## Column Storage
 
