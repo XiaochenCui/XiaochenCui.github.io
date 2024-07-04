@@ -282,6 +282,11 @@ Comments and suggestions are welcomed.
 
 - [SpanDB: A Fast, Cost-Effective LSM-tree Based KV Store on Hybrid Storage](https://www.usenix.org/system/files/fast21-chen-hao.pdf)
 
+## Online Schema Change
+
+- [Online, Asynchronous Schema Change in F1](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41376.pdf)
+- [cockroach/docs/RFCS/20151014_online_schema_change.md at master · cockroachdb/cockroach](https://github.com/cockroachdb/cockroach/blob/master/docs/RFCS/20151014_online_schema_change.md)
+
 ## Others
 
 - [Using Crash Hoare Logic for Certifying the FSCQ File System](https://pdos.csail.mit.edu/papers/fscq:sosp15.pdf)
