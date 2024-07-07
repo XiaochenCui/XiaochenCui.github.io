@@ -209,6 +209,10 @@ Comments and suggestions are welcomed.
 
 - [Massively Parallel Sort-Merge Joins in Main Memory Multi-Core Database Systems](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p1064-albutiu.pdf)
 
+### Zig-Zag Merge Join
+
+- [sql: implement zig-zag merge join · Issue #23520 · cockroachdb/cockroach](https://github.com/cockroachdb/cockroach/issues/23520)
+
 ### Other Perspectives
 
 - [A Practical Approach to Groupjoin and Nested Aggregates](https://vldb.org/pvldb/vol14/p2383-fent.pdf)
