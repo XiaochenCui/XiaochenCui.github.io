@@ -1,7 +1,7 @@
 upload:
 	# update resume
-	cp ~/Download/resume.pdf ./static/resume/
-	cp ~/Download/resume.pdf ~/GoogleDrive/documents/XiaochenCui-resume
+	cp ~/Downloads/resume.pdf ./static/resume/
+	cp ~/Downloads/resume.pdf ~/GoogleDrive/documents/XiaochenCui-resume
 
 	hugo
 	git add --all
