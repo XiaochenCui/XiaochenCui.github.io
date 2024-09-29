@@ -1,8 +1,4 @@
 upload:
-	# update resume
-	cp ~/Downloads/resume.pdf ./static/resume/
-	cp ~/Downloads/resume.pdf ~/GoogleDrive/documents/XiaochenCui-resume
-
 	hugo
 	git add --all
 	git commit -v -a -m "update blog content"
