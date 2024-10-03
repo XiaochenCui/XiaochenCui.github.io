@@ -1,0 +1,163 @@
+%-------------------------
+% Resume in Latex
+% Author : Cuixiaochen
+% Website: https://cuixiaochen.com/
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumePlainItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} - #2 \\
+    \end{tabular*}
+    \jobTitle
+        {#3} {#4}
+}
+
+\newcommand{\jobTitle}[2]{
+    \textit{\small#1} \textit{\small(#2)} \\
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Large Xiaochen Cui}\\
+  LinkedIn:\space\href{https://www.linkedin.com/in/xiaochen-cui-database/}{\underline{Xiaochen Cui | LinkedIn}}\\
+  GitHub:\space\space\href{https://github.com/XiaochenCui}{\underline{XiaochenCui}}\\
+  Blog:\space\space\space\space\space\href{https://cuixiaochen.com}{\underline{XiaochenCui's Blog}}\\
+  Email:\space\space\space\space\href{mailto:jcnlcxc.new@gmail.com}{\underline{jcnlcxc.new@gmail.com}}
+\end{tabular*}
+
+
+%-----------SUMMARY-----------------
+\section{Summary}
+
+Skilled in infrastructure development. Great at collaboration and communication.
+
+
+%-----------PROJECTS-----------------
+\section{Open Source}
+  \resumeSubHeadingListStart
+    \resumeSubItem{SmallDB (owner)}
+      {A relational database that supports various latch modes, transaction models, and isolation levels.
+      \href{https://github.com/small-db/small-db}{(https://github.com/small-db/small-db)}}
+    \resumeSubItem{CockroachDB (contributor)}
+      {A open source, cloud-native distributed SQL database.
+      \href{https://github.com/cockroachdb/cockroach}{(https://github.com/cockroachdb/cockroach)} \href{https://github.com/cockroachdb/cockroach/pulls?q=author:XiaochenCui+}{(my PRs)}}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Career}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Shanghai Magus Technology Co., Ltd.}{Chongqing, China}
+      {Senior Software Engineer - Database Kernel}{Apr 2021 - Apr 2024}
+      \resumeItemListStart
+        \resumeItem{Vectorized Query Engine}
+          {Designed and developed the vectorized query engine for LightningDB, which makes SQL queries 50-300 times faster than the original system. (LightningDB is an analytical database.)\\
+          Technologies used: Golang, SIMD}
+        \resumeItem{SQL Optimizer and Planner}
+          {Designed and developed SQL optimizer and planner for LightningDB, and developed a DSL (domain-specific language) for SQL optimization. Reduced the complexity of the SQL optimization module significantly, reduced the complexity of the query engine, and solved 80\% of the bugs in the legacy system.}
+        \resumePlainItem
+          {Designed the structure of data files and index files for the underlying storage, resulting in a 30\% reduction in disk footprint and a 100\% increase in system IO speed.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Burnish Technology}{Chongqing, China}
+      {Senior Software Engineer}{2018 - 2020}
+      \resumeItemListStart
+        \resumeItem{High-Performance Gateway}
+          {Designed and developed the IoT gateway, which loads up to 1 million packages per second.\\
+          Technologies used: Golang, Redis, Kafka, Cloud-Native Stack}
+        \resumeItem{Cloud-Native}
+          {Built a complete cloud-native environment, reducing the time to deploy a cluster from three weeks to two days, and the time required to release a new version from one week to one day.\\
+          Technologies used: docker, kubernetes, prometheus, grafana, helm, consul}
+        \resumePlainItem
+          {Built and maintained an Alluxio cluster for the data-analyze team, making them operate data more easily, and also doubles the speed of data processing.}
+        \resumePlainItem
+          {Done a lot of work for the automation of operations and maintenance.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Zhicheng Technology}{Chengdu, China}
+      {Software Engineer}{2017}
+      \resumeItemListStart
+      \resumePlainItem
+        {Backend development, server management.\\Technologies used: Python, Django, Twisted, RebbitMQ, Nginx, Linux}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+  
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Fairleigh Dickinson University - Vancouver Campus}{Vancouver, Canada}
+      {Master of Science in Applied Computer Science}{2024 -- 2025}
+    \resumeSubheading
+      {Tiangong University}{Tianjin, China}
+      {Bachelor of Software Engineering}{2013 -- 2017}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
