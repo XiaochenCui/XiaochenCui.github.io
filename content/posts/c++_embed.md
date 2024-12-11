@@ -1,7 +1,7 @@
 ---
 title: "Embed Files to C++ at Compile Time"
 date: 2024-12-11T11:00:38-08:00
-draft: true
+draft: false
 ---
 
 This article will guide you through how to embed binary/text files to C++ as a char array, like the convenient `go:embed` command.

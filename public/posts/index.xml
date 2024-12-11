@@ -6,8 +6,15 @@
     <description>Recent content in Posts on XiaochenCui&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Dec 2021 16:57:10 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Dec 2024 11:00:38 -0800</lastBuildDate>
     <atom:link href="https://cuixiaochen.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Embed Files to C&#43;&#43; at Compile Time</title>
+      <link>https://cuixiaochen.com/posts/c&#43;&#43;_embed/</link>
+      <pubDate>Wed, 11 Dec 2024 11:00:38 -0800</pubDate>
+      <guid>https://cuixiaochen.com/posts/c&#43;&#43;_embed/</guid>
+      <description>This article will guide you through how to embed binary/text files to C++ as a char array, like the convenient go:embed command.&#xA;We will focus on C23 #embed, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with -std=c++23, -std=c++17 is enough.&#xA;For other approach of embedding, refers to:&#xA;https://github.com/batterycenter/embed https://github.com/cyrilcode/embed-resource Embed Files To C++ Step 1 - Install Clang 19 or Newer Version # install clang 20 in ubuntu wget https://apt.</description>
+    </item>
     <item>
       <title>Context Switch - libtask by Russ Cox</title>
       <link>https://cuixiaochen.com/posts/context-switch-libtask/</link>
