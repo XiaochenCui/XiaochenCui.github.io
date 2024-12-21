@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.140.0">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Embed Files to C\u002b\u002b at Compile Time",
       "headline" : "Embed Files to C\u002b\u002b at Compile Time",
-      "description" : "This article will guide you through how to embed binary\/text files to C\u002b\u002b as a char array, like the convenient go:embed command.\nWe will focus on C23 #embed, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with -std=c\u002b\u002b23, -std=c\u002b\u002b17 is enough.\nFor other approach of embedding, refers to:\nhttps:\/\/github.com\/batterycenter\/embed https:\/\/github.com\/cyrilcode\/embed-resource Embed Files To C\u002b\u002b Step 1 - Install Clang 19 or Newer Version # install clang 20 in ubuntu wget https:\/\/apt.",
+      "description" : "\u003cp\u003eThis article will guide you through how to embed binary\/text files to C\u002b\u002b as a char array, like the convenient \u003ccode\u003ego:embed\u003c\/code\u003e command.\u003c\/p\u003e\n\u003cp\u003eWe will focus on C23 \u003ccode\u003e#embed\u003c\/code\u003e, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with \u003ccode\u003e-std=c\u002b\u002b23\u003c\/code\u003e, \u003ccode\u003e-std=c\u002b\u002b17\u003c\/code\u003e is enough.\u003c\/p\u003e\n\u003cp\u003eFor other approach of embedding, refers to:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\u0022https:\/\/github.com\/batterycenter\/embed\u0022\u003ehttps:\/\/github.com\/batterycenter\/embed\u003c\/a\u003e\u003c\/li\u003e\n\u003cli\u003e\u003ca href=\u0022https:\/\/github.com\/cyrilcode\/embed-resource\u0022\u003ehttps:\/\/github.com\/cyrilcode\/embed-resource\u003c\/a\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch1 id=\u0022embed-files-to-c\u0022\u003eEmbed Files To C\u002b\u002b\u003c\/h1\u003e\n\u003ch3 id=\u0022step-1---install-clang-19-or-newer-version\u0022\u003eStep 1 - Install Clang 19 or Newer Version\u003c\/h3\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-bash\u0022 data-lang=\u0022bash\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e# install clang 20 in ubuntu\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003ewget https:\/\/apt.llvm.org\/llvm.sh\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003echmod u\u002bx llvm.sh\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003esudo .\/llvm.sh \u003cspan style=\u0022color:#ae81ff\u0022\u003e20\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e# or one line: wget -qO- https:\/\/apt.llvm.org\/llvm.sh | bash -s -- 20\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e# verify\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003eclang-20 --version\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003ch2 id=\u0022step-2---embed-files-easily\u0022\u003eStep 2 - Embed Files Easily\u003c\/h2\u003e\n\u003cp\u003eCreate two files in a same directory:\u003c\/p\u003e",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -39,7 +39,22 @@
   <meta name="description" content="This article will guide you through how to embed binary/text files to C&#43;&#43; as a char array, like the convenient go:embed command.
 We will focus on C23 #embed, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with -std=c&#43;&#43;23, -std=c&#43;&#43;17 is enough.
 For other approach of embedding, refers to:
-https://github.com/batterycenter/embed https://github.com/cyrilcode/embed-resource Embed Files To C&#43;&#43; Step 1 - Install Clang 19 or Newer Version # install clang 20 in ubuntu wget https://apt." />
+
+https://github.com/batterycenter/embed
+https://github.com/cyrilcode/embed-resource
+
+Embed Files To C&#43;&#43;
+Step 1 - Install Clang 19 or Newer Version
+# install clang 20 in ubuntu
+wget https://apt.llvm.org/llvm.sh
+chmod u&#43;x llvm.sh
+sudo ./llvm.sh 20
+# or one line: wget -qO- https://apt.llvm.org/llvm.sh | bash -s -- 20
+
+# verify
+clang-20 --version
+Step 2 - Embed Files Easily
+Create two files in a same directory:" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"

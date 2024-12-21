@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.140.0">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Context Switch - libtask by Russ Cox",
       "headline" : "Context Switch - libtask by Russ Cox",
-      "description" : "Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.\nWe will use \u0026ldquo;task\u0026rdquo; to refer to \u0026ldquo;coroutine\u0026rdquo; in the following for coherency.\nInternal overview of running procedure There are 4 exclusive states for any task given:\nrunning suspended, put in the task queue suspended, put in a channel\u0026rsquo;s sender queue or receiver queue terminated The program exit in 2 situations:",
+      "description" : "\u003ch1 id=\u0022intro\u0022\u003eIntro\u003c\/h1\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/swtch.com\/libtask\/\u0022\u003elibtask\u003c\/a\u003e is a coroutine library that has cooperative scheduler and \u003ccode\u003echannel\u003c\/code\u003e built-in. The \u003ccode\u003echannel\u003c\/code\u003e is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.\u003c\/p\u003e\n\u003cp\u003eWe will use \u0026ldquo;task\u0026rdquo; to refer to \u0026ldquo;coroutine\u0026rdquo; in the following for coherency.\u003c\/p\u003e\n\u003ch1 id=\u0022internal\u0022\u003eInternal\u003c\/h1\u003e\n\u003ch2 id=\u0022overview-of-running-procedure\u0022\u003eoverview of running procedure\u003c\/h2\u003e\n\u003cp\u003e\u003cimg src=\u0022\/images\/context-switch-libtask\/libtask-switch.drawio.png\u0022 alt=\u0022libtask-switch.drawio.png\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThere are 4 exclusive states for any task given:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003erunning\u003c\/li\u003e\n\u003cli\u003esuspended, put in the task queue\u003c\/li\u003e\n\u003cli\u003esuspended, put in a channel\u0026rsquo;s sender queue or receiver queue\u003c\/li\u003e\n\u003cli\u003eterminated\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003eThe program exit in 2 situations:\u003c\/p\u003e",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -36,10 +36,20 @@
 <title>Context Switch - libtask by Russ Cox - XiaochenCui&#39;s Blog</title>
   <meta property="og:title" content="Context Switch - libtask by Russ Cox - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content="Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
+  <meta name="description" content="Intro
+libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
 We will use &ldquo;task&rdquo; to refer to &ldquo;coroutine&rdquo; in the following for coherency.
-Internal overview of running procedure There are 4 exclusive states for any task given:
-running suspended, put in the task queue suspended, put in a channel&rsquo;s sender queue or receiver queue terminated The program exit in 2 situations:" />
+Internal
+overview of running procedure
+
+There are 4 exclusive states for any task given:
+
+running
+suspended, put in the task queue
+suspended, put in a channel&rsquo;s sender queue or receiver queue
+terminated
+
+The program exit in 2 situations:" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"

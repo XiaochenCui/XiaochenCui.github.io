@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Hugo 0.126.2">
+  <meta name="generator" content="Hugo 0.140.0">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
       "articleSection" : "posts",
       "name" : "Context Switch - Function Calling",
       "headline" : "Context Switch - Function Calling",
-      "description" : "Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.\n(image source: cpp20-coroutine-under-the-hood)\nA Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).",
+      "description" : "\u003cp\u003eAlthough the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022\/images\/context-switch-function-calling\/C20-Coroutine.png\u0022 alt=\u0022C20-Coroutine.png\u0022\u003e\u003c\/p\u003e\n\u003cp\u003e(image source: \u003ca href=\u0022http:\/\/www.vishalchovatiya.com\/cpp20-coroutine-under-the-hood\/\u0022\u003ecpp20-coroutine-under-the-hood\u003c\/a\u003e)\u003c\/p\u003e\n\u003ch1 id=\u0022a-simple-example\u0022\u003eA Simple Example\u003c\/h1\u003e\n\u003cp\u003eThe function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).\u003c\/p\u003e",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -37,8 +37,10 @@
   <meta property="og:title" content="Context Switch - Function Calling - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
   <meta name="description" content="Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
+
 (image source: cpp20-coroutine-under-the-hood)
-A Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location)." />
+A Simple Example
+The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location)." />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -175,52 +177,52 @@ pop CS
 </ul>
 <p>I summarize some of calling conventions according to the points above, the details of these calling conventions could be found in the references.</p>
 <table>
-<thead>
-<tr>
-<th>language &amp; platform</th>
-<th>calling convention</th>
-<th>argument-passing</th>
-<th>return values passing</th>
-<th>stack cleanup</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>C (x86)</td>
-<td>CDECL</td>
-<td>passed on the stack in Right-to-Left order</td>
-<td>eax register</td>
-<td>caller</td>
-</tr>
-<tr>
-<td>C (x86)</td>
-<td>STDCALL</td>
-<td>passed on the stack in Right-to-Left order</td>
-<td>eax register</td>
-<td>callee</td>
-</tr>
-<tr>
-<td>C (x86)</td>
-<td>FASTCALL</td>
-<td>passing parameters through registers as much as possible, remaining passed through stack</td>
-<td>I don&rsquo;t know</td>
-<td>callee</td>
-</tr>
-<tr>
-<td>C++ (x86)</td>
-<td>THISCALL</td>
-<td>passed on the stack in Right-to-Left order</td>
-<td>eax register</td>
-<td>caller</td>
-</tr>
-<tr>
-<td>C/C++ (x86-64)</td>
-<td>System V AMD64 ABI</td>
-<td>passing parameters through registers as much as possible, remaining passed through stack</td>
-<td>rax register</td>
-<td>callee</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>language &amp; platform</th>
+          <th>calling convention</th>
+          <th>argument-passing</th>
+          <th>return values passing</th>
+          <th>stack cleanup</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>C (x86)</td>
+          <td>CDECL</td>
+          <td>passed on the stack in Right-to-Left order</td>
+          <td>eax register</td>
+          <td>caller</td>
+      </tr>
+      <tr>
+          <td>C (x86)</td>
+          <td>STDCALL</td>
+          <td>passed on the stack in Right-to-Left order</td>
+          <td>eax register</td>
+          <td>callee</td>
+      </tr>
+      <tr>
+          <td>C (x86)</td>
+          <td>FASTCALL</td>
+          <td>passing parameters through registers as much as possible, remaining passed through stack</td>
+          <td>I don&rsquo;t know</td>
+          <td>callee</td>
+      </tr>
+      <tr>
+          <td>C++ (x86)</td>
+          <td>THISCALL</td>
+          <td>passed on the stack in Right-to-Left order</td>
+          <td>eax register</td>
+          <td>caller</td>
+      </tr>
+      <tr>
+          <td>C/C++ (x86-64)</td>
+          <td>System V AMD64 ABI</td>
+          <td>passing parameters through registers as much as possible, remaining passed through stack</td>
+          <td>rax register</td>
+          <td>callee</td>
+      </tr>
+  </tbody>
 </table>
 <h1 id="reference">Reference</h1>
 <ul>
