@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8" />
   <meta name="generator" content="Hugo 0.140.0">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="" />
-  <meta property="og:url" content="http://localhost:1313/posts/context-switch-coroutine-1999/" />
-  <link rel="canonical" href="http://localhost:1313/posts/context-switch-coroutine-1999/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  <meta property="og:url" content="https://cuixiaochen.com/posts/context-switch/context-switch-coroutine-1999/root/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/context-switch/context-switch-coroutine-1999/root/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
   {
       "@context" : "http://schema.org",
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/localhost:1313\/"
+           "@id": "https:\/\/cuixiaochen.com\/"
       },
       "articleSection" : "posts",
       "name" : "Context Switch - A Coroutine Library Back to 1999",
@@ -29,7 +29,7 @@
       "copyrightYear" : "2021",
       "datePublished": "2021-11-18 16:08:10 \u002b0800 \u002b0800",
       "dateModified" : "2021-11-18 16:08:10 \u002b0800 \u002b0800",
-      "url" : "http:\/\/localhost:1313\/posts\/context-switch-coroutine-1999\/",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/context-switch\/context-switch-coroutine-1999\/root\/",
       "keywords" : [  ]
   }
 </script>
@@ -139,7 +139,7 @@ The execution procedure of Resume and Call are the same: 1. suspending the curre
 </li>
 </ul>
 <p>State transitions of a coroutine:</p>
-<p><img src="/images/context-switch-coroutine-1999/context_switch-state_transition.drawio.png" alt="context switch-state transition.drawio.png"></p>
+<p><img src="state-transition.png" alt="context switch-state transition.drawio.png"></p>
 <h1 id="implementation">Implementation</h1>
 <p>Two different implementations of the library are provided. The first implementation is based on the copying of stacks in and out of C++&rsquo;s runtime stack. In the second implementation, all stacks of coroutines reside in the runtime stack (i.e., no stacks are copied).</p>
 <p>All the following sections are based on the assumptions of the stack growing downwards.</p>
@@ -148,9 +148,9 @@ The execution procedure of Resume and Call are the same: 1. suspending the curre
 <p>Use a <code>StackBuffer</code> on the heap to store/resume stack content and registers of a coroutine so that a coroutine could be suspended/continued by <code>memcpy</code> straightforward.</p>
 <h3 id="explain-in-detail--assuming-stack-grows-down">Explain in Detail  (Assuming stack grows down)</h3>
 <p>The struct of a coroutine struct (assuming stack grows down):</p>
-<p><img src="/images/context-switch-coroutine-1999/context_switch-coroutine_struct.drawio.png" alt="context switch-coroutine struct.drawio.png"></p>
+<p><img src="struct.png" alt="context switch-coroutine struct.drawio.png"></p>
 <p>Procedure of coroutine switch (step 1,2 is suspending current coroutine, step 3,4 is resuming target coroutine):</p>
-<p><img src="/images/context-switch-coroutine-1999/context_switch-switch.drawio.png" alt="context switch-switch.drawio.png"></p>
+<p><img src="switch.png" alt="context switch-switch.drawio.png"></p>
 <h3 id="pondering">Pondering</h3>
 <ul>
 <li>
@@ -173,13 +173,13 @@ The execution procedure of Resume and Call are the same: 1. suspending the curre
 <p>Let all coroutine stacks share C++&rsquo;s runtime stack, and jump between to achieve context switch.</p>
 <h3 id="explain-in-detail">Explain in Detail</h3>
 <p>Data structures (assuming stack grows down):</p>
-<p><img src="/images/context-switch-coroutine-1999/context_switch-share-stack.drawio.png" alt="context switch-share-stack.drawio.png"></p>
+<p><img src="share-stack.png" alt="context switch-share-stack.drawio.png"></p>
 <p>Annotation:</p>
 <p><code>pred, suc</code> : predecessor and successor in a doubly linked list of unused tasks</p>
 <p><code>prev, next</code>: pointers to the two adjacent tasks</p>
 <p><code>StackSize</code>: size of available stack memory, pre-allocated</p>
 <p>Procedure of coroutine switch:</p>
-<p><img src="/images/context-switch-coroutine-1999/context_switch-share-switch.drawio.png" alt="context switch-share-switch.drawio.png"></p>
+<p><img src="share-switch.png" alt="context switch-share-switch.drawio.png"></p>
 <h3 id="pondering-1">Pondering</h3>
 <ul>
 <li>
@@ -211,7 +211,7 @@ The execution procedure of Resume and Call are the same: 1. suspending the curre
 <li>
 <p><strong>Why the state of coroutine (value of registers, stored in <code>jmp_buf</code>) not recovered to initial state when a coroutine terminated?</strong></p>
 <p>There is no need to recover <code>jmp_buf</code> after the coroutine is terminated since the <code>Task</code> would be marked as free. When the next new coroutine is fitted in this free <code>Task</code>, the new state will be stored to <code>jmp_buf</code>, execution of the program would not bother with the obsoleted state.</p>
-<p><img src="/images/context-switch-coroutine-1999/context_switch-task-reuse.drawio.png" alt="context switch-task-reuse.drawio.png"></p>
+<p><img src="task-reuse.png" alt="context switch-task-reuse.drawio.png"></p>
 </li>
 </ul>
 <h2 id="comparison-of-the-two-implementations">Comparison of the two implementations</h2>
