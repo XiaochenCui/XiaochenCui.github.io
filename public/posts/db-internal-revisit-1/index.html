@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.140.0">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="http://localhost:1313/posts/db-internal-revisit-1/" />
+  <link rel="canonical" href="http://localhost:1313/posts/db-internal-revisit-1/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "http:\/\/localhost:1313\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Database Internal Revisit",
+      "headline" : "Database Internal Revisit",
+      "description" : "\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eQ: Why do we need a buffer pool? What happens if we don\u0026rsquo;t have a buffer pool?\u003c\/p\u003e\n\u003cp\u003eA: We need a buffer pool to store the data that is frequently accessed by the user. If we don\u0026rsquo;t have a buffer pool, we need to read the data from the disk every time the user requests it. The database will be dead slow.\u003c\/p\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2023",
+      "datePublished": "2023-06-07 08:57:10 \u002b0800 \u002b0800",
+      "dateModified" : "2023-06-07 08:57:10 \u002b0800 \u002b0800",
+      "url" : "http:\/\/localhost:1313\/posts\/db-internal-revisit-1\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Database Internal Revisit - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Database Internal Revisit - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="
+
+Q: Why do we need a buffer pool? What happens if we don&rsquo;t have a buffer pool?
+A: We need a buffer pool to store the data that is frequently accessed by the user. If we don&rsquo;t have a buffer pool, we need to read the data from the disk every time the user requests it. The database will be dead slow.
+
+" />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Xiaochen Cui</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+
+
+<div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="/resume/resume.pdf" target="_blank">Resume</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+</div>
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Database Internal Revisit</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2023-06-07 08:57:10 &#43;0800">
+                07 Jun 2023
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <ul>
+<li>
+<p>Q: Why do we need a buffer pool? What happens if we don&rsquo;t have a buffer pool?</p>
+<p>A: We need a buffer pool to store the data that is frequently accessed by the user. If we don&rsquo;t have a buffer pool, we need to read the data from the disk every time the user requests it. The database will be dead slow.</p>
+</li>
+</ul>
+
+        </div>
+        
+
+        
+
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        <div class="post-comments">
+          <div id="disqus_thread"></div>
+<script>
+  window.addEventListener("load", () => {
+    (function() {
+      
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://cuixiaochen.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  });
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+
+        </div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="/resume/resume.pdf" target="_blank">Resume</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>

@@ -112,6 +112,8 @@ Comments and suggestions are welcomed.
 - [An Empirical Evaluation of In-Memory Multi-Version Concurrency Control](https://15721.courses.cs.cmu.edu/spring2020/papers/03-mvcc1/wu-vldb2017.pdf)
 - ☑︎ [PostgreSQL Concurrency with MVCC | Heroku Dev Center](https://devcenter.heroku.com/articles/postgresql-concurrency)
 - ☑︎ [浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程](https://draveness.me/database-concurrency-control/)
+- [Implementing Your Own Transactions with MVCC](https://levelup.gitconnected.com/implementing-your-own-transactions-with-mvcc-bba11cab8e70)
+- [SQL Transaction Isolation Levels Explained](https://elliotchance.medium.com/sql-transaction-isolation-levels-explained-50d1a2f90d8f)
 
 ## Column Storage
 
@@ -207,6 +209,10 @@ Comments and suggestions are welcomed.
 
 - [Massively Parallel Sort-Merge Joins in Main Memory Multi-Core Database Systems](https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p1064-albutiu.pdf)
 
+### Zig-Zag Merge Join
+
+- [sql: implement zig-zag merge join · Issue #23520 · cockroachdb/cockroach](https://github.com/cockroachdb/cockroach/issues/23520)
+
 ### Other Perspectives
 
 - [A Practical Approach to Groupjoin and Nested Aggregates](https://vldb.org/pvldb/vol14/p2383-fent.pdf)
@@ -279,6 +285,11 @@ Comments and suggestions are welcomed.
 ## Key-Value Storage
 
 - [SpanDB: A Fast, Cost-Effective LSM-tree Based KV Store on Hybrid Storage](https://www.usenix.org/system/files/fast21-chen-hao.pdf)
+
+## Online Schema Change
+
+- [Online, Asynchronous Schema Change in F1](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41376.pdf)
+- [cockroach/docs/RFCS/20151014_online_schema_change.md at master · cockroachdb/cockroach](https://github.com/cockroachdb/cockroach/blob/master/docs/RFCS/20151014_online_schema_change.md)
 
 ## Others
 

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Hugo 0.140.0">
+  <meta name="generator" content="Hugo 0.87.0" />
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="" />
-  <meta property="og:url" content="http://localhost:1313/posts/context-switch-preface/" />
-  <link rel="canonical" href="http://localhost:1313/posts/context-switch-preface/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  <meta property="og:url" content="https://cuixiaochen.com/posts/context-switch/context-switch-preface/root/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/context-switch/context-switch-preface/root/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
   {
       "@context" : "http://schema.org",
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/localhost:1313\/"
+           "@id": "https:\/\/cuixiaochen.com\/"
       },
       "articleSection" : "posts",
       "name" : "Context Switch - Preface \u0026 Outline",
       "headline" : "Context Switch - Preface \u0026 Outline",
-      "description" : "\u003ch2 id=\u0022preface\u0022\u003ePreface\u003c\/h2\u003e\n\u003cp\u003eI will write a series of posts about the context switch. Aiming to answer these questions:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003eWhat is a context switch?\u003c\/li\u003e\n\u003cli\u003eWhen we need to switch context?\u003c\/li\u003e\n\u003cli\u003eWhat\u0026rsquo;s a process \/ thread \/ coroutine(user-space thread)?\u003c\/li\u003e\n\u003cli\u003eApplicable scenarios for each option.\u003c\/li\u003e\n\u003cli\u003eDigging into some coroutine libraries, the pros and cons of each.\n\u003cul\u003e\n\u003cli\u003eboost coroutine\u003c\/li\u003e\n\u003cli\u003emarl\u003c\/li\u003e\n\u003cli\u003eco\u003c\/li\u003e\n\u003cli\u003elibtask\u003c\/li\u003e\n\u003cli\u003ebthread\u003c\/li\u003e\n\u003cli\u003egoroutine\u003c\/li\u003e\n\u003cli\u003elibuv\u003c\/li\u003e\n\u003cli\u003elibco\u003c\/li\u003e\n\u003cli\u003elibaco\u003c\/li\u003e\n\u003cli\u003eboos::fiber\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003eWhy X uses coroutine? (e.g: gateway, crawler)\u003c\/li\u003e\n\u003cli\u003eWhy X not use coroutine? (e.g: mysql)\u003c\/li\u003e\n\u003cli\u003eWhy linux (and other os) doesn\u0026rsquo;t have coroutine built-in?\u003c\/li\u003e\n\u003cli\u003ewhy system call is slow\/expensive?\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022outline\u0022\u003eOutline\u003c\/h2\u003e\n\u003cp\u003eThere are 3 articles published currently:\u003c\/p\u003e",
+      "description" : "Preface I will write a series of posts about the context switch. Aiming to answer these questions:\n What is a context switch? When we need to switch context? What\u0026rsquo;s a process \/ thread \/ coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -29,45 +29,15 @@
       "copyrightYear" : "2021",
       "datePublished": "2021-11-05 11:43:00 \u002b0800 \u002b0800",
       "dateModified" : "2021-11-05 11:43:00 \u002b0800 \u002b0800",
-<<<<<<< HEAD
-      "url" : "https:\/\/cuixiaochen.com\/posts\/context-switch-preface\/",
-=======
-      "url" : "http:\/\/localhost:1313\/posts\/context-switch-preface\/",
->>>>>>> 1673f698846b433daaabe04bf3f782b822efe128
+      "url" : "https:\/\/cuixiaochen.com\/posts\/context-switch\/context-switch-preface\/root\/",
       "keywords" : [  ]
   }
 </script>
 <title>Context Switch - Preface &amp; Outline - XiaochenCui&#39;s Blog</title>
   <meta property="og:title" content="Context Switch - Preface &amp; Outline - XiaochenCui&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content="Preface
-I will write a series of posts about the context switch. Aiming to answer these questions:
-
-What is a context switch?
-When we need to switch context?
-What&rsquo;s a process / thread / coroutine(user-space thread)?
-Applicable scenarios for each option.
-Digging into some coroutine libraries, the pros and cons of each.
-
-boost coroutine
-marl
-co
-libtask
-bthread
-goroutine
-libuv
-libco
-libaco
-boos::fiber
-
-
-Why X uses coroutine? (e.g: gateway, crawler)
-Why X not use coroutine? (e.g: mysql)
-Why linux (and other os) doesn&rsquo;t have coroutine built-in?
-why system call is slow/expensive?
-
-Outline
-There are 3 articles published currently:" />
+  <meta name="description" content="Preface I will write a series of posts about the context switch. Aiming to answer these questions:
+ What is a context switch? When we need to switch context? What&rsquo;s a process / thread / coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?" />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"

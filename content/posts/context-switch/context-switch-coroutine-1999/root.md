@@ -20,7 +20,7 @@ The facilities of the library are based on the coroutine primitives provided by 
 
 State transitions of a coroutine:
 
-![context switch-state transition.drawio.png](/images/context-switch-coroutine-1999/context_switch-state_transition.drawio.png)
+![context switch-state transition.drawio.png](state-transition.png)
 
 # Implementation
 
@@ -38,11 +38,11 @@ Use a `StackBuffer` on the heap to store/resume stack content and registers of a
 
 The struct of a coroutine struct (assuming stack grows down):
 
-![context switch-coroutine struct.drawio.png](/images/context-switch-coroutine-1999/context_switch-coroutine_struct.drawio.png)
+![context switch-coroutine struct.drawio.png](struct.png)
 
 Procedure of coroutine switch (step 1,2 is suspending current coroutine, step 3,4 is resuming target coroutine):
 
-![context switch-switch.drawio.png](/images/context-switch-coroutine-1999/context_switch-switch.drawio.png)
+![context switch-switch.drawio.png](switch.png)
 
 ### Pondering
 
@@ -72,7 +72,7 @@ Let all coroutine stacks share C++'s runtime stack, and jump between to achieve 
 
 Data structures (assuming stack grows down):
 
-![context switch-share-stack.drawio.png](/images/context-switch-coroutine-1999/context_switch-share-stack.drawio.png)
+![context switch-share-stack.drawio.png](share-stack.png)
 
 Annotation:
 
@@ -84,7 +84,7 @@ Annotation:
 
 Procedure of coroutine switch:
 
-![context switch-share-switch.drawio.png](/images/context-switch-coroutine-1999/context_switch-share-switch.drawio.png)
+![context switch-share-switch.drawio.png](share-switch.png)
 
 ### Pondering
 
@@ -118,7 +118,7 @@ Procedure of coroutine switch:
 
     There is no need to recover `jmp_buf` after the coroutine is terminated since the `Task` would be marked as free. When the next new coroutine is fitted in this free `Task`, the new state will be stored to `jmp_buf`, execution of the program would not bother with the obsoleted state.
 
-    ![context switch-task-reuse.drawio.png](/images/context-switch-coroutine-1999/context_switch-task-reuse.drawio.png)
+    ![context switch-task-reuse.drawio.png](task-reuse.png)
 
 ## Comparison of the two implementations
 

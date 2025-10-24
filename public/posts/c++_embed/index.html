@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.87.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://cuixiaochen.com/posts/c&#43;&#43;_embed/" />
+  <link rel="canonical" href="https://cuixiaochen.com/posts/c&#43;&#43;_embed/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/cuixiaochen.com\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Embed Files to C\u002b\u002b at Compile Time",
+      "headline" : "Embed Files to C\u002b\u002b at Compile Time",
+      "description" : "This article will guide you through how to embed binary\/text files to C\u002b\u002b as a char array, like the convenient go:embed command.\nWe will focus on C23 #embed, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with -std=c\u002b\u002b23, -std=c\u002b\u002b17 is enough.\nFor other approach of embedding, refers to:\n https:\/\/github.com\/batterycenter\/embed https:\/\/github.",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2024",
+      "datePublished": "2024-12-11 11:00:38 -0800 PST",
+      "dateModified" : "2024-12-11 11:00:38 -0800 PST",
+      "url" : "https:\/\/cuixiaochen.com\/posts\/c\u002b\u002b_embed\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Embed Files to C&#43;&#43; at Compile Time - XiaochenCui&#39;s Blog</title>
+  <meta property="og:title" content="Embed Files to C&#43;&#43; at Compile Time - XiaochenCui&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta name="description" content="This article will guide you through how to embed binary/text files to C&#43;&#43; as a char array, like the convenient go:embed command.
+We will focus on C23 #embed, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with -std=c&#43;&#43;23, -std=c&#43;&#43;17 is enough.
+For other approach of embedding, refers to:
+ https://github.com/batterycenter/embed https://github." />
+
+  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
+  
+  <script>
+    
+
+    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+  </script>
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Xiaochen Cui</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+
+
+<div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="/resume/resume.pdf" target="_blank">Resume</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+</div>
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Embed Files to C&#43;&#43; at Compile Time</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2024-12-11 11:00:38 PST">
+                11 Dec 2024
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          <p>This article will guide you through how to embed binary/text files to C++ as a char array, like the convenient <code>go:embed</code> command.</p>
+<p>We will focus on C23 <code>#embed</code>, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with <code>-std=c++23</code>, <code>-std=c++17</code> is enough.</p>
+<p>For other approach of embedding, refers to:</p>
+<ul>
+<li><a href="https://github.com/batterycenter/embed">https://github.com/batterycenter/embed</a></li>
+<li><a href="https://github.com/cyrilcode/embed-resource">https://github.com/cyrilcode/embed-resource</a></li>
+</ul>
+<h1 id="embed-files-to-c">Embed Files To C++</h1>
+<h3 id="step-1---install-clang-19-or-newer-version">Step 1 - Install Clang 19 or Newer Version</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># install clang 20 in ubuntu</span>
+wget https://apt.llvm.org/llvm.sh
+chmod u+x llvm.sh
+sudo ./llvm.sh <span style="color:#ae81ff">20</span>
+<span style="color:#75715e"># or one line: wget -qO- https://apt.llvm.org/llvm.sh | bash -s -- 20</span>
+
+<span style="color:#75715e"># verify</span>
+clang-20 --version
+</code></pre></div><h2 id="step-2---embed-files-easily">Step 2 - Embed Files Easily</h2>
+<p>Create two files in a same directory:</p>
+<p><code>message.txt</code>:</p>
+<pre><code>hi, this is a message from message.txt
+</code></pre><p><code>demo.cc</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> message[] <span style="color:#f92672">=</span> {
+    <span style="color:#75715e">#embed &#34;message.txt&#34;
+</span><span style="color:#75715e"></span>    , <span style="color:#e6db74">&#39;\0&#39;</span> <span style="color:#75715e">// null terminator
+</span><span style="color:#75715e"></span>};
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  std<span style="color:#f92672">::</span>string_view message_str(message);
+  std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;message_str: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> message_str <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+}
+</code></pre></div><p>compile and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; clang++-20 demo.cc -std<span style="color:#f92672">=</span>c++17 -Wno-c23-extensions
+&gt; ./a.out
+message_str: hi, this is a message from message.txt
+</code></pre></div><p>Here are something to notice:</p>
+<ul>
+<li>Must type a new line after <code>#embed &quot;message.txt&quot;</code> (this is wrong: <code>#embed &quot;message.txt&quot;, '\0'</code>).</li>
+<li>Must use c++ standard 17 or newer.</li>
+<li>(optional) Use <code>-Wno-c23-extensions</code> to suppress <code>warning: #embed is a Clang extension</code>.</li>
+</ul>
+<h1 id="embed-files-to-c-in-bazel-project">Embed Files To C++, in Bazel Project</h1>
+<h3 id="step-1---embed-the-file-in-c-code">Step 1 - Embed the File in C++ Code</h3>
+<p>Embed the file using absolute or relative path. In this example, demo_plan.json is a file within the same folder with the source code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> message[] <span style="color:#f92672">=</span> {
+    <span style="color:#75715e">#embed &#34;demo_plan.json&#34;
+</span><span style="color:#75715e"></span>    , <span style="color:#e6db74">&#39;\0&#39;</span> <span style="color:#75715e">// null terminator
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>Full code:</p>
+<p><a href="https://github.com/small-db/small-db-v2/blob/bcfcbd9bd56020580ab20b07ac416fb48f026dad/src/query/query.cc#L118">https://github.com/small-db/small-db-v2/blob/bcfcbd9bd56020580ab20b07ac416fb48f026dad/src/query/query.cc#L118</a></p>
+<h3 id="step-2---create-a-clang-20-toolchain">Step 2 - Create a Clang-20 Toolchain</h3>
+<p>Follow this tutorial to create a custom toolchain:</p>
+<p><a href="https://bazel.build/tutorials/ccp-toolchain-config">https://bazel.build/tutorials/ccp-toolchain-config</a></p>
+<p>Then replace the compiler to <code>clang-20</code>. The full code is here:</p>
+<ul>
+<li><a href="https://github.com/small-db/small-db-v2/tree/main/toolchain">https://github.com/small-db/small-db-v2/tree/main/toolchain</a></li>
+</ul>
+<p>Then register this toolchain in file MODULE.bazel:</p>
+<pre><code># ================================================================================ #
+# custom toolchain
+# ================================================================================ #
+bazel_dep(name = &quot;platforms&quot;, version = &quot;0.0.10&quot;)
+register_toolchains(
+    &quot;//toolchain:xc_toolchain_clang20&quot;,
+)
+</code></pre><h3 id="step-3---add-path">Step 3 - Add Path</h3>
+<p>Add absolute path of the directory which contains the file we want embed to <code>create_cc_toolchain_config_info.cxx_builtin_include_directories</code>:</p>
+<pre><code>        cxx_builtin_include_directories=[
+            &quot;/usr/lib/llvm-20/lib/clang/20/include&quot;,
+            &quot;/usr/include&quot;,
+            # note that we must use absolute path here since clang embeds the file using absolute path
+            &quot;/home/xiaochen/code/small-db-v2/src/query&quot;,
+        ],
+</code></pre><h3 id="step-4---build--run">Step 4 - Build / Run</h3>
+<p>Build the target:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bazel build &lt;target-path&gt;
+
+<span style="color:#75715e"># e.g: build target &#34;//src/query:query&#34; which embed a file</span>
+bazel build //src/query:query
+</code></pre></div><h3 id="refresh-file-content">Refresh File Content</h3>
+<p>After change the content of the embed file, rebuild the target by remove its binary:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm -rf bazel-bin/&lt;package-path&gt;
+bazel build &lt;target-path&gt;
+
+<span style="color:#75715e"># e.g: remove the binary of package &#34;//src/query&#34;</span>
+rm -rf bazel-bin/src/query
+bazel build //src/query:query
+</code></pre></div><h1 id="references">References</h1>
+<ul>
+<li><a href="https://ubuntuhandbook.org/index.php/2023/09/how-to-install-clang-17-or-16-in-ubuntu-22-04-20-04/">https://ubuntuhandbook.org/index.php/2023/09/how-to-install-clang-17-or-16-in-ubuntu-22-04-20-04/</a></li>
+<li><a href="https://askubuntu.com/questions/1508260/how-do-i-install-clang-18-on-ubuntu">https://askubuntu.com/questions/1508260/how-do-i-install-clang-18-on-ubuntu</a></li>
+<li><a href="https://bazel.build/tutorials/ccp-toolchain-config">https://bazel.build/tutorials/ccp-toolchain-config</a></li>
+<li><a href="https://en.cppreference.com/w/c/preprocessor/embed">https://en.cppreference.com/w/c/preprocessor/embed</a></li>
+<li><a href="https://en.cppreference.com/w/c/compiler_support/23">https://en.cppreference.com/w/c/compiler_support/23</a></li>
+<li><a href="https://bazel.build/rules/lib/toplevel/cc_common#create_cc_toolchain_config_info">https://bazel.build/rules/lib/toplevel/cc_common#create_cc_toolchain_config_info</a></li>
+</ul>
+
+        </div>
+        
+
+        
+
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        <div class="post-comments">
+          <div id="disqus_thread"></div>
+<script>
+  window.addEventListener("load", () => {
+    (function() {
+      
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://cuixiaochen.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  });
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+
+        </div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="/resume/resume.pdf" target="_blank">Resume</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
+  </div>
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
+</script>
+
+  
+
+</body>
+
+</html>
