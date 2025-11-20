@@ -1,5 +1,5 @@
 upload:
-	cp ~/GoogleDrive/documents/XiaochenCui\ -\ resume/resume.pdf ./static/resume/resume.pdf
+	cp ~/GoogleDrive/documents/Xiaochen\ -\ resume/resume.pdf ./static/resume/resume.pdf
 	hugo
 	git add --all
 	git commit -v -a -m "update blog content"
