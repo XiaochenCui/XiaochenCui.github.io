@@ -1,83 +1,676 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>XiaochenCui&#39;s Blog</title>
-    <link>https://cuixiaochen.com/</link>
-    <description>Recent content on XiaochenCui&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 11 Dec 2024 11:00:38 -0800</lastBuildDate><atom:link href="https://cuixiaochen.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Embed Files to C&#43;&#43; at Compile Time</title>
-      <link>https://cuixiaochen.com/posts/c&#43;&#43;_embed/</link>
-      <pubDate>Wed, 11 Dec 2024 11:00:38 -0800</pubDate>
-      
-      <guid>https://cuixiaochen.com/posts/c&#43;&#43;_embed/</guid>
-      <description>This article will guide you through how to embed binary/text files to C++ as a char array, like the convenient go:embed command.
-We will focus on C23 #embed, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with -std=c++23, -std=c++17 is enough.
-For other approach of embedding, refers to:
- https://github.com/batterycenter/embed https://github.</description>
-    </item>
-    
-    <item>
-      <title>Context Switch - libtask by Russ Cox</title>
-      <link>https://cuixiaochen.com/posts/context-switch-libtask/</link>
-      <pubDate>Thu, 02 Dec 2021 16:57:10 +0800</pubDate>
-      
-      <guid>https://cuixiaochen.com/posts/context-switch-libtask/</guid>
-      <description>Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
-We will use &amp;ldquo;task&amp;rdquo; to refer to &amp;ldquo;coroutine&amp;rdquo; in the following for coherency.
-Internal overview of running procedure There are 4 exclusive states for any task given:
- running suspended, put in the task queue suspended, put in a channel&amp;rsquo;s sender queue or receiver queue terminated  The program exit in 2 situations:</description>
-    </item>
-    
-    <item>
-      <title>Context Switch - A Coroutine Library Back to 1999</title>
-      <link>https://cuixiaochen.com/posts/context-switch/context-switch-coroutine-1999/root/</link>
-      <pubDate>Thu, 18 Nov 2021 16:08:10 +0800</pubDate>
-      
-      <guid>https://cuixiaochen.com/posts/context-switch/context-switch-coroutine-1999/root/</guid>
-      <description>Introduction COROUTINE is a C++ library for coroutine sequencing, which Keld Helsgaun published in May 1999.
-Coroutine primitives &amp;amp; state The facilities of the library are based on the coroutine primitives provided by the programming language SIMULA.
-  Resume(Coroutine *Next) : resume the execution of a coroutine
-  Call(Coroutine *Next) : start the execution of a coroutine
-The execution procedure of Resume and Call are the same: 1. suspending the current thread, 2.</description>
-    </item>
-    
-    <item>
-      <title>Context Switch - Function Calling</title>
-      <link>https://cuixiaochen.com/posts/context-switch-function-calling/</link>
-      <pubDate>Thu, 11 Nov 2021 16:12:30 +0800</pubDate>
-      
-      <guid>https://cuixiaochen.com/posts/context-switch-function-calling/</guid>
-      <description>Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.
-(image source: cpp20-coroutine-under-the-hood)
-A Simple Example The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).</description>
-    </item>
-    
-    <item>
-      <title>Context Switch - Preface &amp; Outline</title>
-      <link>https://cuixiaochen.com/posts/context-switch/context-switch-preface/root/</link>
-      <pubDate>Fri, 05 Nov 2021 11:43:00 +0800</pubDate>
-      
-      <guid>https://cuixiaochen.com/posts/context-switch/context-switch-preface/root/</guid>
-      <description>Preface I will write a series of posts about the context switch. Aiming to answer these questions:
- What is a context switch? When we need to switch context? What&amp;rsquo;s a process / thread / coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?</description>
-    </item>
-    
-    <item>
-      <title>System Research Syllabus</title>
-      <link>https://cuixiaochen.com/posts/system-research-syllabus/</link>
-      <pubDate>Tue, 08 Oct 2019 13:56:32 +0800</pubDate>
-      
-      <guid>https://cuixiaochen.com/posts/system-research-syllabus/</guid>
-      <description>The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.
-Comments and suggestions are welcomed.
-(Content is being sorted out, a little bit confusing right now)
-☑︎ means read
-⭐️ means recommend
-Distributed Systems  Time, Clocks, and the Ordering of Events in a Distributed System The End of an Architectural Era (It’s Time for a Complete Rewrite) Practical Uses of Synchronized Clocks in Distributed Systems Information Storage in a Decentralized Computer System  Data Processing  Spark: Cluster Computing with Working Sets  Stream Processing  Storm @Twitter Samza: Stateful Scalable Stream Processing at LinkedIn Drill  SQL Workloads  Presto: SQL on Everything 深入浅出Presto：PB级OLAP引擎 Dremel: Interactive Analysis of Web-Scale Datasets  Distributed Storage System  Atlas: Baidu’s Key-value Storage System for Cloud Data PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment OceanStore: An Architecture for Global-Scale Persistent Storage Alluxio: A Virtual Distributed File System  Distributed Computation  Ray: A Distributed Framework for Emerging AI Applications Starling: A Scalable Query Engine on Cloud Functions  Database Motivation  A Relational Model of Data for Large Shared Data Banks  History  ☑︎ What Goes Around Comes Around ☑︎ What’s Really New with NewSQL?</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>XiaochenCui's Blog</title><link>https://xiaochencui.github.io/</link><description>Recent content on XiaochenCui's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 11 Dec 2024 11:00:38 -0800</lastBuildDate><atom:link href="https://xiaochencui.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Embed Files to C++ at Compile Time</title><link>https://xiaochencui.github.io/posts/c++_embed/</link><pubDate>Wed, 11 Dec 2024 11:00:38 -0800</pubDate><guid>https://xiaochencui.github.io/posts/c++_embed/</guid><description>&lt;p&gt;This article will guide you through how to embed binary/text files to C++ as a char array, like the convenient &lt;code&gt;go:embed&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;We will focus on C23 &lt;code&gt;#embed&lt;/code&gt;, it is supported from GCC 15 and Clang 19. Note that this feature need new compiler but doesn’t need new standard, you don’t have to compile your code with &lt;code&gt;-std=c++23&lt;/code&gt;, &lt;code&gt;-std=c++17&lt;/code&gt; is enough.&lt;/p&gt;
+&lt;p&gt;For other approach of embedding, refers to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/batterycenter/embed"&gt;https://github.com/batterycenter/embed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cyrilcode/embed-resource"&gt;https://github.com/cyrilcode/embed-resource&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="embed-files-to-c"&gt;Embed Files To C++&lt;/h1&gt;
+&lt;h3 id="step-1---install-clang-19-or-newer-version"&gt;Step 1 - Install Clang 19 or Newer Version&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# install clang 20 in ubuntu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://apt.llvm.org/llvm.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod u+x llvm.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ./llvm.sh &lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# or one line: wget -qO- https://apt.llvm.org/llvm.sh | bash -s -- 20&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# verify&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;clang-20 --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="step-2---embed-files-easily"&gt;Step 2 - Embed Files Easily&lt;/h2&gt;
+&lt;p&gt;Create two files in a same directory:&lt;/p&gt;</description></item><item><title>Context Switch - libtask by Russ Cox</title><link>https://xiaochencui.github.io/posts/context-switch-libtask/</link><pubDate>Thu, 02 Dec 2021 16:57:10 +0800</pubDate><guid>https://xiaochencui.github.io/posts/context-switch-libtask/</guid><description>&lt;h1 id="intro"&gt;Intro&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://swtch.com/libtask/"&gt;libtask&lt;/a&gt; is a coroutine library that has cooperative scheduler and &lt;code&gt;channel&lt;/code&gt; built-in. The &lt;code&gt;channel&lt;/code&gt; is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.&lt;/p&gt;
+&lt;p&gt;We will use &amp;ldquo;task&amp;rdquo; to refer to &amp;ldquo;coroutine&amp;rdquo; in the following for coherency.&lt;/p&gt;
+&lt;h1 id="internal"&gt;Internal&lt;/h1&gt;
+&lt;h2 id="overview-of-running-procedure"&gt;overview of running procedure&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://xiaochencui.github.io/images/context-switch-libtask/libtask-switch.drawio.png" alt="libtask-switch.drawio.png"&gt;&lt;/p&gt;
+&lt;p&gt;There are 4 exclusive states for any task given:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;running&lt;/li&gt;
+&lt;li&gt;suspended, put in the task queue&lt;/li&gt;
+&lt;li&gt;suspended, put in a channel&amp;rsquo;s sender queue or receiver queue&lt;/li&gt;
+&lt;li&gt;terminated&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The program exit in 2 situations:&lt;/p&gt;</description></item><item><title>Context Switch - A Coroutine Library Back to 1999</title><link>https://xiaochencui.github.io/posts/context-switch/context-switch-coroutine-1999/root/</link><pubDate>Thu, 18 Nov 2021 16:08:10 +0800</pubDate><guid>https://xiaochencui.github.io/posts/context-switch/context-switch-coroutine-1999/root/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://akira.ruc.dk/~keld/research/COROUTINE/"&gt;COROUTINE&lt;/a&gt; is a C++ library for coroutine sequencing, which Keld Helsgaun published in May 1999.&lt;/p&gt;
+&lt;h1 id="coroutine-primitives--state"&gt;Coroutine primitives &amp;amp; state&lt;/h1&gt;
+&lt;p&gt;The facilities of the library are based on the coroutine primitives provided by the programming language SIMULA.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Resume(Coroutine *Next)&lt;/code&gt; : resume the execution of a coroutine&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Call(Coroutine *Next)&lt;/code&gt; : start the execution of a coroutine&lt;/p&gt;
+&lt;p&gt;The execution procedure of &lt;code&gt;Resume&lt;/code&gt; and &lt;code&gt;Call&lt;/code&gt; are the same: 1. suspending the current thread, 2. executing(start/resume) the target thread. The only difference between them is that the Call will Establish a relationship between caller and callee, whereas the Resume doesn&amp;rsquo;t.&lt;/p&gt;</description></item><item><title>Context Switch - Function Calling</title><link>https://xiaochencui.github.io/posts/context-switch-function-calling/</link><pubDate>Thu, 11 Nov 2021 16:12:30 +0800</pubDate><guid>https://xiaochencui.github.io/posts/context-switch-function-calling/</guid><description>&lt;p&gt;Although the function calling was not summarized into the category of context switch generally, it is still a great choice to learn function calling as a warm-up.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://xiaochencui.github.io/images/context-switch-function-calling/C20-Coroutine.png" alt="C20-Coroutine.png"&gt;&lt;/p&gt;
+&lt;p&gt;(image source: &lt;a href="http://www.vishalchovatiya.com/cpp20-coroutine-under-the-hood/"&gt;cpp20-coroutine-under-the-hood&lt;/a&gt;)&lt;/p&gt;
+&lt;h1 id="a-simple-example"&gt;A Simple Example&lt;/h1&gt;
+&lt;p&gt;The function calling gives a promise which the changes to variable doing by the callee would not take effect of the caller (unless deliberately or the variables of callee and caller point to the same memory location).&lt;/p&gt;</description></item><item><title>Context Switch - Preface &amp; Outline</title><link>https://xiaochencui.github.io/posts/context-switch/context-switch-preface/root/</link><pubDate>Fri, 05 Nov 2021 11:43:00 +0800</pubDate><guid>https://xiaochencui.github.io/posts/context-switch/context-switch-preface/root/</guid><description>&lt;h2 id="preface"&gt;Preface&lt;/h2&gt;
+&lt;p&gt;I will write a series of posts about the context switch. Aiming to answer these questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is a context switch?&lt;/li&gt;
+&lt;li&gt;When we need to switch context?&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s a process / thread / coroutine(user-space thread)?&lt;/li&gt;
+&lt;li&gt;Applicable scenarios for each option.&lt;/li&gt;
+&lt;li&gt;Digging into some coroutine libraries, the pros and cons of each.
+&lt;ul&gt;
+&lt;li&gt;boost coroutine&lt;/li&gt;
+&lt;li&gt;marl&lt;/li&gt;
+&lt;li&gt;co&lt;/li&gt;
+&lt;li&gt;libtask&lt;/li&gt;
+&lt;li&gt;bthread&lt;/li&gt;
+&lt;li&gt;goroutine&lt;/li&gt;
+&lt;li&gt;libuv&lt;/li&gt;
+&lt;li&gt;libco&lt;/li&gt;
+&lt;li&gt;libaco&lt;/li&gt;
+&lt;li&gt;boos::fiber&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Why X uses coroutine? (e.g: gateway, crawler)&lt;/li&gt;
+&lt;li&gt;Why X not use coroutine? (e.g: mysql)&lt;/li&gt;
+&lt;li&gt;Why linux (and other os) doesn&amp;rsquo;t have coroutine built-in?&lt;/li&gt;
+&lt;li&gt;why system call is slow/expensive?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="outline"&gt;Outline&lt;/h2&gt;
+&lt;p&gt;There are 3 articles published currently:&lt;/p&gt;</description></item><item><title>System Research Syllabus</title><link>https://xiaochencui.github.io/posts/system-research-syllabus/</link><pubDate>Tue, 08 Oct 2019 13:56:32 +0800</pubDate><guid>https://xiaochencui.github.io/posts/system-research-syllabus/</guid><description>&lt;p&gt;The knowledge involved in building large-scale system, covering everthing form architecture to algorithms, from macro to micro.&lt;/p&gt;
+&lt;p&gt;Comments and suggestions are welcomed.&lt;/p&gt;
+&lt;p&gt;(Content is being sorted out, a little bit confusing right now)&lt;/p&gt;
+&lt;p&gt;☑︎ means read&lt;/p&gt;
+&lt;p&gt;⭐️ means recommend&lt;/p&gt;
+&lt;h1 id="distributed-systems"&gt;Distributed Systems&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://lamport.azurewebsites.net/pubs/time-clocks.pdf"&gt;Time, Clocks, and the Ordering of Events in a Distributed System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf"&gt;The End of an Architectural Era (It’s Time for a Complete Rewrite)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.1089.5025&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;Practical Uses of Synchronized Clocks in Distributed Systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.bitsavers.org/pdf/xerox/parc/techReports/CSL-81-8_Information_Storage_in_a_Decentralized_Computer_System.pdf"&gt;Information Storage in a Decentralized Computer System&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="data-processing"&gt;Data Processing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/legacy/events/hotcloud10/tech/full_papers/Zaharia.pdf"&gt;Spark: Cluster Computing with Working Sets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stream-processing"&gt;Stream Processing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cs.brown.edu/courses/csci2270/archives/2015/papers/ss-storm.pdf"&gt;Storm @Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol10/p1634-noghabi.pdf"&gt;Samza: Stateful Scalable Stream Processing at LinkedIn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cwiki.apache.org/confluence/display/incubator/DrillProposal"&gt;Drill&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="sql-workloads"&gt;SQL Workloads&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://prestosql.io/Presto_SQL_on_Everything.pdf"&gt;Presto: SQL on Everything&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.zhihu.com/column/c_1294277883771940864"&gt;深入浅出Presto：PB级OLAP引擎&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36632.pdf"&gt;Dremel: Interactive Analysis of Web-Scale Datasets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="distributed-storage-system"&gt;Distributed Storage System&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://ranger.uta.edu/~sjiang/pubs/papers/lai15-atlas.pdf"&gt;Atlas: Baidu’s Key-value Storage System for Cloud Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2001/05/pastDruschel.pdf"&gt;PAST: Persistent and Anonymous Storage in a Peer-to-Peer Networking Environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.srhea.net/papers/asplos00.pdf"&gt;OceanStore: An Architecture for Global-Scale Persistent Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2018/EECS-2018-29.pdf"&gt;Alluxio: A Virtual Distributed File System&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="distributed-computation"&gt;Distributed Computation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1712.05889.pdf"&gt;Ray: A Distributed Framework for Emerging AI Applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dl.acm.org/doi/pdf/10.1145/3318464.3380609"&gt;Starling: A Scalable Query Engine on Cloud Functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="database"&gt;Database&lt;/h1&gt;
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf"&gt;A Relational Model of Data for Large Shared Data Banks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="history"&gt;History&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/01-intro/whatgoesaround-stonebraker.pdf"&gt;What Goes Around Comes Around&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/01-intro/pavlo-newsql-sigmodrec2016.pdf"&gt;What’s Really New with NewSQL?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="architecture"&gt;Architecture&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://db.cs.berkeley.edu/papers/fntdb07-architecture.pdf"&gt;Architecture of a Database System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pdfs.semanticscholar.org/1024/da80d950b8d3142ace378324644a67aa2d72.pdf"&gt;Column Stores vs Row Stores : How Different Are They Really&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.microsoft.com/en-us/research/uploads/prod/2019/05/socrates.pdf"&gt;Socrates: The New SQL Server in the Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://notes.stephenholiday.com/Percolator.pdf"&gt;Large-scale Incremental Processing Using Distributed Transactions and Notifications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.redbook.io/pdf/redbook-5th-edition.pdf"&gt;Readings in Database Systems, 5th Edition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol13/p2047-lu.pdf"&gt;Aria: A Fast and Practical Deterministic OLTP Database&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf"&gt;Bigtable: A Distributed Storage System for Structured Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://kai-zeng.github.io/papers/hologres.pdf"&gt;Alibaba Hologres: A Cloud-Native Service for Hybrid Serving/Analytical Processing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol6/p877-levandoski.pdf"&gt;LLAMA: A Cache/Storage Subsystem for Modern Hardware&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.percona.com/live/18/sites/default/files/slides/polardb_p18_slides.pdf"&gt;POLARDB: InnoDB based shared-everything storage solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.foundationdb.org/files/fdb-paper.pdf"&gt;FoundationDB: A Distributed Unbundled Transactional Key Value Store&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol13/p3204-saborit.pdf"&gt;POLARIS: The Distributed SQL Engine in Azure Synapse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://info.snowflake.net/rs/252-RFO-227/images/Snowflake_SIGMOD.pdf"&gt;The Snowflake Elastic Data Warehouse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf"&gt;Spanner: Google’s Globally-Distributed Database&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="key-value-store"&gt;Key-Value Store&lt;/h2&gt;
+&lt;h3 id="rocksdb"&gt;RocksDB&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://rocksdb.org/docs/getting-started.html"&gt;Getting started | RocksDB&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/facebook/rocksdb/wiki/RocksDB-Overview"&gt;RocksDB Overview · facebook/rocksdb Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="greenplum"&gt;Greenplum&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://arxiv.org/pdf/2103.11080.pdf"&gt;Greenplum: A Hybrid Database for Transactional and Analytical Workloads&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://zhuanlan.zhihu.com/p/388545190"&gt;Greenplum: A Hybrid Database for Transactional and Analytical Workloads (中文翻译)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="postgresql"&gt;PostgreSQL&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://dsf.berkeley.edu/papers/ERL-M85-95.pdf"&gt;THE DESIGN OF POSTGRES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dsf.berkeley.edu/papers/ERL-M90-34.pdf"&gt;THE IMPLEMENTATION OF POSTGRES&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dsf.berkeley.edu/papers/ERL-M87-13.pdf"&gt;[ROWE87] The POSTGRES Data Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://devcenter.heroku.com/articles/postgresql-concurrency"&gt;PostgreSQL Concurrency with MVCC | Heroku Dev Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="cockroachdb"&gt;CockroachDB&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.cockroachlabs.com/blog/living-without-atomic-clocks/"&gt;Living Without Atomic Clocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cockroachlabs.com/blog/consistency-model/"&gt;CockroachDB&amp;rsquo;s Consistency Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://github.com/cockroachdb/cockroach/blob/94e48ae8f2/docs/tech-notes/life_of_a_query.md"&gt;Life of a SQL Query&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://github.com/cockroachdb/cockroach/blob/c097a16427f65e9070991f062716d222ea5903fe/pkg/sql/opt/doc.go"&gt;SQL query planning and optimizations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cockroachlabs.com/blog/index-selection-cockroachdb-2/"&gt;Index selection in CockroachDB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="risingwave"&gt;RisingWave&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://blog.zhuangty.com/state-management-in-risingwave"&gt;RisingWave 中的状态管理 - 纯纯的 Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="mvcc"&gt;MVCC&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/03-mvcc1/wu-vldb2017.pdf"&gt;An Empirical Evaluation of In-Memory Multi-Version Concurrency Control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://devcenter.heroku.com/articles/postgresql-concurrency"&gt;PostgreSQL Concurrency with MVCC | Heroku Dev Center&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://draveness.me/database-concurrency-control/"&gt;浅谈数据库并发控制 - 锁和 MVCC - 面向信仰编程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://levelup.gitconnected.com/implementing-your-own-transactions-with-mvcc-bba11cab8e70"&gt;Implementing Your Own Transactions with MVCC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://elliotchance.medium.com/sql-transaction-isolation-levels-explained-50d1a2f90d8f"&gt;SQL Transaction Isolation Levels Explained&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="column-storage"&gt;Column Storage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf"&gt;The Vertica Analytic Database: C-Store 7 Years Later&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="sql-parser"&gt;SQL Parser&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1802.10233.pdf"&gt;Apache Calcite: A Foundational Framework for Optimized Query Processing Over Heterogeneous Data Sources&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="sql-test"&gt;SQL Test&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.youtube.com/watch?v=Hmu3F1Vafqc"&gt;TiDB SQL 兼容性测试工具简介（Compatibility testing tool profile）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="query-engine"&gt;Query Engine&lt;/h2&gt;
+&lt;h3 id="push-vs-pull"&gt;Push vs Pull&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="http://justinjaffray.com/query-engines-push-vs.-pull/"&gt;Query Engines: Push vs. Pull&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://arxiv.org/pdf/1610.09166.pdf"&gt;Push vs. Pull-Based Loop Fusion in Query Engines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="query-optimization"&gt;Query Optimization&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www2.cs.duke.edu/courses/compsci516/cps216/spring03/papers/selinger-etal-1979.pdf"&gt;Access Path Selection in a Relational Database Management System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://people.csail.mit.edu/tdanford/6830papers/mannino-stat-profile-estimation.pdf"&gt;Statistical Profile Estimation in Database Systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://llvm.org/devmtg/2013-11/slides/Wanderman-Milne-Cloudera.pdf"&gt;Building a Modern Database Using LLVM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/xu-columbia-thesis1998.pdf"&gt;EFFICIENCY IN THE COLUMBIA DATABASE QUERY OPTIMIZER&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.21.2197&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;The Volcano Optimizer Generator: Extensibility and Efficient Search&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://paperhub.s3.amazonaws.com/dace52a42c07f7f8348b08dc2b186061.pdf"&gt;Volcano-An Extensible and Parallel Query Evaluation System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2018/papers/15-optimizer1/graefe-ieee1995.pdf"&gt;The Cascades Framework for Query Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.pingcap.com/zh/tidb/stable/sql-logical-optimization"&gt;逻辑优化 | PingCAP Docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://zhuanlan.zhihu.com/p/73545345"&gt;Cascades Optimizer - 知乎&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.cockroachlabs.com/docs/stable/cost-based-optimizer.html"&gt;Cost-Based Optimizer | CockroachDB Docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final98.pdf"&gt;Optimizing Data Shuffling in Data-Parallel Computation by Understanding User-Defined Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/osdi12/osdi12-final-23.pdf"&gt;Spotting Code Optimizations in Data-Parallel Pipelines through PeriSCOPE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=sJU3BXFr4Dc"&gt;Understanding the internals of GPORCA Optimizer - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="query-compilation"&gt;Query Compilation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://zhuanlan.zhihu.com/p/60965109"&gt;查询编译综述 - 知乎&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://sites.computer.org/debull/A14mar/p31.pdf"&gt;Runtime Code Generation in Cloudera Impala&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2017/papers/20-compilation/krikellas-icde2010.pdf"&gt;Generating code for holistic query evaluation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.vldb.org/pvldb/vol4/p539-neumann.pdf"&gt;Efficiently Compiling Efficient Query Plans for Modern Hardware&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://par.nsf.gov/servlets/purl/10066914"&gt;Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Last&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cs.purdue.edu/homes/rompf/papers/tahboub-sigmod18.pdf"&gt;How to Architect a Query Compiler, Revisited&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pdfs.semanticscholar.org/1eae/e91396ae428589a880abb780af1e88cea180.pdf?_ga=2.162570108.1979694222.1621214327-1782859694.1621214327"&gt;Code generation for efficient query processing in managed runtimes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://zhuanlan.zhihu.com/p/393961205"&gt;Vectorization vs. Compilation in Query Execution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2018/papers/03-compilation/kohn-icde2018.pdf"&gt;Adaptive Execution of Compiled Queries&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vectorization"&gt;Vectorization&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.infoq.com/articles/columnar-databases-and-vectorization/"&gt;Columnar Databases and Vectorization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="https://www.vldb.org/pvldb/vol11/p2209-kersten.pdf"&gt;Everything You Always Wanted to Know About Compiled and Vectorized Queries But Were Afraid to Ask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.cockroachlabs.com/blog/how-we-built-a-vectorized-execution-engine/"&gt;How We Built a Vectorized Execution Engine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.cockroachlabs.com/blog/vectorizing-the-merge-joiner-in-cockroachdb/"&gt;Vectorizing the Merge Joiner in CockroachDB&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.cockroachlabs.com/blog/vectorized-hash-joiner/"&gt;40x faster hash joiner with vectorized execution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://xiaochencui.github.io/paper/14075B.pdf"&gt;Balancing vectorized query execution with bandwidth-optimized storage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="simd"&gt;SIMD&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;⭐️ &lt;a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html"&gt;Intel® Intrinsics Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dev.to/wunk/fast-array-reversal-with-simd-j3p"&gt;Fast array reversal with SIMD! - DEV Community&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikibooks.org/wiki/X86_Assembly/SSE#SSE_Instruction_Set"&gt;x86 Assembly/SSE - Wikibooks, open books for an open world&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.oracle.com/cd/E26502_01/html/E28388/eojde.html"&gt;SSE Instructions - x86 Assembly Language Reference Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/questions/9079580/sse-simd-multiply-vector-by-scalar"&gt;c - SSE (SIMD): multiply vector by scalar - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="pipeline"&gt;Pipeline&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://par.nsf.gov/servlets/purl/10066914"&gt;Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Las&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="peloton"&gt;Peloton&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://15721.courses.cs.cmu.edu/spring2018/papers/22-vectorization2/menon-vldb2017.pdf"&gt;Relaxed Operator Fusion for In-Memory Databases: Making Compilation, Vectorization, and Prefetching Work Together At Last&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://cidrdb.org/cidr2005/papers/P19.pdf"&gt;MonetDB/X100: Hyper-Pipelining Query Execution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="join-algorithm"&gt;Join Algorithm&lt;/h2&gt;
+&lt;h3 id="comparison"&gt;Comparison&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/schuh-sigmod2016.pdf"&gt;An Experimental Comparison of Thirteen Relational Equi-Joins in Main Memory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p85-balkesen.pdf"&gt;Multi-Core, Main-Memory Joins: Sort vs. Hash Revisited&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/richter-vldb2015.pdf"&gt;A Seven-Dimensional Analysis of Hashing Methods and its Implications on Query Processing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/kim-vldb2009.pdf"&gt;Sort vs. Hash Revisited: Fast Join Implementation on Modern Multi-Core CPUs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/graefe-tkde1994.pdf"&gt;Sort vs. Hash Revisited&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="hash-join"&gt;Hash Join&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mysqlserverteam.com/hash-join-in-mysql-8/"&gt;Hash join in MySQL 8 | MySQL Server Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/giorgospan/Radix-Hash-Join"&gt;giorgospan/Radix-Hash-Join: Radix Hash Join - SIGMOD Contest 2018.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/p37-blanas.pdf"&gt;Design and Evaluation of Main Memory Hash Join Algorithms for Multi-core CPUs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/17-hashjoins/balkesen-icde2013.pdf"&gt;Main-Memory Hash Joins on Multi-Core CPUs: Tuning to the Underlying Hardware&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="sort-merge-join"&gt;Sort Merge Join&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/papers/18-sortmergejoins/p1064-albutiu.pdf"&gt;Massively Parallel Sort-Merge Joins in Main Memory Multi-Core Database Systems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="zig-zag-merge-join"&gt;Zig-Zag Merge Join&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockroachdb/cockroach/issues/23520"&gt;sql: implement zig-zag merge join · Issue #23520 · cockroachdb/cockroach&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="other-perspectives"&gt;Other Perspectives&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://vldb.org/pvldb/vol14/p2383-fent.pdf"&gt;A Practical Approach to Groupjoin and Nested Aggregates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol13/p2411-parchas.pdf"&gt;Fast and Effective Distribution-Key Recommendation for Amazon Redshift&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="lock--transaction"&gt;Lock &amp;amp; Transaction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://db.lcs.mit.edu/6.830/lectures/franklin97concurrency.pdf"&gt;Concurrency Control and Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kernelbook.sourceforge.net/kernel-locking.pdf"&gt;Unreliable Guide To Locking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Purchase Link:&lt;/em&gt; &lt;a href="https://www.amazon.com/Transaction-Processing-Concepts-Techniques-Management/dp/1558601902"&gt;Transaction Processing: Concepts and Techniques&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://courses.cs.washington.edu/courses/cse551/09au/papers/CSE550BHG-Ch7.pdf"&gt;Concurrency Control and Recovery in Database Systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Purchase Link:&lt;/em&gt; &lt;a href="https://www.amazon.com/Database-Concurrency-Control-Principles-computer/dp/0881750271"&gt;Theory of Database Concurrency Control (Principles of computer science series)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Purchase Link:&lt;/em&gt; &lt;a href="https://dl.acm.org/citation.cfm?doid=582095.582099"&gt;Access path selection in a relational database management system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://jimgray.azurewebsites.net/BenchmarkHandbook/chapter1.pdf"&gt;The Benchmark Handbook: For Database and Transaction Processing Systems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="log"&gt;Log&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Physical log&lt;/li&gt;
+&lt;li&gt;Logical logging&lt;/li&gt;
+&lt;li&gt;Physiological logging&lt;/li&gt;
+&lt;li&gt;Write Ahead Logging (WAL)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="deadlock-handling"&gt;Deadlock Handling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Deadlock avoidance&lt;/li&gt;
+&lt;li&gt;Deadlock detection
+&lt;ul&gt;
+&lt;li&gt;Timeout&lt;/li&gt;
+&lt;li&gt;Wait-for graph&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="two-phase-locking2pl"&gt;Two-Phase Locking(2PL)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.cs.purdue.edu/homes/sunil/courses/cs448/Lecture_Files/TwoPhaseLocking.pdf"&gt;University of Waterloo CS 448 Database Systems - Two Phase Locking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.geeksforgeeks.org/dbms-concurrency-control-protocols-two-phase-locking-2-pl/"&gt;DBMS | Concurrency Control Protocol | Two Phase Locking (2-PL)-I - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="classification-of-2pl"&gt;Classification of 2PL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic 2PL&lt;/li&gt;
+&lt;li&gt;Strict 2PL&lt;/li&gt;
+&lt;li&gt;Conservative 2PL&lt;/li&gt;
+&lt;li&gt;Rigorous 2PL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="isolation-level"&gt;Isolation Level&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Read uncommited&lt;/li&gt;
+&lt;li&gt;Read commited&lt;/li&gt;
+&lt;li&gt;Repeatable read&lt;/li&gt;
+&lt;li&gt;Serializale&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="concurrency-control"&gt;Concurrency Control&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lock&lt;/li&gt;
+&lt;li&gt;Optimistic concurrency control&lt;/li&gt;
+&lt;li&gt;Multiversion concurrency control (MVCC)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="optimistic-concurrency-control"&gt;Optimistic Concurrency Control&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.eecs.harvard.edu/~htk/publication/1981-tods-kung-robinson.pdf"&gt;On Optimistic Methods for Concurrency Control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.vldb.org/pvldb/vol8/p209-yu.pdf"&gt;Staring into the Abyss: An Evaluation of Concurrency Control with One Thousand Cores&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="recovery"&gt;Recovery&lt;/h2&gt;
+&lt;h3 id="write-ahead-logging-wal"&gt;Write Ahead Logging (WAL)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://cs.stanford.edu/people/chrismre/cs345/rl/aries.pdf"&gt;ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="write-behind-logging"&gt;Write Behind Logging&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol10/p337-arulraj.pdf"&gt;Write Behind Logging&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="key-value-storage"&gt;Key-Value Storage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/fast21-chen-hao.pdf"&gt;SpanDB: A Fast, Cost-Effective LSM-tree Based KV Store on Hybrid Storage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="online-schema-change"&gt;Online Schema Change&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/41376.pdf"&gt;Online, Asynchronous Schema Change in F1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockroachdb/cockroach/blob/master/docs/RFCS/20151014_online_schema_change.md"&gt;cockroach/docs/RFCS/20151014_online_schema_change.md at master · cockroachdb/cockroach&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="others"&gt;Others&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pdos.csail.mit.edu/papers/fscq:sosp15.pdf"&gt;Using Crash Hoare Logic for Certifying the FSCQ File System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://nms.csail.mit.edu/~stavros/pubs/OLTP_sigmod08.pdf"&gt;OLTP Through the Looking Glass, and What We Found There&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="storage"&gt;Storage&lt;/h1&gt;
+&lt;h2 id="in-memory-cache--storage"&gt;In-Memory Cache &amp;amp; Storage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-lim.pdf"&gt;MICA: A Holistic Approach to Fast In-Memory Key-Value Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=X2m5GPckkYY"&gt;NSDI &amp;lsquo;14 - MICA: A Holistic Approach to Fast In-Memory Key-Value Storage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="colossus"&gt;Colossus&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system"&gt;Colossus under the hood: a peek into Google’s scalable storage system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://static.googleusercontent.com/media/research.google.com/en//people/jeff/SOCC2010-keynote-slides.pdf"&gt;Building Large-Scale Internet Services&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="local-storage"&gt;Local Storage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/fast16/fast16-papers-lu.pdf"&gt;WiscKey: Separating Keys from Values in SSD-conscious Storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pingcap.com/blog-cn/titan-design-and-implementation/"&gt;Titan 的设计与实现 | PingCAP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="blob-storage"&gt;BLOB Storage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf"&gt;Finding a needle in Haystack: Facebook’s photo storage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf"&gt;f4: Facebook’s Warm BLOB Storage System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://blog.zhuangty.com/haystack-f4/"&gt;[Paper Notes] Facebook Haystack and F4 - 纯纯的 Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="distributed-file-system"&gt;Distributed File System&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf"&gt;Ceph: A Scalable, High-Performance Distributed File System&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="time-series-storage"&gt;Time Series Storage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://youtu.be/qB40kqhTyYM"&gt;技术分享：Prometheus是怎么存储数据的&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.vldb.org/pvldb/vol8/p1816-teller.pdf"&gt;Gorilla: A Fast, Scalable, In-Memory Time Series Database&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="others-1"&gt;Others&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/atc13/atc13-bronson.pdf"&gt;TAO: Facebook’s Distributed Data Store for the Social Graph&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf"&gt;Scaling Memcache at Facebook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="disk-error-correction"&gt;Disk Error Correction&lt;/h1&gt;
+&lt;h2 id="reed-solomon"&gt;Reed-Solomon&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction"&gt;Reed–Solomon error correction - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf"&gt;POLYNOMIAL CODES OVER CERTAIN FINITE FIELDS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="data-structures--algorithms"&gt;Data Structures &amp;amp; Algorithms&lt;/h1&gt;
+&lt;h2 id="lst-tree"&gt;LST-Tree&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://yetanotherdevblog.com/lsm/"&gt;How do LSM Trees work?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="https://www.skyzh.dev/posts/articles/2021-08-07-lsm-kv-separation-overview/"&gt;LSM 存储引擎中 KV 分离的实现&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cs.umb.edu/~poneil/lsmtree.pdf"&gt;The Log-Structured Merge-Tree (LSM-Tree)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="bb-tree"&gt;B/B+ Tree&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/"&gt;B-Tree | Set 1 (Introduction) - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="https://www.geeksforgeeks.org/b-tree-set-1-insert-2/"&gt;B-Tree | Set 2 (Insert) - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="https://www.geeksforgeeks.org/b-tree-set-3delete/"&gt;B-Tree | Set 3 (Delete) - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2016/papers/a16-graefe.pdf"&gt;A Survey of B-Tree Locking Techniques&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol8/p786-chen.pdf"&gt;Persistent B+-Trees in Non-Volatile Main Memory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://faculty.cc.gatech.edu/~jarulraj/papers/2017.nvm.sigmod.pdf"&gt;How to Build a Non-Volatile Memory Database Management System&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://news.ycombinator.com/item?id=15409757"&gt;Modern B-Tree Techniques (2011) | Hacker News&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="bw-tree"&gt;Bw-Tree&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2017/papers/08-oltpindexes2/bwtree-icde2013.pdf"&gt;The Bw-Tree: A B-tree for New Hardware Platforms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="tree-others"&gt;Tree (Others)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/"&gt;Database File Indexing - B+ Tree (Introduction) - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.geeksforgeeks.org/introduction-to-r-tree/"&gt;Introduction to R-tree - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.55.9482&amp;amp;rep=rep1&amp;amp;type=pdf"&gt;The SB-tree: An Index-Sequential Structure for High-Performance Sequential Access&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="range-filter"&gt;Range Filter&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.pdl.cmu.edu/PDL-FTP/Storage/surf_sigmod18.pdf"&gt;SuRF: Practical Range Query Filtering with Fast Succinct Tries&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="skip-list"&gt;Skip List&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.geeksforgeeks.org/skip-list/"&gt;Skip List | Set 1 (Introduction) - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.geeksforgeeks.org/skip-list-set-2-insertion/"&gt;Skip List | Set 2 (Insertion) - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://www.geeksforgeeks.org/skip-list-set-3-searching-deletion/"&gt;Skip List | Set 3 (Searching and Deletion) - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf"&gt;Skip Lists: A Probabilistic Alternative to Balanced Trees&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑︎ &lt;a href="https://github.com/antirez/disque/blob/master/src/skiplist.c"&gt;disque/skiplist.c at master · antirez/disque&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2017/papers/07-oltpindexes1/skiplists-done-right2016.pdf"&gt;Skip Lists: Done Right&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="materialized-view"&gt;Materialized View&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/42851.pdf"&gt;Mesa: Geo-Replicated, Near Real-Time, Scalable Data Warehousing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vldb.org/pvldb/vol14/p2986-sankaranarayanan.pdf"&gt;Napa: Powering Scalable Data Warehousing with Robust Query Performance at Google&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.zhuangty.com/napa/"&gt;[Paper Notes] Napa: Powering Scalable Data Warehousing with Robust Query Performance at Google - 纯纯的 Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="distributed-algorithm"&gt;Distributed Algorithm&lt;/h1&gt;
+&lt;h2 id="consistency"&gt;Consistency&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://jepsen.io/consistency"&gt;Consistency Models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cs.cornell.edu/lorenzo/papers/Crooks17Seeing.pdf"&gt;Seeing is Believing: A Client-Centric Specification of Database Isolation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pmg.csail.mit.edu/papers/adya-phd.pdf"&gt;Weak Consistency: A Generalized Theory and Optimistic Implementations for Distributed Transactions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="course"&gt;Course&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-852j-distributed-algorithms-fall-2009/"&gt;MIT6.852J&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="eventual-consistency"&gt;Eventual Consistency&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cs.brown.edu/courses/cs227/archives/2012/papers/weaker/p40-vogels.pdf"&gt;Eventually Consistent&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/final-printversion-10-5-14.pdf"&gt;Principles of Eventual Consistency&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="consensus-algorithm"&gt;Consensus Algorithm&lt;/h2&gt;
+&lt;h3 id="raft"&gt;Raft&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://raft.github.io/raft.pdf"&gt;In Search of an Understandable Consensus Algorithm (Extended Version)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf"&gt;CONSENSUS: BRIDGING THEORY AND PRACTICE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/osdi16/osdi16-li.pdf"&gt;Just say NO to Paxos Overhead: Replacing Consensus with Network Ordering&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="paxos"&gt;Paxos&lt;/h3&gt;
+&lt;h3 id="zab"&gt;Zab&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://knowably-attachments.s3.amazonaws.com/u/55b69a1ce4b00ab397d67250/7c8734d3cf02154499a9b3161ef9f575/Zab_2011.pdf"&gt;Zab: High-performance broadcast for primary-backup systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf"&gt;ZooKeeper’s atomic broadcast protocol: Theory and practice&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="distrubuted-hash-table-dht"&gt;Distrubuted Hash Table (DHT)&lt;/h2&gt;
+&lt;h3 id="chord"&gt;Chord&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf"&gt;Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://zhuanlan.zhihu.com/p/53711866"&gt;分布式哈希表Chord - 知乎&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="kademlia"&gt;Kademlia&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://zhuanlan.zhihu.com/p/38425656"&gt;Kademlia协议 - 知乎&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="file-format"&gt;File Format&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC"&gt;LanguageManual ORC - Apache Hive - Apache Software Foundation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://parquet.apache.org/documentation/latest/"&gt;Apache Parquet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="tracing"&gt;Tracing&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36356.pdf"&gt;Dapper, a Large-Scale Distributed Systems Tracing Infrastructure&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="scheduling"&gt;Scheduling&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://web.stanford.edu/~ouster/cgi-bin/papers/arachne_osdi2018_submit.pdf"&gt;Arachne: Core-Aware Thread Management&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="scheduling-algorithm"&gt;Scheduling Algorithm&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Multilevel_feedback_queue"&gt;Multilevel feedback queue - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="allocator"&gt;Allocator&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.microsoft.com/en-us/research/uploads/prod/2019/06/mimalloc-tr-v1.pdf"&gt;Mimalloc: Free List Sharding in Action&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="gpu-programming"&gt;GPU Programming&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Purchase Link:&lt;/em&gt; &lt;a href="https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands/dp/0124159923"&gt;Programming Massively Parallel Processors: A Hands-on Approach&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="concurrency-programming"&gt;Concurrency Programming&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="http://concurrencyfreaks.blogspot.com/2013/05/lock-free-and-wait-free-definition-and.html"&gt;Concurrency Freaks: Lock-Free and Wait-Free, definition and examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/XiaochenCui/OneFile/blob/master/OneFile-2019.pdf"&gt;OneFile: A Wait-free Persistent Transactional Memory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://speakerdeck.com/kavya719/lets-talk-locks"&gt;Let&amp;rsquo;s talk locks! - Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eli.thegreenplace.net/2018/basics-of-futexes/"&gt;Basics of Futexes - Eli Bendersky&amp;rsquo;s website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://cs.technion.ac.il/~erez/Papers/wf-simulation-full.pdf"&gt;A Practical Wait-Free Simulation for Lock-Free Data Structures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="structured-concurrency"&gt;Structured Concurrency&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/#nurseries-a-structured-replacement-for-go-statements"&gt;Notes on structured concurrency, or: Go statement considered harmful — njs blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.crazyark.xyz/p/structured-concurrency/"&gt;代码杂谈：结构化并发&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="hazard-pointers"&gt;Hazard Pointers&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://erdani.org/publications/cuj-2004-12.pdf"&gt;Lock-Free Data Structures with Hazard Pointers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/facebook/folly/blob/master/folly/synchronization/Hazptr.h"&gt;folly/Hazptr.h at master · facebook/folly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1121r3.pdf"&gt;P1121R3: Hazard Pointers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="plt"&gt;PLT&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Purchase Link:&lt;/em&gt; &lt;a href="https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091"&gt;Types and Programming Languages (The MIT Press) 1st Edition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mietek/sf"&gt;Software Foundations&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="course-1"&gt;Course&lt;/h1&gt;
+&lt;h2 id="distributed-systemes"&gt;Distributed Systemes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://pdos.csail.mit.edu/6.824/"&gt;MIT 6.824&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://people.eecs.berkeley.edu/~alig/cs294-91/"&gt;CS294-91 Distributed Computing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://courses.csail.mit.edu/6.852/08/"&gt;6.852: Distributed Algorithms - Massachusetts Institute of Technology - Spring 2008&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="system-programming"&gt;System Programming&lt;/h2&gt;
+&lt;h3 id="uicd-cs-241-system-programming"&gt;UICD CS 241: System Programming&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cs241.cs.illinois.edu/"&gt;homepage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://cs241.cs.illinois.edu/coursebook/"&gt;course book&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://cs241.cs.illinois.edu/assignments.html"&gt;assignments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://classtranscribe.illinois.edu/home/offering/e740770d-e6fb-4ddb-86ca-a49a8dcc7d28"&gt;course video&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="mit-6033"&gt;mit 6.033&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://web.mit.edu/6.033/www/"&gt;mit 6.033&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="database-1"&gt;Database&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://15445.courses.cs.cmu.edu/fall2021/"&gt;CMU 15-445/645 :: Intro to Database Systems (Fall 2021)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/"&gt;CMU 15-721 :: Advanced Database Systems (Spring 2020)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://15721.courses.cs.cmu.edu/spring2020/project1.html"&gt;Project #1 - Contention Hotspot - CMU 15-721 :: Advanced Database Systems (Spring 2020)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="http://db.lcs.mit.edu/6.830/"&gt;6.830 / 6.814: Database Systems - Data Systems Group @ MIT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="operating-systems"&gt;Operating Systems&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pdos.csail.mit.edu/6.828/2021/"&gt;6.S081 / Fall 2021&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pdos.csail.mit.edu/6.828/2018/"&gt;6.828 / Fall 2018&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="data-structures"&gt;Data Structures&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://sp19.datastructur.es/"&gt;Main | CS 61B Spring 2019&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="waiting-for-classification"&gt;Waiting For Classification&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf"&gt;Wait-Free Synchronization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="system-programming-1"&gt;System Programming&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt"&gt;cgroups&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="mmap"&gt;MMAP&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://db.cs.cmu.edu/papers/2022/cidr2022-p13-crotty.pdf"&gt;Are You Sure You Want to Use MMAP in Your Database Management System?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ayende.com/blog/196161-C/re-are-you-sure-you-want-to-use-mmap-in-your-database-management-system"&gt;re: Are You Sure You Want to Use MMAP in Your Database Management System? - Ayende @ Rahien&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="memory-allocation"&gt;Memory Allocation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑ &lt;a href="https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/"&gt;Dynamic Memory Allocation in C using malloc(), calloc(), free() and realloc() - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dmitrysoshnikov.com/compilers/writing-a-memory-allocator/"&gt;Writing a Memory Allocator – Dmitry Soshnikov&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="compiler"&gt;Compiler&lt;/h1&gt;
+&lt;h2 id="llvm"&gt;LLVM&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.aosabook.org/en/llvm.html"&gt;The Architecture of Open Source Applications: LLVM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://llvm.org/docs/LangRef.html"&gt;LLVM Language Reference Manual — LLVM 10 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://llvm.org/docs/Passes.html"&gt;LLVM’s Analysis and Transform Passes — LLVM 10 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;☑ &lt;a href="http://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html"&gt;My First Language Frontend with LLVM Tutorial — LLVM 10 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="disk"&gt;Disk&lt;/h1&gt;
+&lt;h2 id="ssd"&gt;SSD&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://en.wikipedia.org/wiki/Write_amplification"&gt;Write amplification - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="others-2"&gt;Others&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pdos.csail.mit.edu/papers/noria:osdi18.pdf"&gt;Noria: dynamic, partially-stateful data-flow for high-performance web applications&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="filter"&gt;Filter&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bdupras.github.io/filter-tutorial/"&gt;Probabilistic Filters By Example: Cuckoo Filter and Bloom Filters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf"&gt;Cuckoo Filter: Practically Better Than Bloom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://llimllib.github.io/bloomfilter-tutorial/"&gt;Bloom Filters by Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://arxiv.org/pdf/2103.02515.pdf"&gt;Ribbon filter: practically smaller than Bloom and Xor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="rust"&gt;Rust&lt;/h1&gt;
+&lt;h2 id="hkt--gat--act"&gt;HKT &amp;amp;&amp;amp; GAT &amp;amp;&amp;amp; ACT&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://rustyyato.github.io/type/system,type/families/2021/02/15/Type-Families-1.html"&gt;Generalizing over Generics in Rust (Part 1) - AKA Higher Kinded Types in Rust&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://rustyyato.github.io/type/system,type/families/2021/02/22/Type-Families-1_5.html"&gt;Generalizing over Generics in Rust (Part 1.5): Mechanisms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lukaskalbertodt.github.io/2018/08/03/solving-the-generalized-streaming-iterator-problem-without-gats.html"&gt;Solving the Generalized Streaming Iterator Problem without GATs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rust-lang/rust/issues/44265"&gt;🔬 Tracking issue for generic associated types (GAT) · Issue #44265 · rust-lang/rust&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://doc.rust-lang.org/nomicon/hrtb.html"&gt;Higher-Rank Trait Bounds - The Rustonomicon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="closures"&gt;Closures&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://rustyyato.github.io/rust/syntactic/sugar/2019/01/17/Closures-Magic-Functions.html"&gt;Closures: Magic Functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="ownership"&gt;Ownership&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://plv.mpi-sws.org/rustbelt/ghostcell/paper.pdf"&gt;GhostCell: Separating Permissions from Data in Rust&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="golang"&gt;Golang&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://dave.cheney.net/high-performance-go-workshop/dotgo-paris.html"&gt;High Performance Go Workshop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="gc"&gt;GC&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://making.pusher.com/golangs-real-time-gc-in-theory-and-practice/"&gt;Golang’s Real-time GC in Theory and Practice - Making Pusher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.google.com/document/d/1wmjrocXIWTr1JxU-3EQBI6BK6KgtiFArkG47XK73xIQ/edit#"&gt;Go 1.5 concurrent garbage collector pacing - Google Docs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="ieee754"&gt;IEEE754&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/IEEE_754"&gt;IEEE 754 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="computer-architecture"&gt;Computer Architecture&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.coursera.org/learn/build-a-computer"&gt;Build a Modern Computer from First Principles: From Nand to Tetris (Project-Centered Course) | Coursera&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://nandgame.com/"&gt;NandGame - Build a computer from scratch.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://danluu.com/branch-prediction/"&gt;Branch prediction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://danluu.com/3c-conflict/"&gt;Data alignment and caches&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="tla"&gt;TLA+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://learntla.com/introduction/"&gt;Introduction :: Learn TLA+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="communication"&gt;Communication&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://web.mit.edu/saltzer/www/publications/endtoend/endtoend.pdf"&gt;END-TO-END ARGUMENTS IN SYSTEM DESIGN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="lexical-analyser"&gt;Lexical Analyser&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://web.iitd.ac.in/~sumeet/flex__bison.pdf"&gt;book: flex &amp;amp; bison&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="type-theory"&gt;Type Theory&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf"&gt;Lightweight higher-kinded polymorphism&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="network"&gt;Network&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/nsdi18/nsdi18-geng.pdf"&gt;Exploiting a Natural Network Effect for Scalable, Fine-grained Clock Synchronization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="parallel-computing"&gt;Parallel Computing&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;☑︎ &lt;a href="https://en.wikipedia.org/wiki/Gather-scatter_(vector_addressing)"&gt;Gather-scatter (vector addressing) - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Bitonic_sorter"&gt;Bitonic sorter - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

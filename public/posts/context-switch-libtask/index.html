@@ -1,174 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Hugo 0.87.0" />
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="https://cuixiaochen.com/posts/context-switch-libtask/" />
-  <link rel="canonical" href="https://cuixiaochen.com/posts/context-switch-libtask/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
-  {
-      "@context" : "http://schema.org",
-      "@type" : "BlogPosting",
-      "mainEntityOfPage": {
-           "@type": "WebPage",
-           "@id": "https:\/\/cuixiaochen.com\/"
-      },
-      "articleSection" : "posts",
-      "name" : "Context Switch - libtask by Russ Cox",
-      "headline" : "Context Switch - libtask by Russ Cox",
-      "description" : "Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.\nWe will use \u0026ldquo;task\u0026rdquo; to refer to \u0026ldquo;coroutine\u0026rdquo; in the following for coherency.\nInternal overview of running procedure There are 4 exclusive states for any task given:\n running suspended, put in the task queue suspended, put in a channel\u0026rsquo;s sender queue or receiver queue terminated  The program exit in 2 situations:",
-      "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
-      "copyrightYear" : "2021",
-      "datePublished": "2021-12-02 16:57:10 \u002b0800 \u002b0800",
-      "dateModified" : "2021-12-02 16:57:10 \u002b0800 \u002b0800",
-      "url" : "https:\/\/cuixiaochen.com\/posts\/context-switch-libtask\/",
-      "keywords" : [  ]
-  }
-</script>
-<title>Context Switch - libtask by Russ Cox - XiaochenCui&#39;s Blog</title>
-  <meta property="og:title" content="Context Switch - libtask by Russ Cox - XiaochenCui&#39;s Blog" />
-  <meta property="og:type" content="article" />
-  <meta name="description" content="Intro libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=generator content="Hugo 0.160.1"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Xiaochen Cui"><meta property="og:url" content="https://xiaochencui.github.io/posts/context-switch-libtask/"><link rel=canonical href=https://xiaochencui.github.io/posts/context-switch-libtask/><link rel="shortcut icon" href=/favicon.png type=image/x-png><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/xiaochencui.github.io\/"},"articleSection":"posts","name":"Context Switch - libtask by Russ Cox","headline":"Context Switch - libtask by Russ Cox","description":"\u003ch1 id=\u0022intro\u0022\u003eIntro\u003c\/h1\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/swtch.com\/libtask\/\u0022\u003elibtask\u003c\/a\u003e is a coroutine library that has cooperative scheduler and \u003ccode\u003echannel\u003c\/code\u003e built-in. The \u003ccode\u003echannel\u003c\/code\u003e is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.\u003c\/p\u003e\n\u003cp\u003eWe will use \u0026ldquo;task\u0026rdquo; to refer to \u0026ldquo;coroutine\u0026rdquo; in the following for coherency.\u003c\/p\u003e\n\u003ch1 id=\u0022internal\u0022\u003eInternal\u003c\/h1\u003e\n\u003ch2 id=\u0022overview-of-running-procedure\u0022\u003eoverview of running procedure\u003c\/h2\u003e\n\u003cp\u003e\u003cimg src=\u0022\/images\/context-switch-libtask\/libtask-switch.drawio.png\u0022 alt=\u0022libtask-switch.drawio.png\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThere are 4 exclusive states for any task given:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003erunning\u003c\/li\u003e\n\u003cli\u003esuspended, put in the task queue\u003c\/li\u003e\n\u003cli\u003esuspended, put in a channel\u0026rsquo;s sender queue or receiver queue\u003c\/li\u003e\n\u003cli\u003eterminated\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003eThe program exit in 2 situations:\u003c\/p\u003e","inLanguage":"en-US","author":"Xiaochen Cui","creator":"Xiaochen Cui","publisher":"Xiaochen Cui","accountablePerson":"Xiaochen Cui","copyrightHolder":"Xiaochen Cui","copyrightYear":"2021","datePublished":"2021-12-02 16:57:10 \u002b0800 \u002b0800","dateModified":"2021-12-02 16:57:10 \u002b0800 \u002b0800","url":"https:\/\/xiaochencui.github.io\/posts\/context-switch-libtask\/","keywords":[]}</script><title>Context Switch - libtask by Russ Cox - XiaochenCui's Blog</title><meta property="og:title" content="Context Switch - libtask by Russ Cox - XiaochenCui's Blog"><meta property="og:type" content="article"><meta name=description content="Intro
+libtask is a coroutine library that has cooperative scheduler and channel built-in. The channel is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.
 We will use &ldquo;task&rdquo; to refer to &ldquo;coroutine&rdquo; in the following for coherency.
-Internal overview of running procedure There are 4 exclusive states for any task given:
- running suspended, put in the task queue suspended, put in a channel&rsquo;s sender queue or receiver queue terminated  The program exit in 2 situations:" />
+Internal
+overview of running procedure
 
-  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
-  <link rel="stylesheet" href="/css/index.css">
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
-  
-  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
-  
-  <script>
-    
+There are 4 exclusive states for any task given:
 
-    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-  </script>
+running
+suspended, put in the task queue
+suspended, put in a channel&rsquo;s sender queue or receiver queue
+terminated
 
-  
-</head>
-
-<body>
-  <article class="post " id="article">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <div class="site-header">
-          
-<header>
-  <div class="signatures site-title">
-    <a href="/">Xiaochen Cui</a>
-  </div>
-</header>
-<div class="row end-xs">
-  
-  
-</div>
-
-
-<div class="site-footer">
-  
-  <div class="site-footer-item">
-    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="/resume/resume.pdf" target="_blank">Resume</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
-  </div>
-  
-</div>
-        </div>
-        <header class="post-header">
-          <h1 class="post-title">Context Switch - libtask by Russ Cox</h1>
-          
-          <div class="row post-desc">
-            <div class="col-xs-6">
-              
-              <time class="post-date" datetime="2021-12-02 16:57:10 &#43;0800">
-                02 Dec 2021
-              </time>
-              
-            </div>
-            <div class="col-xs-6">
-              
-            </div>
-          </div>
-          
-        </header>
-
-        <div class="post-content markdown-body">
-          <h1 id="intro">Intro</h1>
-<p><a href="https://swtch.com/libtask/">libtask</a> is a coroutine library that has cooperative scheduler and <code>channel</code> built-in. The <code>channel</code> is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.</p>
-<p>We will use &ldquo;task&rdquo; to refer to &ldquo;coroutine&rdquo; in the following for coherency.</p>
-<h1 id="internal">Internal</h1>
-<h2 id="overview-of-running-procedure">overview of running procedure</h2>
-<p><img src="/images/context-switch-libtask/libtask-switch.drawio.png" alt="libtask-switch.drawio.png"></p>
-<p>There are 4 exclusive states for any task given:</p>
-<ul>
-<li>running</li>
-<li>suspended, put in the task queue</li>
-<li>suspended, put in a channel&rsquo;s sender queue or receiver queue</li>
-<li>terminated</li>
-</ul>
-<p>The program exit in 2 situations:</p>
-<ul>
-<li>no running task, no suspended task → exit normally</li>
-<li>no running task, having suspended task → exit with some task &ldquo;stalled&rdquo;</li>
-</ul>
-<h2 id="basic-data-structures">basic data structures</h2>
-<p><img src="/images/context-switch-libtask/libtask-data_structures.drawio.png" alt="libtask-data structures.drawio.png"></p>
-<h2 id="global-variables--states">global variables &amp; states</h2>
-<ul>
-<li><code>Tasklist taskrunqueue</code>: a double-linked queue contains all tasks which are waiting-for-execute, the task was added to queue via append-to-tail, never inserted directly into the middle of the queue</li>
-<li><code>Context taskschedcontext</code>: act as a breakpoint in the procedure of context switch</li>
-<li><code>Task *taskrunning</code>: the task running currently</li>
-<li><code>int taskcount</code>: total number of tasks not exited (running + suspended)</li>
-</ul>
-<h2 id="a-simple-send">a simple send</h2>
-<p>code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-Channel <span style="color:#f92672">*</span>c;
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">task_2</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>arg)
-{
-    printf(<span style="color:#e6db74">&#34;task_2 start</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> chanrecvul(c);
-    printf(<span style="color:#e6db74">&#34;received: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
-{
-    c <span style="color:#f92672">=</span> chancreate(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
-    taskcreate(task_2, c, <span style="color:#ae81ff">32768</span>);
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">12345</span>;
-    printf(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-    chansendul(c, v);
-    printf(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-}
-</code></pre></div><p>output:</p>
-<pre><code>🍚  build git:(master) ✗ ./bin/chan_1
+The program exit in 2 situations:"><link rel=stylesheet href=https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css><link rel=stylesheet href=/css/index.css><link href=/index.xml rel=alternate type=application/rss+xml title="XiaochenCui's Blog"><link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel=stylesheet><script>(function(){}).call("object"==typeof window&&window||"object"==typeof self&&self||"object"==typeof global&&global||{})</script></head><body><article class=post id=article><div class=row><div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3"><div class=site-header><header><div class="signatures site-title"><a href=/>Xiaochen Cui</a></div></header><div class="row end-xs"></div><div class=site-footer><div class=site-footer-item><a href=https://www.linkedin.com/in/xiaochen-cui-database/ target=_blank>LinkedIn</a></div><div class=site-footer-item><a href=/resume/resume.pdf target=_blank>Resume</a></div><div class=site-footer-item><a href=https://github.com/XiaochenCui target=_blank>Github</a></div><div class=site-footer-item><a href=mailto:jcnlcxc.new@gmail.com target=_blank>Email</a></div></div></div><header class=post-header><h1 class=post-title>Context Switch - libtask by Russ Cox</h1><div class="row post-desc"><div class=col-xs-6><time class=post-date datetime="2021-12-02 16:57:10 +0800">02 Dec 2021</time></div><div class=col-xs-6><div class=post-author><a target=_blank href=https://cuixiaochen.com/>@Xiaochen Cui</a></div></div></div></header><div class="post-content markdown-body"><h1 id=intro>Intro</h1><p><a href=https://swtch.com/libtask/>libtask</a> is a coroutine library that has cooperative scheduler and <code>channel</code> built-in. The <code>channel</code> is a multi-sender multi-receiver structure that could be used for synchronization and data transferring between coroutines.</p><p>We will use &ldquo;task&rdquo; to refer to &ldquo;coroutine&rdquo; in the following for coherency.</p><h1 id=internal>Internal</h1><h2 id=overview-of-running-procedure>overview of running procedure</h2><p><img src=/images/context-switch-libtask/libtask-switch.drawio.png alt=libtask-switch.drawio.png></p><p>There are 4 exclusive states for any task given:</p><ul><li>running</li><li>suspended, put in the task queue</li><li>suspended, put in a channel&rsquo;s sender queue or receiver queue</li><li>terminated</li></ul><p>The program exit in 2 situations:</p><ul><li>no running task, no suspended task → exit normally</li><li>no running task, having suspended task → exit with some task &ldquo;stalled&rdquo;</li></ul><h2 id=basic-data-structures>basic data structures</h2><p><img src=/images/context-switch-libtask/libtask-data_structures.drawio.png alt="libtask-data structures.drawio.png"></p><h2 id=global-variables--states>global variables & states</h2><ul><li><code>Tasklist taskrunqueue</code>: a double-linked queue contains all tasks which are waiting-for-execute, the task was added to queue via append-to-tail, never inserted directly into the middle of the queue</li><li><code>Context taskschedcontext</code>: act as a breakpoint in the procedure of context switch</li><li><code>Task *taskrunning</code>: the task running currently</li><li><code>int taskcount</code>: total number of tasks not exited (running + suspended)</li></ul><h2 id=a-simple-send>a simple send</h2><p>code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;unistd.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;task.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Channel <span style=color:#f92672>*</span>c;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>task_2</span>(<span style=color:#66d9ef>void</span> <span style=color:#f92672>*</span>arg)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;task_2 start</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> v <span style=color:#f92672>=</span> <span style=color:#a6e22e>chanrecvul</span>(c);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;received: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, v);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>taskmain</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    c <span style=color:#f92672>=</span> <span style=color:#a6e22e>chancreate</span>(<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span>), <span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>taskcreate</span>(task_2, c, <span style=color:#ae81ff>32768</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> v <span style=color:#f92672>=</span> <span style=color:#ae81ff>12345</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;going to send number: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, v);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>chansendul</span>(c, v);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;send success: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, v);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>output:</p><pre tabindex=0><code>🍚  build git:(master) ✗ ./bin/chan_1
 run 1 ()
 going to send number: 12345
 send success: 12345
@@ -177,30 +43,25 @@ run 2 ()
 task_2 start
 received: 12345
 back in scheduler
-</code></pre><p>illustration of procedure:</p>
-<p><img src="/images/context-switch-libtask/libtask-chan-1.drawio.png" alt="libtask-chan-1.drawio.png"></p>
-<h2 id="sending-multiple-values-without-any-receiver">sending multiple values without any receiver</h2>
-<p>code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-Channel <span style="color:#f92672">*</span>c;
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
-{
-    c <span style="color:#f92672">=</span> chancreate(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
-    {
-        printf(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-        chansendul(c, i);
-        printf(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-    }
-    printf(<span style="color:#e6db74">&#34;taskmain end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-</code></pre></div><p>output:</p>
-<pre><code>🍚  build git:(master) ✗ ./bin/chan_1
+</code></pre><p>illustration of procedure:</p><p><img src=/images/context-switch-libtask/libtask-chan-1.drawio.png alt=libtask-chan-1.drawio.png></p><h2 id=sending-multiple-values-without-any-receiver>sending multiple values without any receiver</h2><p>code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;unistd.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;task.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Channel <span style=color:#f92672>*</span>c;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>taskmain</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    c <span style=color:#f92672>=</span> <span style=color:#a6e22e>chancreate</span>(<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span>), <span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>10</span>; i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;going to send number: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, i);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>chansendul</span>(c, i);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;send success: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, i);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;taskmain end</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>output:</p><pre tabindex=0><code>🍚  build git:(master) ✗ ./bin/chan_1
 run 1 ()
 going to send number: 0
 send success: 0
@@ -211,42 +72,37 @@ send success: 2
 going to send number: 3
 back in scheduler
 no runnable tasks! 1 tasks stalled
-</code></pre><p>illustration of procedure:</p>
-<p><img src="/images/context-switch-libtask/libtask-chan-2.drawio.png" alt="libtask-chan-2.drawio.png"></p>
-<h2 id="sending-multiple-values-to-a-receiver">sending multiple values to a receiver</h2>
-<p>code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;task.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-Channel <span style="color:#f92672">*</span>c;
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">task_2</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>arg)
-{
-    printf(<span style="color:#e6db74">&#34;task_2 start</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
-    {
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> chanrecvul(c);
-        printf(<span style="color:#e6db74">&#34;received: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, v);
-    }
-    printf(<span style="color:#e6db74">&#34;task_2 end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">taskmain</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
-{
-    c <span style="color:#f92672">=</span> chancreate(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span>), <span style="color:#ae81ff">3</span>);
-    taskcreate(task_2, c, <span style="color:#ae81ff">32768</span>);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
-    {
-        printf(<span style="color:#e6db74">&#34;going to send number: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-        chansendul(c, i);
-        printf(<span style="color:#e6db74">&#34;send success: %lu</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i);
-    }
-    printf(<span style="color:#e6db74">&#34;taskmain end</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-}
-</code></pre></div><p>output:</p>
-<pre><code>🍚  build git:(master) ✗ ./bin/chan_3
+</code></pre><p>illustration of procedure:</p><p><img src=/images/context-switch-libtask/libtask-chan-2.drawio.png alt=libtask-chan-2.drawio.png></p><h2 id=sending-multiple-values-to-a-receiver>sending multiple values to a receiver</h2><p>code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;unistd.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;task.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Channel <span style=color:#f92672>*</span>c;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>task_2</span>(<span style=color:#66d9ef>void</span> <span style=color:#f92672>*</span>arg)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;task_2 start</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>10</span>; i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> v <span style=color:#f92672>=</span> <span style=color:#a6e22e>chanrecvul</span>(c);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;received: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, v);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;task_2 end</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>taskmain</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    c <span style=color:#f92672>=</span> <span style=color:#a6e22e>chancreate</span>(<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span>), <span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>taskcreate</span>(task_2, c, <span style=color:#ae81ff>32768</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>10</span>; i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;going to send number: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, i);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>chansendul</span>(c, i);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;send success: %lu</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, i);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;taskmain end</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>output:</p><pre tabindex=0><code>🍚  build git:(master) ✗ ./bin/chan_3
 run 1 ()
 going to send number: 0
 send success: 0
@@ -292,128 +148,5 @@ run 2 ()
 received: 9
 task_2 end
 back in scheduler
-</code></pre><p>illustration of procedure:</p>
-<p><img src="/images/context-switch-libtask/libtask-chan-3.drawio.png" alt="libtask-chan-3.drawio.png"></p>
-<h1 id="pondering">pondering</h1>
-<ul>
-<li>
-<p><strong>How context switching was achieved in <code>libtask</code>?</strong></p>
-<p><a href="https://linux.die.net/man/2/setcontext">setcontext</a>, <a href="https://linux.die.net/man/2/getcontext">getcontext</a></p>
-</li>
-<li>
-<p><strong>What mechanism the scheduler of <code>libtask</code> use to determine which coroutine should be executed next?</strong></p>
-<p>Run the task at the head of the <code>taskrunqueue</code>.</p>
-</li>
-<li>
-<p><strong>What is the timing of context switching between coroutines? Via cooperative or preemptive?</strong></p>
-<p>Cooperative. A task voluntarily relinquished its control when it cannot move on at this moment. Specifically, there are the following situations:</p>
-<ul>
-<li>transferring control actively by calling <code>taskswitch()</code></li>
-<li>send to a channel which is already filled</li>
-<li>receive from an empty channel</li>
-</ul>
-</li>
-<li>
-<p><strong>How a channel maintaining its senders and receivers?</strong></p>
-<p>Via <code>Alt</code> struct, which includes all pieces of information of a send/receive action:</p>
-<ul>
-<li>Task that perform this action</li>
-<li>Action</li>
-<li>Value</li>
-<li>Target channel</li>
-</ul>
-</li>
-<li>
-<p><strong>If a task makes a send action to a channel with many receivers waiting on it, which receiver would be chosen to receive the element and go back to the task queue? Why?</strong></p>
-<p>A random receiver would be chosen because all receivers are considered to have equal opportunity.</p>
-</li>
-<li>
-<p><strong>If a task makes a receive action to a channel with many senders blocked, which sender would be chosen to put the element to buffer succeed and go back to the task queue? Why?</strong></p>
-<p>A random sender would be chosen because all senders are considered to have equal opportunity.</p>
-</li>
-</ul>
-<h1 id="reference">reference</h1>
-<ul>
-<li><a href="https://man7.org/linux/man-pages/man2/fcntl.2.html">fcntl(2) - Linux manual page</a></li>
-<li><a href="https://swtch.com/libtask/">https://swtch.com/libtask/</a></li>
-<li><a href="https://github.com/theanarkh/read-libtask-code">https://github.com/theanarkh/read-libtask-code</a></li>
-<li><a href="https://github.com/XiaochenCui/libtask">https://github.com/XiaochenCui/libtask</a></li>
-</ul>
-
-        </div>
-        
-
-        
-
-
-        
-        
-        <div style="height: 50px;"></div>
-        
-        <div class="post-comments">
-          <div id="disqus_thread"></div>
-<script>
-  window.addEventListener("load", () => {
-    (function() {
-      
-      var d = document,
-        s = d.createElement("script");
-      s.src = "https://cuixiaochen.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  });
-</script>
-<noscript
-  >Please enable JavaScript to view the
-  <a href="https://disqus.com/?ref_noscript"
-    >comments powered by Disqus.</a
-  ></noscript
->
-
-        </div>
-        
-        
-
-        <div class="site-footer">
-  
-  <div class="site-footer-item">
-    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="/resume/resume.pdf" target="_blank">Resume</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
-  </div>
-  
-</div>
-
-      </div>
-    </div>
-  </article>
-
-  <script src="/js/highlight.pack.js"></script>
-<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
-
-<script>
-  hljs.initHighlightingOnLoad();
-  
-  var posts = document.getElementById('posts-list');
-  posts && quicklink({
-    el: posts,
-    priority: true,
-  });
-</script>
-
-  
-
-</body>
-
-</html>
+</code></pre><p>illustration of procedure:</p><p><img src=/images/context-switch-libtask/libtask-chan-3.drawio.png alt=libtask-chan-3.drawio.png></p><h1 id=pondering>pondering</h1><ul><li><p><strong>How context switching was achieved in <code>libtask</code>?</strong></p><p><a href=https://linux.die.net/man/2/setcontext>setcontext</a>, <a href=https://linux.die.net/man/2/getcontext>getcontext</a></p></li><li><p><strong>What mechanism the scheduler of <code>libtask</code> use to determine which coroutine should be executed next?</strong></p><p>Run the task at the head of the <code>taskrunqueue</code>.</p></li><li><p><strong>What is the timing of context switching between coroutines? Via cooperative or preemptive?</strong></p><p>Cooperative. A task voluntarily relinquished its control when it cannot move on at this moment. Specifically, there are the following situations:</p><ul><li>transferring control actively by calling <code>taskswitch()</code></li><li>send to a channel which is already filled</li><li>receive from an empty channel</li></ul></li><li><p><strong>How a channel maintaining its senders and receivers?</strong></p><p>Via <code>Alt</code> struct, which includes all pieces of information of a send/receive action:</p><ul><li>Task that perform this action</li><li>Action</li><li>Value</li><li>Target channel</li></ul></li><li><p><strong>If a task makes a send action to a channel with many receivers waiting on it, which receiver would be chosen to receive the element and go back to the task queue? Why?</strong></p><p>A random receiver would be chosen because all receivers are considered to have equal opportunity.</p></li><li><p><strong>If a task makes a receive action to a channel with many senders blocked, which sender would be chosen to put the element to buffer succeed and go back to the task queue? Why?</strong></p><p>A random sender would be chosen because all senders are considered to have equal opportunity.</p></li></ul><h1 id=reference>reference</h1><ul><li><a href=https://man7.org/linux/man-pages/man2/fcntl.2.html>fcntl(2) - Linux manual page</a></li><li><a href=https://swtch.com/libtask/>https://swtch.com/libtask/</a></li><li><a href=https://github.com/theanarkh/read-libtask-code>https://github.com/theanarkh/read-libtask-code</a></li><li><a href=https://github.com/XiaochenCui/libtask>https://github.com/XiaochenCui/libtask</a></li></ul></div><div style=height:50px></div><div class=post-comments><div id=disqus_thread></div><script>window.addEventListener("load",()=>{(function(){var e=document,t=e.createElement("script");t.src="https://cuixiaochen.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)})()})</script><noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class=site-footer><div class=site-footer-item><a href=https://www.linkedin.com/in/xiaochen-cui-database/ target=_blank>LinkedIn</a></div><div class=site-footer-item><a href=/resume/resume.pdf target=_blank>Resume</a></div><div class=site-footer-item><a href=https://github.com/XiaochenCui target=_blank>Github</a></div><div class=site-footer-item><a href=mailto:jcnlcxc.new@gmail.com target=_blank>Email</a></div></div></div></div></article><script src=/js/highlight.pack.js></script><script src=https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js></script><script>hljs.initHighlightingOnLoad();var posts=document.getElementById("posts-list");posts&&quicklink({el:posts,priority:!0})</script></body></html>

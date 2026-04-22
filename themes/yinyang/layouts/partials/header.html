@@ -1,14 +1,14 @@
 {{ $curLanguageName := .Site.Language.LanguageName }}
 <header>
   <div class="signatures site-title">
-    <a href="{{ .Site.LanguagePrefix }}/">{{ or .Site.Params.headTitle .Site.Author.name }}</a>
+    <a href="{{ .Site.LanguagePrefix }}/">{{ or .Site.Params.headTitle .Site.Params.author }}</a>
   </div>
 </header>
 <div class="row end-xs">
-  {{ range .Site.Languages -}}
-  {{ if ne .LanguageName $curLanguageName }}
+  {{ range hugo.Sites -}}
+  {{ if ne .Language.LanguageName $curLanguageName }}
   <div class="lang-switch col-xs-3 col-xs-offset-9">
-    <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
+    <a href="/{{ .Language.Lang }}/">{{ .Language.LanguageName }}</a>
   </div>
   {{ end }}
   {{ end }}

@@ -5,8 +5,12 @@ theme = "yinyang"
 
 [params]
 headTitle = "Xiaochen Cui"
+author = "Xiaochen Cui"
+authorHomepage = "https://cuixiaochen.com/"
+description = "Xiaochen Cui's blog on databases, systems, and software engineering."
 disqus = "cuixiaochen"
 favicon = "/favicon.png"
+mainSections = ["posts"]
 
 [[params.socials]]
 name = "LinkedIn"

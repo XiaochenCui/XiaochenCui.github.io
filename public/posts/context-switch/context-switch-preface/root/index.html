@@ -1,226 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Hugo 0.87.0" />
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=generator content="Hugo 0.160.1"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Xiaochen Cui"><meta property="og:url" content="https://xiaochencui.github.io/posts/context-switch/context-switch-preface/root/"><link rel=canonical href=https://xiaochencui.github.io/posts/context-switch/context-switch-preface/root/><link rel="shortcut icon" href=/favicon.png type=image/x-png><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/xiaochencui.github.io\/"},"articleSection":"posts","name":"Context Switch - Preface \u0026 Outline","headline":"Context Switch - Preface \u0026 Outline","description":"\u003ch2 id=\u0022preface\u0022\u003ePreface\u003c\/h2\u003e\n\u003cp\u003eI will write a series of posts about the context switch. Aiming to answer these questions:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003eWhat is a context switch?\u003c\/li\u003e\n\u003cli\u003eWhen we need to switch context?\u003c\/li\u003e\n\u003cli\u003eWhat\u0026rsquo;s a process \/ thread \/ coroutine(user-space thread)?\u003c\/li\u003e\n\u003cli\u003eApplicable scenarios for each option.\u003c\/li\u003e\n\u003cli\u003eDigging into some coroutine libraries, the pros and cons of each.\n\u003cul\u003e\n\u003cli\u003eboost coroutine\u003c\/li\u003e\n\u003cli\u003emarl\u003c\/li\u003e\n\u003cli\u003eco\u003c\/li\u003e\n\u003cli\u003elibtask\u003c\/li\u003e\n\u003cli\u003ebthread\u003c\/li\u003e\n\u003cli\u003egoroutine\u003c\/li\u003e\n\u003cli\u003elibuv\u003c\/li\u003e\n\u003cli\u003elibco\u003c\/li\u003e\n\u003cli\u003elibaco\u003c\/li\u003e\n\u003cli\u003eboos::fiber\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003eWhy X uses coroutine? (e.g: gateway, crawler)\u003c\/li\u003e\n\u003cli\u003eWhy X not use coroutine? (e.g: mysql)\u003c\/li\u003e\n\u003cli\u003eWhy linux (and other os) doesn\u0026rsquo;t have coroutine built-in?\u003c\/li\u003e\n\u003cli\u003ewhy system call is slow\/expensive?\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022outline\u0022\u003eOutline\u003c\/h2\u003e\n\u003cp\u003eThere are 3 articles published currently:\u003c\/p\u003e","inLanguage":"en-US","author":"Xiaochen Cui","creator":"Xiaochen Cui","publisher":"Xiaochen Cui","accountablePerson":"Xiaochen Cui","copyrightHolder":"Xiaochen Cui","copyrightYear":"2021","datePublished":"2021-11-05 11:43:00 \u002b0800 \u002b0800","dateModified":"2021-11-05 11:43:00 \u002b0800 \u002b0800","url":"https:\/\/xiaochencui.github.io\/posts\/context-switch\/context-switch-preface\/root\/","keywords":[]}</script><title>Context Switch - Preface & Outline - XiaochenCui's Blog</title><meta property="og:title" content="Context Switch - Preface & Outline - XiaochenCui's Blog"><meta property="og:type" content="article"><meta name=description content="Preface
+I will write a series of posts about the context switch. Aiming to answer these questions:
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="https://cuixiaochen.com/posts/context-switch/context-switch-preface/root/" />
-  <link rel="canonical" href="https://cuixiaochen.com/posts/context-switch/context-switch-preface/root/" /><link rel="shortcut icon" href="/favicon.png" type="image/x-png" /><script type="application/ld+json">
-  {
-      "@context" : "http://schema.org",
-      "@type" : "BlogPosting",
-      "mainEntityOfPage": {
-           "@type": "WebPage",
-           "@id": "https:\/\/cuixiaochen.com\/"
-      },
-      "articleSection" : "posts",
-      "name" : "Context Switch - Preface \u0026 Outline",
-      "headline" : "Context Switch - Preface \u0026 Outline",
-      "description" : "Preface I will write a series of posts about the context switch. Aiming to answer these questions:\n What is a context switch? When we need to switch context? What\u0026rsquo;s a process \/ thread \/ coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?",
-      "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
-      "copyrightYear" : "2021",
-      "datePublished": "2021-11-05 11:43:00 \u002b0800 \u002b0800",
-      "dateModified" : "2021-11-05 11:43:00 \u002b0800 \u002b0800",
-      "url" : "https:\/\/cuixiaochen.com\/posts\/context-switch\/context-switch-preface\/root\/",
-      "keywords" : [  ]
-  }
-</script>
-<title>Context Switch - Preface &amp; Outline - XiaochenCui&#39;s Blog</title>
-  <meta property="og:title" content="Context Switch - Preface &amp; Outline - XiaochenCui&#39;s Blog" />
-  <meta property="og:type" content="article" />
-  <meta name="description" content="Preface I will write a series of posts about the context switch. Aiming to answer these questions:
- What is a context switch? When we need to switch context? What&rsquo;s a process / thread / coroutine(user-space thread)? Applicable scenarios for each option. Digging into some coroutine libraries, the pros and cons of each.  boost coroutine marl co libtask bthread goroutine libuv libco libaco boos::fiber   Why X uses coroutine?" />
+What is a context switch?
+When we need to switch context?
+What&rsquo;s a process / thread / coroutine(user-space thread)?
+Applicable scenarios for each option.
+Digging into some coroutine libraries, the pros and cons of each.
 
-  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
-  <link rel="stylesheet" href="/css/index.css">
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="XiaochenCui&#39;s Blog">
-  
-  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
-  
-  <script>
-    
-
-    (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-  </script>
-
-  
-</head>
-
-<body>
-  <article class="post " id="article">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <div class="site-header">
-          
-<header>
-  <div class="signatures site-title">
-    <a href="/">Xiaochen Cui</a>
-  </div>
-</header>
-<div class="row end-xs">
-  
-  
-</div>
+boost coroutine
+marl
+co
+libtask
+bthread
+goroutine
+libuv
+libco
+libaco
+boos::fiber
 
 
-<div class="site-footer">
-  
-  <div class="site-footer-item">
-    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="/resume/resume.pdf" target="_blank">Resume</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
-  </div>
-  
-</div>
-        </div>
-        <header class="post-header">
-          <h1 class="post-title">Context Switch - Preface &amp; Outline</h1>
-          
-          <div class="row post-desc">
-            <div class="col-xs-6">
-              
-              <time class="post-date" datetime="2021-11-05 11:43:00 &#43;0800">
-                05 Nov 2021
-              </time>
-              
-            </div>
-            <div class="col-xs-6">
-              
-            </div>
-          </div>
-          
-        </header>
+Why X uses coroutine? (e.g: gateway, crawler)
+Why X not use coroutine? (e.g: mysql)
+Why linux (and other os) doesn&rsquo;t have coroutine built-in?
+why system call is slow/expensive?
 
-        <div class="post-content markdown-body">
-          <h2 id="preface">Preface</h2>
-<p>I will write a series of posts about the context switch. Aiming to answer these questions:</p>
-<ul>
-<li>What is a context switch?</li>
-<li>When we need to switch context?</li>
-<li>What&rsquo;s a process / thread / coroutine(user-space thread)?</li>
-<li>Applicable scenarios for each option.</li>
-<li>Digging into some coroutine libraries, the pros and cons of each.
-<ul>
-<li>boost coroutine</li>
-<li>marl</li>
-<li>co</li>
-<li>libtask</li>
-<li>bthread</li>
-<li>goroutine</li>
-<li>libuv</li>
-<li>libco</li>
-<li>libaco</li>
-<li>boos::fiber</li>
-</ul>
-</li>
-<li>Why X uses coroutine? (e.g: gateway, crawler)</li>
-<li>Why X not use coroutine? (e.g: mysql)</li>
-<li>Why linux (and other os) doesn&rsquo;t have coroutine built-in?</li>
-<li>why system call is slow/expensive?</li>
-</ul>
-<h2 id="outline">Outline</h2>
-<p>There are 3 articles published currently:</p>
-<ul>
-<li><a href="/posts/context-switch-function-calling/">Context Switch - Function Calling</a></li>
-<li><a href="/posts/context-switch-coroutine-1999/">Context Switch - A Coroutine Library Back to 1999</a></li>
-<li><a href="/posts/context-switch-libtask/">Context Switch - libtask by Russ Cox</a></li>
-</ul>
-
-        </div>
-        
-
-        
-
-
-        
-        
-        <div style="height: 50px;"></div>
-        
-        <div class="post-comments">
-          <div id="disqus_thread"></div>
-<script>
-  window.addEventListener("load", () => {
-    (function() {
-      
-      var d = document,
-        s = d.createElement("script");
-      s.src = "https://cuixiaochen.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  });
-</script>
-<noscript
-  >Please enable JavaScript to view the
-  <a href="https://disqus.com/?ref_noscript"
-    >comments powered by Disqus.</a
-  ></noscript
->
-
-        </div>
-        
-        
-
-        <div class="site-footer">
-  
-  <div class="site-footer-item">
-    <a href="https://www.linkedin.com/in/xiaochen-cui-database/" target="_blank">LinkedIn</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="/resume/resume.pdf" target="_blank">Resume</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="https://github.com/XiaochenCui" target="_blank">Github</a>
-  </div>
-  
-  <div class="site-footer-item">
-    <a href="mailto:jcnlcxc.new@gmail.com" target="_blank">Email</a>
-  </div>
-  
-</div>
-
-      </div>
-    </div>
-  </article>
-
-  <script src="/js/highlight.pack.js"></script>
-<script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
-
-<script>
-  hljs.initHighlightingOnLoad();
-  
-  var posts = document.getElementById('posts-list');
-  posts && quicklink({
-    el: posts,
-    priority: true,
-  });
-</script>
-
-  
-
-</body>
-
-</html>
+Outline
+There are 3 articles published currently:"><link rel=stylesheet href=https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css><link rel=stylesheet href=/css/index.css><link href=/index.xml rel=alternate type=application/rss+xml title="XiaochenCui's Blog"><link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel=stylesheet><script>(function(){}).call("object"==typeof window&&window||"object"==typeof self&&self||"object"==typeof global&&global||{})</script></head><body><article class=post id=article><div class=row><div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3"><div class=site-header><header><div class="signatures site-title"><a href=/>Xiaochen Cui</a></div></header><div class="row end-xs"></div><div class=site-footer><div class=site-footer-item><a href=https://www.linkedin.com/in/xiaochen-cui-database/ target=_blank>LinkedIn</a></div><div class=site-footer-item><a href=/resume/resume.pdf target=_blank>Resume</a></div><div class=site-footer-item><a href=https://github.com/XiaochenCui target=_blank>Github</a></div><div class=site-footer-item><a href=mailto:jcnlcxc.new@gmail.com target=_blank>Email</a></div></div></div><header class=post-header><h1 class=post-title>Context Switch - Preface & Outline</h1><div class="row post-desc"><div class=col-xs-6><time class=post-date datetime="2021-11-05 11:43:00 +0800">05 Nov 2021</time></div><div class=col-xs-6><div class=post-author><a target=_blank href=https://cuixiaochen.com/>@Xiaochen Cui</a></div></div></div></header><div class="post-content markdown-body"><h2 id=preface>Preface</h2><p>I will write a series of posts about the context switch. Aiming to answer these questions:</p><ul><li>What is a context switch?</li><li>When we need to switch context?</li><li>What&rsquo;s a process / thread / coroutine(user-space thread)?</li><li>Applicable scenarios for each option.</li><li>Digging into some coroutine libraries, the pros and cons of each.<ul><li>boost coroutine</li><li>marl</li><li>co</li><li>libtask</li><li>bthread</li><li>goroutine</li><li>libuv</li><li>libco</li><li>libaco</li><li>boos::fiber</li></ul></li><li>Why X uses coroutine? (e.g: gateway, crawler)</li><li>Why X not use coroutine? (e.g: mysql)</li><li>Why linux (and other os) doesn&rsquo;t have coroutine built-in?</li><li>why system call is slow/expensive?</li></ul><h2 id=outline>Outline</h2><p>There are 3 articles published currently:</p><ul><li><a href=/posts/context-switch-function-calling/>Context Switch - Function Calling</a></li><li><a href=/posts/context-switch-coroutine-1999/>Context Switch - A Coroutine Library Back to 1999</a></li><li><a href=/posts/context-switch-libtask/>Context Switch - libtask by Russ Cox</a></li></ul></div><div style=height:50px></div><div class=post-comments><div id=disqus_thread></div><script>window.addEventListener("load",()=>{(function(){var e=document,t=e.createElement("script");t.src="https://cuixiaochen.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)})()})</script><noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class=site-footer><div class=site-footer-item><a href=https://www.linkedin.com/in/xiaochen-cui-database/ target=_blank>LinkedIn</a></div><div class=site-footer-item><a href=/resume/resume.pdf target=_blank>Resume</a></div><div class=site-footer-item><a href=https://github.com/XiaochenCui target=_blank>Github</a></div><div class=site-footer-item><a href=mailto:jcnlcxc.new@gmail.com target=_blank>Email</a></div></div></div></div></article><script src=/js/highlight.pack.js></script><script src=https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js></script><script>hljs.initHighlightingOnLoad();var posts=document.getElementById("posts-list");posts&&quicklink({el:posts,priority:!0})</script></body></html>
